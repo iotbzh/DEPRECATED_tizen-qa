@@ -1,0 +1,328 @@
+#!/bin/bash 
+
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+TOPDIR=$(cd $(dirname $0)/.. && pwd -P)
+IMGDIR=$TOPDIR/images
+CONFDIR=$TOPDIR/etc
+FLASHDIR=$TOPDIR/flash
+
+NAME=$(basename $0)
+
+# list of available commands (for help only) 
+COMMANDS="list status ssh wakeup reboot setimage flash add remove help"
+
+
+################# helper funcs ############################
+
+function info() {
+	echo "$@" >&2
+}
+
+function error() {
+	if [[ x$(type usage_$1 2>/dev/null)  == "xfunction" ]]; then
+		usage_$1
+		shift
+	fi
+	[[ $# -ne 0 ]] && info "ERROR: $@"
+	exit 1
+}
+
+function _usage() {
+	info "Usage: $NAME" "$1" 
+	shift
+	info "   " "$@" 
+}
+
+function _find_image() {
+	image=$1
+
+	imgfile=$image
+	if [[ ! -f $imgfile ]]; then
+		imgfile=$TOPDIR/images/$image
+		if [[ ! -f $imgfile ]]; then
+			imgfile=$TOPDIR/images/$image/latest
+			if [[ ! -f $imgfile ]]; then
+				# try to find a raw image in subdir
+				imgfile=$(find $TOPDIR/images/$image -name "*.raw.lzo" | sort | tail -1)
+				if [[ ! -f $imgfile ]]; then
+					error "Unable to find image '$image'"
+				fi
+			fi
+		fi
+	fi
+	echo -n $imgfile
+	return 0
+}
+
+function _enum_images() {
+	pushd $TOPDIR/images >/dev/null
+	for x in $(ls */latest.id); do
+		snapshot=$(awk -F '=' '/SNAPSHOT/ { print $2; } ' $x)
+		echo "$(dirname $x)[$snapshot]"
+	done
+	popd >/dev/null
+}
+
+
+function _enum_hosts() {
+	$TOPDIR/node_modules/libhardware/hwtarget -c $CONFDIR list 2>/dev/null | awk '{print $3}'
+
+	#pushd $TOPDIR/flash/targets >/dev/null
+	#ls -d * # list of ip addresses
+	#popd >/dev/null
+}
+
+####################### subcommands #############################
+
+############## help
+
+function _usage_all() {
+	_usage "subcommand [ arguments ]" 
+	[[ "$1" == "verbose" ]] && 
+		info "Available subcommands: $COMMANDS" 
+}
+
+function usage_help() {
+	_usage "help [command]" "Get help on subcommands"
+	[[ "$1" == "verbose" ]] && 
+		info "Available subcommands: $COMMANDS" 
+}
+function target_help() {
+	rc=0
+	if [[ -n "$1" ]]; then
+		if [[ x$(type -t usage_$1 2>/dev/null)  == "xfunction" ]]; then
+			usage_$1 verbose
+			return 0
+		fi
+		rc=1
+		info "Unknown command '$1'" 
+		info
+	fi
+
+	info "Available subcommands:" 
+	info
+	for x in $COMMANDS; do 
+		usage_$x quiet
+		info
+	done
+	return $rc
+}
+
+############################# flash
+
+function usage_flash() {
+	_usage "flash <host> <image>" "Flash selected image on indicated target host"
+	if [[ "$1" == "verbose" ]]; then
+		info 
+		info "   Available images: "
+		for x in $(_enum_images); do
+			info "   - $x"
+		done
+		info
+		info "   Available hosts: "
+		for x in $(_enum_hosts); do
+			info "   - $x"
+		done
+	fi
+}
+
+function target_flash() {
+	host=$1
+	[[ -z "$host" ]] && error flash "Invalid hostname"
+
+	image=$2
+	[[ -z "$image" ]] && error flash "Invalid image"
+
+	imgfile=$(_find_image $image)
+
+	target_setimage $host $imgfile && target_reboot $host
+}
+
+############################# setimage
+
+function usage_setimage() {
+	_usage "setimage <host|ip address> <image file>" "Associate an image to a target host for next flash" 
+}
+
+function target_setimage() {
+	hostip=$1
+	shift
+	[[ -z "$hostip" ]] && error setimage "Unknown IP $hostip"
+
+	# resolve ip
+	ip=$(dig +short $hostip)
+	[[ -z "$ip" ]] && error setimage "Unresolvable hostname $hostip"
+
+	img=$1
+	shift
+
+	imgfile=$(_find_image $img)
+	[[ ! -f "$imgfile" ]] && error setimage "Image not found"
+
+	absimg=$(cd $(dirname $imgfile); echo $(pwd -P)/$(basename $imgfile))
+
+	mkdir -p $FLASHDIR/targets/$ip
+	pushd $FLASHDIR/targets/$ip >/dev/null
+	rm -f image.raw
+	ln -sf $absimg image.raw
+	popd >/dev/null
+
+	echo $ip - $absimg - $(basename $(readlink -f $absimg))
+}
+
+############################# ssh
+
+function usage_ssh() {
+	_usage "ssh <host|ip address> [ command ]" "Connect to given host as root through ssh"
+}
+
+function target_ssh() {
+	target=$1
+	shift
+
+	[[ -z "$target" ]] && error ssh "Invalid target" 
+
+	if grep "$target" ~/.ssh/known_hosts >/dev/null 2>&1; then
+		ssh-keygen -R $target -f ~/.ssh/known_hosts
+	fi
+
+	ssh -o StrictHostKeyChecking=no root@$target "$@"
+}
+
+function target_ssh_nostdin() {
+	target=$1
+	shift
+
+	[[ -z "$target" ]] && error ssh "Invalid target" 
+
+	if grep "$target" ~/.ssh/known_hosts >/dev/null 2>&1; then
+		ssh-keygen -R $target -f ~/.ssh/known_hosts
+	fi
+
+	ssh -o StrictHostKeyChecking=no -n root@$target "$@"
+}
+
+
+############################# status
+
+function usage_status() {
+	_usage "status [host [host ... ]]" "Get host(s) status and installed snapshots versions if available (must be built in image)"
+}
+
+function target_status() {
+	if [[ $# -eq 0 ]]; then
+		hosts=$(_enum_hosts)
+	else
+		hosts="$@"
+	fi
+	
+	for host in $hosts; do
+		echo -n "$host : "
+		if ping -c 1 $host >/dev/null 2>&1 ; then
+			target_ssh $host cat /etc/tizen-snapshot 2>/dev/null || echo "unknown"
+		else
+			echo "unreachable"
+		fi
+	done
+}
+
+############################# wakeup
+
+function usage_wakeup() {
+	_usage "wakeup [host [host ... ]]" "Wake up host(s) with WOL (Wake on lan)"
+}
+
+function target_wakeup() {
+	if [[ $# -eq 0 ]]; then
+		hosts=$(_enum_hosts)
+	else
+		hosts="$@"
+	fi
+	
+	for host in "$hosts"; do
+		# resolve host
+		hostip=$(dig +short $host)
+		if [ -z "$hostip" ]; then
+			info "Can't resolve host IP for '$host'"
+			continue
+		fi
+
+		# get mac address
+		macaddr=$(grep $host $TOPDIR/etc/*.dhcp | awk '{print $1}')
+		if [ -z "$macaddr" ]; then
+			info "Can't resolve MAC address for '$host' - update config file $TOPDIR/etc/*.dhcp" 
+			continue
+		fi
+
+		info "Waking up host $host : $hostip : $macaddr" 
+		wol -v $macaddr
+	done
+}
+
+############################# reboot
+
+function usage_reboot() {
+	_usage "reboot [host [host ... ]]" "Reboot indicated host (only if online and accessible)"
+}
+
+function target_reboot() {
+	for x in $*; do
+		info "Rebooting target $x"
+		target_ssh_nostdin $x "{ shutdown --reboot 0 & exit; } &"
+	done
+}
+
+############################# list
+
+function usage_list() {
+	_usage "list" "Get the list of known targets"
+}
+function target_list() {
+	for x in $(_enum_hosts); do
+		echo $x
+	done
+}
+
+############################# add
+
+function usage_add() {
+	_usage "add" "<id> <hostname> <ip_address> <mac_address> [product] [platform] [description] [comment] : declare a new target in QA test lan"
+}
+function target_add() {
+	$TOPDIR/node_modules/libhardware/hwtarget -c $CONFDIR add "$@"
+}
+
+############################# remove
+
+function usage_remove() {
+	_usage "remove" "<id>: Remove an existing target from the QA test lan"
+}
+function target_remove() {
+	$TOPDIR/node_modules/libhardware/hwtarget -c $CONFDIR remove "$@"
+}
+
+########################################################################################################
+
+cmd=$1
+shift
+
+if [[ x$(type -t target_$cmd 2>/dev/null) == xfunction ]]; then
+	target_$cmd "$@"
+else
+	_usage_all verbose
+	exit 1
+fi

@@ -1,0 +1,16 @@
+:otcshare: https://otcshare.org/tizenpc/node
+:otcshare-file: https://otcshare.org/tizenpc/system/files
+
+:otcshare-qamaterials: {otcshare}/5951[QA Materials]
+:otcshare-qatestplans: {otcshare}/5952[QA Test Plans]
+
+:qa-tp-gnome:         {otcshare}/5993[Gnome Integration test plan]
+:qa-tp-homescreen:    {otcshare}/5992[Homescreen & Widgets test plan]
+:qa-tp-chrome:        {otcshare}/5997[Chrome Integration test plan]
+:qa-tp-firstboot:     {otcshare}/5996[First Boot test plan]
+:qa-tp-connectivity:  {otcshare}/5995[Network connectivity test plan]
+:qa-tp-office:        {otcshare}/5994[Office & Productivity test plan]
+:qa-tp-im:            {otcshare}/5998[Instant Messaging]
+
+// example usage: {jira}/TZPC-76
+:jira: https://tz.otcshare.org/jira/browse

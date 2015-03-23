@@ -1,0 +1,275 @@
+[
+  {
+    "name": "play-sound-file",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "snappy plays sound",
+    "description": "Try to play a sound using snappy",
+    "pre_condition": "Have a sound file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to find a sound file and double click on it",
+        "expected": "Snappy window opens and plays the sound of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 16:21:06 GMT",
+    "mtime": "2013-03-22 13:30:41 GMT"
+  },
+  {
+    "name": "play-video-file",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "snappy plays video",
+    "description": "Try to play a video using snappy",
+    "pre_condition": "Have a video file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to find a video file and double click on it",
+        "expected": "Snappy window opens and plays the video of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 16:23:45 GMT",
+    "mtime": "2013-03-22 13:30:50 GMT"
+  },
+  {
+    "name": "play-video-dvd-menu",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Snappy prompts video DVD menu",
+    "description": "Insert a video DVD and check that its menu is displayed and functional",
+    "pre_condition": "have a video DVD",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:25:42 GMT",
+    "mtime": "2013-03-27 10:35:39 GMT"
+  },
+  {
+    "name": "play-video-dvd",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Snappy read video DVD",
+    "description": "Insert a video DVD and check that the video is read with snappy",
+    "pre_condition": "have a video DVD",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:35:40 GMT",
+    "mtime": "2013-03-22 13:43:46 GMT"
+  },
+  {
+    "name": "controls",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The video can be played, paused, resumed ",
+    "description": "Check that the video can be played, paused, resumed ",
+    "pre_condition": "Have a video file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to find a video file and double click on it",
+        "expected": "Snappy window opens and plays the video of the file"
+      },
+      {
+        "description": "Check that the video can be paused and resumed",
+        "expected": "Snappy pauses and resumes the video"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 10:21:58 GMT",
+    "mtime": "2013-03-22 10:26:37 GMT"
+  },
+  {
+    "name": "subtitle-selection",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The subtitles of a video can be selected",
+    "description": "Check that user can switch to any available subtitle",
+    "pre_condition": "Have a video DVD with subtitles",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:32:11 GMT",
+    "mtime": "2013-03-22 13:35:31 GMT"
+  },
+  {
+    "name": "audio-selection",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The audio tracks of a video can be selected",
+    "description": "Check that user can switch to any available audio track",
+    "pre_condition": "Have a video DVD with audio tracks",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:34:06 GMT",
+    "mtime": "2013-03-22 13:35:29 GMT"
+  },
+  {
+    "name": "adjust-volume",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "the volume of the video can be adjusted",
+    "description": "Run a video with snappy and check that the volume can be adjusted",
+    "pre_condition": "have a video file",
+    "steps": [
+      {
+        "description": "launch the video using nautilus",
+        "expected": "the video is played with snappy"
+      },
+      {
+        "description": "use snappy to adjust the volume",
+        "expected": "the volume is adjusted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:45:22 GMT",
+    "mtime": "2013-03-27 10:37:08 GMT"
+  },
+  {
+    "name": "big-video",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play a video that overfill the screen",
+    "description": "stress",
+    "pre_condition": "have a video of big size or a small screen",
+    "steps": [
+      {
+        "description": "double click on a video whose size overfill the screen",
+        "expected": "snappy opens and play it"
+      },
+      {
+        "description": "check",
+        "expected": "the video doesn't overfill the screen"
+      },
+      {
+        "description": "select the fullscreen mode",
+        "expected": "the full screen mode is active"
+      },
+      {
+        "description": "check",
+        "expected": "the video doesn't overfill the screen"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 14:57:08 GMT",
+    "mtime": "2013-03-28 15:00:00 GMT"
+  }
+]

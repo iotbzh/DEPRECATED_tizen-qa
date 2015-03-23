@@ -1,0 +1,32 @@
+# #### this file was generated from /home/qadmin/qatizen/etc/hwtargets.conf by the qatarget command ####
+#
+# Don't edit this file manually, but use: qatarget <add|remove> <args>
+
+10.10.0.11 lenovo01
+10.10.0.12 lenovo02
+10.10.0.13 lenovo03
+10.10.0.14 lenovo04
+10.10.0.15 lenovo05
+10.10.0.16 lenovo06
+10.10.0.17 lenovo07
+10.10.0.18 lenovo08
+10.10.0.19 lenovo09
+10.10.0.20 lenovo10
+10.10.0.21 lenovo11
+10.10.0.22 lenovo12
+10.10.0.31 hp01
+10.10.0.42 samsung02
+10.10.0.51 nexcom01
+10.10.0.52 nexcom02
+10.10.0.53 nexcom03
+10.10.0.54 nexcom04
+10.10.0.61 nuc01
+10.10.0.62 nuc02
+10.10.0.63 nuc03
+10.10.0.64 nuc04
+10.10.0.101 minnow01
+10.10.0.81 minmax01
+10.10.0.82 minmax02
+10.10.0.84 minmax04
+10.10.0.71 edison01
+10.10.0.72 edison02

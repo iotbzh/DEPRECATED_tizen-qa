@@ -1,0 +1,137 @@
+[
+  {
+    "name": "pair-headset",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair an headset",
+    "description": "Check that an headset can be paired.",
+    "pre_condition": "- Bluetooth technology is enabled on the test device \r\n- The Headset is charged and powered on ",
+    "steps": [
+      {
+        "description": "Press the discovery button to make the headset device visible",
+        "expected": "Blue led  of the headset blinks"
+      },
+      {
+        "description": "Click on the Bluetooth applet",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on 'Set up a New Device'",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appears"
+      },
+      {
+        "description": "Click on the headset device to pair",
+        "expected": "The selected device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button and wait a moment",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the menu of Bluetooth applet. The added device appears in the Devices field of Bluetooth panel."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:12:25 GMT",
+    "mtime": "2013-03-29 09:13:03 GMT"
+  },
+  {
+    "name": "sound-headset",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Earphone of the Bluetooth headset is functional",
+    "description": "When the headset is paired, it should be possible to listen to songs and music with the headset.",
+    "pre_condition": "- Bluetooth is enabled on the target device\r\n- The headset is paired and connected ",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the headset device",
+        "expected": "Menu of the headset device appears"
+      },
+      {
+        "description": "Click on 'Sound settings'",
+        "expected": "Sound panel opens and the headset device is listed in the 'Output tab'"
+      },
+      {
+        "description": "Select the headset device in the 'Output tab'",
+        "expected": "The headset device is highlighted"
+      },
+      {
+        "description": "Click on the 'Sound Effects' tab and click on the samples",
+        "expected": "You can hear the sound in the headset device"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-29 09:11:12 GMT",
+    "mtime": "2013-03-29 09:56:00 GMT"
+  },
+  {
+    "name": "mic-headset",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Microphone of the Bluetooth headset is functional",
+    "description": "When the headset is paired, it should be possible to use the microphone of the headset.",
+    "pre_condition": "- Bluetooth is enabled on the target device\r\n- The headset is paired and connected ",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the headset device",
+        "expected": "Menu of the headset device appears"
+      },
+      {
+        "description": "Click on 'Sound settings'",
+        "expected": "Sound panel opens and the headset device is listed in the 'Output tab'"
+      },
+      {
+        "description": "Click on the 'Input' tab, ensure the 'Input volume switcher is toggled on 'ON', select the headset device",
+        "expected": "'Input' tab opens. The headset device is highlighted"
+      },
+      {
+        "description": "Speak in the microphone of the headset",
+        "expected": "Bar of the 'Input level' should move"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-29 09:56:08 GMT",
+    "mtime": "2013-03-29 10:11:00 GMT"
+  }
+]

@@ -1,0 +1,40 @@
+#!/bin/bash 
+
+cd $(dirname $0)
+
+IMGDIR=images
+
+src=$1
+shift
+
+dst=$1
+shift
+
+if [ -z "$src" -o -z "$dst" ]; then
+	echo "Usage: $(basename $0) <snapshot1> <snapshot2>" >&2
+	exit 1
+fi
+
+srcpkg=$(find $IMGDIR/ -type f -name "raw-${src}.packages" | head -1)
+echo "Source packages found for $src: $srcpkg"
+if [ ! -f "$srcpkg" ]; then
+	echo "Unable to find source packages" >&2
+	exit 1
+fi
+
+dstpkg=$(find $IMGDIR/ -type f -name "raw-${dst}.packages" | head -1)
+echo "Target packages found for $dst: $dstpkg"
+if [ ! -f "$dstpkg" ]; then
+	echo "Unable to find destination packages" >&2
+	exit 1
+fi
+
+srcpkg2=$(mktemp $(basename $0).XXXXXXXX)
+dstpkg2=$(mktemp $(basename $0).XXXXXXXX)
+trap "rm -f $srcpkg2 $dstpkg2" STOP INT QUIT EXIT
+
+sed -r 's|\.[[:digit:]]+$||g' $srcpkg | sort >$srcpkg2
+sed -r 's|\.[[:digit:]]+$||g' $dstpkg | sort >$dstpkg2
+
+diff $srcpkg2 $dstpkg2
+

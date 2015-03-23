@@ -1,0 +1,216 @@
+[
+  {
+    "name": "enable-disable-indep",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Enable and disable monitors independently. ",
+    "description": "Check if it is possible to enable and disable monitors independently. ",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session plug an external VGA display to the VGA port of the netbook",
+        "expected": "After a short blackout both screens are actives"
+      },
+      {
+        "description": "Click on the username of top bar",
+        "expected": "The gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "The settings panel appears"
+      },
+      {
+        "description": "Click on \"Displays\"",
+        "expected": "the \"displays settings\" panel appears"
+      },
+      {
+        "description": "Select the laptop screen, swith the status button to off and click \"Apply\"",
+        "expected": "the laptop screen should become black and the desktop should be visible only on your external screen"
+      },
+      {
+        "description": "Back to the previous configuration and select your external screen, switch the status to off and click \"Apply\"",
+        "expected": "your external screen should become black and the desktop should be visible only on the laptop screen"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.8.1]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "show-same-on-all",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Clone displays",
+    "description": "Check if mirroring works. ",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session plug an external VGA display to the VGA port of the netbook",
+        "expected": "After a short blackout both screens are actives"
+      },
+      {
+        "description": "Click on the username of top bar",
+        "expected": "The gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "The settings panel appears"
+      },
+      {
+        "description": "Click on \"Displays\"",
+        "expected": "the \"displays settings\" panel appears"
+      },
+      {
+        "description": "Check the box \"Miror displays\" and click \"Apply\"",
+        "expected": "The two displays should show the same thing, the pointer move equally on both screens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.8.2]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-any-display-res",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Display resolution",
+    "description": "Check that any display resolution (from its native resolutions) can be set.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username of top bar",
+        "expected": "The gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "The settings panel appears"
+      },
+      {
+        "description": "Click on \"Displays\"",
+        "expected": "the \"displays settings\" panel appears"
+      },
+      {
+        "description": "Select a screen resolution and click \"Apply\"",
+        "expected": "the resolution of the laptop screen should change according to the selected one"
+      },
+      {
+        "description": "Repeat the previous step for all available resolutions",
+        "expected": "All the resolutions are correctly displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.8.3]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-any-display-rot",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Display rotation",
+    "description": "\"Check that any display rotation can be set.  1 - From an active session, go on the gnome shell status menu and click on \"\"System Settings\"\". 2 - In the \"\"Displays\"\" panel change the rotation and apply the change. Repeat the process with all available rotation. Pass criteria : the system displays well with all the available rotations.\"",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username of top bar",
+        "expected": "The gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "The settings panel appears"
+      },
+      {
+        "description": "Click on \"Displays\"",
+        "expected": "the \"displays settings\" panel appears"
+      },
+      {
+        "description": "Select a screen rotation and click \"Apply\"",
+        "expected": "the rotation of the laptop screen should change according to the selected one"
+      },
+      {
+        "description": "Repeat the previous step for all available rotation",
+        "expected": "All the rotations are correctly displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.8.4]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-relative-positioning",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Relative display position",
+    "description": "Set relative positioning of displays (to match physical layout)",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session plug an external VGA display to the VGA port of the netbook",
+        "expected": "After a short blackout both screens are actives"
+      },
+      {
+        "description": "Click on the username of top bar",
+        "expected": "The gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "The settings panel appears"
+      },
+      {
+        "description": "Click on \"Displays\"",
+        "expected": "the \"displays settings\" panel appears"
+      },
+      {
+        "description": "Click the laptop screen icon, drag it on the opposite side and click \"Apply\"",
+        "expected": "the pointer should move from one screen to the other according to the set position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.8.5]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]

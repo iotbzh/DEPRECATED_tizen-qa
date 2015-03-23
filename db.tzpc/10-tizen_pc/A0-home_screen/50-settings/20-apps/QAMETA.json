@@ -1,0 +1,245 @@
+[
+  {
+    "name": "app_layout",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that applications are displayed correctly in the content area ",
+    "description": "Under the 'Application' tab application must appear in two groups : \r\n- a first group on the top of the content area which contains the home screen applications\r\n- a second group which contains all the applications\r\n\r\nThose two groups must be separated with a thin line as in the reference document.",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) ",
+    "steps": [
+      {
+        "description": "observe the panel",
+        "expected": "the favourite applications must appear in the top area"
+      },
+      {
+        "description": "-",
+        "expected": "a second group with all available applications must appear in the bottom area"
+      },
+      {
+        "description": "-",
+        "expected": "a toolbar with category selection and search field must be present between the two areas"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:11 GMT",
+    "mtime": "2013-03-27 11:20:01 GMT"
+  },
+  {
+    "name": "apps_mgt1",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that functionalities of favorite applications are available",
+    "description": "A right click on a home screen application (top group) must pop up a small window at the right side of the application icon with the two following functionalities : \r\n- Remove from Home\r\n- Launch ",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) \r\n- have some favourite applications already installed on desktop",
+    "steps": [
+      {
+        "description": "right click on a favourite application",
+        "expected": "a popup menu with \"Remove from Home\" and \"Launch\" items must appear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:43 GMT",
+    "mtime": "2013-03-27 11:13:40 GMT"
+  },
+  {
+    "name": "apps_mgt2",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that functionalities of other applications (bottom group) are available",
+    "description": "A right click on an application of the bottom group must pop up a small window at the right side of the application icon with the two following functionalities : \r\n- Add to Home\r\n- Launch ",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) ",
+    "steps": [
+      {
+        "description": "right click on an application in the bottom area",
+        "expected": "a popup menu with \"Add to Home\" and \"Launch\" items must appear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:48 GMT",
+    "mtime": "2013-03-27 11:15:18 GMT"
+  },
+  {
+    "name": "remove_home_app",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a favourite application can be removed from the favourites",
+    "description": "When a right click is performed on an home screen application and then a single click is done on the 'Remove from Home' functionality, the application should disappear in the favourite group and in the home screen.\r\n\r\nTODO : when ? instantly ?",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) \r\n- have some favourite applications already installed on desktop",
+    "steps": [
+      {
+        "description": "right click on a favourite application",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "select \"Remove from Home\"",
+        "expected": "the selected application must be removed from the favourite applications list displayed in the top area"
+      },
+      {
+        "description": "close the settings window (or minimise it to see the desktop)",
+        "expected": "the selected application must be removed from desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:52 GMT",
+    "mtime": "2013-03-27 11:22:11 GMT"
+  },
+  {
+    "name": "add_fav_app",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that functionalities of favourite applications are available",
+    "description": "When a right click is performed on an application in the bottom group and then a single click is done on the 'Add to Home' functionality, the application should appear in the favourite group and in the home screen.\r\n\r\nTODO : when ? instantly ?",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) ",
+    "steps": [
+      {
+        "description": "right click on an application in the bottom area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "select \"Add to Home\"",
+        "expected": "the selected application must be added to the favourite applications list displayed in the top area"
+      },
+      {
+        "description": "close the settings window (or minimise it to see the desktop)",
+        "expected": "the selected application must be added on the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:55 GMT",
+    "mtime": "2013-03-27 22:19:50 GMT"
+  },
+  {
+    "name": "launch_app",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that applications can be launched",
+    "description": "When a right click is performed on an application (home application or others) and then a single click is done on the 'Launch' item, the application should launch.\r\n\r\nTODO : the window of the application must appear in foreground ?",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) \r\n- have some favourite applications already installed on desktop",
+    "steps": [
+      {
+        "description": "right click on a favourite application",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "click on \"Launch\"",
+        "expected": "this must launch the application"
+      },
+      {
+        "description": "right click on an application in the bottom area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "click on \"Launch\"",
+        "expected": "this must launch the application"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:03:58 GMT",
+    "mtime": "2013-03-27 11:23:23 GMT"
+  },
+  {
+    "name": "find_app",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the filter form for the application of the bottom group works",
+    "description": "When a string is typed in the search form, a subset of all the available applications must be visible. The displayed results must be consistent with the typed string.\r\n\r\nIn the same way, when selecting a category from the select list on the left, the listed applications must match the category.",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Applications\" tab if needed (should be selected by default) ",
+    "steps": [
+      {
+        "description": "type a pattern in the search field of the bottom area",
+        "expected": "the list of available applications must be updated and match the pattern"
+      },
+      {
+        "description": "select a category",
+        "expected": "the search field must be cleared and the list of applications must match the selected category"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 11:04:03 GMT",
+    "mtime": "2013-03-27 11:40:12 GMT"
+  }
+]

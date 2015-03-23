@@ -1,0 +1,14 @@
+This procedure needs a recent Debian host with the package live-build already installed.
+
+References: http://live.debian.net/
+Guide: http://live.debian.net/manual/current/html/live-manual.en.html
+
+To rebuild the debian live suited to flasher needs:
+- make clean
+- make config-minimal
+- make build
+- cp binary/live/filesystem.squashfs ..
+- cp binary/live/vmlinuz ..
+- cp binary/live/initrd ..
+
+The specific scripts used by the QA flasher are located in qascripts and copied into rootfs at build time.

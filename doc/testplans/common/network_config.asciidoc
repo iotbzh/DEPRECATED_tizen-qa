@@ -1,0 +1,11 @@
+Network infrastructure should support at least the following services to ensure proper coverage:
+--
+* wired LAN (Ethernet)
+* wireless LAN (Wifi) with multiple security levels (Open, WEP, WPA, WPA2 ..;)
+--
+
+Some extra interfaces could also be used for extended functionnalities coming in the near future:
+--
+* BlueTooth
+* 3G Network (HSDPA, HSDPA+, UMTS ...)
+--

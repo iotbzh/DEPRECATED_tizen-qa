@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+NAME=$(basename $0)
+
+TOPDIR=$(cd $(dirname $0)/.. && pwd -P)
+LOGDIR=$TOPDIR/log
+CONFDIR=$TOPDIR/etc
+
+function error() {
+	echo ERROR: "$@" >&2
+	echo "Usage: $NAME <repo_id> <snapshot_id>" >&2
+	exit 1
+}
+
+function info() {
+	echo "$@" >&2
+}
+
+name=$1
+shift
+[ -z "$name" ] && error "Invalid repository id: should be 'trunk','devel' or something equivalent"
+
+snapshot=$1
+shift
+[ -z "$snapshot" ] && error "Invalid snapshot id"
+
+mkdir -p $LOGDIR/autotest
+exec >$LOGDIR/autotest/${name}_${snapshot}.log 2>&1
+
+conffile=$CONFDIR/$NAME.conf 
+[ ! -f $conffile ] && error "Configuration file not found: $conffile"
+. $conffile
+
+good=0
+for try in 1 2 3; do
+	info "Building image $name $snapshot (try $try)"
+	make -C $TOPDIR/buildimg $name SNAPSHOT=$snapshot
+	if [ $? -eq 0 ]; then
+		good=1
+		break
+	fi
+	sleep 60
+done
+
+[ $good -eq 0 ] && error "Unable to build image $name / $snapshot"
+
+varname=$name
+varname=${varname//-/_}
+hostvar=HOST_$varname
+hosts=${!hostvar}
+[ -z "$hosts" ] && error "Unable to find host for $name image (adjust config file $conffile)"
+
+set -e
+
+for host in $hosts; do
+	info "Flashing image $name/$snapshot on $host"
+	$TOPDIR/bin/qatarget flash $host $name
+done
+
+# test target 
+
+info "Waiting for hosts ready: $hosts"
+# TODO: change this with active loop
+sleep 300
+
+for host in $hosts; do
+	info "Running tests on $host"
+	repname=$name
+	repname=${repname//-/_}
+	repname=${repname/upstream/local}
+	$TOPDIR/bin/qamanager $host common_sanity -r qareport_$repname
+done

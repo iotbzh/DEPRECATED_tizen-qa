@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# rebuild script for iPXE
+
+cd $(dirname $0)
+topdir=$(pwd -P)
+
+trap 'rm -rf $topdir/ipxebuild' STOP INT QUIT EXIT
+
+set -x
+
+git clone git://git.ipxe.org/ipxe.git ipxebuild
+cd ipxebuild/src
+make -j 4 bin/undionly.kpxe >make.log 2>&1 || { cat make.log; exit 1; }
+
+instfile=undionly_$(date +%Y%m%d).kpxe
+cp bin/undionly.kpxe $topdir/$instfile
+cd $topdir
+ln -sf $instfile undionly.kpxe
+
+echo "$instfile created"

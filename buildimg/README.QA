@@ -1,0 +1,14 @@
+Tests with local QA Report:
+
+qamanager lenovo0x common_sanity -r qareport_common_w32_local
+
+qamanager lenovo0x common_sanity -r qareport_common_w64_local
+
+
+
+Tests on remote QA Report:
+
+qamanager lenovo0x common_sanity -r qareport_common_w32_upstream
+
+qamanager lenovo0x common_sanity -r qareport_common_w64_upstream
+

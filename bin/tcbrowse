@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+name=$(basename $0)
+cd $(dirname $0)/..
+optdef="-a -l no-browser,port:,dbdir:,help -o np:d:h -n $name"
+
+usage="
+Usage: $name [option...]
+
+Options:
+  -n, --no-browser     don't opens the browser
+  -p, --port num       use the port num (instead of 3000, the default)
+  -d, --dbdir dir      the directory of the database
+  -h, --help           this help
+"
+
+getopt -Q $optdef -- "$@" || exit 1
+
+browser=true
+port=${PORT:-3000}
+qadir=${QADIR:-$(pwd)}
+dbdir=${QADBDIR:-$qadir/db}
+
+eval set -- $(getopt $optdef -- "$@")
+while [[ "$1" != "--" ]]; do
+    case $1 in
+	-n|--no-browser) browser=false; shift 1;;
+	-p|--port) port=$2; shift 2;;
+	-d|--dbdir) dbdir=$2; shift 2;;
+	-h|--help) echo "$usage"; exit 0;;
+    esac
+done
+shift 1
+
+$browser && { sleep 1; xdg-open "http://localhost:$port"; }&
+PORT="$port" QADBDIR="$dbdir" node node_modules/tcbrowse/tcbrowse
+

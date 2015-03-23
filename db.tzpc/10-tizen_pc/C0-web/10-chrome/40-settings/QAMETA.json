@@ -1,0 +1,691 @@
+[
+  {
+    "name": "themes",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "change Chrome Theme",
+    "description": "Check if it possible to change Chrome Theme",
+    "pre_condition": "Have Chrome Started on the main page (applications tab)",
+    "steps": [
+      {
+        "description": "Click on \"Chrome Web Store\"",
+        "expected": "The Chrome Web Store is displayed"
+      },
+      {
+        "description": "On the left frame, Click on \"Themes\"",
+        "expected": "A lot of Themes are displayed"
+      },
+      {
+        "description": "Select one and click on \"Choose Theme\"",
+        "expected": "The theme is installed by Chrome and applied to Chrome browser"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:03:15 GMT",
+    "mtime": "2013-03-28 10:03:52 GMT"
+  },
+  {
+    "name": "default-themes",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Reset the theme to default",
+    "description": "The theme can be reset to default google chrome themes",
+    "pre_condition": "change the theme using Chrome web store",
+    "steps": [
+      {
+        "description": "open settings",
+        "expected": "-"
+      },
+      {
+        "description": "in \"Appearance\" section, click on \"Use GTK+ Theme\"",
+        "expected": "the apperance must be reset to the original one"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-28 13:55:43 GMT",
+    "mtime": "2013-03-28 13:57:57 GMT"
+  },
+  {
+    "name": "startup-specific",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "apply startup preferences",
+    "description": "Apply available startup preferences ",
+    "pre_condition": "Have Chrome started with several tabs opened",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new \"Settings\" tab opens"
+      },
+      {
+        "description": "In this tab, At the \"On startup\" level, select \"Continue where I left off\" and close Chrome",
+        "expected": ""
+      },
+      {
+        "description": "Start Chrome again",
+        "expected": "The tabs opened before quitting have been restored"
+      },
+      {
+        "description": "Still in the \"On startup\" level, Selec \"Open a specific page or set of pages\" and click on \"Set pages\"",
+        "expected": "A \"Startup pages\" window appears\""
+      },
+      {
+        "description": "In this window, Add \"www.youyube.com\" in the \"Add a new page file\" field and press \"Enter\"",
+        "expected": ""
+      },
+      {
+        "description": "Add \"www.facebook.com\" in the \"Add a new page file\" field and press \"Enter\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Ok\" and close Chrome",
+        "expected": ""
+      },
+      {
+        "description": "Start Chrome again",
+        "expected": "Chrome starts with the Youtube and the Facebook pages displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:04:08 GMT",
+    "mtime": "2013-03-28 10:05:03 GMT"
+  },
+  {
+    "name": "home-button",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test home button",
+    "description": "define the url corresponding to the Home button and display it in Chrome",
+    "pre_condition": "Have Chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new \"Settings\" tab opens"
+      },
+      {
+        "description": "In this tab, in the \"Appearance\" level, check \"Show Home button\"",
+        "expected": "The Home button is displayed in Chrome"
+      },
+      {
+        "description": "Under \"Show Home button\", click on \"Change\" next to \"New tab page\"",
+        "expected": "A \"Home page\" window appears"
+      },
+      {
+        "description": "In this window, check \"Open this page\" and type \"www.wikipedia.org\" in the field corresponding and press \"Enter\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Ok\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on the Home button",
+        "expected": "The Wikipedia page is successfully displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:05:13 GMT",
+    "mtime": "2013-03-28 10:06:05 GMT"
+  },
+  {
+    "name": "print-document",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "print a document from google chrome",
+    "description": "Check if Chrome handle the printing support for documents",
+    "pre_condition": "Have a printer correctly installed and configured and have Google Drive started in Chrome and have imported a document in google drive",
+    "steps": [
+      {
+        "description": "Click on a document listed in Google Drive",
+        "expected": "The document is displayed"
+      },
+      {
+        "description": "Click on the bottom-right printing button",
+        "expected": "A printing page is displayed"
+      },
+      {
+        "description": "Click on Print",
+        "expected": "The printing manager starts and the document is correctly printed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 09:57:04 GMT",
+    "mtime": "2013-03-28 09:57:45 GMT"
+  },
+  {
+    "name": "print-web-site",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "print a web site from google chrome",
+    "description": "Check if Chrome handle the printing support for websites ",
+    "pre_condition": "have Google chrome started with any website displayed",
+    "steps": [
+      {
+        "description": "Press Ctrl+P",
+        "expected": "A printing page is displayed"
+      },
+      {
+        "description": "Click on Print",
+        "expected": "The printing manager starts and the document is correctly printed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 09:57:53 GMT",
+    "mtime": "2013-03-28 09:58:24 GMT"
+  },
+  {
+    "name": "secure-connection",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use secure connection by google chrome",
+    "description": "Check if Chrome can use secure connection",
+    "pre_condition": "Have a google account and have Google chrome started with the main \"applications\" page displayed",
+    "steps": [
+      {
+        "description": "Click on the \"Gmail\" icon",
+        "expected": "Gmail page is displayed and the mention \"https\" is visible in the beginning of the search bar"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 09:58:40 GMT",
+    "mtime": "2013-03-28 09:59:42 GMT"
+  },
+  {
+    "name": "set-default",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Google Chrome as default Web Browser",
+    "description": "Set Google Chrome as the default Browser used with the system",
+    "pre_condition": "Have Google chrome started",
+    "steps": [
+      {
+        "description": "Click on the top-right configuration button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new Settings tab appears"
+      },
+      {
+        "description": "Down to this tab, select \"Define Google Chrome as default browser\"",
+        "expected": "Chrome is now the default browser of the system"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 09:59:58 GMT",
+    "mtime": "2013-03-28 10:32:53 GMT"
+  },
+  {
+    "name": "default-browser",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "every url link opened with google chrome",
+    "description": "Check if a link is correctly opened with Google Chrome",
+    "pre_condition": "Have an edited text file opened with an URL text in it",
+    "steps": [
+      {
+        "description": "Click on the link in the text file",
+        "expected": "Chrome starts and the page corresponding to the link is correctly opened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:00:51 GMT",
+    "mtime": "2013-03-28 10:01:18 GMT"
+  },
+  {
+    "name": "html5-notifications",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "HTML5 notifications displayed in Desktop environment notifications area",
+    "description": "Check if HTML5 notifications are displayed in Dektop environment notifications area",
+    "pre_condition": "Have Google chrome started",
+    "steps": [
+      {
+        "description": "Open the following website : http://dangercove.com/html5-notifications/",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Ask permission to display notifications\"",
+        "expected": "Chrome ask you to Deny or Allow showing desktop notifications"
+      },
+      {
+        "description": "Click on \"Allow\"",
+        "expected": ""
+      },
+      {
+        "description": "In the bottom-left page, clik on \"Show notification\"",
+        "expected": "The notifications are displayed in the bottom screen and available in the bottom-right notifications area"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:01:26 GMT",
+    "mtime": "2013-03-28 10:02:04 GMT"
+  },
+  {
+    "name": "gnome-online-account",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use gnome online account to sign in google user",
+    "description": "Sign in Chrome with the Gnome Online Account configured with a Google account  ",
+    "pre_condition": "Have configured Gnome Online Account with a Google Account",
+    "steps": [
+      {
+        "description": "Start Google chrome without any count registered",
+        "expected": "Chrome should start normally, and the \"Welcome to Chrome\" page must not appears because your \"sign in\" parameters have been automatically registered in Chrome due to Gnome Online Account configuration"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:14:14 GMT",
+    "mtime": "2013-03-27 16:05:51 GMT"
+  },
+  {
+    "name": "save-username-password",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a username and a password with chrome",
+    "description": "Check if Chrome is able to save passwords",
+    "pre_condition": "Have a google account and have chrome started with no user account registered",
+    "steps": [
+      {
+        "description": "Go on wwww.google.com",
+        "expected": ""
+      },
+      {
+        "description": "On that page, click on the top-right \"Connexion\" button",
+        "expected": "A Google account page appears"
+      },
+      {
+        "description": "In this page, fill the email and the password fields",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Connexion\"",
+        "expected": "The Google page appears with a top-notifications asking if Chrome has to save password or not"
+      },
+      {
+        "description": "Click on \"Save password\"",
+        "expected": "Your password has been successfully"
+      },
+      {
+        "description": "Disconnect from your Google account",
+        "expected": ""
+      },
+      {
+        "description": "Close Chrome and start it again",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Connexion\"",
+        "expected": "The email and the password fields are already filled and there is just need to click in \"Connexion\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:26:52 GMT",
+    "mtime": "2013-03-27 15:39:17 GMT"
+  },
+  {
+    "name": "gnome-keyring",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "username and password saved in chrome are saved in gnome-keyring/seahorse",
+    "description": "Check if the usernames and passwords saved in chrome are saved too in the Gnome configuration",
+    "pre_condition": "Have registered your google account in Chrome",
+    "steps": [
+      {
+        "description": "In the homescreen application mode, click on the \"Passwords and Keys\" application",
+        "expected": "The application starts and must appears the line \"accounts.google.com\""
+      },
+      {
+        "description": "Righ-click on this line and select \"Properties\"",
+        "expected": "A window appears with the key and Details tabs"
+      },
+      {
+        "description": "In the \"Key\" tab, click on Password in the bottom",
+        "expected": "A hide-password appears"
+      },
+      {
+        "description": "Check \"Show password\"",
+        "expected": "The Google account password must be displayed"
+      },
+      {
+        "description": "Click on the \"Details\" tab",
+        "expected": "At the \"username_value\" line should appears the Google account username"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:28:23 GMT",
+    "mtime": "2013-03-27 16:05:34 GMT"
+  },
+  {
+    "name": "set-proxy",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "set a proxy in google chrome",
+    "description": "Check if chrome is able to open the ConnMan proxy settings  ",
+    "pre_condition": "have Chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new \"Settings\" tab opens"
+      },
+      {
+        "description": "Go down of the page settings and click on \"Show advanced settings...\"",
+        "expected": "More settings are available"
+      },
+      {
+        "description": "Go to the \"Network\" level and click on \"Change proxy settings...\"",
+        "expected": "The ConnMan Settings UI window appears and allows to set a proxy"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:31:06 GMT",
+    "mtime": "2013-03-27 16:18:03 GMT"
+  },
+  {
+    "name": "system-title-bar",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Google chrome configured to use system title and border",
+    "description": "Check if it is possible to enable/disable system title and border in chrome ",
+    "pre_condition": "Have Chrome started",
+    "steps": [
+      {
+        "description": "In chrome, next to a tab, right-click on an empty bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, Click on \"Use System Title and Borders\"",
+        "expected": "The system title and border appears / disappears in Chrome"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:32:29 GMT",
+    "mtime": "2013-03-27 16:05:28 GMT"
+  },
+  {
+    "name": "import-certificate",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import secure certificate in google chrome",
+    "description": "Check if chrome is able to import secure certificates",
+    "pre_condition": "have Chrome started and have a certificate file in your home directory",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new \"Settings\" tab opens"
+      },
+      {
+        "description": "Go down of the page settings and click on \"Show advanced settings...\"",
+        "expected": "More settings are available"
+      },
+      {
+        "description": "Go to the \"HTTP/SSL\" level and click on \"Manage certificates...\"",
+        "expected": "A \"Certificate manager\" window appears with a \"Your Certificates\", a \"Servers\", a \"Authorities\", and a \"Others\" tab"
+      },
+      {
+        "description": "Select one of the tab and click on \"Import...\" in it",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "In the file manager select your certificate and click on \"Open\"",
+        "expected": ""
+      },
+      {
+        "description": "Back to the Certificate Manager, cick on \"Ok\"",
+        "expected": "The certificate has been succesfully imported"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:33:09 GMT",
+    "mtime": "2013-03-27 16:17:54 GMT"
+  },
+  {
+    "name": "statistics",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "sending statistics and crash reports to Google",
+    "description": "Check is chrome is able to send statistics and crash reports to Google",
+    "pre_condition": "Have chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "A new \"Settings\" tab opens"
+      },
+      {
+        "description": "Go down of the page settings and click on \"Show advanced settings...\"",
+        "expected": "More settings are available"
+      },
+      {
+        "description": "In the \"Privacy\" section, check \"Automatically send usage statistics and crash reports to Google\"",
+        "expected": "When a crash happens, statistics and crash reports must be successfully sent to Google"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:33:54 GMT",
+    "mtime": "2013-03-27 16:29:41 GMT"
+  }
+]

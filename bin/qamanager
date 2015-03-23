@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+set -e
+
+function error() {
+    echo "$*" >&2
+    echo "Usage: $(basename $0) <host> <profile> [other args]"
+    exit 1
+}
+
+host=$1
+[[ -z "$host" ]] && error "Invalid host"
+shift
+
+profile=$1
+[[ -z "$profile" ]] && error "Invalid profile"
+shift
+if [ "$profile" == "ALL" ]; then
+	profile="auto_full"
+fi
+
+# assumed that the tizen-snapshot info have the following form : <branch> <buildid> <arch>
+# options for the qamanager.real script are :
+# -s for the snap_id
+# -b for the build_id
+# -a for the arch_id
+tizensnapshot=$(ssh root@$host cat /etc/tizen-snapshot)
+
+snap_id=$(echo $tizensnapshot  | cut -d " " -f1)
+build_id=$(echo $tizensnapshot | cut -d " " -f2)
+arch_id=$(echo $tizensnapshot  | cut -d " " -f3)
+
+mydir=$(dirname $0)
+
+# extract hostname from full qualified hostname (matched in etc/hwtarget.conf)
+shortname=${host%%.*}
+
+# clean the local temp dir
+rm -rf /tmp/libqa/*
+
+for p in $profile; do
+	$mydir/qamanager.real -p $p -t $shortname -s $snap_id -b $build_id -a $arch_id "$@"
+done

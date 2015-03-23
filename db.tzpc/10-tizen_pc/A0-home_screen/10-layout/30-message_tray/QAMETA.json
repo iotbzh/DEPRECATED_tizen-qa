@@ -1,0 +1,31 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The message tray must follow the same functionnalities as current Gnome ",
+    "description": "TODO: find reference in Gnome documentation on message tray behaviour",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "open a xterm window and run the following command at the shell prompt: notify-send \"Foo\" \"Bar\"",
+        "expected": "a notification must appear in the message tray"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 12:30:28 GMT",
+    "mtime": "2013-03-08 12:30:28 GMT"
+  }
+]

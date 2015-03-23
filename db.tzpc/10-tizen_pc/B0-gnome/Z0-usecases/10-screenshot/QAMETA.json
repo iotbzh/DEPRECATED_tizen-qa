@@ -1,0 +1,157 @@
+[
+  {
+    "name": "health",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Screenshot' -t 15 -- /usr/bin/gnome-screenshot",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 16:21:06 GMT",
+    "mtime": "2013-03-08 09:41:58 GMT"
+  },
+  {
+    "name": "shoot-an-area",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch gnome-screenshot application and shoot an area",
+    "description": "check that part of the screen can be saved as an image",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click \"Application\" from the top menubar",
+        "expected": "The application selection screen is displayed"
+      },
+      {
+        "description": "Launch the ScreenShot application",
+        "expected": "The screenshot window opens"
+      },
+      {
+        "description": "Select the option \"Select area to grab\" then click on \"Take screenshot\"",
+        "expected": "The screenshot window disappears and the pointer is shown as a cross"
+      },
+      {
+        "description": "Select a rectangular area over the screen",
+        "expected": "the selected area blinks briefly then the \"save screenshot\" dialog window opens"
+      },
+      {
+        "description": "Use the dialog to save the image somewhere",
+        "expected": "the image is saved as a png file and the dialog window disappears"
+      },
+      {
+        "description": "Open Nautilus to check that the png file exists",
+        "expected": "the png file exists"
+      },
+      {
+        "description": "Double click the png file to see its content",
+        "expected": "the content is conform to what was shot"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 09:43:32 GMT",
+    "mtime": "2013-03-08 09:57:56 GMT"
+  },
+  {
+    "name": "shoot-the-screen",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "take an image of the full screen",
+    "description": "images of the full screen are easy shoot with keyboard",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Press the \"PrtSc\" (or print screen) key",
+        "expected": "The screen blinks briefly"
+      },
+      {
+        "description": "Launch Nautilus and browse your filesystem",
+        "expected": "The png file of the screen exists"
+      },
+      {
+        "description": "Double click to show the shot image",
+        "expected": "The image displayed is the shot screen"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 09:53:56 GMT",
+    "mtime": "2013-03-08 10:09:06 GMT"
+  },
+  {
+    "name": "shoot-a-window",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "take an image of a window",
+    "description": "images of window are easy shoot with keyboard",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch any application that displays a window",
+        "expected": "The window appears"
+      },
+      {
+        "description": "Put the cursor on the window area then press the \"Alt+PrtSc\" (or print screen) keys",
+        "expected": "The window blinks briefly when keys are released"
+      },
+      {
+        "description": "Launch Nautilus and browse your filesystem",
+        "expected": "The png file of the window exists"
+      },
+      {
+        "description": "Double click to show the shot image",
+        "expected": "The image displayed is the window that was shot"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 10:08:01 GMT",
+    "mtime": "2013-03-08 10:11:30 GMT"
+  }
+]

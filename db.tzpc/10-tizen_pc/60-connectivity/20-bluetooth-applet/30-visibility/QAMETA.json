@@ -1,0 +1,76 @@
+[
+  {
+    "name": "visibility-enable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Visibility can be enabled",
+    "description": "When Bluetooth technology is enabled, it should be possible to make the device visible by other Bluetooth devices. ",
+    "pre_condition": "- Bluetooth technology is enabled (Bluetooth switcher is toggled on 'I')\r\n- Visibility switcher is toggled on 'O' or 'OFF' in the Bluetooth applet and in the Bluetooth panel",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon",
+        "expected": "Menu of the Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the visibility switcher to make the device visible by other Bluetooth devices",
+        "expected": "Visibility switcher is toggled on 'I'. Visibility switcher of Bluetooth panel is toggled on 'ON'."
+      },
+      {
+        "description": "Take a mobile phone (for example) and try to search for the Bluetooth service of the laptop",
+        "expected": "Bluetooth service of the laptop should appear in the list of the available Bluetooth services."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:24:04 GMT",
+    "mtime": "2013-03-26 14:12:54 GMT"
+  },
+  {
+    "name": "visibility-disable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Visibility can be disabled",
+    "description": "When Bluetooth technology is enabled, it should be possible to make the device not visible by other Bluetooth devices. ",
+    "pre_condition": "- Bluetooth technology is enabled (Bluetooth activation switcher is toogled on 'ON')\r\n- Visibility switcher is toggled on 'I' or 'ON' in the Bluetooth applet and in the Bluetooth panel",
+    "steps": [
+      {
+        "description": "Open the Bluetooth Panel",
+        "expected": "Window of the Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the visibility switcher to make the device not visible by other Bluetooth devices",
+        "expected": "Visibility switcher is toggled on 'OFF'. Visibility switcher of Bluetooth applet is toggled on 'O'."
+      },
+      {
+        "description": "Take a mobile phone (for example) and try to search for the Bluetooth service of the laptop",
+        "expected": "Bluetooth service of the laptop shouldn't appear in the list of the available bluetooth services."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:27:16 GMT",
+    "mtime": "2013-03-26 14:18:09 GMT"
+  }
+]

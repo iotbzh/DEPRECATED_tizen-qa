@@ -1,0 +1,37 @@
+[
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Check if gdm is started",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "pgrep -f /usr/sbin/gdm",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "restart",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "the daemon gdm can be restarted safely",
+    "description": "Check that the command 'systemctl restart gdm.service' restarts gdm",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "systemctl restart gdm.service",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]

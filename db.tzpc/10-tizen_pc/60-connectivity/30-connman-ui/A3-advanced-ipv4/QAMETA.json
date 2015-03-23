@@ -1,0 +1,121 @@
+[
+  {
+    "name": "ipv4-off",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IPv4 support can be disabled",
+    "description": "User should be able to disable IP v4 support.\r\n\r\nTODO : test case to be confirmed",
+    "pre_condition": "- User is connected to the wired or a Wifi service\r\n- ConnMan UI is opened \r\n\r\n\r\n",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'IPv4' option, choose the 'Off' method and click on apply",
+        "expected": ""
+      },
+      {
+        "description": "Open a terminal and execute 'cat /var/lib/connman/*/settings'",
+        "expected": "IPv4 methond = 'off'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-19 09:55:55 GMT",
+    "mtime": "2013-03-29 16:20:31 GMT"
+  },
+  {
+    "name": "ipv4-dhcp",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IPv4 can be set by a DHCP server",
+    "description": "User should be able to disable IP v4 support. By default this mode is enabled.\r\n\r\nTODO : test case to be confirmed",
+    "pre_condition": "- User is connected to the wired or a Wifi service\r\n- ConnMan UI is opened ",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Click on the 'IPv4' option",
+        "expected": "IPv4 features are displayed on the right side of the screen"
+      },
+      {
+        "description": "Verify that method is DHCP (if not, select it and apply)",
+        "expected": ""
+      },
+      {
+        "description": "Open a terminal and execute 'cat /var/lib/connman/*/settings'",
+        "expected": "IPv4 method = 'DHCP'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-19 09:59:37 GMT",
+    "mtime": "2013-03-29 16:42:37 GMT"
+  },
+  {
+    "name": "ipv4-manual",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IP can be manually set by the user",
+    "description": "User should be able to manually set the IP address.\r\n\r\nTest case to be confirmed",
+    "pre_condition": "- User is connected to a wired or a Wifi service\r\n- ConnMan UI is opened ",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Click on the 'IPv4' option",
+        "expected": "IPv4 features are displayed on the right side of the screen"
+      },
+      {
+        "description": "Select the Manual  method, change the fields 'Address', 'Netmask' and 'Gateway' then, click on 'Apply'",
+        "expected": ""
+      },
+      {
+        "description": "Open a terminal and execute 'cat /var/lib/connman/*/settings'",
+        "expected": "'IPv4 local_address', 'IPv4 netmask_prefixlen', and 'IPv4 gateway' should be same as configured"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-19 10:05:14 GMT",
+    "mtime": "2013-03-29 16:47:35 GMT"
+  }
+]

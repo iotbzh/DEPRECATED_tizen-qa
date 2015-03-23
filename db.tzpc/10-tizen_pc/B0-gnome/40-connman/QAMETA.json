@@ -1,0 +1,175 @@
+[
+  {
+    "name": "iconic-visibility",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Connman icon is visible in the gnome status bar",
+    "description": "The connman status icon should be visible in the top bar",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, check the top bar",
+        "expected": "The connman status icon is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 10:49:41 GMT",
+    "mtime": "2013-03-06 10:49:53 GMT"
+  },
+  {
+    "name": "menu-conforms",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The connman menu displays",
+    "description": "The connman quick functionality menu should be shown when clicking the connman status icon of the top bar.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the connman status icon",
+        "expected": "The connman menu appears"
+      },
+      {
+        "description": "Check the menu airplane switch (top)",
+        "expected": "the menus shows switch for available devices (Wired, Wifi, Bluetooth, 3G, ...)"
+      },
+      {
+        "description": "Check the menu devices (middle)",
+        "expected": "the menus shows switch for available devices (Wired, Wifi, Bluetooth, 3G, ...)"
+      },
+      {
+        "description": "Check the menu status (bottom)",
+        "expected": "the available networks (if any) are displayed with their status"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 10:53:04 GMT",
+    "mtime": "2013-03-06 12:41:08 GMT"
+  },
+  {
+    "name": "wifi-scan",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "connman scans the available networks",
+    "description": "in the connman panel, activate wifi and check that hotspots are discovered and displayed",
+    "pre_condition": "wifi device on the target",
+    "steps": [
+      {
+        "description": "From the desktop, click on the connman status icon",
+        "expected": "The connman menu appears"
+      },
+      {
+        "description": "(if needed) activate the wifi",
+        "expected": "the wifi is activated"
+      },
+      {
+        "description": "Check that wifi networks are detected",
+        "expected": "the available wifi networks are displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:36:05 GMT",
+    "mtime": "2013-03-06 12:41:24 GMT"
+  },
+  {
+    "name": "connect",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "connman can connect to a network",
+    "description": "in connman panel, select a network, check that it connects well",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the connman status icon",
+        "expected": "The connman menu appears"
+      },
+      {
+        "description": "Ask to connect to an available network",
+        "expected": "The connection occurs"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:41:34 GMT",
+    "mtime": "2013-03-06 12:43:24 GMT"
+  },
+  {
+    "name": "disconnect",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "connman can disconnect from a network",
+    "description": "in connman panel, select a network, check that it disconnects well",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the connman status icon",
+        "expected": "The connman menu appears"
+      },
+      {
+        "description": "Ask to connect from a connected network",
+        "expected": "The disconnection occurs"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:43:05 GMT",
+    "mtime": "2013-03-06 12:43:43 GMT"
+  }
+]

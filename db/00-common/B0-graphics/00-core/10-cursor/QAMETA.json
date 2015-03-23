@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ThemeLoadTest",
+    "exec_type": "auto",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "core/cursor/ThemeLoadTest",
+    "description": "Wayland core/cursor/ThemeLoadTest\r\n",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "runme.sh wfits --filter core.cursor.ThemeLoadTest",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "qadmin",
+    "ctime": "2013-12-17 15:10:34 GMT",
+    "mtime": "2014-03-07 10:37:54 GMT"
+  }
+]

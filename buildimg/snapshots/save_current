@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# this script works with sync_repo and creates a new backup copy of the current snapshot
+
+cd $(dirname $0)
+
+set -e
+
+function usage() {
+	echo "Usage: $0 <OBS project name> <repo name>" >&2;
+}
+
+. ./sync_lib.sh
+
+PROJNAME=$1
+shift || { usage; exit 1; }
+[[ -z "$PROJNAME" ]] && { usage; exit 1; }
+
+REPO=$1
+[[ -z "$REPO" ]] && { usage; exit 1; }
+
+# assume that the passed name is a OBS project name (Tizen:Generic:foo for example)
+PROJDIR=$(echo $PROJNAME | tr ':' '_' | sed 's/ //g')
+REPODIR=$PROJDIR/$REPO
+
+[[ ! -d $PROJDIR ]] && { loginfo "Invalid project $PROJNAME"; exit 1; }
+
+[[ ! -d $REPODIR ]] && { loginfo "Invalid repo $REPODIR"; exit 1; }
+
+cd $REPODIR
+
+[[ ! -L latest ]] && { loginfo "'latest' link not found in $$REPODIR"; exit 1; }
+
+snapshotid=$(readlink latest)
+
+[[ ! -L $snapshotid ]] && { loginfo "The link 'latest' points to an existing snapshot directory '$snapshotid'. Nothing done."; exit 0; }
+
+loginfo "Syncing to $REPODIR/$snapshotid"
+
+rm $snapshotid
+rsync -a current/ $snapshotid/
+
+loginfo "Done"
+
+
+

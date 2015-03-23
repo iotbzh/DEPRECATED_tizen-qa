@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# load TZ config
+[ -f ~/.tzconfig ] && . ~/.tzconfig
+
+set -e
+
+snapshot=$1
+if [ -z "$snapshot" ]; then
+	echo "Usage: $(basename $0) <snapshot>" >&2
+	exit 1
+fi
+
+function getbranch() {
+	if echo $1 | grep devel >/dev/null; then
+		echo "devel"
+	else
+		echo "trunk"
+	fi
+}
+
+url=${TZURL}/snapshots/$(getbranch $snapshot)/pc/$snapshot
+
+set -e
+
+tmpfile=$(mktemp /tmp/$(basename $0).XXXXXX)
+trap "rm -f $tmpfile" STOP INT QUIT EXIT
+
+$(dirname $0)/repo_wget_primarydb $url $tmpfile
+
+sqlite3 -separator $'\t' $tmpfile 'select name,version,trim(rtrim(release,"0123456789"),".") from packages order by 1'

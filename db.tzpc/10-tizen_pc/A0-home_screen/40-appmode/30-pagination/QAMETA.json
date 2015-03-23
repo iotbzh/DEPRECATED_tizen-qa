@@ -1,0 +1,80 @@
+[
+  {
+    "name": "arrows",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that arrows allow navigation through pages",
+    "description": "When more pages are needed to display the applications, the two arrows on top must allow the user to switch from one page to another:\r\n- a click on the left arrow must display the previous page\r\n- a click on the right arrow must display the next page",
+    "pre_condition": "- switch to Application mode\r\n- have enough installed applications so that result area can not contain all installed apps (more than 19 on a Lenovo X230)",
+    "steps": [
+      {
+        "description": "select \"All\" categories",
+        "expected": "more than 1 page is needed to display the selected applications, two arrows must appear at the top of the result area, with left arrow disabled and right arrow clickable"
+      },
+      {
+        "description": "click on right arrow",
+        "expected": "the next page must be displayed, the left arrow must become visible"
+      },
+      {
+        "description": "click on left arrow",
+        "expected": "the previous page must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 15:13:47 GMT",
+    "mtime": "2013-03-27 22:28:20 GMT"
+  },
+  {
+    "name": "arrows_disabled",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that arrows are disabled when needed",
+    "description": "If the currently displayed page is the first one, the left arrow must be disabled (the arrow is dimmed and clicking on it does nothing)\r\n\r\nIf the currently displayed page is the last one, the right arrow must be disabled (the arrow is dimmed and clicking on it does nothing)",
+    "pre_condition": "- switch to Application mode\r\n- have enough installed applications so that result area can not contain all installed apps (more than 19 on a Lenovo X230)",
+    "steps": [
+      {
+        "description": "select \"All\" categories",
+        "expected": "initially, the left arrow must be disabled and the right arrow enabled"
+      },
+      {
+        "description": "click on the right arrow",
+        "expected": "the next page must be displayed, the left arrow must become visible"
+      },
+      {
+        "description": "click on the right arrow until having reached the last page",
+        "expected": "the right arrow must be disabled on last page"
+      },
+      {
+        "description": "click on left arrow",
+        "expected": "the previous page must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 15:16:34 GMT",
+    "mtime": "2013-03-27 22:28:29 GMT"
+  }
+]

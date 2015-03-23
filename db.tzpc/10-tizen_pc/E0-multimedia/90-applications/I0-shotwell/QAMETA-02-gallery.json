@@ -1,0 +1,573 @@
+[
+  {
+    "name": "import-images-USB",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import images from a USB device using shotwell",
+    "description": "Use shotwell to import pictures and videos from a device connected with USB",
+    "pre_condition": "Have DCIM/USB pluggable device (camera or telephone) containing photos and videos",
+    "steps": [
+      {
+        "description": "Plug the device using USB",
+        "expected": "a notification is displayed"
+      },
+      {
+        "description": "ask to open the device with shotwell",
+        "expected": "shotwell opens in gallery mode showing data of the device"
+      },
+      {
+        "description": "select \"import all\"",
+        "expected": "all the pictures and movies are imported to the events"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 15:32:31 GMT",
+    "mtime": "2013-03-27 15:05:49 GMT"
+  },
+  {
+    "name": "import-images-card",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import images from a memory card device using shotwell",
+    "description": "Use shotwell to import pictures and videos from a memory card device ",
+    "pre_condition": "Have memory card device containing photos and videos",
+    "steps": [
+      {
+        "description": "Plug the memory card",
+        "expected": "a notification is displayed"
+      },
+      {
+        "description": "ask to open the device with shotwell",
+        "expected": "shotwell opens in gallery mode showing data of the device"
+      },
+      {
+        "description": "select \"import all\"",
+        "expected": "all the pictures and movies are imported to the events"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 13:14:32 GMT",
+    "mtime": "2013-03-27 15:06:11 GMT"
+  },
+  {
+    "name": "importation-sorted",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Photos and videos are imported in hirarchical directories",
+    "description": "Check that the configuration import in 'Picture' using directory structure 'Year/Month/Day'.\r\nThen import data from a device and check that files are imported using the set scheme.",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "launch shotwel",
+        "expected": "shotwell is displayed in \"gallery mode\""
+      },
+      {
+        "description": "in \"edit>preferences\" tab \"library\" check directory structure",
+        "expected": "directory structure is Year/Month/Day"
+      },
+      {
+        "description": "Browse the filesystem",
+        "expected": "the pictures and video are in subdirectories matching the structure in Pictures and Videos"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 13:21:16 GMT",
+    "mtime": "2013-03-27 15:17:16 GMT"
+  },
+  {
+    "name": "rotate-gallery",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pictures of the gallery can be rotated",
+    "description": "Check that pictures can be rotated",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "rotate the image",
+        "expected": "the image is rotated"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears rotated"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not rotated"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:07:00 GMT",
+    "mtime": "2013-03-27 15:31:55 GMT"
+  },
+  {
+    "name": "enhance-gallery",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pictures of the gallery can be enhanced",
+    "description": "Check that pictures can be enhanced",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "enhance the image",
+        "expected": "the image is enhanced"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears enhanced"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not enhanced"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 14:45:23 GMT",
+    "mtime": "2013-03-27 15:32:51 GMT"
+  },
+  {
+    "name": "crop-gallery",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures of the gallery can be cropped",
+    "description": "Check that the pictures can be cropped",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "crop the image",
+        "expected": "the image is cropped"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears cropped"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not cropped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:07:51 GMT",
+    "mtime": "2013-03-27 15:33:12 GMT"
+  },
+  {
+    "name": "straighten-gallery",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures of the gallery can be straightened",
+    "description": "Check that the pictures can be straightened",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "straighten the image",
+        "expected": "the image is straightened"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears straightened"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not straightened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:10:17 GMT",
+    "mtime": "2013-03-27 15:33:34 GMT"
+  },
+  {
+    "name": "adjust-gallery",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures of the gallery can be adjusted",
+    "description": "Check that the pictures can be adjusted",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "adjust the image",
+        "expected": "the image is adjusted"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears adjusted"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not adjusted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:19:53 GMT",
+    "mtime": "2013-03-27 15:33:55 GMT"
+  },
+  {
+    "name": "flip-gallery",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures of the gallery can be flipped",
+    "description": "Check that the pictures can be flipped horizontally and vertically",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the edit buttons are displayed"
+      },
+      {
+        "description": "flip the image",
+        "expected": "the image is flipped"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "search the previously image in the galery",
+        "expected": "the image appears flipped"
+      },
+      {
+        "description": "ask shotwell to show the picture in file managed",
+        "expected": "nautilus appears with the file selected"
+      },
+      {
+        "description": "double click the file",
+        "expected": "Shotwell opens, showing the file not flipped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:33:47 GMT",
+    "mtime": "2013-03-27 15:34:21 GMT"
+  },
+  {
+    "name": "slideshow",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Play slideshow",
+    "description": "Use shotwell to play a slide show on the picture library.\r\nTry the few possible effects.\r\nAfter slideshow, the shotwell window should look fine (see bug)",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an event of the galery",
+        "expected": "the pictures of the event are displayed"
+      },
+      {
+        "description": "ask the slideshow (view>slideshow or F5)",
+        "expected": "the slideshow starts in fullscreen"
+      },
+      {
+        "description": "make changes in settings",
+        "expected": "the slideshow is changed"
+      },
+      {
+        "description": "leave slide show",
+        "expected": "shotwell window is normal (not small)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "TZPC-1308",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:20:20 GMT",
+    "mtime": "2013-03-27 15:41:09 GMT"
+  },
+  {
+    "name": "publish",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "publish a picture to internet cloud",
+    "description": "Use shotwell to publish a picture on Facebook, Flickr, picasa, piwigo",
+    "pre_condition": "have image files imported in the gallery\r\nHave the test accounts on this cloudy repositories",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:34:43 GMT",
+    "mtime": "2013-03-27 15:18:00 GMT"
+  },
+  {
+    "name": "export",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Export a picture with an other format",
+    "description": "Use shotwell to export a picture with different formats: TIFF, JPEG, PNG",
+    "pre_condition": "have image files imported in the gallery",
+    "steps": [
+      {
+        "description": "open shotwell",
+        "expected": "shotwell opens in \"gallery mode\""
+      },
+      {
+        "description": "select an image of the galery",
+        "expected": "the image is selected"
+      },
+      {
+        "description": "ask to export the image",
+        "expected": "the export dialog appears"
+      },
+      {
+        "description": "select a different format and validate",
+        "expected": "the file dialog opens"
+      },
+      {
+        "description": "enter the file and directory for exporting and validate",
+        "expected": "the picture is exported"
+      },
+      {
+        "description": "browse the file system to retrieve the exported picture",
+        "expected": "it exists and is valid"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-20 15:36:33 GMT",
+    "mtime": "2013-03-27 15:46:33 GMT"
+  }
+]

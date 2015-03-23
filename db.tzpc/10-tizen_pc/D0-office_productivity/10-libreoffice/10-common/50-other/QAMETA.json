@@ -1,0 +1,430 @@
+[
+  {
+    "name": "svg-writer",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "insert an svg picture in LibreOffice Writer",
+    "description": "Check if Writer allows to correctly insert an SVG picture",
+    "pre_condition": "Have an svg picture in your \"Home\" directory",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer window, click on \"Insert\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"From file\" in the drop-right menu",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "In the file manager, select the SVG picture in your home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The picture is correctly inserted on your Writer page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:29:19 GMT",
+    "mtime": "2013-03-12 10:30:32 GMT"
+  },
+  {
+    "name": "svg-calc",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "insert an svg picture in LibreOffice Calc",
+    "description": "Check if Calc allows to correctly insert an SVG picture",
+    "pre_condition": "Have an svg picture in your \"Home\" directory",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon",
+        "expected": "Calc starts"
+      },
+      {
+        "description": "In the Calc window, click on \"Insert\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"From file\" in the drop-right menu",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "In the file manager, select the SVG picture in your home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The picture is correctly inserted on your Calc page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 16:05:53 GMT",
+    "mtime": "2013-03-12 12:36:31 GMT"
+  },
+  {
+    "name": "svg-impress",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "insert an svg picture in LibreOffice Impress",
+    "description": "Check if Impress allows to correctly insert an SVG picture",
+    "pre_condition": "Have an svg picture in your \"Home\" directory",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "In the Impress window, click on \"Insert\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"From file\" in the drop-right menu",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "In the file manager, select the SVG picture in your home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The picture is correctly inserted on your Impress page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 16:08:39 GMT",
+    "mtime": "2013-03-12 10:30:47 GMT"
+  },
+  {
+    "name": "google-drive-upload",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Export LibreOffice documents to Google Drive",
+    "description": "Check if LibreOffice documents can be uploaded in Google Drive",
+    "pre_condition": "Have a Google account, have Writer started and an edited/saved document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Google Docs & Zoho\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "In the drop-right menu, click on \"Export to Google Docs\"",
+        "expected": "A \"Export to Google Docs\" window opens"
+      },
+      {
+        "description": "Fill the \"User Name\" and the \"Password\" fields anc check the \"Remember Password\" case",
+        "expected": ""
+      },
+      {
+        "description": "click on \"OK\"",
+        "expected": "The document is successfully uploaded in Google Drive"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:33:01 GMT",
+    "mtime": "2013-03-14 09:25:52 GMT"
+  },
+  {
+    "name": "google-drive-download",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import LibreOffice documents from Google Drive",
+    "description": "Check if LibreOffice documents can be downloaded from Google Drive",
+    "pre_condition": "Have a Google account, have Writer started",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Google Docs & Zoho\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "In the drop-right menu, click on \"Import from Google Docs\"",
+        "expected": "A \"Import from Google Docs\" window opens"
+      },
+      {
+        "description": "Fill the \"User Name\" and the \"Password\" fields anc check the \"Remember Password\" case",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Get list\" button",
+        "expected": "A document list appears down to the button"
+      },
+      {
+        "description": "Select the Writer document to be imported",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Download\"",
+        "expected": "The document is successfully imported on the computer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-14 08:59:45 GMT",
+    "mtime": "2013-03-14 09:39:07 GMT"
+  },
+  {
+    "name": "pdf-export-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export LibreOffice Writer documents to PDF",
+    "description": "Check if Writer documents are correctly exported into PDF format",
+    "pre_condition": "Have a Writer document created, edited and open",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Export as PDF\"",
+        "expected": "A \"PDF Options\" window opens"
+      },
+      {
+        "description": "Click on \"Export\"",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly exported into a PDF format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:31:46 GMT",
+    "mtime": "2013-03-14 09:32:57 GMT"
+  },
+  {
+    "name": "pdf-export-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export LibreOffice Calc documents to PDF",
+    "description": "Check if Calc documents are correctly exported into PDF format",
+    "pre_condition": "Have a Calc document created, edited and open",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Export as PDF\"",
+        "expected": "A \"PDF Options\" window opens"
+      },
+      {
+        "description": "Click on \"Export\"",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly exported into a PDF format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-12 10:53:29 GMT",
+    "mtime": "2013-03-12 11:27:10 GMT"
+  },
+  {
+    "name": "pdf-export-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export LibreOffice Impress documents to PDF",
+    "description": "Check if Impress documents are correctly exported into PDF format",
+    "pre_condition": "Have an Impress document created, edited and open",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Export as PDF\"",
+        "expected": "A \"PDF Options\" window opens"
+      },
+      {
+        "description": "Click on \"Export\"",
+        "expected": "A file manager opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly exported into a PDF format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-12 10:53:45 GMT",
+    "mtime": "2013-03-12 11:27:20 GMT"
+  },
+  {
+    "name": "pdf-import",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "import PDF to LibreOffice documents",
+    "description": "Check if PDF can be opened and modified by LibreOffice applications TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 15:47:43 GMT",
+    "mtime": "2013-03-12 11:15:06 GMT"
+  }
+]

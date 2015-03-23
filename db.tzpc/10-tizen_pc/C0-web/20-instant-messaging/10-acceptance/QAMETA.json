@@ -1,0 +1,94 @@
+[
+ {
+  "name": "components-integrated",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check all services and components are integrated",
+  "description": "We want to make sure all services and components are integrated",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Board is flashed and booted\nA terminal is opened",
+  "steps": [
+   {
+    "description": "Execute commands: find / -name *empathy*, find / -name *telepathy*, find / -name *libsocialweb*",
+    "expected": "Config files, libraries, services and binaries are listed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "service-launch",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check all services and components can be launched",
+  "description": "We want to make sure wa can launch components",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Board is flashed and booted\nOne terminal is opened",
+  "steps": [
+   {
+    "description": "Launch empathy from a command line with options version: e.g.: empathy -v",
+    "expected": "The version is the version expected"
+   },
+   {
+    "description": "Launch Gnome Online Accounts via a command line",
+    "expected": "Application is launched"
+   },
+   {
+    "description": "Launch empathy from a command line",
+    "expected": "Application is launched"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "service-launch",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check the communicating endpoints establish communication",
+  "description": "We want to make sure connection and session can be established successfully",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Board is flashed and booted\nOne terminal is opened\nConnected to network\nRegistered to an IM service\nAccount created",
+  "steps": [
+   {
+    "description": "Sign in",
+    "expected": "Communication is established and session is opened successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ }
+]

@@ -1,0 +1,133 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check windowing area appearance",
+    "description": "The windowing area occupies all the screen under the top bar.\r\nA message tray bar may appear at the bottom for notifications. By default, it shouldn't be visible.",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "check the visual aspect",
+        "expected": "the windowing area must be present with proper background"
+      },
+      {
+        "description": "check the visual aspect",
+        "expected": "the message tray must be hidden"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 10:11:28 GMT",
+    "mtime": "2013-03-08 10:11:28 GMT"
+  },
+  {
+    "name": "no-action",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_negative",
+    "subtype": "",
+    "objective": "Clicking on an empty zone in the window area shouldn't produce anything",
+    "description": "Clicking anywhere in the window area with right/middle/left mouse buttons shouldn't produce anything (no popup, no action ...)",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "click anywhere on background with left mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "double click anywhere on background with left mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "click anywhere on background with middle mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "double click anywhere on background with middle mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "click anywhere on background with right mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "double click anywhere on background with right mouse button",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "tap anywhere on background (if touchscreen supported)",
+        "expected": "must do nothing"
+      },
+      {
+        "description": "double tap anywhere on background (if touchscreen supported)",
+        "expected": "must do nothing"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 10:13:49 GMT",
+    "mtime": "2013-03-08 12:30:51 GMT"
+  },
+  {
+    "name": "window_titlebars_theme",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Windows in the windowing area must follow the visual design specifications",
+    "description": "Active windows have a blue close box with a diagonal cut (TODO: specs needed)\r\nTitle bars have a different image than the current theme (more cream-colored, with a vertical gradient, and with a hard bottom edge, as compared to the current theme) \r\nSee the visual design specification for more details (TODO: references to be added)",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "click on topbar>applications, open xterm",
+        "expected": "the xterm window must appear"
+      },
+      {
+        "description": "check the xterm window bar",
+        "expected": "a close button must be present on the right side"
+      },
+      {
+        "description": "check the xterm window bar",
+        "expected": "the window bar must have the \"xterm\" title"
+      },
+      {
+        "description": "check the xterm window bar",
+        "expected": "the bar design must conform to colors and themes specifications"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 10:17:02 GMT",
+    "mtime": "2013-03-08 10:17:02 GMT"
+  }
+]

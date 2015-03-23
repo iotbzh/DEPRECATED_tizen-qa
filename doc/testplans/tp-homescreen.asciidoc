@@ -1,0 +1,666 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: Home Screen
+:author: Stéphane Desneux
+:email: stephane.desneux@eurogiciel.fr
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5992[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> Home Screen & Widgets]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==========================================================================================================
+|Version 			| Date 			| Author								                            | Reason for changes
+//---------------------------------------------------------------------------------------------
+|0.1					| 2013-02-13	| {stephane} | Initial revision
+|0.2			      | 2013-02-27	| {stephane} | Internal review ({yann} & {christophe}) and corrections
+|0.2.1			   | 2013-02-28	| {stephane} | Added test cases for Application mode and Settings mode
+|0.3              | 2013-03-06   | {stephane} | Correction after engineering {otcshare}/5992#comment-5798[review]
+|0.3.1            | 2013-03-07   | {stephane} | More details on chapters §4, §8.1.6, §11, §12
+|0.3.2            | 2013-03-08   | {stephane} | Test cases added (partial)
+|0.3.3            | 2013-03-11   | {stephane} | Test cases added (widgets with specs)
+|0.4              | 2013-03-26   | {stephane} | Test cases finalized
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==========================================================================================================
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level 				| Reviewer 							| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review		| {christophe}						|             	| 2013-03-08
+|Architect review			| 										|           	|           
+|Engineering review 		| {auke} {hirally}				| 2013-03-01	| 2013-03-02          
+|Project Manager review | 										|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for {componentName} within Tizen PC.
+
+== Glossary 
+
+// Instructions:
+// Describe all important acronyms or terms here
+// Example:
+// * BBC: Brake Before Clutch (driver training)
+// * CNN: Chaotic Neural Network
+// ...
+
+[horizontal]
+
+Tizen:: An open platform for devices that allows you to implement feature-rich Tizen applications efficiently.
+Tizen application:: An installable and removable application created using Tizen Web and native APIs
+Homescreen:: The first screen of information displayed when a device is started. Also called the "home page", it typically displays icons that are clicked or tapped to launch applications and internal functions
+Widget:: A mini app that displays a small amount of information on screen at all times and interacts with the user
+GUI:: Graphical User Interface: The common method of interacting with a computer that allows any graphics image to be displayed on screen
+Pagination:: Refers to dividing some content into pages, when one page is not sufficient to display the whole content.
+
+NOTE: Please mailto:{email}[report] anything unclear in Gnome/Tizen-shell/UI acronyms. 
+
+== Component Summary 
+
+// Instructions:
+// Expect a short paragraph to describe the component and add link for further information about this component.
+// Also put major hyperlinks to projects responsible for the component
+
+The {componentName} component is responsible for multiple aspects on the Tizen PC Desktop:
+
+--
+* manage screen layout (grid and tiles)
+* organise objects (widgets, icons ...)
+* run widgets
+* run applications and switch between them
+* handle user preferences for Home screen
+--
+
+
+:designDocumentUrl: https://otcshare.org/tizenpc/system/files/tizen_pc_homescreen_v_1.3.pdf
+
+&nbsp;
+
+The following materials define what ''{componentName}'' is:
+
+* The {componentName} design complies with Tizen guidelines and colors. [red]#Document to be defined#
+* [[designDocument]]
+{componentName} design documents can be found here: https://otcshare.org/tizenpc/node/5794
+* Latest design document used as a reference to write this document: {designDocumentUrl}
+
+&nbsp;
+
+Tizen Shell is the software component responsible for handling the Home Screen UI. It is now developed as a GNOME Shell extension (see {jira}/TZPC-520[Jira Issue TZPC-520]).
+
+GNOME Shell provides core interface functions like switching windows, launching applications or see notifications. It uses Mutter, a compositing window manager and the Clutter toolkit to provide visual effects and hardware acceleration.
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+For each feature listed below, an associated test set is defined.
+
+The following table describes features to be tested based on risk analysis:
+
+.Tested features
+[width="100%",cols="4,4,1,4",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id                 | Description                  | Priority | Comment
+//------------------------------------------------------------------------------------------------------------------
+|Layout: Top bar, Menu                    | Desktop bar at the top of the screen | P1       |<<designDocument,Design Doc>>-p.3 , 
+                                                                                     {jira}/TZPC-45[TZPC-45],
+																												 {jira}/TZPC-46[TZPC-46],
+																												 {jira}/TZPC-46[TZPC-47],
+																												 {jira}/TZPC-749[TZPC-749],
+																												 {jira}/TZPC-750[TZPC-750],
+																												 {jira}/TZPC-760[TZPC-760],
+																												 {jira}/TZPC-763[TZPC-763]
+|Layout: Windowing area                   | Main desktop area            | P1       |<<designDocument,Design Doc>>-p.3,
+                                                                                     {jira}/TZPC-768[TZPC-768]
+|Layout: Message tray                     | Bottom area for notifications | P1       |<<designDocument,Design Doc>>-p.3
+|Layout: Grid system                      | How graphical elements are positioned | P1       |<<designDocument,Design Doc>>-p.5/26/27
+|Layout: Desktop icons                    | Icons positioned on desktop  | P1       |<<designDocument,Design Doc>>-p.6, 
+                                                                                     {jira}/TZPC-41[TZPC-41]
+|Layout: Pagination (multiple screens)    | Multiple desktops            | P2       |<<designDocument,Design Doc>>-p.6 - Phase 2
+|Layout: Application mode                 | Application search/launch/switch | P1       |<<designDocument,Design Doc>>-p.10
+|Layout: App switcher                     | Alt+tab switcher             | P2       |<<designDocument,Design Doc>>-p.18
+|Layout: Settings mode                    | Home screen settings tool    | P1       |<<designDocument,Design Doc>>-p.20
+|Layout: Favorite/most used app support   | Dynamic area for apps        | P1       |{jira}/TZPC-42[TZPC-42],
+                                                                                     {jira}/TZPC-714[TZPC-714],
+                                                                                     {jira}/TZPC-755[TZPC-755]
+|Layout: Widgets									| How widgets are laid on desktop | P3       |<<designDocument,Design Doc>>-p.27,
+                                                                                     {jira}/TZPC-582[TZPC-582],
+                                                                                     {jira}/TZPC-715[TZPC-715]
+|Default state: Top bar                   | Top bar default state        | P1       |<<designDocument,Design Doc>>-p.5/6 
+|Default state: Recent files              | Recent files area state      | P3       |<<designDocument,Design Doc>>-p.6/30,
+                                                                                     {jira}/TZPC-716[TZPC-716]
+|Default state: Widgets                   | Widgets state                | P3       |<<designDocument,Design Doc>>-p.6 
+|Organise: Drag & Drop apps               | How to move apps icons on desktop | P2       |<<designDocument,Design Doc>>-p.7,
+                                                                                     {jira}/TZPC-522[TZPC-522],
+																												 {jira}/TZPC-585[TZPC-585]
+|Organise: Drag & Drop widgets            | How to move widgets on desktop | P2       |<<designDocument,Design Doc>>-p.8,
+																												 {jira}/TZPC-584[TZPC-584]
+|Application mode: categories	            | Search apps by category      | P2       |<<designDocument,Design Doc>>-p.10,
+                                                                                     {jira}/TZPC-521[TZPC-521],
+																												 {jira}/TZPC-579[TZPC-579]
+|Application mode: search                 | Search apps by pattern       | P2       |<<designDocument,Design Doc>>-p.10,
+                                                                                     {jira}/TZPC-581[TZPC-581],
+																												 {jira}/TZPC-751[TZPC-751],
+																												 {jira}/TZPC-752[TZPC-752] [red]#(dup of TZPC-751 ?)#,
+																												 {jira}/TZPC-753[TZPC-753],
+																												 {jira}/TZPC-754[TZPC-754],
+																												 {jira}/TZPC-766[TZPC-766] (postponed),
+																												 {jira}/TZPC-767[TZPC-767] (postponed)
+|Application mode: pagination             | Pagination in search results | P1       |<<designDocument,Design Doc>>-p.10 
+|Application mode: active apps            | Show active apps, switch/close apps | P1       |<<designDocument,Design Doc>>-p.10/11/12/17,
+                                                                                     {jira}/TZPC-757[TZPC-757]
+|Settings: add/remove/find apps           | Organize apps on desktop     |  P2       |<<designDocument,Design Doc>>-p.21 
+|Settings: add/remove/find widgets        | Organize widgets on desktop  | P2       |<<designDocument,Design Doc>>-p.22
+|Settings: add/remove/find recent files   | Adjust recent files area behaviour | P2       |<<designDocument,Design Doc>>-p.23
+|Settings: background wallpaper           | Change desktop background    | P2       |<<designDocument,Design Doc>>-p.24,
+                                                                                     {jira}/TZPC-717[TZPC-717] (postponed)
+|Widget: weather                          | Local weather widget         | P3       |<<designDocument,Design Doc>>-p.28,
+                                                                                     {jira}/TZPC-49[TZPC-49],
+																												 {jira}/TZPC-876[TZPC-876]
+|Widget: Contacts                         | Contacts Widget (March 2013) | P3       |{jira}/TZPC-524[TZPC-524],
+                                                                                     {jira}/TZPC-590[TZPC-590]
+|Widget: Audio player remote              | Audio player control widget (March 2013) | P3       |{jira}/TZPC-523[TZPC-523],
+                                                                                     {jira}/TZPC-993[TZPC-993] 
+|Widget: Twitter feeds                    | Twitter widget (March 2013) | P3       |{jira}/TZPC-527[TZPC-527],
+                                                                                     {jira}/TZPC-942[TZPC-942]
+|Widget: Facebook feeds                   | Facebook widget (March 2013) | P3       |{jira}/TZPC-527[TZPC-527]
+|Widget: Stocks                           | Stock widget (on hold)       | P3       |<<designDocument,Design Doc>>-p.29,
+                                                                                     {jira}/TZPC-50[TZPC-50],
+																												 {jira}/TZPC-1007[TZPC-1007]
+|Widget: News Headlines                   | News Widget (postponed, [red]#specs needed - see {jira}/TZPC-1158[TZPC-1158]#) | P3       |{jira}/TZPC-526[TZPC-526]
+|Widget: Photo feeds                      | Photo Widget (postponed, [red]#specs needed - see {jira}/TZPC-1159[TZPC-1159]#)  | P3       |{jira}/TZPC-528[TZPC-528]
+|Widget: RSS Feeds                        | RSS Feeds (postponed), [red]#specs needed - see {jira}/TZPC-1160[TZPC-1160]#) | P3       |{jira}/TZPC-525[TZPC-525]
+|Windowing Area: application in focus     | How the application in focus is displayed | P1       |<<designDocument,Design Doc>>-p.32
+|Theme: colors, background ...			   | [red]#specs needed - see {jira}/TZPC-211[TZPC-211]#  | P1			|{jira}/TZPC-40[TZPC-40],
+                                                                                     {jira}/TZPC-48[TZPC-48],
+                                                                                     {jira}/TZPC-211[TZPC-211],
+                                                                                     {jira}/TZPC-212[TZPC-212] 
+|===================================================================================================================
+
+NOTE: Jira Features have been analysed using the filter given at the <<jirafilter,end of this document>>. At the time of writing, the feature with the highest number is TZPC-768. For future revisions, all features with number > 768 should be considered too.
+
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+The {componentName} is designed specifically for Tizen PC and must be considered as private. Given this assumption, any feature should be tested internally.
+
+The following table describes features *not* to be tested:
+
+.Non tested features
+[width="100%",cols="2,4,9",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id          | Description                  | Comment
+//------------------------------------------------------------------------------------------------------------------
+|||[red]#None (yet)# 
+|===================================================================================================================
+
+== Test Strategy and Approach 
+
+// Instructions:
+// Describe how the component will be tested.
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+The test will be focused on:
+--
+. Graphical user interface (GUI) testing, which means how the homescreen looks like (non exhaustive list):
+** Background image fits the screen size
+** Grammatical or spelling errors
+** Content is logical and easy to understand, intuitive
+** All fonts have the same size/color, and from a screen to another
+** Menus are properly aligned
+** Navigation between different user interface controls (buttons, text boxes, combo boxes, dropdown lists etc.)
+** Application navigation through tab
+** ...
+
+. Usability testing:
+** Does the homescreen is clear enough for intended end user
+** Assure that option boxes, option buttons, and command buttons are logically grouped together
+** Does the homescreen have a consistent, clearly recognizable “look-&-feel”
+
+. Functional testing:
+** The main objective is to determine whether each functional requirement is well implemented.
+** We will associate executable test cases to functional requirements, in order to confirm the homescreen satisfies the requirements.
+** We will validate the user experience as described in Flow Chart (non exhaustive list):
+*** Check that menus redirect to the right screen
+*** Check Top menu bar contains home screen button, applications button, active application area, clock, system status area and user menu.
+*** Check the message tray works like a current Gnome shell
+*** The home grid system (size and padding), test when changing the resolution
+*** Home is selected by default when booting and remains in background
+*** Setup more than 1 home screen, the current home screen is indicated via pagination
+*** ...
+** We will test some widgets:
+*** installation
+*** launch
+*** briefly test of key functionalities
+*** close
+--
+ 
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+Several test levels will be needed. It will reflect the test priority of features.
+
+We will test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+
+Unit test and integration testing are not covered in this test plan.
+
+We will focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+
+We will determine if the requirements of a specification are met. It will involve physical tests, performance tests and black-box testing performed on the system (for example: a piece of software) prior to its delivery.
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a sanity test reflect the most important functionality, stability and PnP of the distribution.
+
+We will briefly test the key functionalities of the homescreen to assure that it works roughly as expected. This is often prior to a more exhaustive round of testing.
+
+About 5 test cases will be developed and run frequently to determine whether it is reasonable to proceed with further testing.
+
+==== Feature Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+
+We will check:
+--
+* if possible that each operation in the software is executed once
+* Interaction between two operations is reduced
+--
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+
+//==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+//==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload.
+
+==== Stability Test
+
+// Instructions:
+// Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+
+We want to see if the software can continuously function well in or above an acceptable period.
+
+==== Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+We will check if the user interface is easy to use and understand. Its concerns the use of the homescreen and its functionalities.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+// Instructions:
+//
+
+Usually, integration tests are performed to ensure that multiple software blocks can work together globally, given that each block was previously validated by unit tests. The goal is to validate a correct interaction between all components. 
+
+In the case of Homescreen validation, integration tests are not needed because:
+--
+* the test process is not very easy to apply
+* and furthermore, all components are already covered by functional tests.
+--
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+//==== Interopeability Test
+
+// Instructions:
+//
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+// functional_positive|functional_negative|security|performance|reliability|portability|maintainability|user_experience|compliance|
+
+The following test types will be used:
+--
+* Functional positive and negative
+* Performance
+* Reliability
+* User experience
+* Compliance to design documents
+--
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+==== White-box tests
+
+Introspection into Tizen Shell / Gnome Shell should be used for:
+--
+* compliance test (getting graphical aspect of various components to check compliance)
+* functional tests
+--
+
+==== Black-box tests
+
+Should be used for:
+--
+* functional tests
+* use case testing
+* performance tests
+* User experience
+--
+
+//=== Flexibility
+
+// Instructions:
+// Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+NOTE: [red]#TODO# More specifications and research are needed for that. One promising method would be to use the javascript interpreter (embedded in Gnome) for introspection (check UI design) and actions (simulate user interactions).
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+IMPORTANT: The following test cases cover all the features to be tested except Widgets and Theming where specifications are missing. [red]#TODO#: complete these testcases given existing specifications.
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_homescreen.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::common/test_exec.asciidoc[]
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Design, development and implementation of testing is limited by:
+--
+* missing documentations: guidelines for theming and colors, guidelines for some future widgets
+* as seen in engineering review, iterations for the visual design and UI are expected
+* technical limitations for automation of some tests
+--
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role          			| Contact               
+//---------------------------------------------------------------------------------------------
+|Architect	            | [red]#TBD#
+|Designer  	            | {claire}
+|Engineering Manager    | {paul}
+|Developers	            | Collabora
+|PM			            | {hirally}
+|Marketing	            | 
+|Test planning and test case Lead | {yann}
+|QA			            | {red}#TBD#
+|QA Conformance			| {red}#TBD#
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+Requirements:
+--
+* [red]#No PRD yet#
+[[jirafilter]]
+* https://tz.otcshare.org/jira/secure/IssueNavigator.jspa?mode=hide&requestId=14352[Jira Filter "Homescreen Req"]
+--
+
+Design documents:
+--
+* {designDocumentUrl}
+* Tizen Guidelines and Colors: [red]#No document yet#
+--
+
+include::common/references.asciidoc[]

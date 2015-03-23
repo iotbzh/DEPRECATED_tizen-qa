@@ -1,0 +1,55 @@
+= INTRO(1qa)
+
+== NAME
+
+intro - introduction to user commands of QA TIZEN
+
+== SYNOPSIS
+
+This is an introduction to QA TIZEN.
+
+== DESCRIPTION
+
+*QATIZEN* is a set of tools created for the purpose of Quality Assurance
+inside the TIZEN project. 
+
+This set of tools was built to circumvent some limitations of the 
+available tools and to improve the efficiency of the initial QA team.
+
+The tools cover the following task needs:
+
+* create and manage Test Cases, Test Set and Test Suite
+* generate Test Plans
+* export to Enterprise Tester
+* import from Entreprise Tester
+* manage Tizen images
+* manage tested targets
+* launch tests (manual and/or automatic)
+* integrate TestKit and Cats in the QA toolchain
+
+The previous tasks are summarized in groups
+of activities below.
+
+=== Browsing, editing test cases and producing test plans
+
+The database of tests is described in *QADB(5qa)* and *QAMETA(5qa)*.
+
+To browse and edit the test cases, you can use a text editor or
+you can use *tcbrowse(1qa)*.
+
+To produce the test plans, there are several operations
+to make. It is detailed in *QATP(5qa)*.
+
+=== Importing from and exporting to Enterprise Tester
+
+You can export or import parts of the database, precisely the test cases,
+using the commands *qaexport*, *qaimport*, *export_ET*.
+
+
+
+== SEE ALSO
+
+tcbrowse(1qa), qaexport(1qa), qaimport(1qa), export_ET(1qa), qamanager(1qa), 
+intro(5qa), QATP(5qa), QADB(5qa), QAMETA(5qa)
+
+

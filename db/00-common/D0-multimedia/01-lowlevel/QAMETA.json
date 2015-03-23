@@ -1,0 +1,54 @@
+[
+  {
+    "name": "gst-pulseaudio-plugin",
+    "exec_type": "auto",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The pulseaudio plugin of GStreamer is available",
+    "description": "Inspect the installed capacities of GStreamer and check that it includes a pulseaudio plugin.",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "gst-inspect-1.0 pulseaudio",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "gstreamer-utils"
+    },
+    "author": "qadmin",
+    "ctime": "2013-03-20 09:41:13 GMT",
+    "mtime": "2014-01-31 09:54:24 GMT"
+  },
+  {
+    "name": "vaapi-installed",
+    "exec_type": "auto",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "component for video acceleration are used through va-api",
+    "description": "use a va-api tool to check that va-api is available",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "vainfo",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "vaapi-tools"
+    },
+    "author": "qadmin",
+    "ctime": "2014-01-31 09:54:05 GMT",
+    "mtime": "2014-01-31 11:29:37 GMT"
+  }
+]

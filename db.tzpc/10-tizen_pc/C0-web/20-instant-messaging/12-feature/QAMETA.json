@@ -1,0 +1,4998 @@
+[
+ {
+  "name": "connect-behind-proxy",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while behind automatic proxy",
+  "description": "We want to make sure we can connect and sign in successfully with automatic proxy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect with automatic proxy settings\nAutomatic proxy is configured in connman settings\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "connect-behind-proxy",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while behind manual proxy",
+  "description": "We want to make sure we can connect and sign in successfully with manual proxy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect with manual proxy settings\nManual proxy is configured in connman settings\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "connect-behind-proxy",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while behind no proxy",
+  "description": "We want to make sure we can connect and sign in successfully with no proxy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect without proxy settings\nNo proxy is configured in connman settings\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while connected via wire",
+  "description": "We want to make sure we can connect and sign in successfully while connected via wire",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via wire\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while connected via wireless - WiFi",
+  "description": "We want to make sure we can connect and sign in successfully while connected via WiFi",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via WiFi\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while connected via wireless - 3G",
+  "description": "We want to make sure we can connect and sign in successfully while connected via 3G",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via 3G\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect and sign in while connected via wireless - BT (PAN)",
+  "description": "We want to make sure we can connect and sign in successfully while connected via BT (PAN)",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via BT (PAN) (connect to a BT device which share connection to Internet)\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection and session are established successfully"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while wire is disconnected",
+  "description": "We want to make sure application informs user about network failure when wire disconnected",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via wire\nWire is disconnected\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while WiFi router is powered off",
+  "description": "We want to make sure application informs user about network failure when WiFi router disconnected",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via WiFi\nPower off WiFi router\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while network interface is down (eth)",
+  "description": "We want to make sure application informs user about network failure when network interface is down (eth)",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via wire\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Execute command",
+    "expected": "ifdown ethX (permissions are needed, X is to be filled)"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while network interface is down (wlan)",
+  "description": "We want to make sure application informs user about network failure when network interface is down (wlan)",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via WiFi\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Execute command",
+    "expected": "ifdown wlanX (permissions are needed, X is to be filled)"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while 3G data is no activated",
+  "description": "We want to make sure application informs user about network failure when 3G data is not activated",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via 3G\nConnected to network\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Turn off 3G data from connection manager settings",
+    "expected": ""
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "work-with-connman",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Connect and sign in while account associated to the SIM has no more credit",
+  "description": "We want to make sure application informs user about network failure when account associated to the SIM has no more credit",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Network is configured to be able to connect via 3G\nConnected to network\nAccount associated to the SIM has no more credit\nRegistered to any IM service\nA valid account created\nSigned out",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Select an account and sign in",
+    "expected": "Connection is not established, user is notified"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check pre-conditions for IRC",
+  "description": "We want to make sure telepathy-idle and empathy version allow IRC",
+  "notes": "IRC is to be confirmed",
+  "bugs": "",
+  "pre_condition": "",
+  "steps": [
+   {
+    "description": "Execute command: find / -name *telepathy-idle*",
+    "expected": "You need to have telepathy-idle installed"
+   },
+   {
+    "description": "Check empathy version",
+    "expected": "empathy 2.30 or above is installed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create an IRC account",
+  "description": "We want to make sure we can create an IRC account",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available",
+  "steps": [
+   {
+    "description": "Create a new account",
+    "expected": "-"
+   },
+   {
+    "description": "Select the service IRC",
+    "expected": "-"
+   },
+   {
+    "description": "Add a new IRC server",
+    "expected": "-"
+   },
+   {
+    "description": "Enter server name (e.g. Intel IRC), select Character set (Unicode UTF-8), add server address (e.g. otcirc.jf.intel.com), enter port (6697), configure SSL (Check it)",
+    "expected": "New IRC server is added"
+   },
+   {
+    "description": "Enter a nickname and valid",
+    "expected": "Account is created"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect to IRC server",
+  "description": "We want to make sure we can connect to IRC server",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created",
+  "steps": [
+   {
+    "description": "Select IRC account",
+    "expected": "-"
+   },
+   {
+    "description": "Connect",
+    "expected": "Connection is established successfully, status becomes available"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Join a Room",
+  "description": "We want to make sure we can join a Room",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected",
+  "steps": [
+   {
+    "description": "Join a room (e.g. #tizen)",
+    "expected": "Room is joined, you see available buddies"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Set a new nickname",
+  "description": "We want to make sure we can set a new nickname while room is joined",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Edit IRC account",
+    "expected": "-"
+   },
+   {
+    "description": "Set a new nickname and save",
+    "expected": "You are disconnected. New nickname is saved in account settings and updated in IRC room"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Set a new nickname with command line",
+  "description": "We want to make sure we can set a new nickname via a command line while room is joined",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Send the message: \"/nick <my new nickname>\"",
+    "expected": "A confirmation message is displayed in chat. New nickname is updated in IRC room."
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Update Alias",
+  "description": "We want to make sure we can set a new Alias while room is joined",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Update Alias in account details",
+    "expected": "A validation message is displayed in chat. New nickname is updated in IRC room."
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send a message",
+    "expected": "Message is displayed in the chat. It is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send a message via a command line",
+  "description": "We want to make sure we can send message via a command line",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send the message: \"/me <this is a test message>\"",
+    "expected": "Message is displayed in the chat. It is received by clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Join another room",
+  "description": "We want to make sure we can join another room",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Join another room via menu (e.g. #audio)",
+    "expected": "New room is joined. The last room joined is still active"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Join a room via a command line",
+  "description": "We want to make sure we can set a new nickname via a command line while room is joined",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Send the message, e.g.: \"/j #audio\"",
+    "expected": "New room is joined. The last room joined is still active"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send a private message",
+  "description": "We want to make sure we can send a private message",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send a private message to buddyB",
+    "expected": "Message is displayed in the chat. It is received by clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send a private message via msg command line",
+  "description": "We want to make sure we can send message via a command line",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send the message: \"/msg <buddyB> <this is a private test message>\"",
+    "expected": "Message is displayed in a private chat. It is received by clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send a private message via query command line",
+  "description": "We want to make sure we can send message via a command line",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send the message: \"/query <buddyB> <this is a private test message>\"",
+    "expected": "Message is displayed in a private chat. It is received by clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Clear all messages from the current conversation",
+  "description": "We want to make sure we can clear all messages from the current conversation",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room\nYou send and receive several messages to and from UserB",
+  "steps": [
+   {
+    "description": "Send the message: \"/clear\"",
+    "expected": "Conversation is cleared"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Set the topic of the current conversation",
+  "description": "We want to make sure we can set the topic of the current conversation",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Send the message: \"/topic <this is the topic>\"",
+    "expected": "Topic of the conversation is set"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Display information about a contact",
+  "description": "We want to make sure we can display information about a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send the message: \"/whois <buddyB>\"",
+    "expected": "ContactB details are displayed (e.g.: identifier, alias, full name, last seen, server, away message, channels)"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Display help",
+  "description": "We want to make sure we can display help",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "Send the message: \"/help\"",
+    "expected": "All supported commands are shown"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Leave the chat room",
+  "description": "We want to make sure we can leave the chat room",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Leave the room by closing it",
+    "expected": "-"
+   },
+   {
+    "description": "Valid the confirmation message",
+    "expected": "Room is closed. UserB receives the notification"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Leave a chat room via command line",
+  "description": "We want to make sure we can leave a chat room via command line",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\n2 rooms are joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same rooms",
+  "steps": [
+   {
+    "description": "Send the following message in chat room A: \"/part <chat room id B> <reason message>\"",
+    "expected": "You are disconnected from room B. UserB receives the notification"
+   },
+   {
+    "description": "Send the following message in chat room A: \"/part\"",
+    "expected": "You are disconnected from room A. UserB receives the notification"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Auto-Connect to IRC",
+  "description": "We want to make sure we can Auto-Connect to IRC",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined",
+  "steps": [
+   {
+    "description": "In manage favorites, select IRC account, the room and activate Auto-Connect",
+    "expected": "-"
+   },
+   {
+    "description": "Save",
+    "expected": "New setting is saved"
+   },
+   {
+    "description": "Disconnect IRC account",
+    "expected": "Account is disconnected"
+   },
+   {
+    "description": "Connect IRC account",
+    "expected": "Account is connected. Room is automatically joined"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Select your avatar image",
+  "description": "We want to make sure we can select an avatar image",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "In account details select an avatar image",
+    "expected": "Avatar image is saved"
+   },
+   {
+    "description": "On clientB check the avatart",
+    "expected": "UserB sees your new avatar"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Create an IRC account with invalid settings",
+  "description": "We want to make sure we can create an IRC account",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available",
+  "steps": [
+   {
+    "description": "Create a new account",
+    "expected": "-"
+   },
+   {
+    "description": "Select the service IRC",
+    "expected": "-"
+   },
+   {
+    "description": "Add a new IRC server",
+    "expected": "-"
+   },
+   {
+    "description": "Enter server name (e.g. Intel IRC), select Character set (Unicode UTF-8), add server address (e.g. google.fr), enter port (9999), configure SSL (Check it)",
+    "expected": "New IRC server is added"
+   },
+   {
+    "description": "Enter a nickname and sign in",
+    "expected": "User is notified about a sign in failure"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Join and leave a Room intensively",
+  "description": "We want to make sure we can join and leave a Room intensively",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM appication is launched\nService IRC is available\nIRC account is created\nConnected",
+  "steps": [
+   {
+    "description": "Join a room (e.g. #tizen)",
+    "expected": "Room is joined, you see available buddies"
+   },
+   {
+    "description": "Leave the room (via UI or command line)",
+    "expected": "Room is left"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Send and receive messages intensively",
+  "description": "We want to make sure we can send and receive messages to/from contactB intensively",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB is logged in to the same IRC using a clientB (e.g. Pidgin)\nContactB joined the same room",
+  "steps": [
+   {
+    "description": "Send a message",
+    "expected": "Message is displayed in the chat. It is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message",
+    "expected": "Message from userB is received and displayed"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "IRC",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Send and receive messages intensively to/from several contacts",
+  "description": "We want to make sure we can send and receive messages intensively to/from several contacts",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IRC account is created\nConnected\nRoom is joined\nUserB, UserC, UserD, UserE are logged in to the same IRC using a clientB, cleintC, clientD, clientE (e.g. Pidgin)\nContactB, ContactC, ContactD, ContactE joined the same room",
+  "steps": [
+   {
+    "description": "Send a message",
+    "expected": "Message is displayed in the chat. It is received by clientB, clientC, clientD, clientE"
+   },
+   {
+    "description": "On clientB, send a message",
+    "expected": "Message from userB is received and displayed"
+   },
+   {
+    "description": "On clientC, send a message",
+    "expected": "Message from userC is received and displayed"
+   },
+   {
+    "description": "On clientD, send a message",
+    "expected": "Message from userD is received and displayed"
+   },
+   {
+    "description": "On clientE, send a message",
+    "expected": "Message from userE is received and displayed"
+   },
+   {
+    "description": "Repeat all previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a message while IM application is not launched",
+  "description": "We want to make sure a notification box is displayed when receiving a message while IM application is not launched",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "A notification box appears, the message is displayed. Username and avatar of buddyB are shown"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive and send a message via the notification box",
+  "description": "We want to make sure instant messages appear as a notification box at the bottom of the screen which may be used directly for chatting",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "A notification box appears, the message is displayed"
+   },
+   {
+    "description": "Send a message to buddyB via the notification box",
+    "expected": "The message is displayed in the notification box, message is received by clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a VoIP audio call via the notification box",
+  "description": "We want to make sure incoming audio call appear as an \"Accept/Decline?\" notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP audio call)",
+    "expected": "A notification box appears with accept/decline. Username and avatar of buddyB are shown"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a VoIP video call via the notification box",
+  "description": "We want to make sure incoming video call appear as an \"Accept/Decline?\" notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP video call)",
+    "expected": "A notification box appears with accept/decline. Username and avatar of buddyB are shown"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Accept a VoIP audio call via the notification box",
+  "description": "We want to make sure we can accept an incoming audio call from the notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP audio call)",
+    "expected": "-"
+   },
+   {
+    "description": "On IM application, accept the VoIP audio call from the notification box",
+    "expected": "Call with buddyB dialog is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Accept a VoIP video call via the notification box",
+  "description": "We want to make sure we can accept an incoming video call from the notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP video call)",
+    "expected": "-"
+   },
+   {
+    "description": "On IM application, accept the VoIP video call from the notification box",
+    "expected": "Call with buddyB dialog is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Reject a VoIP audio call via the notification box",
+  "description": "We want to make sure we can reject an incoming audio call from the notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP audio call)",
+    "expected": "-"
+   },
+   {
+    "description": "On IM application, reject the VoIP audio call",
+    "expected": "VoIP audio call is rejected. UserB is notified (depending on clientB)"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Reject a VoIP video call via the notification box",
+  "description": "We want to make sure we can reject an incoming video call from the notification dialog",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, call buddyA (VoIP video call)",
+    "expected": "-"
+   },
+   {
+    "description": "On IM application, reject the VoIP video call",
+    "expected": "VoIP video call is rejected. UserB is notified (depending on clientB)"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive and send a message with emoticones via the notification box",
+  "description": "We want to make sure instant messages appear as a notification box with emoticones",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA with emoticones",
+    "expected": "A notification box appears, the message is displayed with emoticones"
+   },
+   {
+    "description": "Send a message to buddyB via the notification box with emoticones ( e.g. :) - :( - ;) - |) )",
+    "expected": "The message is displayed in the notification box with emoticones, message is received by clientB (emoticones are displayed depending in clientB)"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive and send messages via the notification box and scroll the chat",
+  "description": "We want to make sure we can scroll the notification box at the bottom of the screen",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "A notification box appears, the message is displayed"
+   },
+   {
+    "description": "Send a message to buddyB via the notification box",
+    "expected": "The message is displayed in the notification box, message is received by clientB"
+   },
+   {
+    "description": "Repeat steps 2 and 3 several times",
+    "expected": "Messages are displayed with latest messages at the bottom"
+   },
+   {
+    "description": "Scroll the chat",
+    "expected": "You can scroll to see older messages"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Receive messages intensively while IM application is not launched",
+  "description": "We want to make sure a notification box is displayed when receiving messages intensively while IM application is not launched",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "A notification box appears, the message is displayed. Username and avatar of buddyB are shown"
+   },
+   {
+    "description": "On IM application, close the notification box (close it or wait it disappears)",
+    "expected": "Notification box is closed"
+   },
+   {
+    "description": "Repeat steps 2 to 3 intensively",
+    "expected": "Notification box appears and disappears inetnsively. There is no instability."
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Receive and send messages via the notification box intensively",
+  "description": "We want to make sure instant messages appear as a notification box at the bottom of the screen which may be used directly for chatting",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "A notification box appears, the message is displayed"
+   },
+   {
+    "description": "Send a message to buddyB via the notification box",
+    "expected": "The message is displayed in the notification box, message is received by clientB"
+   },
+   {
+    "description": "Repeat steps 2 to 3 intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notification box",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Send and receive messages intensively to/from several contacts while IM application is not launched",
+  "description": "We want to make sure we can send and receive messages intensively to/from several contacts via the notification box",
+  "notes": "Need to clarify how many notification boxes can be displayed and how?",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB, UserC, UserD, UserE are registered to the same IM service\nUserB, UserC, UserD, UserE are logged in to the same IM service using a clientB, cleintC, clientD, clientE (e.g. Pidgin, Yahoo Messenger ...)\nContactB, ContactC, ContactD, ContactE are added in the contact list of UserA",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message from userB is received and displayed via the notification box"
+   },
+   {
+    "description": "On clientC, send a message to buddyA",
+    "expected": "Message from userC is received and displayed via a notification box"
+   },
+   {
+    "description": "On clientD, send a message to buddyA",
+    "expected": "Message from userD is received and displayed via a notification box"
+   },
+   {
+    "description": "On clientE, send a message to buddyA",
+    "expected": "Message from userE is received and displayed via a notification box"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "People Nearby",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - People Nearby",
+  "description": "We want to make sure we can create a Nearby account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Nearby",
+    "expected": "Image of the service is displayed with fields"
+   },
+   {
+    "description": "Enter First name, last name, nickname",
+    "expected": "-"
+   },
+   {
+    "description": "Valid/Sign in",
+    "expected": "Account is created"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "People Nearby",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - People Nearby",
+  "description": "We want to make sure we can send and receive a message to/from contactB - People Nearby",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Connected to network\nPeople Nearby account created\nSigned in as UserA\nUserB has also created a People Nearby account\nUserB is logged in using a clientB\nClientB is connected to the same network",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "People Nearby",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - People Nearby",
+  "description": "We want to make sure we can update presence and see contacts' presence - People Nearby",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Connected to network\nPeople Nearby account created\nSigned in as UserA\nUserB has also created a People Nearby account\nUserB is logged in using a clientB\nClientB is connected to the same network",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "People Nearby",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share alias with contactB - People Nearby",
+  "description": "We want to make sure we can update alias and see contacts' alias - People Nearby",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Connected to network\nPeople Nearby account created\nSigned in as UserA\nUserB has also created a People Nearby account\nUserB is logged in using a clientB\nClientB is connected to the same network",
+  "steps": [
+   {
+    "description": "On clientB, update the alias with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the alias of buddyB",
+    "expected": "On device, new alias of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the alias with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the alias of buddyA",
+    "expected": "On clientB, the new alias status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove accounts",
+  "description": "We want to make sure we can remove accounts",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nSeveral valid account created\nSigned in as UserA\nUserB is registered to one IM identical service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove an account while not signed in to the associated service, valid the confirmation dialog",
+    "expected": "Account is removed"
+   },
+   {
+    "description": "Remove an account while signed in to the associated service and with an online contact (contactB), valid the confirmation dialog",
+    "expected": "Account is removed. UserB show buddyA as offline"
+   },
+   {
+    "description": "Remove an account, cancel the confirmation dialof",
+    "expected": "Account is not removed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create account and authorize the system to access to your data - Facebook",
+  "description": "We want to make sure the system access data when authorized",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\nConnected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Facebook",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "Authorize the system to access to the Facebook account",
+    "expected": ""
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create account and authorize the system to access to your data - Twitter",
+  "description": "We want to make sure the system access data when authorized",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Twitter service\nConnected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Twitter",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "Authorize the system to access to the Facebook account",
+    "expected": ""
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create account and authorize the system to access to your data - Yahoo",
+  "description": "We want to make sure the system access data when authorized",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo service\nConnected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Yahoo",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "Authorize the system to access to the Facebook account",
+    "expected": ""
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create account and authorize the system to access to your data - Google",
+  "description": "We want to make sure the system access data when authorized",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google service\nConnected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Google",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "Authorize the system to access to the Facebook account",
+    "expected": ""
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Deactivate and activate accounts",
+  "description": "We want to make sure we can deactivate and activate accounts",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nUserB, UserC, UserD, UserE are registered to the same IM services\nUserB, UserC, UserD, UserE are logged in to the same IM services using a clientB, cleintC, clientD, clientE (e.g. Pidgin, Yahoo Messenger ...)\nContactB, ContactC, ContactD, ContactE are added in the contact list of UserA",
+  "steps": [
+   {
+    "description": "Deactivate several accounts",
+    "expected": "accounts are deactiavted. UserB, UserC, UserD and UserE see buddyA offline"
+   },
+   {
+    "description": "Activate the accounts",
+    "expected": "accounts are activated. UserB, UserC, UserD and UserE see buddyA online"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Create an account with an unknown userid",
+  "description": "We want to make sure we can create an invalid account and a proper error is displayed",
+  "notes": "The error details depends on the IM service",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network",
+  "steps": [
+   {
+    "description": "Create an account with an unknown userid",
+    "expected": "An authentification error is displayed. IM applcation has no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Create an account with an invalid userid",
+  "description": "We want to make sure we can create an invalid account and a proper error is displayed",
+  "notes": "The error details depends on the IM service",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network",
+  "steps": [
+   {
+    "description": "Create an account with an invalid userid (e.g. testatyahoo.fr or test@yahoo)",
+    "expected": "An incorrect userID error is displayed. IM applcation has no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Create an account with invalid password",
+  "description": "We want to make sure we can create an invalid account and a proper error is displayed",
+  "notes": "The error details depends on the IM service",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network",
+  "steps": [
+   {
+    "description": "Create an account with a valid userid and an invalid password",
+    "expected": "An authentification error is displayed. IM applcation has no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Create an account with invalid settings",
+  "description": "We want to make sure we can create an invalid account and a proper error is displayed",
+  "notes": "The error details depends on the IM service",
+  "bugs": "",
+  "pre_condition": "Connected to network",
+  "steps": [
+   {
+    "description": "Create an account with invalid advanced settings (wrong server URL, wrong port)",
+    "expected": "An error or timeout is displayed. IM applcation has no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Create and remove accounts intensively",
+  "description": "We want to make sure we can create and remove accounts intensively",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network",
+  "steps": [
+   {
+    "description": "Create a valid account to any IM service",
+    "expected": "Account is created successfully"
+   },
+   {
+    "description": "Remove the account while signed in to the associated service, valid the confirmation dialog",
+    "expected": "Account is removed"
+   },
+   {
+    "description": "Create a valid account to another IM service",
+    "expected": "Account is created successfully"
+   },
+   {
+    "description": "Remove the account while signed in to the associated service, valid the confirmation dialog",
+    "expected": "Account is removed"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Gnome Online Accounts",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Deactivate and activate accounts intensively",
+  "description": "We want to make sure we can deactivate and activate accounts intensively",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nUserB is registered to the same IM services\nUserB is logged in to the same IM services using a clientB\nContactB is added in the contact list of UserA",
+  "steps": [
+   {
+    "description": "Deactivate an account",
+    "expected": "account is deactivated. UserB sees buddyA offline"
+   },
+   {
+    "description": "Activate the account",
+    "expected": "account is activated. UserB sees buddyA online"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - Facebook",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Facebook service\nContactB is added as a friend of UserA",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   },
+   {
+    "description": "Connect to your Facebook account from Web Browser",
+    "expected": "-"
+   },
+   {
+    "description": "Check the friends",
+    "expected": "The contact removed was not deleted from the Facebook account"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - Gtalk",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Google Talk service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - Jabber",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber Talk service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Jabber Talk service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - Yahoo",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Yahoo service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - AIM",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to AIM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - Skype",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Skype service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact - QQ",
+  "description": "We want to make sure we can remove a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to QQ service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Remove a contact from the contact list",
+    "expected": "contact is removed from the contact list"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check contact list",
+    "expected": "the contact removed is not in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - Gtalk",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Google Talk service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - Jabber",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber Talk service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Jabber Talk service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - Yahoo",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Yahoo service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - AIM",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to AIM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - Skype",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to Skype service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Block a contact - QQ",
+  "description": "We want to make sure we can block a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to QQ service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Block buddyB",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is not received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is not updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is blocked"
+   },
+   {
+    "description": "Unblock buddyB",
+    "expected": "buddyB is unblocked"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message is received on IM application"
+   },
+   {
+    "description": "On clientB, update presence",
+    "expected": "New presence status is  updated on IM application"
+   },
+   {
+    "description": "Sign out and sign in (deactive-active account)",
+    "expected": "-"
+   },
+   {
+    "description": "Check the contacts blocked (the block list)",
+    "expected": "buddyB is not blocked"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Search contacts",
+  "description": "We want to make sure we can search contacts",
+  "notes": "Search functionality depends on IM service",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nSeveral users are registered to the same IM services",
+  "steps": [
+   {
+    "description": "Search existing contacts using nichname",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Search existing contacts using email address",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Repeat previous steps using different IM accounts",
+    "expected": "Contacts found are listed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Search unknown contacts",
+  "description": "We want to make sure user is notified when no result is found when searching contacts",
+  "notes": "Search functionality depends on IM service",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nSeveral users are registered to the same IM services",
+  "steps": [
+   {
+    "description": "Search a non existing contacts",
+    "expected": "There is no result"
+   },
+   {
+    "description": "Repeat previous step using different IM accounts",
+    "expected": "There is no result"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Search contacts with wildcards",
+  "description": "We want to make sure we can search contacts using wildcards",
+  "notes": "Search functionality using wildcards depends on IM service",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nSeveral users are registered to the same IM services",
+  "steps": [
+   {
+    "description": "Search existing contacts using * (e.g. intelchat*)",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Search existing contacts using ? (e.g. intelchat?@gmail.com)",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Repeat previous steps using different IM accounts",
+    "expected": "Contacts found are listed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Search contacts intensively",
+  "description": "We want to make sure we can search contacts intensively",
+  "notes": "Search functionality depends on IM service",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nValid accounts created\nSigned in as UserA\nSeveral users are registered to the same IM services",
+  "steps": [
+   {
+    "description": "Search existing contacts using email address",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Repeat previous steps using different IM accounts",
+    "expected": "Contacts found are listed"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Send and receive messages intensively",
+  "description": "We want to make sure we can send and receive messages to/from contactB intensively",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nContactB is added in the contact list of UserA\nUserB is logged in using a clientB\nContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is displayed in the chat. It is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message from userB is received and displayed"
+   },
+   {
+    "description": "Repeat previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Standard IM funtionnalities",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Send and receive messages intensively to/from several contacts",
+  "description": "We want to make sure we can send and receive messages intensively to/from several contacts",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to several IM services\nConnected to network\nSeveral valid accounts created\nSigned in as UserA\nUserB, UserC, UserD, UserE are registered in to the same IM services\nThey are logged in using a clientB, cleintC, clientD, clientE (e.g. Pidgin)\nContactB, ContactC, ContactD, ContactE are in the contact list",
+  "steps": [
+   {
+    "description": "Send a message to all the contacts",
+    "expected": "Messages are displayed in the different chats. They are received by associated 3rd party IM clients"
+   },
+   {
+    "description": "On clientB, send a message to buddyA",
+    "expected": "Message from userB is received and displayed"
+   },
+   {
+    "description": "On clientC, send a message to buddyA",
+    "expected": "Message from userC is received and displayed"
+   },
+   {
+    "description": "On clientD, send a message to buddyA",
+    "expected": "Message from userD is received and displayed"
+   },
+   {
+    "description": "On clientE, send a message to buddyA",
+    "expected": "Message from userE is received and displayed"
+   },
+   {
+    "description": "Repeat all previous steps intensively",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Contact list",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Show and Hide offline contacts",
+  "description": "We want to make sure we can Show and Hide offline contacts",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nSeveral contacts are added in the contact list\nSome of them are offline",
+  "steps": [
+   {
+    "description": "Configure Show offline contacts",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Check the contact list",
+    "expected": "Offline contacts are displayed in the contact list"
+   },
+   {
+    "description": "Configure Hide offline contacts",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Check the contact list",
+    "expected": "Offline contacts are no more displayed in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Contact list",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Show and Hide groups",
+  "description": "We want to make sure we can Show and Hide groups",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nA valid account created\nSigned in as UserA\nSeveral contacts are added in the contact list\nSeveral groups are created\nContacts are associated to the groups",
+  "steps": [
+   {
+    "description": "Configure Show groups",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Check the contact list",
+    "expected": "Groups are displayed in the contact list"
+   },
+   {
+    "description": "Configure Hide groups",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Check the contact list",
+    "expected": "Groups are no more displayed in the contact list"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Chat",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start chats in new tabs - new windows",
+  "description": "We want to make sure we can start chats in new tabs or new windows",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM services\nConnected to network\nSeveral valid accounts created\nSigned in as UserA\nUserB and UserC are registered to the same IM services\nThey are logged in using a clientB, and clientC (e.g. Pidgin)\nContactB and ContactC are in the contact list",
+  "steps": [
+   {
+    "description": "Configure Start chats in new tabs",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a chat with a contact",
+    "expected": "Chat is started in a new tab"
+   },
+   {
+    "description": "Configure Start chats in new windows",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a chat with a contact",
+    "expected": "Chat is started in a new window"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Chat",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Show smileys as images - text",
+  "description": "We want to make sure we can show smileys as images or text",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Show smileys as images",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Send a message to contactB with smileys",
+    "expected": "Smileys are displayed as image"
+   },
+   {
+    "description": "Receive a message from contactB with smileys",
+    "expected": "Smileys are displayed as image"
+   },
+   {
+    "description": "Configure Show smiley as text",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Send a message to contactB with smileys",
+    "expected": "Smileys are displayed as text"
+   },
+   {
+    "description": "Receive a message from contactB with smileys",
+    "expected": "Smileys are displayed as text"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Chat",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Show contact list in rooms",
+  "description": "We want to make sure we can show contact list in rooms",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "IM application is launched\nService IRC is available\nIRC account is created\nConnected",
+  "steps": [
+   {
+    "description": "Configure Show contact list in rooms",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Join a room (e.g. #tizen)",
+    "expected": "Contact list is shown"
+   },
+   {
+    "description": "Close the room",
+    "expected": "-"
+   },
+   {
+    "description": "Configure Hide contact list in rooms",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Join a room (e.g. #tizen)",
+    "expected": "Contact list is not shown"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Chat",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Log conversations",
+  "description": "We want to make sure we can log conversations",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Activate log conversations",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Send and receive messages to/from contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Close the chat and reopen it",
+    "expected": "Conversation is loaded"
+   },
+   {
+    "description": "Open chat history",
+    "expected": "Conversation with contactB is available"
+   },
+   {
+    "description": "Deactivate log conversations",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Send and receive new messages to/from contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Close the chat and reopen it",
+    "expected": "Conversation is loaded without new messages"
+   },
+   {
+    "description": "Open chat history",
+    "expected": "Conversation with contactB is available without the new messages"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Behavior",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Connect automatically on startup",
+  "description": "We want to make sure we can connect automatically on startup",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Automatically connect on startup",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Sign out (deactivate account) and close the application",
+    "expected": "-"
+   },
+   {
+    "description": "Reboot TizenPC",
+    "expected": "-"
+   },
+   {
+    "description": "Check IM application and clientB",
+    "expected": "Sign in to the account is automatic, clientB displays buddyA as online"
+   },
+   {
+    "description": "Deactive Automatically connect on startup",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Sign out (deactivate account) and close the application",
+    "expected": "-"
+   },
+   {
+    "description": "Reboot TizenPC",
+    "expected": "-"
+   },
+   {
+    "description": "Check IM application and clientB",
+    "expected": "You are offile, clientB displays buddyA as offline"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-General Behavior",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Display incoming events in the notification area",
+  "description": "We want to make sure we can display or hide incoming events in the notification area",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Display incoming events in the notification area",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "Message from userb is received and displayed in a notification box"
+   },
+   {
+    "description": "Deactive Display incoming events in the notification area",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "Message from userb is received but not displayed in a notification box"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Disable notifications when away or busy",
+  "description": "We want to make sure we can disable notifications when away or busy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nNotifications box are activated",
+  "steps": [
+   {
+    "description": "Configure Disable notifications when away or busy",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Update status to away",
+    "expected": "-"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "No notification box is displayed"
+   },
+   {
+    "description": "Re-open IM application and update status to available",
+    "expected": "-"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "A notification box is displayed"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Update status to busy",
+    "expected": "-"
+   },
+   {
+    "description": "Repeat steps 3 to 7",
+    "expected": ""
+   },
+   {
+    "description": "Allow notifications when away or busy",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Update status to away",
+    "expected": "-"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "A notification box is displayed"
+   },
+   {
+    "description": "Re-open IM application and update status to available",
+    "expected": "-"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "A notification box is displayed"
+   },
+   {
+    "description": "Re-open IM application and update status to busy",
+    "expected": "-"
+   },
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from userB",
+    "expected": "A notification box is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Enable notifications when the chat is not focused",
+  "description": "We want to make sure we can enable notifications when the chat is not focused",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nUserB and UserC are logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Notifications when the chat is not focused",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Open a chat with contactA",
+    "expected": "-"
+   },
+   {
+    "description": "Open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a message from contactA (while chat with contactA is not focused)",
+    "expected": "Message from UserA is received and displayed via a notification box"
+   },
+   {
+    "description": "Deactivate Notifications when the chat is not focused",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Repaet steps 2 to 4",
+    "expected": "Message from UserA is received. There is no notification box"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Enable notifications when a contact comes online",
+  "description": "We want to make sure we can enable notifications when a contact comes online",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "On clientB, sign out",
+    "expected": "-"
+   },
+   {
+    "description": "Enable notifications when a contact comes online",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "On device, a notification is displayed informing that userB is online"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "-"
+   },
+   {
+    "description": "Disable notifications when a contact comes online",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "On device, there is no notification about online status of userB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Enable notifications when a contact goes offline",
+  "description": "We want to make sure we can enable notifications when a contact goes offline",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Enable notifications when a contact goes offline",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "On device, a notification is displayed informing that userB is offline"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "-"
+   },
+   {
+    "description": "Disable notifications when a contact goes offline",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "On device, there is no notification about offline status of userB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Message received",
+  "description": "We want to make sure we can play sound or not for Message received",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for Message received",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Receive a message from UserB",
+    "expected": "A sound is played"
+   },
+   {
+    "description": "Deactivate Play sound for Message received",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Receive a message from UserB",
+    "expected": "A sound is not played"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Message sent",
+  "description": "We want to make sure we can play sound or not for Message sent",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for Message sent",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Sent a message to userB",
+    "expected": "A sound is played"
+   },
+   {
+    "description": "Deactivate Play sound for Message sent",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Sent a message to userB",
+    "expected": "A sound is not played"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for New conversation",
+  "description": "We want to make sure we can play sound or not for New conversation",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for New conversation",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a new conversation",
+    "expected": "A sound is played"
+   },
+   {
+    "description": "Deactivate Play sound for New conversation",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a new conversation",
+    "expected": "No sound is played"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Contact comes online",
+  "description": "We want to make sure we can play sound or not for Contact comes online",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "On clientB, sign out",
+    "expected": "-"
+   },
+   {
+    "description": "Configure Play sound for Contact comes online",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "On device, a sound is displayed informing that userB is online"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "-"
+   },
+   {
+    "description": "Disable Play sound for Contact comes online",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "On device, there is no sound played when userB comes online"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Contact goes offline",
+  "description": "We want to make sure we can play sound or not for Contact goes offline",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for Contact goes offline",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "On device, a sound is displayed informing that userB is offline"
+   },
+   {
+    "description": "On clientB, sign in",
+    "expected": "-"
+   },
+   {
+    "description": "Disable Play sound for Contact goes offline",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "On clientB, sign out",
+    "expected": "On device, there is no sound played when userB goes offline"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Account connected",
+  "description": "We want to make sure we can play sound or not for Account connected",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for Account connected",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Disable an account",
+    "expected": "-"
+   },
+   {
+    "description": "Enable the account",
+    "expected": "A sound is played when signed in"
+   },
+   {
+    "description": "Disconnect, close IM application",
+    "expected": "-"
+   },
+   {
+    "description": "Launch IM application",
+    "expected": "A sound is played when account signed in"
+   },
+   {
+    "description": "Deactivate Play sound for Account connected",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Disable an account",
+    "expected": "-"
+   },
+   {
+    "description": "Enable the account",
+    "expected": "A sound is not played when signed in"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Sounds",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Play sound for Account disconnected",
+  "description": "We want to make sure we can play sound or not for Account disconnected",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Configure Play sound for Account disconnected",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Disable an account",
+    "expected": "A sound is played when signed out"
+   },
+   {
+    "description": "Enable the account",
+    "expected": "-"
+   },
+   {
+    "description": "Deactivate Play sound for Account disconnected",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Disable an account",
+    "expected": "A sound is not played when signed out"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Calls",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Use echo cancellation to improve call quality",
+  "description": "We want to make sure we can use echo cancellation to improve call quality",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Deactivate echo cancellation to improve call quality",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a VoIP call with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Check audio quality",
+    "expected": "-"
+   },
+   {
+    "description": "End the VoIP call",
+    "expected": "-"
+   },
+   {
+    "description": "Configure echo cancellation to improve call quality",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a VoIP call with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Check audio quality",
+    "expected": "Voice sound is clearer to userB. There is no strange noises on device and clientB. On both device there is no echo, high spitch, glitches, background noise"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Spell checking",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Enable spell checking for language English",
+  "description": "We want to make sure we can use enable and disable spell checking for language English",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Enable spell checking for language English",
+    "expected": "Configuration is saved"
+   },
+   {
+    "description": "Start a conversation with buddyB",
+    "expected": "-"
+   },
+   {
+    "description": "Enter text with a spelling mistake (e.g. helo)",
+    "expected": "A spelling mistake is indicated"
+   },
+   {
+    "description": "See the spelling suggestion and apply it",
+    "expected": "Correction is applied (e.g. Hello)"
+   },
+   {
+    "description": "Enter text with a spellig mistake (e.g. Hello intelchat)",
+    "expected": "A spelling mistake is indicated"
+   },
+   {
+    "description": "Add it to english dictionary",
+    "expected": "Word is added to disctionay, spelling mistake is no more indicated"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Preferences-Themes",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Select another theme",
+  "description": "We want to make sure we can use another theme",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Select a theme and apply",
+    "expected": "Theme is applied"
+   },
+   {
+    "description": "Send and receive messages to/from buddyB",
+    "expected": "Theme is applied in chat view"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Smileys",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive message with all available smileys",
+  "description": "We want to make sure we can use all available smileys",
+  "notes": "Some smileys may not be supported. It also depends on the ClientB used",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nConfigure Show smileys as images",
+  "steps": [
+   {
+    "description": "Send the following message to BuddyB: \" :-S ;-) :-/ |-) :-O :-! :-D :-) :-& :-( :-P :-| :-(|) :-)) :-* :-[ >:-) :'( B-) X-( O:-) \"",
+    "expected": "The smileys are displayed by IM application and clientB"
+   },
+   {
+    "description": "On clientB send the same message to buddyA",
+    "expected": "The smileys are displayed by IM application and clientB"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Call log",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check call log",
+  "description": "We want to make sure we can see call log",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nUserB and USerC are logged in using a clientB and clientC\nContactB and contactC are added in the contact list\nActivate log conversations",
+  "steps": [
+   {
+    "description": "Start a VoIP audio call with contactB and accept it on clientB",
+    "expected": "-"
+   },
+   {
+    "description": "End it after several seconds",
+    "expected": "-"
+   },
+   {
+    "description": "Start a VoIP video call with contactB and accept it on clientB",
+    "expected": "-"
+   },
+   {
+    "description": "End it after one minute",
+    "expected": "-"
+   },
+   {
+    "description": "Start a VoIP audio call with contactC and accept it on clientC",
+    "expected": "-"
+   },
+   {
+    "description": "End it after 1 hour",
+    "expected": "-"
+   },
+   {
+    "description": "Start a VoIP video call with contactB and accept it on clientB",
+    "expected": "-"
+   },
+   {
+    "description": "End it after 24 hour",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a VoIP audio call from contactB, don't answer it and cancel it on clientB",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a VoIP video call from contactB, don't answer it and cancel it on clientB",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a VoIP audio call from contactB and accept it",
+    "expected": "-"
+   },
+   {
+    "description": "End it after several seconds",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a VoIP video call from contactB and accept it",
+    "expected": "-"
+   },
+   {
+    "description": "End it after several seconds",
+    "expected": "-"
+   },
+   {
+    "description": "Check call log",
+    "expected": "Incoming, outgoing and missed calls are listed."
+   },
+   {
+    "description": "Check details",
+    "expected": "Date, time and duration are available"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Avatar",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Select your avatar image while image format is not supported",
+  "description": "We want to make sure we can select an avatar image and user is notified in case of a problem",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nUserB and USerC are logged in using a clientB and clientC\nContactB and contactC are added in the contact list\nAvatar is set",
+  "steps": [
+   {
+    "description": "In account details select an avatar image while format is not supported (e.g. psd, cr2)",
+    "expected": "Avatar image is not saved"
+   },
+   {
+    "description": "On clientB check the avatar",
+    "expected": "UserB sees your last avatar"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Avatar",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_negative",
+  "subtype": "",
+  "objective": "Select your avatar image while image size is too big",
+  "description": "We want to make sure we can select an avatar image and user is notified in case of a problem",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nUserB and USerC are logged in using a clientB and clientC\nContactB and contactC are added in the contact list\nAvatar is set",
+  "steps": [
+   {
+    "description": "In account details select an avatar image while resolution and size is very big (e.g. 33M pixels)",
+    "expected": "Avatar image is not saved"
+   },
+   {
+    "description": "On clientB check the avatar",
+    "expected": "UserB sees your last avatar"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Interaction with Contacts Application",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check link between a contact and a buddy in Contacts application",
+  "description": "We want to make sure we can we can interact with a contact who is associated to a buddy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nContactB is added in Contacts Application with name, firsname, email ...",
+  "steps": [
+   {
+    "description": "Open Contacts Application",
+    "expected": "-"
+   },
+   {
+    "description": "See ContactB details",
+    "expected": "Presence status is indicated"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Interaction with Contact Widget",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check link between a contact and a buddy in Contact Widget",
+  "description": "We want to make sure we can we can interact with a contact who is associated to a buddy",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nContactB is added in Contact Widget",
+  "steps": [
+   {
+    "description": "Open Widget Contact",
+    "expected": "-"
+   },
+   {
+    "description": "Check the list of contacts",
+    "expected": "Widget Contact displays Contact avatar, Contact name, Presence icon and description pulled from empathy account or from contacts"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Interaction with Social Widget",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check link with Social Widget",
+  "description": "We want to make sure Social Widget interacts with IM application",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "TBD",
+  "steps": [
+   {
+    "description": "TBD",
+    "expected": ""
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Automatic away presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check automatic away presence after time of inactivity",
+  "description": "We want to make sure presence goes automatically to away after a time of inactivity",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Close IM application (stay connected and signed in)",
+    "expected": "-"
+   },
+   {
+    "description": "Wait a moment",
+    "expected": "Presence status goes automatically to away"
+   },
+   {
+    "description": "On clientB, check presence status of buddyA",
+    "expected": "buddyA is away"
+   },
+   {
+    "description": "Launch IM application",
+    "expected": "Presence status is available"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Automatic away presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check automatic away presence after locking screen",
+  "description": "We want to make sure presence goes automatically to away when locking screen",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list",
+  "steps": [
+   {
+    "description": "Lock PC screen (or sign out PC session)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check presence status of buddyA",
+    "expected": "buddyA is away"
+   },
+   {
+    "description": "Unlock screen (sign in PC session)",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check presence status of buddyA",
+    "expected": "buddyA is available"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a \"low battery\" notification while chatting",
+  "description": "We want to make sure IM application works properly despite external events",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nSound system is not mute",
+  "steps": [
+   {
+    "description": "Simulate a low battery notification while chating with ContactB",
+    "expected": "Low battery notification is displayed, a sound is played. Chat is not interrupted"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a \"download completed\" notification during a VoIP video call",
+  "description": "We want to make sure IM application works properly despite external events",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nUserB is registered to the same IM service\nUserB is logged in using a clientB\nContactB is added in the contact list\nSound system is not mute",
+  "steps": [
+   {
+    "description": "Download a file on the Internet via Browser",
+    "expected": "-"
+   },
+   {
+    "description": "Start a VoIP video call with ContactB",
+    "expected": "Download completed notification is displayed, no sound is played. VoIP video call is not interrupted"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Notifications",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Receive a \"BT pairing\" notification when creating an account",
+  "description": "We want to make sure IM application works properly despite external events",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nBluetooth On\nUse any BT device\nSound system is not mute",
+  "steps": [
+   {
+    "description": "Create a new account to any IM servicve",
+    "expected": "-"
+   },
+   {
+    "description": "Receive a Bluetooth pairing notification during account validation",
+    "expected": "Notification is displayed, audio notification is played. Account creation is not interrupted"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Group Conversations",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Join a group by invitation",
+  "description": "We want to make sure we can join a group by invitation",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid accounts created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nThey are logged in using a clientB, and clientC\nContactB and ContactC are in the contact list\nUserB has contactA and contactC in his/her contact list\nUserC has contactA and contactB in his/her contact list",
+  "steps": [
+   {
+    "description": "On clientC, start a chat with buddyB",
+    "expected": "-"
+   },
+   {
+    "description": "On clientC, invite buddyA to join the chat",
+    "expected": "On IM application a chat is started with buddyB and buddyC"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Group Conversations",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Initiate a group chat",
+  "description": "We want to make sure we can Initiate a group chat",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid accounts created\nSigned in as UserA\nUserB and UserC are registered to the same IM service\nThey are logged in using a clientB, and clientC\nContactB and ContactC are in the contact list\nUserB has contactA and contactC in his/her contact list\nUserC has contactA and contactB in his/her contact list",
+  "steps": [
+   {
+    "description": "On IM application start a conversation with buddyB",
+    "expected": "-"
+   },
+   {
+    "description": "Invite a participant and slect buddyC",
+    "expected": "Chat contains buddyB and buddyC"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Group Conversations",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contact to the group chat",
+  "description": "We want to make sure we can add a contact to the group chat",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid accounts created\nSigned in as UserA\nUserB, UserC and UserD are registered to the same IM service\nThey are logged in using a clientB, clientC and clientD\nEach contact has the other contacts in their contact list",
+  "steps": [
+   {
+    "description": "On IM application start a conversation with buddyB",
+    "expected": "-"
+   },
+   {
+    "description": "Invite a participant and select buddyC",
+    "expected": "Chat contains buddyB and buddyC"
+   },
+   {
+    "description": "Invite a participant and select buddyD",
+    "expected": "Chat contains buddyB, buddyC and buddyD"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Group Conversations",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact from the group chat",
+  "description": "We want to make sure we can remove a contact from the group chat",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid accounts created\nSigned in as UserA\nUserB, UserC and UserD are registered to the same IM service\nThey are logged in using a clientB, clientC and clientD\nEach contact has the other contacts in their contact list",
+  "steps": [
+   {
+    "description": "From a Chat with buddyB, buddyC and buddyD, remove buddyD",
+    "expected": "buddyD is removed from the conversation"
+   },
+   {
+    "description": "Send a message",
+    "expected": "clientD does not receive the message"
+   },
+   {
+    "description": "Remove buddyB from the conversation",
+    "expected": "buddyB is removed from the conversation"
+   },
+   {
+    "description": "Send a message",
+    "expected": "Only userC receives the message"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Group Conversations",
+  "priority": "3",
+  "status": "designed",
+  "type": "reliability",
+  "subtype": "",
+  "objective": "Add contacts intensively to the group chat",
+  "description": "We want to make sure we can add contacts intensively to the group chat",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid accounts created\nSigned in as UserA\nMany users are registered to the same IM service\nThey are logged in using many clients\nEach contact has the other contacts in their contact list",
+  "steps": [
+   {
+    "description": "On IM application start a conversation with buddyB",
+    "expected": "-"
+   },
+   {
+    "description": "Invite a participant and select a buddy",
+    "expected": "Buddy is added in the conversation"
+   },
+   {
+    "description": "Repeat previous step until you invited all your buddies",
+    "expected": "There is no instability"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Groups",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a group",
+  "description": "We want to make sure we can add a group",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nSeveral buddies are in the contact list",
+  "steps": [
+   {
+    "description": "Create a new group",
+    "expected": "Group is created"
+   },
+   {
+    "description": "Move buddies to this group",
+    "expected": "Buddies are now included to this group"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Groups",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Rename a group",
+  "description": "We want to make sure we can rename a group",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nSeveral buddies are in the contact list\nA group is created with several buddies inside the group",
+  "steps": [
+   {
+    "description": "Rename the group",
+    "expected": "Group is renamed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Groups",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a group",
+  "description": "We want to make sure we can remove a group",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nSeveral buddies are in the contact list\nA group is created with several buddies inside the group",
+  "steps": [
+   {
+    "description": "Remove the group",
+    "expected": "Group is removed. Buddies are moved to the default group"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Groups",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contact to a group",
+  "description": "We want to make sure we can add a contact to a group",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nSeveral buddies are in the contact list\nA group is created with several buddies inside the group",
+  "steps": [
+   {
+    "description": "Add a buddy to the group",
+    "expected": "buddy is added to the group"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Groups",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Remove a contact from a group",
+  "description": "We want to make sure we can remove a contact from a group",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to any IM service\nConnected to network\nAt least one valid account created\nSigned in as UserA\nSeveral buddies are in the contact list\nA group is created with several buddies inside the group",
+  "steps": [
+   {
+    "description": "Remove a buddy to the group",
+    "expected": "buddy is removed from the group and moved to the default group"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ }
+]

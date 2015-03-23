@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd $(dirname $0)
+
+./save_current Tizen:Common ia32-wayland
+./save_current Tizen:Common x86_64-wayland
+./save_current Tizen:Common x86_64-x11
+
+#./save_current Tizen:Common:devel ia32-wayland
+./save_current Tizen:Common:devel x86_64-wayland
+./save_current Tizen:Common:devel x86_64-x11
+
+./save_current Tizen:Common:multiuser x86_64-wayland

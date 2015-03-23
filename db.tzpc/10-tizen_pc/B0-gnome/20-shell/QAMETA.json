@@ -1,0 +1,171 @@
+[
+  {
+    "name": "launch-with-mouse",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch an application with the mouse pointer",
+    "description": "Launch an application using the mouse pointer. gnome-terminal will be used to test whether launching of an application works well.",
+    "steps": [
+      {
+        "description": "From the desktop, click on 'Application' in the gnome-shell status",
+        "expected": ""
+      },
+      {
+        "description": "Click on 'Terminal' to open the gnome-terminal application",
+        "expected": "window must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "launch-with-arrows",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Launch an application with the arrows of the keyboard",
+    "description": "Launch an application using the arrow keys of the keyboard. gnome-terminal will be used to test whether launching of an application works well.",
+    "steps": [
+      {
+        "description": "From the desktop, type the windows key to access the 'Application' menu of gnome-shell",
+        "expected": ""
+      },
+      {
+        "description": "Type the bottom arrow key",
+        "expected": "first application (top left must be highlighted)"
+      },
+      {
+        "description": "Navigate with the arrow keys to highlight 'Terminal'",
+        "expected": ""
+      },
+      {
+        "description": "Click enter to open the application",
+        "expected": "A window must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "launch-with-name",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Launch an application with its name",
+    "description": "Launch an application using its name in the input text field of gnome-terminal.",
+    "steps": [
+      {
+        "description": "From the desktop, click on 'Application' in the gnome-shell status",
+        "expected": ""
+      },
+      {
+        "description": "Click on 'Terminal' to open the gnome-terminal application",
+        "expected": "window must appear in foreground"
+      },
+      {
+        "description": "Type 'gnome-terminal' in the opened terminal",
+        "expected": "letters should appear in the terminal"
+      },
+      {
+        "description": "Type the enter key to validate",
+        "expected": "a second window must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "switch",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "ALT+TAB switch applications works fine",
+    "description": "Open several applications and switch between them using Alt+Tab, the window of the focused application should comes in foreground when keys are released.",
+    "steps": [
+      {
+        "description": "From the desktop, click on 'Application' in the gnome-shell status bar",
+        "expected": ""
+      },
+      {
+        "description": "Open several applications for example : Terminal, Calculator, Contacts",
+        "expected": "the windows of the opened application should open"
+      },
+      {
+        "description": "Type and keep the alt key and then type repeatedly the tab key and release it",
+        "expected": "the highlighted application must change"
+      },
+      {
+        "description": "Release The alt key",
+        "expected": "The window of the last application must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "textfield-reset",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "input textfield must be reset",
+    "description": "after launching an application using the input text field, it, the input textfield, must be reset ",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "launch an term using its name in the input textfield",
+        "expected": "the terminal is launched"
+      },
+      {
+        "description": "redo the operation",
+        "expected": "the textfield must have been cleared"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 16:03:35 GMT",
+    "mtime": "2013-03-05 16:06:04 GMT"
+  }
+]

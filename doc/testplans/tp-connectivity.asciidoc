@@ -1,0 +1,714 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: Network connectivity
+:author: Nicolas Zingilé
+:email: nicolas.zingile@eurogiciel.fr
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5995[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> Network Connectivity]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==============================================================================================
+|Version 		| Date 		| Author			| Reason for changes
+//---------------------------------------------------------------------------------------------
+|0.1			| 2013-03-08	| {nicolas}    | Initial revision
+|0.1.1		| 2013-03-10	| {nicolas}    | Corrections after Connman UI design update
+|0.1.2		| 2013-03-11	| {nicolas}    | Corrections after TC update
+|0.2   		| 2013-03-15	| {nicolas}		| Corrections after QA internal review by {christophe}
+|0.3   		| 2013-03-22	| {nicolas}		| Corrections after engineering review - Some test cases steps are missing
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==============================================================================================
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level 		      | Reviewer 		| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review  	| {christophe}	| 2013-03-12	|           
+|Architect review	      | 					|           	|           
+|Developer review     	| 					|           	|           
+|Project Manager review | 					|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for {componentName} within Tizen PC.
+//Network connectivity is tested trough the user interfaces that handle the connectivity in Tizen PC.
+
+== Glossary 
+
+// Instructions:
+// Describe all important acronyms or terms here
+// Example:
+// * BBC: Brake Before Clutch (driver training)
+// * CNN: Chaotic Neural Network
+// ...
+--
+[horizontal]
+CONNMAN:: ConnMan is a Connection Manager that provides a daemon for managing internet connections within embedded devices running the Linux operating system. In Tizen PC ConnMan is the main component that handles network connections. Decision has been taken to completely remove the classical gnome component : NetworkManager  
+
+DBUS:: D-BUS is an Inter Process Communication (IPC) system, widely used by open source desktop software. It's a framework that allows : 
+* running applications to share messages between themselves
+* desktop to communicate with its applications 
+* desktop to communicate with the operating system 
+  :: Since ConnMan is a D-BUS based application, all applications should use D-BUS to communicate with the Connection Manager (ConnMan)
+
+DHCP:: Dynamic Host Configuration Protocol. This is a protocol for dynamic assignment of IP addresses on a network  
+DNS:: Domain System Name. This is a protocol that allow to assign a domain name to an IP address 
+PROXY:: A server located between a local network and the internet 
+TETHERING:: The process of using a device as a modem to share a internet connection 
+VPN:: Virtual Private Network. A network that use internet to provide remote offices of individual users with secure access to their organization's network 
+--
+
+== Component Summary 
+
+// Instructions:
+// Expect a short paragraph to describe the component and add link for further information about this component.
+// Also put major hyperlinks to projects responsible for the component
+
+=== ConnMan
+
+In Tizen PC all network connections are managed with ConnMan. 
+ConnMan is designed to be slim and use as few ressources as possible, so it can be easily integrated. 
+Originally used for embedded systems, ConnMan is now also used in desktop environment. 
+ConnMan is designed with a modular architecture to easily add/remove a service or a component. 
+The ConnMan architecure consists of the following parts :
+
+--
+[horizontal]
+CONNMAND::
+    connmand is the core component of ConnMan that handle all connections
+CONNMANCTL::
+	 Connmanctl is a Connman command line interface which can be run in two modes :
+	 * a plain synchronous command input 
+	 * an asynchronous interactive shell
+ :: Connmantl can handle most simple network connections. It is able to enable/disable any technology that exists on the system, display a list of services available, connect to/disconnect from any (un)secured networks, show properties of the system, the technologies, and any individual service, and configure all of the properties. It is also able to monitor changes in the properties of the services, technologies, and the system
+CONNMAN UI::
+	 This is a GUI that enable to interact with connmand. Basic and extended funtionalities like enable/disable a network technology or set up a domain name, are offered by a ConnMan UI. A ConnMan UI communicates with the core daemon using the D-Bus system message bus. Several UI can be running at the same time on the system. Tizen PC is provided with two ConnMan UIs :
+	 * _gnome-exension-connman_ is a gnome extension that handles basic setups of network features. Functionalities are available from the top menu bar of gnome shell, in the gnome status area. Like most of gnome extensions, _gnome-exension-connman_ is written in JavaScript
+	 * _Network_ panel of gnome-control-center which provides the ability to handle basic and enhanced settings of network connections. _Network_ panel of gnome-control-center is written in C and uses the GTK3 library
+PLUGINS::
+	 Since ConnMan has a modular architecture, each network service is handled by a plugin. Plugins allow connectivity with connmand at low level. In Tizen PC, the following technologies are ensured by ConnMan :
+	 * Ethernet
+	 * Wifi
+	 * Bluetooth
+	 * 3G
+	 * VPN
+ :: Plugins are developed based on other open source components such as wpa_supplicant for the Wifi, bluez for the Bluetooth.      
+--
+
+The following picture shows the different components of ConnMan in Tizen PC :
+
+.Figure: ConnMan architecture in Tizen PC
+image:connectivity/connman-tizen-arch.png["ConnMan architecture",width=700]
+
+
+=== Bluetooth applet and Bluetooth panel
+
+In Tizen PC, ConnMan UIs only allows to enable/disable the bluetooth device and scan for the bluetooth services. Bluetooth features are accessible by two front-end user interfaces :
+
+--
+[horizontal]
+Bluetooth applet:: 
+	enable/disable the bluetooth device - enable/disable visibility - add/remove a device - send files - open the Bluetooth panel
+Blutooth panel:: 
+	enable/disable the bluetooth device - enable/disable visibility - add/remove a device - send files 
+--
+
+Both of those user interfaces comes from the GNOME project and allow to handle all the bluetooth features. They call other user interfaces also provided by the GNOME project : 
+
+* bluetooth-wizard : allows to scan and pair a device
+* bluetooth-sendto : allows to send files to other devices
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+Test will focus on network connectivity through user interfaces. The goal is to ensure the quality of the integration of ConnMan UIs, Bluetooth UIs and their interaction in Tizen PC. 
+//This test plan covers functional and integration tests through the user interfaces. 
+Ability to join any network connection which use a given technology will be checked through the user interfaces. 
+This test plan also covers connectivity of several Bluetooth peripherals. +
+ + 
+
+The following table list the features that will be tested : 
+
+.Tested features
+[width="80%",cols="3,4,1,6",options="header"]
+|==========================================================================================================
+|Feature / Requirement Id   | Description	                                           | Priority  | Comment
+//------------------------------------------------------------------------------------------------------------------
+| gnome-extension-connman   | gnome extension for ConnMan                            | P1        | Available from the network icon of gnome top menu bar
+| Bluetooth applet          | Blutooth applet of Gnome desktop	                      | P1        | Available from the bluetooth icon of gnome top menu bar  
+| ConnMan UI                | ConnMan UI with enhanced functionalities               | P1        | Available in gnome-control-center as the 'Network' panel
+| Bluetooth panel           | Blutooth panel of Gnome desktop	                      | P1        | Available in gnome-control-center as the 'Bluetooth' panel 
+|                           |  	                                                    |           |  
+| Bluetooth peripherals     | Pairing and transfers with of different devices        | P1/P2     | To ensure other Bluetooth devices can be used within TizenPC
+|==============================================================================================
+
+The following table describe the *gnome-extension-connman* features to be tested. 
+
+.List of the gnome-extension-connman items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|=========================================================================================================
+|Feature / Requirement Id | Priority | Description	                         		             | Comment
+//----------------------------------------------------------------------------------
+| Appearance              | P1	    | Presence of key elements of the ConnMan extension      |
+| Airplane mode           | P1	    | Flight safety mode                                     |
+| Technologies            | P1	    | User can enable/disable a technology                   |
+|==========================================================================================================
+
+
+The following table describe the *Bluetooth applet* features to be tested. 
+
+[[table-5]]
+.List of the Bluetooth applet items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==========================================================================================================
+|Feature / Requirement Id     | Priority | Description			                              | Comment
+//----------------------------------------------------------------------------------
+| Appearance                  |    P1    | Presence of key elements of the Bluetooth applet  | 
+| Activation                  |    P1    | Enable or disable the bluetooth device            | 
+| Visibility                  |    P1    | User can set up visibility of its device          | 
+| Devices                     |    P1    | User can add a device 		                        |
+|==========================================================================================================
+
+The following table describes the *ConnMan UI* features to be tested.
+
+WARNING: ConnMan UI features have been designed based on the https://otcshare.org/tizenpc/system/files/connman_ui-ver2.pdf[connman_ui-ver2] document
+and on the https://otcshare.org/tizenpc/node/6007[ConnMan UI v3 screenshots].
+Some terms are not fixed for the ConnMan UI v3. In consequence some feature names may change, since official documentation isn't available yet for ConnMan UI v3.
+
+The following technologies are supposed to be handled by ConnMan UI v3 are:
+
+* Ethernet
+* Wifi 
+* Bluetooth 
+* 3G 
+* VPN
+* Tethering (Ethernet, Wifi, Bluetooth)
+
+[[table-6]]
+.List of the ConnMan UI items to test
+[width="80%",cols="2,1,5,3",options="header"]
+//Status icon/status label				  | P1	     | Indicate the overall status of the system                             | 
+|==============================================================================================
+|Feature / Requirement Id | Priority  | Description			                                                              | Comment
+//------------------------ ----------------------------------------------------------
+| In-flight                           | P1	     | Flight safety mode                                                    | behavior described in http://git.kernel.org/cgit/network/connman/connman.git/tree/doc/manager-api.txt?id=HEAD[manager-api.txt] 
+| Technologies                        | P1	     | User can enable/disable a given network technology                    |
+| Services                            | P1	     | User can see/select/join or connect/disconnect to a service           | Services : Ehernet, Bluetooth, Wifi
+| Tethering [red]#TODO#               | P2        | Share your internet connection via ethernet, wifi, bluetooth          | Not the first priority of the user
+| VPN [red]#TODO#                     | P2        | User can configure a Virtual Personal Network                         | Not the first priority of the user
+4+^| Advanced Settings - Details    
+| Autoconnect                         | P1        | Make the service auto connectible                                     |
+| Signal strength                     | P1        | Show signal strength of the service                                   |
+| Link speed                          | P1        | Indicates how speed the link can run                                  |
+| Security                            | P1        | Show all the security types supported by the service                  |
+| IP address                          | P1        | Indicates IP address under the current network                        |
+| Hardware address                    | P1        | Indicate mac address of the network device                            | 
+| Default route                       | P1        | User can know address of default gateway                              |
+| DNS                                 | P1        | User can know address of DNS server                                   |
+| Forget network                      | P1        | User can delete credentials of a service                              | Connectivity 
+4+^| Advanced Settings - Proxy    
+| None [red]#TODO#                    | P1      | No proxy is used                                                        | default behavior 
+| Automatic [red]#TODO#               | P1      | Automatically choose the appropriate proxy server (access method)       |
+| Maual [red]#TODO#                   | P1      | User can specify the hosts which can be accessed directly               |
+4+^| Advanced Settings - Domains  
+| Domains                             | P1      | Indicates current DNS - Set up additional DNS server                    | 
+4+^| Advanced Settings - IPv4  
+| Off                                 | P1      | User can disable IPv4 support of a service                              | 
+| DHCP                                | P1      | IPv4 configuration is set by DHCP server                                | default behavior 
+| Manual                              | P1      | User can configure IPv4 settings : address, netmask, gateway            | 
+4+^| Advanced Settings - IPv6  
+| Off [red]#TODO#                     | P1      | User can disable IPv6 support of a service                              | default behavior    
+| Automatic [red]#TODO#               | P1      | Automatically enable IPv6 support                                       |
+| Manual [red]#TODO#                  | P1      | User can configure Ipv6 support                                         | 
+4+^| Advanced Settings - 802.1X Security 
+| [red]#TODO#                         | P1      | -                                                                       |  
+| [red]#TODO#                         | P1      | -                                                                       |  
+| [red]#TODO#                         | P1      | -                                                                       |  
+4+^| Advanced Settings - Nameservers  
+| Nameservers                         | P1      | User can set up nameservers                                             | Connectivity 
+|==============================================================================================
+
+The following table describes the *Bluetooth panel* features to be tested.
+
+.List of the Bluetooth panel items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==============================================================================================
+|Feature / Requirement Id     | Priority | Description			                              | Comment
+//----------------------------------------------------------------------------------
+| Appearance                  |    P1    | Presence of key elements of the Bluetooth panel   | 
+| Activation                  |    P1    | Enable or disable the bluetooth device            | 
+| Visibility                  |    P1    | User can set up visibility of its device          | 
+| Devices                     |    P1    | User can add or remove a device		               | 
+|==============================================================================================
+
+The following table describes the *Bluetooth peripherals* features to be tested.
+
+.List of the Bluetooth peripherals items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==============================================================================================
+|Feature / Requirement Id     | Priority | Description			                                   | Comment
+//----------------------------------------------------------------------------------
+| Input devices               |    P1    | User can pair and use a keyboard or a mouse device     | 
+| Headset                     |    P1    | User can pair and use an headset device                | 
+| Phone                       |    P1    | User can pair and transfer files                       | 
+| Computer                    |    P1    | User can pair a computer and transfer files            | 
+|==============================================================================================
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+Only ConnMan UIs (design and functionalities) and connmand are tested. 
+Plugins and external low level dependencies of ConnMan UIs indirectly tested through the user interface.
+
+.Non tested features
+[width="80%",cols="2,6,7",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id   | Description			                                                            | Comment
+//------------------------------------------------------------------------------------------------------------------
+| bluez  		             | Bluetooth stack for Linux                                                     | indirectly tested (see "Technologies" and "Services" features in <<table-6, table 6>>)
+| ofono  		             | Open source telephony stack                                                   | indirectly tested (see "Technologies" and "Services" features in <<table-6, table 6>>)
+| wpa_supplicant            | WPA authenticator - IEEE 802.11 authentication/association of the wlan driver | indirectly tested 
+|===================================================================================================================
+
+NOTE: ConnMan core daemon functionalities and low level dependencies are tested in  http://otcqa.sh.intel.com/wiki/Tizen/middleware/connman_test_plan[Tizen Middleware Test Plan]
+
+== Test Strategy and Approach 
+
+// Instructions:
+// HOW TO TEST THE COMPONENT)
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+ConnMan and connectivity features are tested keeping in mind that most important thing is user experience. 
+To ensure that TizenPC networking requirements are met, functionalities are tested through the two user interfaces offered by ConnMan.
+Design and functionalities of Bluetooth applet and Bluetooth panel are also tested since it concerns connectivity and it may have a high user impact. 
+Pugins and low level dependencies of ConnMan are indirectly tested. 
+To ensure the proper integration of GUIs connectivity, consistency between the different UIs will be checked. +
+ +
+
+ConnMan connectivity test plan will focus on :
+
+* gnome-extension-connman
+* Bluetooth applet
+* ConnMan UI
+* Bluetooth panel 
+
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+
+All the icons of the user interfaces are available : 
+
+* gnome-extension-connman (available in the system status area of gnome top menu bar)
+* Bluetooth applet (available in the system status area of gnome top menu bar)
+* ConnMan UI (available under gnome-control-center menu, as the 'Network' panel
+* Bluetooth panel (available under gnome-control-center menu, as the 'Bluetooth' panel)
+
+Layout of all user interfaces meet its requirements in accordance with the specification
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a sanity test reflect the most important functionality, stability and PnP of the distribution.
+
+All the user inerfaces can be launched.
+
+==== Features Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+
+Main features works under all the user interfaces. We will check that a given technology :
+* can be enabled/disabled 
+* is usable : user manages to join a network 
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+//==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload. 
+
+Power consumption when a given technology is activated is acceptable compared to a reference target.
+
+==== Stability Test
+
+// Instructions:
+// Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+
+We will test if a network connection under a give technology is  stable  
+//====Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+gnome-extension-connman, Bluetooth applet, ConnMan UI, Bluetooth panel user interfaces are well integrated in Tizen. 
+We will check that there is a consistent behavior when actions are performed with theses different user interfaces.
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+==== Interopeirability Test
+
+Network features are available from all the user interfaces.
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+==== Functional Positive
+
+Positive testing includes approaches to directly call and test out a command or interface (launch of application, use of menus, buttons, input text fields ...).
+
+==== Functional Negative
+
+Negative testing is to ensure that unexpected or invalid values can be handled gracefully.
+
+It involves counter-testing of a given feature, such as sending in a bad value to an API with the expectation of a failure (Populating required field/input with unsupported/not appropriated values, unsupported format, Oversize data/out of range value, Corrupted data, Wrong settings/configurations ...
+
+Negative testing is mainly aimed at detecting crashes in different situations.
+ 
+==== Reliability
+
+The purpose of reliability testing is to ensure that the system is able to manage critical situations successfully during a specified period of time without any failure (data loss, latency, crash …). It includes test of Robustness, Recovery, Iterative (stress), Long Lasting (launch and close an application intensively, add one hundred buddies in Chat application, create one hundred contacts in Contact application, populate fields with huge strings ...)
+
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+Most of the tests are manual and are performed through the user interfaces. 
+
+
+=== Flexibility
+
+// Instructions:
+// Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints
+
+Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints.
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+NOTE: [red]#TODO# More specifications and research are needed to find the most appropriate ways to automate tests.
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_connectivity.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+
+.Figure:  Network topology
+image:connectivity/network_config.svg+xml["ConnMan architecture", width=800, type="image/svg+xml"]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::connectivity/test_exec.asciidoc[]
+
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Known limitations:
+--
+* Missing documentations: guidelines and PRD for specific Tizen features (example: network technologies and protocols supposed to be supported by TizenPC)
+* Missing reference hardware for bluetooth connectivity
+* Some testcases can't be described as no UI available yet (Tethering, VPN, 3G ...)
+--
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role                     			 | Contact               
+//---------------------------------------------------------------------------------------------
+|Architect			                | 
+|Designer			                | 
+|Engineering Manager		          | 
+|Developers			                | 
+|PM			                      | {hirally}
+|Marketing			                |
+|Test planning and test case Lead | {yann}
+|QA			                      | 
+|QA Conformance			          | 
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+ConnMan Overview and documentation:
+--
+* http://connman.net/
+* http://connman.net/doumentation
+* http://otcqa.sh.intel.com/wiki/Tizen/middleware/connman_test_plan[Connman Middleware Test Plan]
+--
+
+ConnMan UI Design:
+--
+* https://otcshare.org/tizenpc/node/6007
+* https://otcshare.org/tizenpc/system/files/cconnman-ui-ver2.pdf
+--
+
+ConnMan and Connectivity JIRA bugs:
+--
+* https://tz.otcshare.org/jira/issues/?filter=14608
+--
+
+Requirements:
+--
+* None [red]#FIXME#
+--
+
+include::common/references.asciidoc[]
+

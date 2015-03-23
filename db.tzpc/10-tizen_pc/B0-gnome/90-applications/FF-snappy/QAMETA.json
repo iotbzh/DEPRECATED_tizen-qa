@@ -1,0 +1,85 @@
+[
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c 'Snappy' -t 15 -- /usr/bin/snappy badfile",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "play-sound",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "snappy plays sound",
+    "description": "Try to play a sound using snappy",
+    "pre_condition": "Have a sound file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to find a sound file and double click on it",
+        "expected": "Snappy window opens and plays the sound of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 16:21:06 GMT",
+    "mtime": "2013-03-07 16:23:43 GMT"
+  },
+  {
+    "name": "play-video",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "snappy plays video",
+    "description": "Try to play a video using snappy",
+    "pre_condition": "Have a video file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to find a video file and double click on it",
+        "expected": "Snappy window opens and plays the video of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 16:23:45 GMT",
+    "mtime": "2013-03-07 16:24:24 GMT"
+  }
+]

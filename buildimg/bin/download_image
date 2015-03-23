@@ -1,0 +1,152 @@
+#!/bin/bash
+
+set -e
+
+NAME=$(basename $0)
+TOPDIR=$(cd $(dirname $0)/../.. && pwd -P)
+
+function error() {
+	echo ERROR: "$@" >&2
+	kill -2 $$ # trap SIGINT!
+	exit 1
+}
+
+function usage() {
+	echo "Usage: $NAME <output dir> <repository url> <subpath>" >&2
+	echo "example: $NAME images/tz-weekly https://user:pass@download.tz.otcshare.org/snapshots/trunk/pc/latest images/gnome-raw/@SNAPSHOT@_gnome-sda.raw.gz" >&2
+}
+
+function info() {
+	echo "$@" >&2
+}
+
+#------------------- arguments parsing -----------------------------
+outputdir=$1
+shift
+[ -z "$outputdir" ] && { error "Invalid output dir"; usage ; }
+mkdir -p $outputdir
+[ ! -d "$outputdir" ] && { error "Unable to create output dir"; usage; }
+
+repourl=$1
+shift
+[ -z "$repourl" ] && { error "Invalid repository URL"; usage; }
+
+subpath=$1
+shift
+[ -z "$subpath" ] && { error "Invalid subpath"; usage; }
+
+imgtype=${1:-raw}
+
+#------------------------------------------------------------------
+
+# check lzop
+if [ -z $(which lzop) ]; then
+	error "Lzop not installed: sudo zypper in lzop"
+fi
+
+#------------------------------------------------------------------
+
+function get_repo_release() {
+	XMLSTARTLET=$(which xml || which xmlstarlet)
+
+	# use builddata (on tizen.org or tz.otcshare.org)
+	local rev
+	rev=$(curl --silent $1/build.xml | $XMLSTARTLET sel  -t -v "/build/id/text()" 2>/dev/null)
+	[[ -n "$rev" ]] && { echo $rev; return; }
+
+	# use builddata with old scheme (on tizen.org or tz.otcshare.org)
+	rev=$(curl --silent $1/builddata/build.xml | $XMLSTARTLET sel  -t -v "/build/id/text()" 2>/dev/null)
+	[[ -n "$rev" ]] && { echo $rev; return; }
+
+	# try to use repodata
+	local ts
+	ts=$(curl --silent $1/repodata/repomd.xml | $XMLSTARTLET sel -N r=http://linux.duke.edu/metadata/repo -t -v "/r:repomd/r:revision/text()" 2>/dev/null)
+	[[ -n "$ts" ]] && { echo ${branch}_$(date +%Y%m%d.%H%M -d "@$ts"); return; }
+	
+	# bail out
+	echo ${branch}_$(date +%Y%m%d.%H%M)
+}
+
+
+function downloadImage() {
+    url=$1
+    output=${2:--}
+
+    info "Downloading $url to $output"
+
+    if [ -f "$output" ]; then
+        info "Downloaded image already present. Not downloading"
+    else
+        wget --quiet -O $output "$url"
+    fi
+}
+
+function uncompressImage() {
+    infile=${1:--}
+	origfile=$2
+
+    case $origfile in
+        *.bz2|*.BZ2)
+            bzip2 -d -c $infile 
+            ;;
+        *.gz|*.GZ)
+            gzip -d -c $infile 
+            ;;
+        *.lzo|*.LZO)
+            lzop -d -c $infile 
+            ;;
+        *.xz|*.XZ)
+            xz -d -c $infile 
+            ;;
+        *)
+            cat $infile
+            ;;
+    esac
+}
+
+function compressImage() {
+	infile=${1:--}
+    lzop -5 -v -c $infile 2>/dev/null
+}
+
+#--------------------------------------
+
+info "Detecting snapshot on $repourl..."
+snapshot=$(get_repo_release $repourl)
+info "Detected snapshot: $snapshot"
+
+[[ "$snapshot" == "unknown" ]] && error "Invalid snapshot"
+
+mkdir -p $outputdir/$snapshot || error "Unable to create workdir $outputdir/$snapshot"
+trap "rm -rfv $outputdir/$snapshot" TERM STOP INT QUIT ERR
+
+url=$(echo $repourl/$subpath | sed "s/@SNAPSHOT@/$snapshot/g")
+
+case $imgtype in
+	usb)
+		imgfile=$snapshot.img
+		;;
+	*)
+		imgfile=$snapshot.raw.lzo
+		;;
+esac
+
+outfile=$outputdir/$snapshot/$imgfile
+
+if [[ ! -f $outfile ]]; then
+	if [[ "$imgtype" == "usb" ]]; then
+		downloadImage $url | pv | tee >(md5sum - >$outfile.md5) | uncompressImage - $url >$outfile
+	else
+		downloadImage $url | pv | tee >(md5sum - >$outfile.md5) | uncompressImage - $url | compressImage >$outfile
+	fi
+
+	md5_remote=$(downloadImage $(dirname $url)/MD5SUMS | grep $(basename $url) | awk '{print $1}')
+	md5_local=$(cat $outfile.md5 | awk '{print $1}')
+	[[ "$md5_local" != "$md5_remote" ]] && error "MD5 doesn't match"
+
+	ln -sf $snapshot/$imgfile $outputdir/latest
+else
+	info "Already downloaded"
+fi
+info "Image available in $outputdir/$snapshot/$imgfile"
+

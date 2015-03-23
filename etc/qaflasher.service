@@ -1,0 +1,15 @@
+[Unit]
+Description=qatizen flasher
+After=syslog.target network.target named.service
+
+[Service]
+ExecStart=/srv/qatizen/bin/qaflasher
+Restart=always
+StandardOutput=syslog
+SyslogIdentifier=qaflasher
+User=qadmin
+Group=users
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,118 @@
+[
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c Evince -t 10 -- evince test_document.pdf",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c Evince-previewer -t 10 -- evince-previewer test_document.pdf",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "read-pdf",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "read a pdf file",
+    "description": "try to read the content of a pdf file",
+    "pre_condition": "have a pdf file",
+    "steps": [
+      {
+        "description": "From the desktop, click on the nautilus icon",
+        "expected": "The nautilus window opens"
+      },
+      {
+        "description": "Browse to the directory of the pdf file and double click on it",
+        "expected": "evince window opens for the clicked file"
+      },
+      {
+        "description": "Check that the content of the pdf file is well browsed",
+        "expected": "You can read all the content of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 13:10:46 GMT",
+    "mtime": "2013-03-07 13:49:04 GMT"
+  },
+  {
+    "name": "search-pdf",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "search a text in a pdf file",
+    "description": "try to search a text in the content of a pdf file",
+    "pre_condition": "have a pdf file",
+    "steps": [
+      {
+        "description": "From the desktop, click on the nautilus icon",
+        "expected": "The nautilus window opens"
+      },
+      {
+        "description": "Browse to the directory of the pdf file and double click on it",
+        "expected": "evince window opens for the clicked file"
+      },
+      {
+        "description": "Ask for full screen by pressing \"F11\"",
+        "expected": "the document is displayed full screen"
+      },
+      {
+        "description": "Press \"Ctrl+F\" to find a text",
+        "expected": "a dialog panel shifts into with text field to enter the search"
+      },
+      {
+        "description": "Enter a text to search and validate",
+        "expected": "the view of the document is moved to show occurences found"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 13:50:29 GMT",
+    "mtime": "2013-03-07 13:58:39 GMT"
+  }
+]

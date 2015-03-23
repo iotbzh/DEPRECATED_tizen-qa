@@ -1,0 +1,16 @@
+QA Materials:
+--
+* https://otcshare.org/tizenpc/node/5951[QA Materials]
+* Master Test plan [red]#TODO#
+* https://otcshare.org/tizenpc/node/5952[Test plans]
+* https://otcshare.org/tizenpc/node/5832[QA Process & Tools]
+--
+
+Test Environment and tools:
+--
+* https://tz.otcshare.org/EnterpriseTester/[Enterprise Tester]
+* https://github.com/testkit/testkit-lite[Testkit-Lite]
+* http://tizendev.org/wiki/index.php/CATS[CATS 3.0]
+* https://tzqarpt.otcshare.org/[QA Reports]
+--
+

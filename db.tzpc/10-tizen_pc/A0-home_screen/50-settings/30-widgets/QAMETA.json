@@ -1,0 +1,245 @@
+[
+  {
+    "name": "widget_layout",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that widgets are displayed correctly in the content area ",
+    "description": "Under the Widget tab widget must appear in two groups : \r\n- a first group on the top of the content area which contains the user home screen widgets\r\n- a second group which contains all the widgets \r\nThose two groups must be separated with a thin line as in the reference document.\r\n\r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab\r\n- have some widgets installed on desktop",
+    "steps": [
+      {
+        "description": "observe the panel",
+        "expected": "the currently installed widgets must appear in the top area"
+      },
+      {
+        "description": "-",
+        "expected": "a second group with all available widgets must appear in the bottom area"
+      },
+      {
+        "description": "-",
+        "expected": "a toolbar with category selection and search field must be present between the two areas"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 15:25:32 GMT",
+    "mtime": "2013-03-27 22:35:32 GMT"
+  },
+  {
+    "name": "widget_mgt1",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that functionalities of home screen widgets are available ",
+    "description": "A right click on a home screen widget (top group) must pop up a small window at the right side of the application icon with the two following functionalities : \r\n- Remove from Home\r\n- Open in Browser\r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab\r\n- have some widgets installed on desktop",
+    "steps": [
+      {
+        "description": "right click on an installed widget in the top area",
+        "expected": "a popup menu with \"Remove from Home\" and \"Open in Browser\" items must appear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 15:25:39 GMT",
+    "mtime": "2013-03-27 22:35:43 GMT"
+  },
+  {
+    "name": "widget_mgt2",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that functionalities of other widgets (bottom group) are available ",
+    "description": "A right click on a widget of the below group must pop up a small window at the right side of the widget icon with the two following functionalities : \r\n- Add to Home\r\n- Open in Browser\r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab",
+    "steps": [
+      {
+        "description": "right click on a widget in the bottom area",
+        "expected": "a popup menu with \"Add to Home\" and \"Open in Browser\" items must appear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:10:55 GMT",
+    "mtime": "2013-03-27 22:36:28 GMT"
+  },
+  {
+    "name": "remove_home_widget",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a home screen widget can be removed",
+    "description": "When a right click is performed on an home screen widget, and then a single click is done on the 'Remove from Home' functionality, the widget should disappear in the top group and in the home screen. \r\n\r\nTODO: when ? instantly ? \r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab\r\n- have some widgets installed on desktop",
+    "steps": [
+      {
+        "description": "right click on an installed widget in the top area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "select \"Remove from Home\"",
+        "expected": "the selected widget must be removed from the installed widgets list displayed in the top area"
+      },
+      {
+        "description": "close the settings window (or minimise it to see the desktop)",
+        "expected": "the selected widget must be removed from desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:11:34 GMT",
+    "mtime": "2013-03-27 22:36:03 GMT"
+  },
+  {
+    "name": "add_home_widget",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a widget can be added as an home screen widget",
+    "description": "When a right click is performed on a widget in the bottom group and then a single click is done on the 'Add to Home' functionality, the widget should appear in the top group and in the home screen. \r\n\r\nTODO: when ? instantly ?\r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab",
+    "steps": [
+      {
+        "description": "right click on a widget in the bottom area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "select \"Add to Home\"",
+        "expected": "the selected widget must be added to the installed widgets list displayed in the top area"
+      },
+      {
+        "description": "close the settings window (or minimise it to see the desktop)",
+        "expected": "the selected widget must be added to the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:11:52 GMT",
+    "mtime": "2013-03-27 22:36:43 GMT"
+  },
+  {
+    "name": "open_widget",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a widget can be opened in a browser",
+    "description": "When a right click is performed on a widget (home screen or not home screen widget) and then a single click is done on the 'Open in Browser' functionality, the default browser should open with a content consistent with the widget.\r\n\r\nTODO: in a new tab if the browser is already opened ? in a new window? \r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab\r\n- have some widgets installed on desktop",
+    "steps": [
+      {
+        "description": "right click on an installed widget in top area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "click on \"Open in Browser\"",
+        "expected": "this must launch the browser and open the web site associated to the widget"
+      },
+      {
+        "description": "right click on an application in the bottom area",
+        "expected": "the popup menu opens"
+      },
+      {
+        "description": "click on \"Open in Browser\"",
+        "expected": "this must launch the browser and open the web site associated to the widget"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:12:00 GMT",
+    "mtime": "2013-03-27 22:36:52 GMT"
+  },
+  {
+    "name": "find_widget",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the search form of the widget of the bottom group works",
+    "description": "When a string is typed in the search form, a subset of all the available widgets must be visible. The displayed list result must be coherent with the typed string.\r\n\r\n",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Widgets\" tab\r\n- have some widgets installed on desktop",
+    "steps": [
+      {
+        "description": "type a pattern in the search field of the bottom area",
+        "expected": "the list of available widgets must be updated and match the pattern"
+      },
+      {
+        "description": "select a category",
+        "expected": "the search field must be cleared and the list of widgets must match the selected category"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:12:07 GMT",
+    "mtime": "2013-03-27 22:37:00 GMT"
+  }
+]

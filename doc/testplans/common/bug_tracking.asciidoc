@@ -1,0 +1,4 @@
+{componentName} will be tracked in https://tz.otcshare.org/jira/[Tizen private JIRA]
+
+Bug report, triage, scrub and feedback process follows the general https://otcshare.org/tizenpc/node/5832[Tizen Bug Process].
+

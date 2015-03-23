@@ -1,0 +1,27 @@
+= EXPORT_ET(1qa)
+
+== NAME
+
+export_ET - export test cases to enterprise tester
+
+== SYNOPSIS
+
+export_ET [directory]
+
+== DESCRIPTION
+
+*export_ET* exports the part of the QA database selected by the profile 
+*exportET* of *etc/profile.conf* to the file 
+*directory/export_ET_YYYMMDD_HHMMU.csv*, where *directory* is the given
+parameter or *.* when no parameter is given and *YYYMMDD_HHMM* is the timestamp
+of the exportation.
+
+In details, the commands call the command *qaexport* as it:
+
+ qaexport -p exportET -t enterprise_tester -o $output
+
+== SEE ALSO
+
+qaexport(1qa)
+
+

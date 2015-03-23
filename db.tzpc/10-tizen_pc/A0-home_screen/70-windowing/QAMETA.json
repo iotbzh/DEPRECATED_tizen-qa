@@ -1,0 +1,64 @@
+[
+  {
+    "name": "appname_visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the name of the application in focus is visible ",
+    "description": "The name of the application should be visible in the gnome status bar of the desktop when the application is in the foreground. ",
+    "pre_condition": "switch to home screen (top bar => \"Home\")",
+    "steps": [
+      {
+        "description": "launch an application which doesn't open a fullscreen window (ex: gnome-terminal, calculator...)",
+        "expected": "the application name must appear in the top bar, on the right of the \"Applications\" button"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-28 00:21:41 GMT",
+    "mtime": "2013-03-28 00:21:41 GMT"
+  },
+  {
+    "name": "background_visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the background is visible when the application is in the foreground",
+    "description": "The background of the desktop must be visible when the application is in focus, unless the application is in full screen.",
+    "pre_condition": "- switch to home screen (top bar => \"Home\")\r\n",
+    "steps": [
+      {
+        "description": "launch an application which doesn't open a fullscreen window (ex: gnome-terminal, calculator...)",
+        "expected": "the application window must have the focus"
+      },
+      {
+        "description": "-",
+        "expected": "the background of the desktop must be visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-28 00:22:52 GMT",
+    "mtime": "2013-03-28 00:24:34 GMT"
+  }
+]

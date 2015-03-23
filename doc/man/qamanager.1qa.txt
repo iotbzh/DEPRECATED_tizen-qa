@@ -1,0 +1,111 @@
+= QAMANAGER(1qa)
+
+== NAME
+
+qamanager - execute a test suite from the QA database using TestKit and CATS 
+and submit the report.
+
+== SYNOPSIS
+
+qamanager host profile [options]
+
+== DESCRIPTION
+
+*qamanager* generate the test data for TestKit/CATS from the QA database,
+then it submits the test to TestKit/CATS that report the result.
+
+The test is on *host* and with the test suite defined by *profile(s)*.
+
+The *host* is the name of the target. *qamanager* accesses this target with
+*ssh* to get its build-id.
+
+The test data are generated for some test cases/test suites as defined by the
+argument *profile*. The argument *profile* is a KEY to a profile defined
+in *etc/profile*. It can also be a list of KEYS separated with blanks (use
+quotes). The special key ALL is expanded to "sanity packaging"
+
+The predefined profiles of *etc/test_suites.conf* available for TestKit export
+are: *packaging*, *sanity*, *manual*, *gnome*, *mm*, *qadevel*.
+
+To submit the report, you MUST use the option *--report* with a value
+not equal to *default*.
+
+== OPTIONS
+
+#*-b, --buildid*='BUILID'::
+#    The image identification, aka th build-ID.
+
+*-c, --config*='DIRECTORY'::
+    Set the path to the configuration directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../etc where SCRIPTDIR is the directory
+    of *qaexport*.
+
+*-d, --db*='DIRECTORY'::
+    Set the path to the database directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../db where SCRIPTDIR is the directory
+    of *qaexport*.
+
+*-h, --help*::
+    Prints a short help and exits.
+
+*-i, --image*='URL'::
+    The image 'URL' (the default value is deduced from build-ID read from the 
+    target host).
+
+*-n, --dryrun*::
+    Dry-run, *qamanager* runs and generates the test data but doesn't submit
+    the test to TestKit/CATS.
+
+*-r, --report*='KEY'::
+    Selects the reporting type of name 'KEY' in the report configuration
+    file *etc/test_reports.conf*.
+    The default report type KEY is *default*.
+
+    The predefined report types are: *default* (no report),
+    *qareport_weekly* (for the weekly releases), *qareport_trunk*
+    (for the trunk releases), *qareport_devel* (for the devel releases).
+
+#*-p, --profile*='KEY'::
+#    Selects the export profile of name 'KEY' in the profiles configuration
+#    file *etc/test_suites.conf*.
+
+#*-t, --target*='TARGET'::
+#    The target hostname as declared in etc/targets.conf.
+
+=== Generated test data
+
+The test data are generated in the directory
+*/tmp/libqa/BUILDID_PROFILE_TARGET_TIMESTAMP*.
+Where *BUILDID* is the build-ID of tizen tested,
+*PROFILE* is the profile key,
+*TARGET* is the target key,
+*TIMESTAMP* is *YYYYMMMDD_HHMMSSU*.
+
+The files in that directory are: 
+the CATS recipe in *cats.recipe*, the TestKit data in *testkit.xml* and
+the material for test in *tests.tar.gz*.
+
+== EXAMPLE
+
+This example generate the files for passing sanity tests
+
+ qamanager lenovo01 sanity -n
+
+This example runs the multimedia tests
+
+ qamanager lenovo01 mm
+
+== SEE ALSO
+
+QATP(5qa), QADB(5qa), QAMETA(5qa), qaimport(1qa), export_ET(1qa), tcbrowse(1qa)
+
+== RESSOURCES
+
+The script *qaexport* runs on node JS.
+
+node.js: http://nodejs.org/
+
+ASCIIDOC:
+  http://www.methods.co.nz/asciidoc/
+  http://powerman.name/doc/asciidoc/
+

@@ -1,0 +1,178 @@
+[
+  {
+    "name": "pair-from-target",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair an Android phone from the target device",
+    "description": "User should be able to pair an Android phone from the test device.",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'I'\r\n- Bluetooth technoloy of the Android phone device is activated and visible by other devices",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the 'Set Up a New Device' option to pair a new device and wait",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appears"
+      },
+      {
+        "description": "Click on the Android test device to pair",
+        "expected": "The selected device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button",
+        "expected": "Bluetooth wizard shows a pin number. A notification is received by the Android phone device for the acceptance of the pairing with same pin number"
+      },
+      {
+        "description": "Accept the pairing on the Android phone device, and then click 'Matches' on the target device",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the menu of Bluetooth applet. The added device appears in the Devices field of Bluetooth panel."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:12:25 GMT",
+    "mtime": "2013-03-29 10:21:13 GMT"
+  },
+  {
+    "name": "pair-from-device",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair the target device from an Android phone",
+    "description": "User should be able to pair the target device from an Android phone.",
+    "pre_condition": "- Bluetooth technology is enabled and visible by others - Bluetooth & Visibility switchers are toggled on 'I'\r\n- Bluetooth technology of the Android phone device is activated",
+    "steps": [
+      {
+        "description": "Open the Bluetooth settings of the Android phone and scan for devices",
+        "expected": ""
+      },
+      {
+        "description": "Select the test device to pair (localhost-0 by default)",
+        "expected": "A notification appears on the screen of the target device"
+      },
+      {
+        "description": "Open the notification and click on 'Matches' to accept the pairing",
+        "expected": ""
+      },
+      {
+        "description": "Accept the pairing on the Android phone",
+        "expected": "Android phone should appear in the device list of Bluetooth panel. The Android phone appears in the menu of Bluetooth applet"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:33:40 GMT",
+    "mtime": "2013-03-28 17:55:42 GMT"
+  },
+  {
+    "name": "send",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The target device can send files to the Android phone device",
+    "description": "User should be able to send files to the Android phone device.",
+    "pre_condition": "- Bluetooth technology is enabled on the test device\r\n- Bluetooth technology is enabled on the Android phone\r\n- Test device is paired with the Android phone",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the Android phone device",
+        "expected": "A sub-menu appears"
+      },
+      {
+        "description": "Click on 'Send Files'",
+        "expected": "A window appears"
+      },
+      {
+        "description": "Choose a file and click on 'Select'",
+        "expected": "A notification appears on the Android phone"
+      },
+      {
+        "description": "Accept the file and wait a while",
+        "expected": ""
+      },
+      {
+        "description": "Retrieve the file in 'Gallery' > 'bluetooth'",
+        "expected": "the file should be present"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:36:23 GMT",
+    "mtime": "2013-03-28 15:38:54 GMT"
+  },
+  {
+    "name": "receive",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The target device can receive files sent by the Android phone device",
+    "description": "User should be able to receive files sent by the Android phone device.",
+    "pre_condition": "- Bluetooth technology is enabled and visible by others : Blueooth & Visibiliy switcher are togled on 'I'\r\n- Bluetooth technology is enabled on the Android phone\r\n",
+    "steps": [
+      {
+        "description": "Open a file with the Android phone and send it via Bluetooth",
+        "expected": ""
+      },
+      {
+        "description": "Select the test device as receiver",
+        "expected": "A notification appears on the test device"
+      },
+      {
+        "description": "Accept the file and wait a while",
+        "expected": "File is present"
+      },
+      {
+        "description": "Open the file",
+        "expected": "File can be open and is same as the version on the Android phone"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:50:08 GMT",
+    "mtime": "2013-03-28 16:07:45 GMT"
+  }
+]

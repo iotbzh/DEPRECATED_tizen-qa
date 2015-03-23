@@ -1,0 +1,11 @@
+# howto generate initrd for net boot for new kernel
+
+# flash raw image
+
+# copy dhclient in /sbin (from opensuse)
+# zypper in binutils
+# zypper in iputils
+# zypper in dracut-network
+
+# run dracut
+dracut --force -a "livenet dmsquash-live" /boot/initramfs-3.7.0-5.1-adaptation-pc-net.img

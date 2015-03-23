@@ -1,0 +1,827 @@
+[
+  {
+    "name": "start",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "firts use of chrome",
+    "description": "Use chrome for the first time on Tizen PC",
+    "pre_condition": "Have a google account and have Google chrome started and the \"Sign in\" page displayed",
+    "steps": [
+      {
+        "description": "type an email adress in the \"Email\" field",
+        "expected": ""
+      },
+      {
+        "description": "type a password",
+        "expected": ""
+      },
+      {
+        "description": "click on \"Sign in\"",
+        "expected": "The main \"applications\" page appears a gnome-keyring window appears"
+      },
+      {
+        "description": "type the root password twice in the gnome-keyring window",
+        "expected": ""
+      },
+      {
+        "description": "click on \"Continue\" or press \"Enter\"",
+        "expected": "Chrome can be used now normally"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 09:18:31 GMT",
+    "mtime": "2013-03-28 10:33:43 GMT"
+  },
+  {
+    "name": "search-bar",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use chrome search bar",
+    "description": "Check the good behaviour of the chrome search bar",
+    "pre_condition": "have Google chrome started in foreground",
+    "steps": [
+      {
+        "description": "Type \"wikipedia\" in the search field",
+        "expected": ""
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "a google research page appears"
+      },
+      {
+        "description": "click on the first link of the list",
+        "expected": "The Wikipedia page is displayed"
+      },
+      {
+        "description": "Type \"hello world\" in the search bar and press \"Enter\"",
+        "expected": "a google research page appears"
+      },
+      {
+        "description": "Type \"he\" in the search bar and press \"Tab\" and press \"Enter\"",
+        "expected": "The same google research page appears because the search criterias have been correctly added to the search engine"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-25 13:07:53 GMT",
+    "mtime": "2013-03-28 10:34:54 GMT"
+  },
+  {
+    "name": "new-tab",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a new tab in chrom",
+    "description": "use the \"new tab\" feature",
+    "pre_condition": "Have Chrome started",
+    "steps": [
+      {
+        "description": "In the tab bar, click on the button next to the tabs",
+        "expected": "a new tab is opened and the google applications page appears"
+      },
+      {
+        "description": "In the google applications page, click on \"Gmail\"",
+        "expected": "The \"Gmail\" page appears"
+      },
+      {
+        "description": "Click again on the \"new tab\" button",
+        "expected": "a new tab is opened and the google applications page appears"
+      },
+      {
+        "description": "In the google applications page, click on \"Google Search\"",
+        "expected": "The \"Google Search\" page appears"
+      },
+      {
+        "description": "Click again on the \"new tab\" button",
+        "expected": "a new tab is opened and the google applications page appears"
+      },
+      {
+        "description": "In the google applications page, click on \"YouTube\"",
+        "expected": "The \"YouTube\" page appears"
+      },
+      {
+        "description": "Click again on the \"new tab\" button",
+        "expected": "a new tab is opened and the google applications page appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:21:51 GMT",
+    "mtime": "2013-03-28 10:23:36 GMT"
+  },
+  {
+    "name": "reopen-closed-tab",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Verify that the \"Reopen closed tab\" feature works",
+    "description": "When a tab is closed, it can be reopened by typing Ctrl+Shift+T or use the context menu in tab bar",
+    "pre_condition": "open multiple tabs",
+    "steps": [
+      {
+        "description": "close a tab",
+        "expected": "-"
+      },
+      {
+        "description": "right click on the tab bar and select item \"Reopen Closed Tab\"",
+        "expected": "the last closed tab is restored"
+      },
+      {
+        "description": "close tab again",
+        "expected": "-"
+      },
+      {
+        "description": "type ctrl+shift+T",
+        "expected": "the tab reopens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-28 13:52:13 GMT",
+    "mtime": "2013-03-28 13:55:03 GMT"
+  },
+  {
+    "name": "bookmark",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "create a bookmark",
+    "description": "check the creation of bookmarks",
+    "pre_condition": "Have chrome started with a website displayed",
+    "steps": [
+      {
+        "description": "click on the star on the right of the search field",
+        "expected": "a bookmark window appears"
+      },
+      {
+        "description": "click on the \"Folder\" button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "in the drop-down menu, click on \"Bookmarks Bar\"",
+        "expected": ""
+      },
+      {
+        "description": "click on \"Done\"",
+        "expected": "The displayed page appears as bookmark in the bookmarks bar under the search field"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:18:51 GMT",
+    "mtime": "2013-03-28 10:20:37 GMT"
+  },
+  {
+    "name": "rith-click-link",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Right click on a link to see available options",
+    "description": "Check if the right-clicking on a link in chrome offers several options",
+    "pre_condition": "have Google chrome started on Wikipedia page",
+    "steps": [
+      {
+        "description": "Right-Click on a link on the page",
+        "expected": "A drop down-menu opens"
+      },
+      {
+        "description": "In the drop down menu, look at the different options",
+        "expected": "Should appears \"Open Link in New Tab\", \"Open Link in New Window\", \"Open Link in Incognito Window\", \"Save Link As...\", \"Copy link Address\" and \"Inspect Element\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-25 13:02:13 GMT",
+    "mtime": "2013-03-25 14:45:45 GMT"
+  },
+  {
+    "name": "rith-click-image",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Right click on an image to see available options",
+    "description": "Check if the right-clicking on an image in chrome offers several options",
+    "pre_condition": "have Google chrome started on Wikipedia page",
+    "steps": [
+      {
+        "description": "Right-Click on an image on the page",
+        "expected": "A drop down-menu opens"
+      },
+      {
+        "description": "In the second section of the drop down menu, look at the different options",
+        "expected": "Should appears \"Save Image As...\", \"Copy Image URL\", \"Copy Image\", \"Open Image in New Tab\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-25 13:02:17 GMT",
+    "mtime": "2013-03-25 14:45:09 GMT"
+  },
+  {
+    "name": "task-manager",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Use the task manager",
+    "description": "Check if the task manager allows to see the different tabs opened and to stop the processes corresponding  ",
+    "pre_condition": "have Google chrome started in foreground with several pages opened",
+    "steps": [
+      {
+        "description": "Press Shift+Escape to open up the task manager",
+        "expected": "The Task Manager window appears with all the tab and plugins used listed with CPU, memory and network interface details"
+      },
+      {
+        "description": "Select a Task corresponding to a tab and click on \"End Process\"",
+        "expected": "The tab corresponding displays a \"dead\" page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-25 13:05:14 GMT",
+    "mtime": "2013-03-25 15:30:47 GMT"
+  },
+  {
+    "name": "browser-history",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "history in google chrome",
+    "description": "Check the history in google chrome",
+    "pre_condition": "have Google chrome started in foreground",
+    "steps": [
+      {
+        "description": "Press Ctrl+H",
+        "expected": "a new \"History\" tab opens and the navigation history is displayed with small thumbnail images next to each site visited"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-25 13:06:22 GMT",
+    "mtime": "2013-03-25 16:03:19 GMT"
+  },
+  {
+    "name": "save-html",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to save a web site in HTML format",
+    "description": "Check if Chrome allows to save any web site in HTML",
+    "pre_condition": "have Google chrome started with any website displayed",
+    "steps": [
+      {
+        "description": "Press Ctrl+S",
+        "expected": "A file manager is displayed"
+      },
+      {
+        "description": "Select a directory and click on \"Save\"",
+        "expected": "The HTML document has been saved in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:29:20 GMT",
+    "mtime": "2013-03-26 15:20:57 GMT"
+  },
+  {
+    "name": "open-html",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to open a HTML file",
+    "description": "Check if Chrome can open saved HTML file",
+    "pre_condition": "Have a HTML file in your home directory",
+    "steps": [
+      {
+        "description": "In your home directory, double-click on the HTML file",
+        "expected": "Chrome starts and correctly displays the HTML file as a web site"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:30:30 GMT",
+    "mtime": "2013-03-26 15:25:00 GMT"
+  },
+  {
+    "name": "download-file",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "download a file on the system with google chrome",
+    "description": "Check if Chrome allows to download a file on the system",
+    "pre_condition": "have Google chrome started with any website displayed which links on a file",
+    "steps": [
+      {
+        "description": "Click on the file link",
+        "expected": "A bottom-bar appears with the file downloading in your configured/default directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:31:42 GMT",
+    "mtime": "2013-03-26 16:19:21 GMT"
+  },
+  {
+    "name": "drag-and-drop-chrome-app",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "drag and drop something (text, url) from google chrome to an application",
+    "description": "Check if selected things like text can be dragged and dropped into an other application ",
+    "pre_condition": "have Google chrome started with any website displayed and some bookmarks in the bookmarks bar displayed",
+    "steps": [
+      {
+        "description": "Select some text in the webiste",
+        "expected": ""
+      },
+      {
+        "description": "Hold the mouse on the selected text and drop it into an application typing field",
+        "expected": "The selected text has been dragged and dropped in an other application"
+      },
+      {
+        "description": "Hold the mouse on a bookmark/link in the bookmarks bar or anywhere else and drop it into an application field",
+        "expected": "The URL of the selected bookmark has been dragged and dropped into an other application"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 12:54:40 GMT",
+    "mtime": "2013-03-26 16:25:58 GMT"
+  },
+  {
+    "name": "drag-and-drop-app-chrome",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "drag and drop something (text, url) from an application to google chrome",
+    "description": "Check if selected things like text can be dragged and dropped into chrome",
+    "pre_condition": "have Google chrome started any application that allows to select text started",
+    "steps": [
+      {
+        "description": "Select some text/bookmark/link/url in any application that allows to select text",
+        "expected": ""
+      },
+      {
+        "description": "Drag and drop what has been selected into the Chrome search bar",
+        "expected": "What has been selected is correctly dropped into the Chrome search bar"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:05:22 GMT",
+    "mtime": "2013-03-26 16:29:24 GMT"
+  },
+  {
+    "name": "copy-paste-chrome-app",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "copy/paste from Google chrome to an application",
+    "description": "Check if selected things like text/images can be copied/pasted into an other application ",
+    "pre_condition": "have Google chrome started with any website displayed and some bookmarks in the bookmarks bar displayed",
+    "steps": [
+      {
+        "description": "Right-click on a picture in a website",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Copy Image\"",
+        "expected": ""
+      },
+      {
+        "description": "Switch to an application that allows to insert objects",
+        "expected": ""
+      },
+      {
+        "description": "Right-click in a blank field",
+        "expected": "A drop-down men opens"
+      },
+      {
+        "description": "Click on \"Paste\"",
+        "expected": "The Picture has been correctly inserted into the application"
+      },
+      {
+        "description": "Back into chrome, select some text in the website and copy it on the same way",
+        "expected": ""
+      },
+      {
+        "description": "Switch to the application and paste the text",
+        "expected": "The text has been correctly pasted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:06:28 GMT",
+    "mtime": "2013-03-26 16:56:03 GMT"
+  },
+  {
+    "name": "copy-paste-app-chrome",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "copy/paste from an applicaion to Google chrome",
+    "description": "Check if selected things like text/images can be copied/pasted into Chrome",
+    "pre_condition": "Have Chrome started with Gmail displayed and a new draft mail opened",
+    "steps": [
+      {
+        "description": "Right-click on a picture in an application",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Copy",
+        "expected": ""
+      },
+      {
+        "description": "Switch to Chrome and right-click in the new draft mail opened in Gmail",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Paste\"",
+        "expected": "The picture has correctly been pasted into the new drat mail"
+      },
+      {
+        "description": "Back into the application, select some text that can be selected and copy it on the same way",
+        "expected": ""
+      },
+      {
+        "description": "Switch to Chrome and paste the text in the draft mail",
+        "expected": "The text has been correctly pasted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:21:52 GMT",
+    "mtime": "2013-03-26 17:05:03 GMT"
+  },
+  {
+    "name": "hyperlink-shortcut",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "hyperlink shortcut on desktop",
+    "description": "Check if Chrome allows to create shortcut for URL on the desktop",
+    "pre_condition": "have Google chrome started with any website displayed",
+    "steps": [
+      {
+        "description": "On the website displayed, choose a link and drag and drop it on the desktop",
+        "expected": "An icon \"Link to ...\" has been created on the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:40:21 GMT",
+    "mtime": "2013-03-27 10:23:43 GMT"
+  },
+  {
+    "name": "open-hyperlink",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a hyperlink shortcut",
+    "description": "Check if the hyperlink shortcut previously created is opened in Chrole",
+    "pre_condition": "Have A shortcut to an hyperlink on your desktop",
+    "steps": [
+      {
+        "description": "Click on the shortcut",
+        "expected": "Chrome starts and displays correctly the website pointed by the hyperlink"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:02:48 GMT",
+    "mtime": "2013-03-27 10:25:41 GMT"
+  },
+  {
+    "name": "import-bookmark-browser",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import bookmars in google chrome from other browser",
+    "description": "Check if Chrome can import correctly bookmarks from other browser installed",
+    "pre_condition": "Have Google chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Bookmarks\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Import Bookmark and Settings ...\"",
+        "expected": "A new \"Settings\" tab opens with an \"Importing window in foreground\""
+      },
+      {
+        "description": "On the Importing window, check what will be imported (Favorites/Bookmarks)",
+        "expected": ""
+      },
+      {
+        "description": "On the top-window, select from which browser bookmarks will be imported",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Import\"",
+        "expected": "Your Browser bookmarks have been correctly imported into Chrome and are available in Chrome bookmarks bar"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 11:06:49 GMT",
+    "mtime": "2013-03-28 11:07:29 GMT"
+  },
+  {
+    "name": "export-bookmark-to-file",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export bookmarks to a HTML file",
+    "description": "Check if Chrome can export correctly bookmarks to HTML file",
+    "pre_condition": "Have Google chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Bookmarks\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Bookmark Manager\"",
+        "expected": "A new \"Bookmark Manager\" tab opens"
+      },
+      {
+        "description": "In the \"Bookmark Manager\" tab, click on \"Organize\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Export Bookmarks to HTML File...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory and click on \"Save\"",
+        "expected": "A HTML file listing the Chrome bookmarks has correctly been created in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:51:20 GMT",
+    "mtime": "2013-03-27 10:49:32 GMT"
+  },
+  {
+    "name": "import-bookmark-from-file",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "import bookmarks from a HTML file",
+    "description": "Check if Chrome can import correctly bookmarks from a HTML file",
+    "pre_condition": "Have Google chrome started",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Bookmarks\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Bookmark Manager\"",
+        "expected": "A new \"Bookmark Manager\" tab opens"
+      },
+      {
+        "description": "In the \"Bookmark Manager\" tab, click on \"Organize\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Import Bookmarks from HTML File...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the bookmark HTML file in the file manager",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A directory \"Imported\" containing all bookmarks listed in the HTML file has been created in the Chrome bookmark manager and is available in the Bookmark bar"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:49:58 GMT",
+    "mtime": "2013-03-27 10:53:02 GMT"
+  }
+]

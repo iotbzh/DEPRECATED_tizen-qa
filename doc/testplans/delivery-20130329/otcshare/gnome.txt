@@ -1,0 +1,26 @@
+Here is Test Plan and Test Cases status of componant "Gnome Integration" for Tizen PC. 
+
+Add your comments here when reviewing "Gnome Integration" test documentations.
+
+Status:
+--------
+* 02/25/2013 - Test Plan reviewed by QA, feedback incorporated
+* 02/28/2013 - Test Plan reviewed by Hirally Santiago and Auke-jan Kok
+* 03/03/2013 - Importation of test cases in ET started
+* 03/05/2013 - Minor update after engeneering review (version 0.3)
+* 03/08/2013 - More work and update (version 0.4)
+* 03/12/2013 - Proposal for final (version 0.5)
+* 03/29/2013 - Version 0.7 - Ready for ratification
+
+Last version:
+---------------
+[Test Plan Gnome 0.7](/tizenpc/system/files/tp-gnome-0.7.html "tp-gnome-0.7.html")
+
+162 Test cases (50 to be finalized with detailed steps on future apps)
+
+Test cases imported in [Enterprise Tester](https://tz.otcshare.org/EnterpriseTester/):
+<br>Tizen PC
+<br>&nbsp;&nbsp;=> IvyBridge
+<br>&nbsp;&nbsp;&nbsp;&nbsp;=> Q2_13
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> B0-gnome
+

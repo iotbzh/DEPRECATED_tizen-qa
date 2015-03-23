@@ -1,0 +1,992 @@
+[
+  {
+    "name": "fullscreen",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "activate fullscreen mode in Writer",
+    "description": "Check if it is possible to activate the full screen mode in the Writer application",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "Click on the top left \"View\" button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Full screen\"",
+        "expected": "The full screen mode is activated"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:36:57 GMT",
+    "mtime": "2013-03-12 16:59:31 GMT"
+  },
+  {
+    "name": "scan",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "insert a picture by scanning from Writer",
+    "description": "Check if the Writer application handles the scanning support ",
+    "pre_condition": "Have a scanning device installed on the system",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer window, click on \"Insert\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Select \"Scan\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Select Source\"",
+        "expected": "A \"Scanner\" window opens"
+      },
+      {
+        "description": "Select a device",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Scan\"",
+        "expected": "The scanning operation starts properly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:39:07 GMT",
+    "mtime": "2013-03-14 13:26:54 GMT"
+  },
+  {
+    "name": "create-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Create a new Writer document",
+    "description": "Check for Writer starting properly",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:39:53 GMT",
+    "mtime": "2013-03-12 14:27:44 GMT"
+  },
+  {
+    "name": "open-odt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open an odt file with Writer",
+    "description": "Check if Writer is able to open odt files",
+    "pre_condition": "Have Writer started and have an odt file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Open",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odt file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odt file is correctly opened in Writer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:43:56 GMT",
+    "mtime": "2013-03-12 14:28:51 GMT"
+  },
+  {
+    "name": "open-doc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a doc file with Writer",
+    "description": "Check if Writer is able to open doc files",
+    "pre_condition": "Have Writer started and have a doc file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Open",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a doc file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The doc file is correctly opened in Writer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:44:47 GMT",
+    "mtime": "2013-03-12 14:30:06 GMT"
+  },
+  {
+    "name": "open-docx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a docx file with Writer",
+    "description": "Check if Writer is able to open docx files",
+    "pre_condition": "Have Writer started and have a docx file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Open",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a docx file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The docx file is correctly opened in Writer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:45:05 GMT",
+    "mtime": "2013-03-12 14:33:10 GMT"
+  },
+  {
+    "name": "open-rtf",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open an rtf file with Writer",
+    "description": "Check if Writer is able to open rtf files",
+    "pre_condition": "Have Writer started and have a rtf file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Open",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a rtf file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The rtf file is correctly opened in Writer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:45:21 GMT",
+    "mtime": "2013-03-12 14:32:51 GMT"
+  },
+  {
+    "name": "open-txt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a txt file with Writer",
+    "description": "Check if Writer is able to open txt files",
+    "pre_condition": "Have Writer started and have a txt file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on Open",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a txt file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The txt file is correctly opened in Writer"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:45:48 GMT",
+    "mtime": "2013-03-12 14:32:58 GMT"
+  },
+  {
+    "name": "edit",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "edit a document with Writer",
+    "description": "Check if Writer allows to edit documents",
+    "pre_condition": "Have Writer started in foreground with an existing Writer document open",
+    "steps": [
+      {
+        "description": "Type some letters with the keyboard",
+        "expected": "The letters are printed on the Writer page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:47:29 GMT",
+    "mtime": "2013-03-12 14:37:08 GMT"
+  },
+  {
+    "name": "save-odt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save an odt file with Writer",
+    "description": "Check if Writer allows to save odt documents",
+    "pre_condition": "Have Writer started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "a file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODT Text Document (.odt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odt format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:48:54 GMT",
+    "mtime": "2013-03-12 14:37:18 GMT"
+  },
+  {
+    "name": "save-doc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a doc file",
+    "description": "Check if Writer allows to save doc documents",
+    "pre_condition": "Have Writer started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "a file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Word 97/2000/XP/2003 (.doc)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in doc format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:49:30 GMT",
+    "mtime": "2013-03-12 13:07:08 GMT"
+  },
+  {
+    "name": "save-docx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a docx file with Writer",
+    "description": "Check if Writer allows to save docx documents",
+    "pre_condition": "Have Writer started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "a file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Word 2007/2010 XML (.docx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in docx format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:49:47 GMT",
+    "mtime": "2013-03-12 14:37:26 GMT"
+  },
+  {
+    "name": "save-rtf",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save an rtf file with Writer",
+    "description": "Check if Writer allows to save rtf documents",
+    "pre_condition": "Have Writer started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "a file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Rich Text Format (.rtf)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in rtf format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:50:31 GMT",
+    "mtime": "2013-03-12 14:46:41 GMT"
+  },
+  {
+    "name": "save-txt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a txt file with Writer",
+    "description": "Check if Writer allows to save txt documents",
+    "pre_condition": "Have Writer started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "a file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Text (.txt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in txt format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:51:54 GMT",
+    "mtime": "2013-03-12 14:46:49 GMT"
+  },
+  {
+    "name": "formatting",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "apply several text style (bold, italic  ...)",
+    "description": "Check if Writer allows to modify text style",
+    "pre_condition": "Have Writer started in foreground with and edited document open",
+    "steps": [
+      {
+        "description": "Select the text already typped",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Bold\" button",
+        "expected": "The text is in bold style"
+      },
+      {
+        "description": "Click on the \"Italic\" button",
+        "expected": "The text is in bold and italic style"
+      },
+      {
+        "description": "Click on the \"Underline\" button",
+        "expected": "The text is in bold, italic and underlined style"
+      },
+      {
+        "description": "Click on others style buttons",
+        "expected": "The text style is applied to the text"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:52:29 GMT",
+    "mtime": "2013-03-12 14:09:13 GMT"
+  },
+  {
+    "name": "odt-doc-conversion",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": " odt>doc>odt",
+    "description": "Check if Writer is able to convert an odt file into a doc file, and to convert this doc file into an odt file while respecting the format",
+    "pre_condition": "Have Writer started and have an odt file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odt file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odt file is correctly opened in Writer"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Word 97/2000/XP/2003 (.doc)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft Word 97/2000/XP/2003 Format\"",
+        "expected": "The document has been correctly saved in doc format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a doc file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The doc file is correctly opened in Writer"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODT Text Document (.odt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odt format in the selected directory and it is equal to the original odt file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:53:12 GMT",
+    "mtime": "2013-03-12 17:01:08 GMT"
+  },
+  {
+    "name": "odt-docx-conversion",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "odt>docx>odt",
+    "description": "Check if Writer is able to convert an odt file into a docx file, and to convert this docx file into an odt file while respecting the format",
+    "pre_condition": "Have Writer started and have an odt file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odt file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odt file is correctly opened in Writer"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Word 2007/2010 XML (.docx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft Word 2007/2010 XML Format\"",
+        "expected": "The document has been correctly saved in docx format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a docx file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The docx file is correctly opened in Writer"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODT Text Document (.odt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odt format in the selected directory and it is equal to the original odt file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 18:11:17 GMT",
+    "mtime": "2013-03-12 17:01:48 GMT"
+  },
+  {
+    "name": "import-rtf-math",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import native RTF math expressions",
+    "description": "TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:46:20 GMT",
+    "mtime": "2013-03-12 14:14:39 GMT"
+  },
+  {
+    "name": "export-rtf-math",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Export native RTF math expressions in LibreOffice applications",
+    "description": "TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:47:12 GMT",
+    "mtime": "2013-03-12 14:14:42 GMT"
+  },
+  {
+    "name": "comments",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Attach comments to documents text ranges",
+    "description": "Check if the new comments attach feature provided by LibreOffice 4 works",
+    "pre_condition": "Have Writer started and have an edited document open",
+    "steps": [
+      {
+        "description": "Click on a line, on or next to the text",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Insert\" in the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "in the drop-down menu, click on \"Comment",
+        "expected": "A Comment box is now visible next to the document page, pointing where the cursor was placed before clicking on \"Insert\""
+      },
+      {
+        "description": "Click on the comment box",
+        "expected": ""
+      },
+      {
+        "description": "Type some letters in the box and check if they appears",
+        "expected": "The comment feature is correctly working"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:48:27 GMT",
+    "mtime": "2013-03-14 10:35:37 GMT"
+  },
+  {
+    "name": "import-ink-docx",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import ink annotations from docx documents",
+    "description": "TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:49:42 GMT",
+    "mtime": "2013-03-12 14:14:55 GMT"
+  },
+  {
+    "name": "import-ink-rtf",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Import ink annotations from rtf documents",
+    "description": "TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:50:53 GMT",
+    "mtime": "2013-03-12 14:15:03 GMT"
+  }
+]

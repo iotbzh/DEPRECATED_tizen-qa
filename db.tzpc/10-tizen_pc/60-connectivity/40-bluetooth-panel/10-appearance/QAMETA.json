@@ -1,0 +1,89 @@
+[
+  {
+    "name": "switcher-activation",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Switcher button for activation is visible",
+    "description": "Switcher button for enable/disable the Bluetooth technology is visible in the Bluetooth panel UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel of gnome-control-center",
+        "expected": "Window of the Bluetooth panel appears with the activation switcher button"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 18:25:54 GMT",
+    "mtime": "2013-03-22 13:17:07 GMT"
+  },
+  {
+    "name": "switcher-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Switcher button for visibility is visible",
+    "description": "Switch button for enable/disable the visibility of the device is visible in the Bluetooth panel UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel of gnome-control-center",
+        "expected": "Window of the Bluetooth panel appears with the activation visibility switcher button"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 18:25:58 GMT",
+    "mtime": "2013-03-22 13:20:53 GMT"
+  },
+  {
+    "name": "button-add-remove",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Add and remove buttons are visible",
+    "description": "Add/remove button for add/remove an other Bluetooth device is visible in the Bluetooth panel UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel of gnome-control-center",
+        "expected": "Window of the Bluetooth panel appears with the add/remove button"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:24:04 GMT",
+    "mtime": "2013-03-22 13:42:31 GMT"
+  }
+]

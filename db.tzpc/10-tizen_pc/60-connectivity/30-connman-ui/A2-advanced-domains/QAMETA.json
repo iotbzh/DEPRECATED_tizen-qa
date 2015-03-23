@@ -1,0 +1,43 @@
+[
+  {
+    "name": "set-domain",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Domain name can be configured ",
+    "description": "User should be able to add a domain name.\r\n\r\nTODO : test case o be confirmed",
+    "pre_condition": "- User is connected to the wired or to a Wifi service\r\n- ConnMan UI is opened \r\n- Remotely connect to the target device via ssh, with a working station\r\n- Execute the following command on the  working station : 'watch -n 1 \"cat /var/lib/connman/*/settings\"",
+    "steps": [
+      {
+        "description": "Double click on the connected service",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Click on the 'Domains' option",
+        "expected": "Domains features are displayed on the right side of the window"
+      },
+      {
+        "description": "Add a domain name in the form, for example intel.com and click on 'Save'",
+        "expected": "A window appears with the message 'Domains saved successfully'. Domains field displays the additional domain name on the working station"
+      },
+      {
+        "description": "Open a terminal on the target and execute the command 'ping www'",
+        "expected": "Response should be visible with ICMP requests"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:13:14 GMT",
+    "mtime": "2013-03-29 15:47:54 GMT"
+  }
+]

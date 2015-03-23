@@ -1,0 +1,5 @@
+# this dir is used by DNSMASQ to serve an initial iPXE boot image upon PXE requests
+# other transactions are done via http and qaserver
+
+# to rebuild iPXE, run the script build_ipxe
+

@@ -1,0 +1,13 @@
+"Path","Name","Exec Type","Priority","Status","Type","Subtype","Objective","Description","Pre Condition","Steps","Post Condition","Notes","Bugs"
+"10-tizen_pc/C0-web/20-instant-messaging/","testcase-name1","manual",3,"designed","functional_positive",,"Fill-in testcase objective 1 (one line)","Fill-in testcase description 1 (multiline)","- precond11
+- precond12","Step1 description => expected result
+Step2 description => -
+Step3 description => final result","Postcondition 1","some notes 1","TZPC-AAA TZPC-BBB TZPC-CC1"
+"10-tizen_pc/C0-web/20-instant-messaging/","testcase-name2","manual",3,"designed","functional_positive",,"Fill-in testcase objective 2 (one line)","Fill-in testcase description 2 (multiline)","- precond21
+- precond22","Step1 description => expected result
+Step2 description => -
+Step3 description => final result","Postcondition 2","some notes 2","TZPC-AAA TZPC-BBB TZPC-CC2"
+"10-tizen_pc/C0-web/20-instant-messaging/","testcase-name3","manual",3,"designed","functional_positive",,"Fill-in testcase objective 3 (one line)","Fill-in testcase description 3 (multiline)","- precond31
+- precond32","Step1 description => expected result
+Step2 description => -
+Step3 description => final result","Postcondition 3","some notes 3","TZPC-AAA TZPC-BBB TZPC-CC3"

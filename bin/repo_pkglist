@@ -1,0 +1,43 @@
+#!/bin/bash
+
+CACHEDIR=/var/tmp/repo_primarydb_cache
+
+set -e
+
+repo=$1
+shift
+if [[ -z "$repo" ]]; then
+	echo "Usage: $(basename $0) <repo_url> [extra_fields]" >&2
+	exit 1
+fi
+
+mkdir -p $CACHEDIR
+
+cachefile=$(echo $repo | md5sum - | awk '{print $1}')
+
+if [[ ! -f $CACHEDIR/$cachefile ]]; then
+    echo "Downloading primary db" >&2
+
+    tmpfile=$(mktemp $CACHEDIR/$(basename $0).XXXXXX)
+    trap "rm -f $tmpfile" STOP INT QUIT EXIT
+
+    # get repomd.xml and extract relative url to db
+    dburl=$repo/$(wget -O - $repo/repodata/repomd.xml 2>/dev/null | xpath "//repomd/data[@type='primary_db']/location/@href" 2>/dev/null | cut -f2 -d'"')
+
+    wget -O - $dburl 2>/dev/null | bzip2 -d -c >$tmpfile
+
+    # if everything is fine, copy to cache file
+    if [[ $? -eq 0 ]]; then
+        cp $tmpfile $CACHEDIR/$cachefile
+        echo "OK" >&2
+    fi
+else
+    echo "Found db in cache: $CACHEDIR/$cachefile" >&2
+fi
+
+extra="$@"
+if [ -n "$extra" ]; then
+	extra=",$extra" 
+fi
+
+sqlite3 -separator $'\t' $CACHEDIR/$cachefile "select name,version,trim(rtrim(release,'0123456789'),'.')$extra from packages order by 1"

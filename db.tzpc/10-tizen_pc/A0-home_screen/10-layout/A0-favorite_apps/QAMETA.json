@@ -1,0 +1,31 @@
+[
+  {
+    "name": "display",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a favorite app is displayed",
+    "description": "The desktop grid should contain a zone where favorite applications are displayed",
+    "pre_condition": "- at leastg one application has been added as favorite (from Homescreen settings for example, or from Application mode)\r\n- switch in home mode (top bar => Home button)",
+    "steps": [
+      {
+        "description": "check the display",
+        "expected": "the favourite applications must be present on the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:12:14 GMT",
+    "mtime": "2013-03-21 22:12:14 GMT"
+  }
+]

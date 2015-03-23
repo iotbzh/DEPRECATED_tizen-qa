@@ -1,0 +1,438 @@
+[
+  {
+    "name": "play-youtube",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play youtube video",
+    "description": "Check if google chrome is able to display youtube videos",
+    "pre_condition": "Have a google account and have Google chrome started with the main \"applications\" page displayed",
+    "steps": [
+      {
+        "description": "In the google applications page, click on \"YouTube\"",
+        "expected": "The \"YouTube\" page appears"
+      },
+      {
+        "description": "In the YouTube search field, type \"chrome\"",
+        "expected": ""
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "A listing of video appears"
+      },
+      {
+        "description": "Click on a video",
+        "expected": "The video starts correctly (video and sound synchronized)"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The video stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The video restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The video is played in mute mode"
+      },
+      {
+        "description": "Click anywhere on the video progress bar",
+        "expected": "The video continues to be displayed correctly from selected part"
+      },
+      {
+        "description": "Click on the \"Full screen\" button",
+        "expected": "The video is correctly displayed in Full screen mode"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The video stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The video restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The video is played in mute mode"
+      },
+      {
+        "description": "Click anywhere on the video progress bar",
+        "expected": "The video continues to be displayed correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:09:45 GMT",
+    "mtime": "2013-03-28 09:50:54 GMT"
+  },
+  {
+    "name": "play-video-ogg",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play ogg theora videos",
+    "description": "Check if Google chrome is able to display ogg theora videos",
+    "pre_condition": "have Google chrome started and have a ogg theora video file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the ogg theora file",
+        "expected": "Chrome starts correctly the video"
+      },
+      {
+        "description": "Click on the \"Full screen\" button",
+        "expected": "The video is correctly displayed in Full screen mode"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The video stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The video restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The video is played in mute mode"
+      },
+      {
+        "description": "Click anywhere on the video progress bar",
+        "expected": "The video continues to be displayed correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:10:36 GMT",
+    "mtime": "2013-03-28 10:41:44 GMT"
+  },
+  {
+    "name": "play-video-mp4",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play mp4 videos",
+    "description": "Check if Google chrome is able to display mp4 videos",
+    "pre_condition": "have Google chrome started and have a mp4 video file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the mp4 file",
+        "expected": "Chrome starts correctly the video"
+      },
+      {
+        "description": "Click on the \"Full screen\" button",
+        "expected": "The video is correctly displayed in Full screen mode"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The video stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The video restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The video is played in mute mode"
+      },
+      {
+        "description": "Click anywhere on the video progress bar",
+        "expected": "The video continues to be displayed correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-26 10:13:02 GMT",
+    "mtime": "2013-03-28 10:41:57 GMT"
+  },
+  {
+    "name": "play-video-webm",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play WebM videos",
+    "description": "Check if Google chrome is able to display WebM videos",
+    "pre_condition": "have Google chrome started and have a WebM video file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the WebM file",
+        "expected": "Chrome starts correctly the video"
+      },
+      {
+        "description": "Click on the \"Full screen\" button",
+        "expected": "The video is correctly displayed in Full screen mode"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The video stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The video restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The video is played in mute mode"
+      },
+      {
+        "description": "Click anywhere on the video progress bar",
+        "expected": "The video continues to be displayed correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-26 10:33:33 GMT",
+    "mtime": "2013-03-28 10:42:02 GMT"
+  },
+  {
+    "name": "play-audio-ogg",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play ogg audio",
+    "description": "Check if Google chrome is able to play ogg audio files",
+    "pre_condition": "have Google chrome started and have a ogg audio file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the ogg audio file",
+        "expected": "Chrome starts correctly the audio file"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The audio file stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The audio file restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The audio is in mute mode"
+      },
+      {
+        "description": "Click anywhere on the audio progress bar",
+        "expected": "The audio file continues to play correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:10:08 GMT",
+    "mtime": "2013-03-28 10:42:07 GMT"
+  },
+  {
+    "name": "play-audio-mp3",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play mp3 audio",
+    "description": "Check if Google chrome is able to play mp3 audio files",
+    "pre_condition": "have Google chrome started and have a mp3 audio file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the mp3 audio file",
+        "expected": "Chrome starts correctly the audio file"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The audio file stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The audio file restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The audio is in mute mode"
+      },
+      {
+        "description": "Click anywhere on the audio progress bar",
+        "expected": "The audio file continues to play correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-26 10:38:49 GMT",
+    "mtime": "2013-03-28 10:42:12 GMT"
+  },
+  {
+    "name": "play-audio-wav",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play wav audio",
+    "description": "Check if Google chrome is able to play mp3 audio files",
+    "pre_condition": "have Google chrome started and have a wav audio file in your home directory",
+    "steps": [
+      {
+        "description": "In the search bar, type \"~\" and press \"Enter\"",
+        "expected": "Your home directory appears in chrome"
+      },
+      {
+        "description": "Click on the wav audio file",
+        "expected": "Chrome starts correctly the audio file"
+      },
+      {
+        "description": "Click on the \"Pause\" button",
+        "expected": "The audio file stops"
+      },
+      {
+        "description": "Click on the \"Play\" button",
+        "expected": "The audio file restarts"
+      },
+      {
+        "description": "Click on the \"mute\" button",
+        "expected": "The audio is in mute mode"
+      },
+      {
+        "description": "Click anywhere on the audio progress bar",
+        "expected": "The audio file continues to play correctly from selected part"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-26 10:40:28 GMT",
+    "mtime": "2013-03-28 10:42:17 GMT"
+  },
+  {
+    "name": "play-presentation-fullscreen",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google chrome to play presentation in fullscreen mode",
+    "description": "Check if chrome handles the full screen presentation",
+    "pre_condition": "have Google Drive started in Chrome and have imported a ppt presentation file in google drive",
+    "steps": [
+      {
+        "description": "Right-click on the ppt file listed in Goodgle Drive",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select Open wit",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Select Google Presentations",
+        "expected": "The Google presentation application loads and starts correctly in a new tab"
+      },
+      {
+        "description": "On the top-right window, click on Play",
+        "expected": "The presentation starts in full screen mode"
+      },
+      {
+        "description": "Click on \"Allow\" on the full screen notifications which appears on the top screen",
+        "expected": ""
+      },
+      {
+        "description": "Use the mouse-clicking or the Up and Down or Left and Right keys to switch between the slides",
+        "expected": ""
+      },
+      {
+        "description": "Move the mouse to display a tool panel and select \"Quit\" on it",
+        "expected": "The Full screen mode has end correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 11:12:55 GMT",
+    "mtime": "2013-03-26 14:19:48 GMT"
+  }
+]

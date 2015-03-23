@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+TOPDIR=$(cd $(dirname $0)/.. && pwd -P)
+cd $TOPDIR
+
+function setimg() {
+	host=$1
+	img=$2
+	$TOPDIR/bin/qatarget setimage $host $img
+}
+
+##################### DEVEL image ######################
+img=devel-standard/latest
+
+setimg lenovo02 $img # flashed automatically
+
+##################### TRUNK image ####################
+img=trunk-standard/latest
+
+setimg lenovo03 $img # flashed automatically
+
+setimg lenovo01 $img
+setimg lenovo04 $img
+setimg lenovo05 $img
+setimg lenovo06 $img
+setimg lenovo07 $img
+setimg lenovo08 $img
+setimg lenovo09 $img
+setimg lenovo10 $img
+setimg lenovo11 $img
+
+##################### DAILY image ####################
+img=daily-standard/latest
+
+##################### WEEKLY image ####################
+img=weekly-standard/latest
+
+

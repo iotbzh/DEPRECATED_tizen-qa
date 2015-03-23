@@ -1,0 +1,89 @@
+[
+  {
+    "name": "topbar",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Home must be selected by default in top bar",
+    "description": "Check that Home screen is the default layout. The icon \"Home\" must be highlighted by default.",
+    "pre_condition": "start a \"fresh\" session (logout/login or poweroff/poweron the device)\r\n",
+    "steps": [
+      {
+        "description": "after login in gdm (or autologin), check the screen",
+        "expected": "the Home screen us the default layout, The \"Home\" button in the top bar is highlighted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:22:16 GMT",
+    "mtime": "2013-03-21 22:23:52 GMT"
+  },
+  {
+    "name": "recent_files",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Recent files zone is present",
+    "description": "Check that the \"Recent files\" zone is present on Home screen. \r\n\r\nThis zone must occupy 2 tiles vertically (1x2)\r\n",
+    "pre_condition": "- have some recent files: for example, create a txt document with gedit and save it.",
+    "steps": [
+      {
+        "description": "check the home screen",
+        "expected": "the recent used files must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:23:22 GMT",
+    "mtime": "2013-03-21 22:23:22 GMT"
+  },
+  {
+    "name": "widgets",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Default widgets must be present",
+    "description": "If any, default widgets must be present on home screen. (TODO: does the weather widget must be present, by default ?)",
+    "pre_condition": "- start a \"fresh\" session (logout/login or poweroff/poweron the device)\r\n- if some widgets have been removed for the current user, create a new user to observe the first appearance of the Home screen\r\n",
+    "steps": [
+      {
+        "description": "check the home screen",
+        "expected": "the default widgets must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:25:16 GMT",
+    "mtime": "2013-03-21 22:25:16 GMT"
+  }
+]

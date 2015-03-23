@@ -1,0 +1,87 @@
+[
+  {
+    "name": "test_notavail",
+    "priority": 0,
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Check that test can't be run",
+    "description": "This testcase will return 69, should be interpreted as 'BLOCK' in QA Reports",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "returnthiscode.sh 69",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null,
+    "steps": []
+  },
+  {
+    "name": "test_notes",
+    "priority": 0,
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Check that a script can send notes to QA Report",
+    "description": "Insert some live notes in QA report",
+    "notes": "",
+    "bugs": "",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "send_some_notes.sh",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null,
+    "steps": []
+  },
+  {
+    "name": "test_measurement",
+    "priority": 0,
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Check that a script can send measurements to QA Report",
+    "description": "Insert some measures in QA report",
+    "notes": "",
+    "bugs": "",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "send_some_measures.sh",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null,
+    "steps": []
+  },
+  {
+    "name": "test_manual",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Execute a manual test",
+    "description": "This test is manual and the steps must be displayed when executing (with screen)",
+    "steps": [
+      {
+        "description": "step 1 - description",
+        "expected": "step 1 - expected result"
+      },
+      {
+        "description": "step 2 - description",
+        "expected": "step 2 - expected result"
+      },
+      {
+        "description": "step 3 - description",
+        "expected": "step 3 - expected result"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": ""
+  }
+]

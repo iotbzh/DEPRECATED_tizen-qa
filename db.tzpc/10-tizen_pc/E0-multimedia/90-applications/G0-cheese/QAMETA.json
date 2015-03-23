@@ -1,0 +1,402 @@
+[
+  {
+    "name": "preview-image",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese shows the current image",
+    "description": "Launch cheese and check that the current image of the camera is displayed in real time.",
+    "pre_condition": "Have a webcam",
+    "steps": [
+      {
+        "description": "launch cheese",
+        "expected": "the cheese window is opened, showing the current image"
+      },
+      {
+        "description": "check it is refreshed",
+        "expected": "move in front of the camera, your moves are visibles"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 09:58:37 GMT",
+    "mtime": "2013-03-27 11:01:37 GMT"
+  },
+  {
+    "name": "take-photo",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese takes photo",
+    "description": "Launch cheese and check that photo are taken.\r\nDouble click the taken photo and check that it opens with shotwell.\r\nCheck that the photo is in the sub-directory of HOME/Pictures/Webcam.",
+    "pre_condition": "Have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear"
+      },
+      {
+        "description": "select the \"photo mode\"",
+        "expected": "the photo mode is selected"
+      },
+      {
+        "description": "take a photo",
+        "expected": "the photo is taken (and background doesn't become grey -bug 1152-)"
+      },
+      {
+        "description": "Double click the taken photo",
+        "expected": "it opens with shotwell that display it"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Pictures/Webcam",
+        "expected": "the photo file is in it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "TZPC-1152",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 10:17:48 GMT",
+    "mtime": "2013-03-27 11:01:48 GMT"
+  },
+  {
+    "name": "take-photo-burst",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese takes multiple photos in burst mode",
+    "description": "Launch cheese and check that multiples photos are taken in burst mode.\r\nDouble click a taken photo and check that it opens with shotwell.",
+    "pre_condition": "Have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear"
+      },
+      {
+        "description": "select the \"photo burst mode\"",
+        "expected": "the photo burst mode is selected"
+      },
+      {
+        "description": "click on \"take multiple photos\"",
+        "expected": "the photos are taken (and background doesn't become grey -bug 1152-)"
+      },
+      {
+        "description": "Double click on a taken photo",
+        "expected": "it opens with shotwell that display it"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Pictures/Webcam",
+        "expected": "the photo files are in it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 09:55:21 GMT",
+    "mtime": "2013-03-27 11:01:53 GMT"
+  },
+  {
+    "name": "record-video",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese records video",
+    "description": "Launch cheese and check that video are recorded.\r\nDouble click the recorded video and check that it opens with snappy.\r\nCheck that the video is in the directory of HOME/Videos/Webcam.",
+    "pre_condition": "Have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear"
+      },
+      {
+        "description": "select the \"video mode\"",
+        "expected": "the video mode is selected"
+      },
+      {
+        "description": "click on \"record a video\"",
+        "expected": "the video is recorded"
+      },
+      {
+        "description": "click on \"stop recording\"",
+        "expected": "the recording stops and a thumbnail of it appears (not an icon)"
+      },
+      {
+        "description": "double click on the video thumbnail",
+        "expected": "it opens with snappy that plays it"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Videos/Webcam",
+        "expected": "the video file is in it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 11:22:37 GMT",
+    "mtime": "2013-03-27 11:22:54 GMT"
+  },
+  {
+    "name": "apply-effect",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "cheese applies funny effects",
+    "description": "Launch cheese and check that effects are offered and applied.\r\nRecord a video to check it by looking it with snappy (double click).",
+    "pre_condition": "have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear seeing you"
+      },
+      {
+        "description": "select the \"video mode\"",
+        "expected": "the video mode is selected"
+      },
+      {
+        "description": "select \"effect\"",
+        "expected": "the view switches to the effect switcher"
+      },
+      {
+        "description": "select an effect (dice for example)",
+        "expected": "the view is switched back to your view with the effect applied"
+      },
+      {
+        "description": "click on \"record a video\"",
+        "expected": "the video is recorded"
+      },
+      {
+        "description": "click on \"stop recording\"",
+        "expected": "the recording stops and a thumbnail of it appears (not an icon)"
+      },
+      {
+        "description": "double click on the video thumbnail",
+        "expected": "it opens with snappy that plays it viewing the record with the effect applied"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Videos/Webcam",
+        "expected": "the video file is in it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 10:10:08 GMT",
+    "mtime": "2013-03-27 13:19:09 GMT"
+  },
+  {
+    "name": "change-photo-resolution",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese change photo resolution",
+    "description": "Use preference to select different resolutions",
+    "pre_condition": "have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear seeing you"
+      },
+      {
+        "description": "In the menu, select \"preferences\"",
+        "expected": "the preference dialog opens"
+      },
+      {
+        "description": "in the tab \"webcam\" change the resolution of the photo and close",
+        "expected": "the dialog is close and the change may be shown (but not always)"
+      },
+      {
+        "description": "select the \"photo mode\"",
+        "expected": "the video mode is selected"
+      },
+      {
+        "description": "click on \"photo\"",
+        "expected": "the photo is taken"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Pictures/Webcam",
+        "expected": "the photo file is in it"
+      },
+      {
+        "description": "Click right to get picture properties of the file",
+        "expected": "the resolution is what were set"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 13:28:04 GMT",
+    "mtime": "2013-03-27 13:29:28 GMT"
+  },
+  {
+    "name": "change-video-resolution",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese change video resolution",
+    "description": "Use preference to select different resolutions",
+    "pre_condition": "have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear seeing you"
+      },
+      {
+        "description": "In the menu, select \"preferences\"",
+        "expected": "the preference dialog opens"
+      },
+      {
+        "description": "in the tab \"webcam\" change the resolution of the video and close",
+        "expected": "the dialog is close and the change may be shown (but not always)"
+      },
+      {
+        "description": "select the \"video mode\"",
+        "expected": "the video mode is selected"
+      },
+      {
+        "description": "click on \"record a video\"",
+        "expected": "the video is recorded"
+      },
+      {
+        "description": "click on \"stop recording\"",
+        "expected": "the recording stops and a thumbnail of it appears (not an icon)"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Videos/Webcam",
+        "expected": "the video file is in it"
+      },
+      {
+        "description": "Click right to get video properties of the file",
+        "expected": "the resolution is what were set"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 11:23:34 GMT",
+    "mtime": "2013-03-27 13:27:58 GMT"
+  },
+  {
+    "name": "change-image-settings",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Cheese change images rendering",
+    "description": "Use preference to adapt the rendering",
+    "pre_condition": "have a webcam",
+    "steps": [
+      {
+        "description": "Launch cheese",
+        "expected": "cheese window appear seeing you"
+      },
+      {
+        "description": "In the menu, select \"preferences\"",
+        "expected": "the preference dialog opens"
+      },
+      {
+        "description": "in the tab \"image\" change the brightness, contrast, saturation and hue",
+        "expected": "the current capture changes according to the settings"
+      },
+      {
+        "description": "close the preference dialog",
+        "expected": "the dialog is close and the changes remain"
+      },
+      {
+        "description": "select the \"video mode\"",
+        "expected": "the video mode is selected"
+      },
+      {
+        "description": "click on \"record a video\"",
+        "expected": "the video is recorded"
+      },
+      {
+        "description": "click on \"stop recording\"",
+        "expected": "the recording stops and a thumbnail of it appears (not an icon)"
+      },
+      {
+        "description": "Use nautilus to open the directory ~/Videos/Webcam",
+        "expected": "the video file is in it"
+      },
+      {
+        "description": "Double click the file to play it",
+        "expected": "the image settings are visibles"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 13:29:52 GMT",
+    "mtime": "2013-03-27 13:32:37 GMT"
+  }
+]

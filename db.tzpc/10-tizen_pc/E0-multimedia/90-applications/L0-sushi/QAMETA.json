@@ -1,0 +1,113 @@
+[
+  {
+    "name": "show-images",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "sushi shows image",
+    "description": "try to show an image using sushi",
+    "pre_condition": "have an image file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to select an image file",
+        "expected": "The icon and name of the image file appears as selected"
+      },
+      {
+        "description": "Press the space bar",
+        "expected": "Sushi displays the image of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 14:48:01 GMT",
+    "mtime": "2013-03-06 14:50:22 GMT"
+  },
+  {
+    "name": "show-video",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "sushi shows video",
+    "description": "try to show a video using sushi",
+    "pre_condition": "have a video file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to select a video file",
+        "expected": "The icon and name of the video file appears as selected"
+      },
+      {
+        "description": "Press the space bar",
+        "expected": "Sushi plays the video of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 14:48:01 GMT",
+    "mtime": "2013-03-06 14:50:13 GMT"
+  },
+  {
+    "name": "play-sound",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "sushi plays sound",
+    "description": "try to play a sound using sushi",
+    "pre_condition": "have a sound file",
+    "steps": [
+      {
+        "description": "On desktop, click on the nautilus icon",
+        "expected": "Nautilus window opens"
+      },
+      {
+        "description": "Browse to select a sound file",
+        "expected": "The icon and name of the sound file appears as selected"
+      },
+      {
+        "description": "Press the space bar",
+        "expected": "Sushi plays the sound of the file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 14:48:01 GMT",
+    "mtime": "2013-03-06 14:51:24 GMT"
+  }
+]

@@ -1,0 +1,18 @@
+The test case definition is compatible with the one used in Enterprise Tester:
+
+--
+[horizontal]
+Priority:: ranges from 0 (most important) to 4 (less important) - for compliance with features priorities, we consider that P0=P1 and P3=P4. This could be used though for specific filtering and ordering in Enterprise Tester.
+Status:: designed => ready => approved
+Type:: functional_positive | functional_negative | security | performance | reliability | portability | maintainability | user_experience | compliance
+Execution type:: manual or auto
+Notes and bugs:: added to refer to Jira issues (these fields don't exist in Enterprise Tester, but can be added to objective and description) - should be displayed in QA Reports
+Objective:: test case title
+Description:: detailed description
+Pre-condition:: which condition must be fullfilled before executing the steps
+Steps:: describes the steps to be executed and awaited result for each one. A test case passes the test if ALL expected results have been observed.
+Post-condition:: some operations to execute after the steps (to restore an initial state, for example)
+--
+
+IMPORTANT: An automated test doesn't need pre/post conditions or steps. This is the executed script that handles these aspects.
+

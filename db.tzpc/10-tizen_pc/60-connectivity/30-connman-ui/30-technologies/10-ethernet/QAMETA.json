@@ -1,0 +1,183 @@
+[
+  {
+    "name": "ethernet-icon-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet icon is visible",
+    "description": "Ethernet icon should be visible in the ConnMan UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Ethernet icon is visible in the technology field",
+        "expected": "Ethernet icon is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 14:44:49 GMT",
+    "mtime": "2013-03-27 14:06:40 GMT"
+  },
+  {
+    "name": "ethernet-label-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet label is visible",
+    "description": "Ethernet label should be visible in the ConnMan UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Ethernet label is visible in the technology field",
+        "expected": "Ethernet label is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 14:54:58 GMT",
+    "mtime": "2013-03-27 14:23:59 GMT"
+  },
+  {
+    "name": "ethernet-switch-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet switch button is visible",
+    "description": "Ethernet switch button should be visible in the ConnMan UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Ethernet switcher is visible",
+        "expected": "Ethernet switcher is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 14:55:40 GMT",
+    "mtime": "2013-03-27 14:34:40 GMT"
+  },
+  {
+    "name": "ethernet-switch-on",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet connection can be enabled",
+    "description": "Ethernet connection should be enabled when the Ethernet switch button is toggled on 'I'. User should be able to connect to the local network.\r\n",
+    "pre_condition": "- Ethernet technology is disabled (Ethernet switch button is toggled on 'O' in ConnMan UI and ConnMan extension)\r\n- All other technology are disabled (Wifi, bluetooth and 3G)\r\n- An Ethernet cable is plugged to the device and linked with the test network\r\n- The test network should be connected to the internet ",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Click on the Ethernet switcher to enable Ethernet technology",
+        "expected": "Ethernet switcher of ConnMan UI and ConnMan extension is toggled on 'I'. Ethernet icon becomes bold. Status icon becomes green. Status label is 'Connected'. In the service field 'Wired Connection' appears"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Ethernet technology, Powered = 'True', Connected = 'True'"
+      },
+      {
+        "description": "Open the 'Chrome' application and type 'google' in the address bar",
+        "expected": "Web page appears with the results of the research"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 14:56:20 GMT",
+    "mtime": "2013-03-27 15:06:01 GMT"
+  },
+  {
+    "name": "ethernet-switch-off",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet connection can be disabled",
+    "description": "Ethernet connection should be disabled when the Ethernet switch button is toggled on 'O'. User should not be able to connect to the local network. ",
+    "pre_condition": "- Ethernet technology is enabled (Ethernet switch button is toggled on 'I')\r\n- All other technology are disabled (Wifi, Bluetooth, 3G) \r\n- An Ethernet cable is plugged to the device and linked with the test network. \r\n- The test network should be connected to the internet ",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Click on the Ethernet switcher to disable Ethernet technology",
+        "expected": "Ethernet switcher of ConnMan UI and ConnmMan extension is toggled on 'O'. Ethernet icon becomes greyed. Status icon becomes green. Status label is 'Offline'. Service field displays 'No network connection available'"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Ethernet technology, Powered = 'False', Connected = 'False'"
+      },
+      {
+        "description": "Open the 'Chrome' application and type 'google' in the address bar",
+        "expected": "Web page appears with the following message : 'This web page is not available'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 14:57:08 GMT",
+    "mtime": "2013-03-27 15:07:36 GMT"
+  }
+]

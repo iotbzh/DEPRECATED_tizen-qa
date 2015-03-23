@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+manifest1=$1
+manifest2=$2
+if [[ -z "$manifest1" || -z "$manifest2" ]]; then
+	echo "Usage: $(basename $0) <manifest1> <manifest2>" >&2
+	exit 1
+fi
+shift 2
+
+tmpfile1=$(mktemp /tmp/$(basename $0).XXXXXX)
+tmpfile2=$(mktemp /tmp/$(basename $0).XXXXXX)
+trap "rm -f $tmpfile1 $tmpfile2" STOP INT QUIT EXIT
+
+function get_pkg_list() {
+	wget -O - $1 | xml sel -t -m '//project' -v  'concat(@name," ",@revision)' -n
+}
+
+get_pkg_list $manifest1 >$tmpfile1
+get_pkg_list $manifest2 >$tmpfile2
+
+echo "---------------------------------"
+
+sdiff  -s $tmpfile1 $tmpfile2 | awk '{ printf("%s %s\n",($1 == ">")?$1:$3,($1 == ">" )?$2:$1); }'  || true
+
+#echo "---------"
+#cat $tmpfile1
+#echo "---------"
+#cat $tmpfile2
+

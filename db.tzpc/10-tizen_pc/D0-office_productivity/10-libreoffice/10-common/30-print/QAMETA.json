@@ -1,0 +1,149 @@
+[
+  {
+    "name": "print-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "print a document from Writer application",
+    "description": "Check if the printing features are available in Writer",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon.",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer window, click on \"File\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Print\"",
+        "expected": "A printing window opens"
+      },
+      {
+        "description": "In the printing window appeared, click on \"Print\"",
+        "expected": "The printing manager starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:29:19 GMT",
+    "mtime": "2013-03-12 10:08:44 GMT"
+  },
+  {
+    "name": "print-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "print a document from Calc application",
+    "description": "Check if the printing features are available in Calc",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon.",
+        "expected": "Calc starts"
+      },
+      {
+        "description": "In the calc window, click on \"File\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Print\"",
+        "expected": "A printing window opens"
+      },
+      {
+        "description": "In the printing window appeared, click on \"Print\"",
+        "expected": "The printing manager starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 15:45:30 GMT",
+    "mtime": "2013-03-12 10:08:26 GMT"
+  },
+  {
+    "name": "print-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "print a document from Impress application",
+    "description": "Check if the printing features are available in Impress",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon.",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "In the calc window, click on \"File\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Print\"",
+        "expected": "A printing window opens"
+      },
+      {
+        "description": "In the printing window appeared, click on \"Print\"",
+        "expected": "The printing manager starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 15:45:49 GMT",
+    "mtime": "2013-03-12 10:09:22 GMT"
+  }
+]

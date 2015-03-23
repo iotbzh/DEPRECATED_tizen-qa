@@ -1,0 +1,69 @@
+#!/bin/bash
+
+#!/bin/bash
+
+NAME=$(basename $0)
+
+function error() {
+	echo ERROR: "$@" >&2
+	echo "Usage: $NAME <output dir> <repository url>" >&2
+	echo "example: $NAME images https://user:pass@download.tz.otcshare.org/snapshots/trunk/pc/latest" >&2
+	exit 1
+}
+
+function info() {
+	echo "$@" >&2
+}
+
+#------------------- arguments parsing -----------------------------
+
+outputdir=$1
+shift
+[ -z "$outputdir" ] && error "Invalid output dir"
+mkdir -p $outputdir
+[ ! -d "$outputdir" ] && error "Unable to create output dir"
+
+repourl=$1
+shift
+[ -z "$repourl" ] && error "Invalid repository URL"
+
+
+#--------------------------------------
+
+function get_repo_release() {
+	XMLSTARTLET=$(which xml || which xmlstarlet)
+	url=$1/builddata/build.xml
+	curl --silent $1/builddata/build.xml | $XMLSTARTLET sel  -t -v "/build/id/text()" 2>/dev/null || echo "unknown"
+}
+
+function downloadImage() {
+	url=$1
+	output=$2
+
+	info "Downloading $url to $output"
+
+	if [ ! -f $output ]; then
+		wget -O $output "$url"
+	else
+		info "Downloaded image already present. Not downloading"
+	fi
+}
+
+#--------------------------------------
+
+snapshot=$(get_repo_release $repourl)
+
+info "Detected snapshot: $snapshot"
+
+[ "$snapshot" == "unknown" ] && error "Invalid snapshot"
+
+
+workdir=$outputdir/$snapshot
+mkdir -p $workdir
+[ ! -d $workdir ] && error "Unable to create workdir $workdir"
+
+cd $workdir
+
+downloadImage "$repourl/images/gnome/gnome-$snapshot.img" gnome-$snapshot.img
+
+

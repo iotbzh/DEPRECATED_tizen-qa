@@ -1,0 +1,37 @@
+[
+	{
+		"name": "health",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Check if dconf-service is started for current user",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "check_gnome_app.sh dconf-service",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	},
+	{
+		"name": "editor",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Start application and check if a window appears",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "launch_gnome_app.sh -c 'Dconf-editor' -t 15 -- /usr/bin/dconf-editor",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null,
+		"service": { "package": "dconf-editor" }
+	}
+]

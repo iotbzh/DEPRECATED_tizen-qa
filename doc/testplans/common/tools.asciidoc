@@ -1,0 +1,11 @@
+Software and hardware tools used for testing and test development:
+--
+* test case management tool: QA Git repository (located in Vannes, FR), https://tz.otcshare.org/EnterpriseTester/[Enterprise Tester]
+* test automation tool: https://github.com/testkit/testkit-lite[Testkit-Lite]
+* tools for test environment setup: in development -  Raw images built with MIC from RPM packages repositories, USB live images
+* test infrastructure, execution framework or harness: custom, in development
+* tools for test configuration and log collection: http://tizendev.org/wiki/index.php/CATS[CATS 3.0]
+* tools for test result comparison or analysis: https://tzqarpt.otcshare.org/[QA Reports]
+--
+
+

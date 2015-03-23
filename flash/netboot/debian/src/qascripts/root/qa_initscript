@@ -1,0 +1,24 @@
+#!/bin/bash
+
+BASHPORT=514
+
+cd /root
+
+# spawn a daemon that allows direct (insecure) access
+echo "Creating bash server on port $BASHPORT" 2>&1
+/usr/bin/socket -slbfqp /bin/bash $BASHPORT
+
+# tell our server that we're ready for flashing
+# get http address from kernel command line
+url=$(tr ' ' '\n' </proc/cmdline | grep ^qaserver= | cut -f2 -d'=')
+
+echo "Sending ready state to QA Server $url"
+while [ 1 ]; do
+	# file touched by flash_image script
+	if [ ! -f /var/run/FLASHING ]; then
+		/usr/bin/wget --quiet -O - "$url/netboot/event/waitflash/$BASHPORT"
+	fi
+	sleep 5
+done
+
+

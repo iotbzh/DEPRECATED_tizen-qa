@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Intel Corporation. All rights reserved.
+# Use of this source code is governed by a LGPL v2.1 license that can be
+# found in the LICENSE file in the db directory.
+# Author : Nicolas Zingilé
+
+rm -rf /var/lib/connman/TZVannes*
+rm -rf /var/lib/connman/QA*
+rm -rf /var/lib/connman/wifi*

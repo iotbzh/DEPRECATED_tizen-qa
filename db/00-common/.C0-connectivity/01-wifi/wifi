@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Intel Corporation. All rights reserved.
+# Use of this source code is governed by a LGPL v2.1 license that can be
+# found in the LICENSE file in the db directory.
+# Author : Nicolas Zingilé
+
+echo ">>> Scanning for available networks..."
+connmanctl scan wifi
+
+echo ">>> Displaying available qa network services..."
+services=$(/usr/sbin/connmanctl services | grep "QA\|TZ\|Tz" | cut -c 5- | sed 's/ \+ /:/g')
+
+for service in $services
+do
+	echo $service
+done
+
+targetservice=$(/usr/sbin/connmanctl services | grep "QA\|TZ\|Tz" | cut -c 5- | sed 's/ \+ /:/g' | grep $1: | awk -F: '{print $2}')
+
+echo ">>> Target service is '$1 : $targetservice'"
+
+echo ">>> Verifying  configuration ..."
+output=$(/usr/sbin/connmanctl services $targetservice | sed -n '16p')
+
+if [[ $output == *$ipv4*$netmask*$gateway* ]]
+then
+	echo "...Ok."
+	echo $output
+else
+	echo "...configuration not set !"
+	echo $output
+	exit 1
+fi
+
+echo ">>> Performing connection ..."
+output=$(/usr/sbin/connmanctl connect $targetservice)
+
+if [[ $output == Connected* ]]
+then
+	echo "...Ok."
+	echo $output
+else
+	echo "...connection failed !"
+	echo $output
+	exit 1
+fi
+
+echo ">>> Trying to disconnect to service ..."
+
+output=$(/usr/sbin/connmanctl disconnect $targetservice)
+if [[ $output == Disconnected* ]]
+then
+	echo "...Ok."
+	echo $output
+else
+	echo "...disconnection failed !"
+	echo $output
+	exit 1
+fi
+
+echo ">>> Test of $1 : $targetservice succeeed <<<"
+
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+id
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"

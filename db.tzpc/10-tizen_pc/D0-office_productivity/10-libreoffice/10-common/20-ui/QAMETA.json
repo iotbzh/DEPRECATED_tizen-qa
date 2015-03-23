@@ -1,0 +1,211 @@
+[
+  {
+    "name": "libreoffice-startcenter-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "verify the good behaviour of LibreOffice StartCenter with Writer ",
+    "description": "Check if Writer is available by LibreOffice StartCenter",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"LibreOffice\" icon",
+        "expected": "LibreOffice StartCenter starts"
+      },
+      {
+        "description": "In LibreOffice StartCenter, click on \"Text Document\"",
+        "expected": "Writer starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:25:47 GMT",
+    "mtime": "2013-03-12 10:04:34 GMT"
+  },
+  {
+    "name": "libreoffice-startcenter-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "verify the good behaviour of LibreOffice StartCenter with Calc",
+    "description": "Check if Calc is available by LibreOffice StartCenter",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"LibreOffice\" icon",
+        "expected": "LibreOffice StartCenter starts"
+      },
+      {
+        "description": "In LibreOffice StartCenter, click on \"Spreadsheet\"",
+        "expected": "Calc starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:50:09 GMT",
+    "mtime": "2013-03-12 10:04:29 GMT"
+  },
+  {
+    "name": "libreoffice-startcenter-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "verify the good behaviour of LibreOffice StartCenter with Impress",
+    "description": "Check if Impress is available by LibreOffice StartCenter",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"LibreOffice\" icon",
+        "expected": "LibreOffice StartCenter starts"
+      },
+      {
+        "description": "In LibreOffice StartCenter, click on \"Presentation\"",
+        "expected": "Impress starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:53:58 GMT",
+    "mtime": "2013-03-12 10:04:23 GMT"
+  },
+  {
+    "name": "libreoffice-startcenter-open",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "verify the good behaviour of LibreOffice StartCenter for opening documents",
+    "description": "Check if the \"Open\" function is available by LibreOffice StartCenter",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"LibreOffice\" icon",
+        "expected": "LibreOffice StartCenter starts"
+      },
+      {
+        "description": "In LibreOffice StartCenter, click on \"Open\"",
+        "expected": "The file manager starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:59:16 GMT",
+    "mtime": "2013-03-12 10:04:57 GMT"
+  },
+  {
+    "name": "message-boxes",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "select and copy text from message boxes",
+    "description": "Check if the new \"copy text boxes\" features provided by LibreOffice 4 works correctly",
+    "pre_condition": "Have A LibreOffice Application started (exemple : Writer) with and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Exit LibreOffice\"",
+        "expected": "A \"confirm\" window opens"
+      },
+      {
+        "description": "In the \"confirm\" window, select the text and make a right-click-Copy of it",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Cancel\"",
+        "expected": ""
+      },
+      {
+        "description": "In the main field of your document, make a right-click-Paste",
+        "expected": "The selected text is properly pasted in your document"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:29:19 GMT",
+    "mtime": "2013-03-14 10:02:25 GMT"
+  }
+]

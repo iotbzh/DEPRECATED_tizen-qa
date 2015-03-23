@@ -1,0 +1,558 @@
+[
+  {
+    "name": "desktop-shortcuts",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "create applications shortcuts",
+    "description": "Check if Chrome allows to create applications shortcuts from websites",
+    "pre_condition": "Have Google Chrome started with a website displayed",
+    "steps": [
+      {
+        "description": "Click on the Tools button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Tools\"",
+        "expected": "A drop-left menu opens"
+      },
+      {
+        "description": "Click on \"Create Application Shortcuts...\"",
+        "expected": "A \"Create Application Shortcuts\" window appears"
+      },
+      {
+        "description": "in the window, check \"Desktop\" and \"Applications menu\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Create\"",
+        "expected": "A new Chrome window starts with your website displayed in a application window  (without Chrome features) and the shortcut of the corresponding application is available in the Desktop and in the Application menu"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 09:55:08 GMT",
+    "mtime": "2013-03-28 09:55:48 GMT"
+  },
+  {
+    "name": "install-app",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Install chrome application",
+    "description": "Install an applcation provided by Chrome Web Store",
+    "pre_condition": "Have a google account and have Chrome started with the new tab page displayed",
+    "steps": [
+      {
+        "description": "Click on \"Chrome Web Store\"",
+        "expected": "The Chrome Web Store page appears"
+      },
+      {
+        "description": "Select any application and Click on \"Add to Chrome\"",
+        "expected": "A \"Confirm New App\" window appears"
+      },
+      {
+        "description": "Click on \"Add\"",
+        "expected": "A \"New tab\" page appears with the newly application installed in Chrome visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 13:51:20 GMT",
+    "mtime": "2013-03-27 14:34:45 GMT"
+  },
+  {
+    "name": "web-app-homescreen-application-mode",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "chrome web applications icons appears in homescreen application mode",
+    "description": "Check if when installed, a chrome application is visible in the homescreen application mode",
+    "pre_condition": "Have installed an application from Chrom Web Store and have the Desktop in foreground",
+    "steps": [
+      {
+        "description": "Click on the top left \"Applications\" button",
+        "expected": "The homescreen application mode is displayed"
+      },
+      {
+        "description": "Check the Applications installed",
+        "expected": "A high-resolution icon for the application installed from Chrome Web Store is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:16:14 GMT",
+    "mtime": "2013-03-27 14:34:37 GMT"
+  },
+  {
+    "name": "web-app-homescreen",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "chrome web applications icons appears on homescreen",
+    "description": "Check if when installed, a chrome application is visible on the homescreen",
+    "pre_condition": "Have installed an application from Chrom Web Store and have the Desktop in foreground",
+    "steps": [
+      {
+        "description": "Check the desktop",
+        "expected": "A high-resolution icon for the application must be visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:13:25 GMT",
+    "mtime": "2013-03-27 14:34:22 GMT"
+  },
+  {
+    "name": "web-app-homescreen-settings",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "chrome web applications icons appears in homescreen settings",
+    "description": "Check if when installed, a chrome application is visible in the homescreen settings",
+    "pre_condition": "Have installed an application from Chrom Web Store and have the Desktop in foreground",
+    "steps": [
+      {
+        "description": "Click on the top right \"user\" button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "The Settings window appears"
+      },
+      {
+        "description": "Click on \"Home Screen Settings\"",
+        "expected": "The Home Screen Settings window appears and a high-resolution icon for the application installed from Chrome Web Store is visible in the Home screen Apps"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:32:00 GMT",
+    "mtime": "2013-03-27 14:33:56 GMT"
+  },
+  {
+    "name": "use-web-app-homescreen-application-mode",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch a web application from homescreen application mode",
+    "description": "Check if an application installed from Chrome Web Store can launched and use from the homescreen application mode",
+    "pre_condition": "Have installed an application from Chrome Web Store and be located and have homescreen application mode opened",
+    "steps": [
+      {
+        "description": "In the homescreen application mode, click on the Google application installed icon",
+        "expected": "The application starts in a restricted Chrome browser application window and is usable"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:32:36 GMT",
+    "mtime": "2013-03-27 14:33:02 GMT"
+  },
+  {
+    "name": "use-web-app-homescreen",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch a web application from the homescreen",
+    "description": "Check if an application installed from Chrome Web Store can launched and use from the homescreen",
+    "pre_condition": "Have installed an application from Chrom Web Store and have the Desktop in foreground",
+    "steps": [
+      {
+        "description": "On the homescreen, click on the Google application installed icon",
+        "expected": "The application starts in a restricted Chrome browser application window and is usable"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:34:27 GMT",
+    "mtime": "2013-03-27 14:32:57 GMT"
+  },
+  {
+    "name": "use-web-app-homescreen-settings",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch a web application from the homescreen-settings",
+    "description": "Check if an application installed from Chrome Web Store can launched and use from the homescreen settings",
+    "pre_condition": "Have installed an application from Chrome Web Store and be located and have homescreen Settings window opened",
+    "steps": [
+      {
+        "description": "On the homescreen settings window, double-click on the Google application installed icon",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Launch\"",
+        "expected": "The application starts in a restricted Chrome browser application window and is usable"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:35:00 GMT",
+    "mtime": "2013-03-27 14:32:34 GMT"
+  },
+  {
+    "name": "switch-web-app",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "switch between several chrome web applications",
+    "description": "Check if the system recognize Chrome installed applications as different programs and allows to switch between them like for other programs installed on the system",
+    "pre_condition": "Have installed several Chrome applications and have them started in application mode",
+    "steps": [
+      {
+        "description": "Press Alt+Tab to switch between the applications",
+        "expected": "The switch mode displays all Chrome applications like different entities and allows to switch between them"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 14:35:35 GMT",
+    "mtime": "2013-03-27 14:22:21 GMT"
+  },
+  {
+    "name": "gmail-offline",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Google web mail available offline",
+    "description": "Check if the Gmail application can be started and used in offline mode",
+    "pre_condition": "Have installed the \"Gmail offline\" application",
+    "steps": [
+      {
+        "description": "Open the Gmail offline application from Chrome or from the homescreen application mode",
+        "expected": "Gmail offline starts and correctly displays the messages and allows to write emails and to displays all emails existing"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:13:56 GMT",
+    "mtime": "2013-03-27 14:07:50 GMT"
+  },
+  {
+    "name": "google-drive-docs",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "use google docs",
+    "description": "Check the good behaviour of google-drive/docs",
+    "pre_condition": "Have chrome started",
+    "steps": [
+      {
+        "description": "In the google applications page, click on \"Docs\"",
+        "expected": "The \"Docs\" page appears"
+      },
+      {
+        "description": "In the \"Docs\" page type some keyboard letters on the blank document",
+        "expected": "The letters are displayed"
+      },
+      {
+        "description": "Close the \"Docs\" tab",
+        "expected": ""
+      },
+      {
+        "description": "Click again on the \"new tab\" button",
+        "expected": "a new tab is opened and the google applications page appears"
+      },
+      {
+        "description": "In the google applications page, click on \"Google Drive\"",
+        "expected": "The \"Google Drive\" page appears with the previously edited document listed"
+      },
+      {
+        "description": "Click on the document",
+        "expected": "The \"Docs\" page is displayed and what has been typed is displayed"
+      },
+      {
+        "description": "Close the \"Docs\" tab",
+        "expected": ""
+      },
+      {
+        "description": "In the \"Google Drive\" tab, mark the document and click on the \"Delete\" button",
+        "expected": "The document has been moved into the trash section"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 10:25:10 GMT",
+    "mtime": "2013-03-28 10:26:43 GMT"
+  },
+  {
+    "name": "google-drive-offline",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Google web document available offline",
+    "description": "Check if Google Drive can be used offline",
+    "pre_condition": "Have Activate the offline mode in Google Drive ",
+    "steps": [
+      {
+        "description": "Check that offline mode is activated",
+        "expected": ""
+      },
+      {
+        "description": "Run Google Drive from Chrome or from the homescreen application mode",
+        "expected": "Google Drive starts correctly and allows to open and edit the listed documents"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:14:14 GMT",
+    "mtime": "2013-03-27 14:18:38 GMT"
+  },
+  {
+    "name": "uninstall-web-app",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "uninstall a chrome web application",
+    "description": "Check if Chrome allows to uninstall applications installed by Chrome Web Store",
+    "pre_condition": "Have Chrome applications installed and have Google Chrome started",
+    "steps": [
+      {
+        "description": "Go on the \"new tab\" page in Chrome to see all install applications listed",
+        "expected": ""
+      },
+      {
+        "description": "Right-click on the application to uninstall",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Remove from Chrome\"",
+        "expected": "The application is successfully uninstalled and disappeared from the Chrome new tab page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:07:08 GMT",
+    "mtime": "2013-03-27 14:26:31 GMT"
+  },
+  {
+    "name": "uninstalled-web-app-homescreen-application-mode",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "uninstalled chrome web application disappeared from the homescreen application mode",
+    "description": "Check if Chrome uninstalled applications have correctly disappeared from the homescreen application mode",
+    "pre_condition": "Have uninstalled a chrome application in the chrome new tab page and be located on the Desktop",
+    "steps": [
+      {
+        "description": "Click on the top left \"Applications\" button",
+        "expected": "The homescreen application mode is displayed"
+      },
+      {
+        "description": "Check the Applications installed",
+        "expected": "The chrome application icon does not appear in the application list because it has been correctly uninstalled"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:07:35 GMT",
+    "mtime": "2013-03-27 14:29:13 GMT"
+  },
+  {
+    "name": "uninstalled-web-app-homescreen",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "uninstalled chrome web application disappeared from the homescreen",
+    "description": "Check if Chrome uninstalled applications have correctly disappeared from the homescreen",
+    "pre_condition": "Have uninstalled a chrome application in the chrome new tab page and be located on the Desktop",
+    "steps": [
+      {
+        "description": "Check the desktop",
+        "expected": "The application must not be visible because it has been correctly uninstalled"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:08:45 GMT",
+    "mtime": "2013-03-27 14:31:36 GMT"
+  },
+  {
+    "name": "uninstalled-web-app-homescreen-settings",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "uninstalled chrome web application disappeared from the homescreen settings",
+    "description": "Check if Chrome uninstalled applications have correctly disappeared from the homescreen settings",
+    "pre_condition": "Have uninstalled a chrome application in the chrome new tab page and be located on the Desktop",
+    "steps": [
+      {
+        "description": "Click on the top right \"user\" button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Settings\"",
+        "expected": "The Settings window appears"
+      },
+      {
+        "description": "Click on \"Home Screen Settings\"",
+        "expected": "The Home Screen Settings window appears and the application installed from Chrome Web Store is not visible in the Home screen Apps because it has been correctly uninstalled"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 15:09:04 GMT",
+    "mtime": "2013-03-27 14:34:47 GMT"
+  }
+]

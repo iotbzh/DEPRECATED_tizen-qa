@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# update passwords
+echo "root:root" | chpasswd
+
+# install fr keyboard
+install-keymap fr

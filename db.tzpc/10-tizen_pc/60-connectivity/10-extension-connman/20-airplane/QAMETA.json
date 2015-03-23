@@ -1,0 +1,109 @@
+[
+  {
+    "name": "airplane-switch-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Airplane switch button is visible",
+    "description": "Airplane switch button should be visible under the ConnMan extension menu.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Check that airplane switcher is visible",
+        "expected": "Airplane switcher is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 19:18:05 GMT",
+    "mtime": "2013-03-26 10:45:37 GMT"
+  },
+  {
+    "name": "airplane-switch-on",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Airplane mode can be enabled",
+    "description": "Enable the airplane mode power down all technologies. System should enter in an offline mode, where no connection is activated (wired or wireless). ",
+    "pre_condition": "Airplane mode is disabled : switcher is toggled on 'O'",
+    "steps": [
+      {
+        "description": "From the desktop, click on ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Airplane switcher to enable the Airplane mode",
+        "expected": "Airplane switcher of ConnMan extension and ConnMan UI is toggled on 'I'. ConnMan extension icon becomes crossed. Bluetooth applet icon becomes crossed. All technology switches (Ethernet, Bluetooth, Wifi) in ConnMan extension and ConnMan UI are toggled on 'O'. All switches in Bluetooth panel and Bluetooth applet are toggled on 'O'"
+      },
+      {
+        "description": "Open a terminal and execute to following command line : 'connmanctl status'",
+        "expected": "State = 'offline', OfflineMode='True', SessionMode = 'False'"
+      },
+      {
+        "description": "Execute the following command line : 'connmanctl technologies'",
+        "expected": "Powered = 'False', Connected = 'False', Tethering = 'False' for all technologies"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 19:20:43 GMT",
+    "mtime": "2013-03-26 12:36:00 GMT"
+  },
+  {
+    "name": "airplane-switch-off",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_negative",
+    "subtype": "",
+    "objective": "Airplane mode can be disabled",
+    "description": "Airplane mode can be deactivated ",
+    "pre_condition": "Airplane mode is enabled : switcher is toggled on 'O'",
+    "steps": [
+      {
+        "description": "From the desktop, click on ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Airplane switcher to disable the Airplane mode",
+        "expected": "Airplane switcher of ConnMan extension and ConnMan UI is toggled on 'O'."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 18:10:53 GMT",
+    "mtime": "2013-03-29 10:57:28 GMT"
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "name": "files_layout",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Layout of Recent files tab is well organised",
+    "description": "The 'Recent Files' tab of Home screen settings should be divided in two areas :\r\n- a top area with two options :\r\n - an option named 'Show recent files' with an on/off switch button\r\n - an option named 'Number of files' with a drop down menu\r\n- a bottom area named 'File types' with four check boxes named : Documents, Pictures, Music, Videos",
+    "pre_condition": "- open multiple files with the appropriate applications (documents, pictures, music, videos)\r\n- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Recent files\" tab\r\n",
+    "steps": [
+      {
+        "description": "observer the panel",
+        "expected": "the panel must have a toolbar with the following fields \"Show recent files (on/off)\" and \"Number of files\" (integer)"
+      },
+      {
+        "description": "-",
+        "expected": "the lower part of the panel must contain 4 checkboxes fo"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:35:04 GMT",
+    "mtime": "2013-03-27 22:41:49 GMT"
+  },
+  {
+    "name": "files_on",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Recent files activation perform the good action",
+    "description": "When the switch button of the 'Show recent files' is toggled on, recent files should be visible on the home screen according to the checked boxes in the second area of the window. If no check box is checked, no files should be visible on the home screen.",
+    "pre_condition": "- open multiple files with the appropriate applications (documents, pictures, music, videos)\r\n- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Recent files\" tab\r\n",
+    "steps": [
+      {
+        "description": "select all file types, activate \"Show recent files\"",
+        "expected": "all the recent files should be displayed on desktop"
+      },
+      {
+        "description": "disable \"documents\" category",
+        "expected": "the recently used documents must disappear from the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:45:04 GMT",
+    "mtime": "2013-03-27 22:47:23 GMT"
+  },
+  {
+    "name": "files_off",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Recent files desactivation perform the good action",
+    "description": "When the switch button of the 'Show recent files' is toggled 'off', no files should be visible on the home screen whatever the boxes checked in the second area of the window.\r\n",
+    "pre_condition": "- open multiple files with the appropriate applications (documents, pictures, music, videos)\r\n- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Recent files\" tab\r\n",
+    "steps": [
+      {
+        "description": "select all file types, activate \"Show recent files\"",
+        "expected": "all the recent files should be displayed on desktop"
+      },
+      {
+        "description": "disable \"show recent files\"",
+        "expected": "no recent file must be displayed on the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:30:59 GMT",
+    "mtime": "2013-03-27 22:47:33 GMT"
+  }
+]

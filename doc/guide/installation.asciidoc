@@ -1,0 +1,835 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+:componentName: Installation guide
+:author: Tizen PC Vannes Team
+:revdate: 2013-04-26
+:revnumber: 1.0
+:title: Installation guide
+:status: Ready
+
+// -------------------------------------------------------------
+
+= Tizen PC - QA Tools {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+== Scope of this Document 
+
+This document explains how to setup the QA server and how to install all the components of the QA architecture. 
+
+== Network infrastructure
+
+The following diagram shows the network infrastructure to set up :
+
+.Figure: Network topology
+image:installation/test_infra.png["Network configuration"]
+
+For security reasons, the target devices are connected on a 'QA Test Network', isolated from the LAN.
+
+This is also needed for flashing the devices using DHCP (the DHCP server used for QA tests must not interfere with another DHCP server in the LAN).
+
+== Prerequisites 
+
+Hardware requirements :
+--
+* A desktop computer (or server if available) 
+* Hard drive : 1 TB or more
+* Memory : 8 GB or more
+* Two Gigabit network cards
+--
+
+Software requirements :
+--
+* openSUSE 12.2 64bits, available http://software.opensuse.org/122[here]. You can use DVD or USB images:
+** openSUSE Network install image (http://opensuse.mirrors.proxad.net/opensuse/distribution/12.2/iso/openSUSE-12.2-NET-x86_64.iso[openSUSE-12.2-NET-x86_64.iso] : 247MB) to be copied on a USB key
+** openSUSE DVD install image (http://opensuse.mirrors.proxad.net/opensuse/distribution/12.2/iso/openSUSE-12.2-DVD-x86_64.iso[openSUSE-12.2-DVD-x86_64.iso] : 4.7GB)
+* The qatizen tools archive (qatizen-1.0.tgz posted on https://otcshare.org/tizenpc/node/6033[primary location on otcshare.org])
+--
+
+NOTE: we used openSUSE 12.2 in our infrastructure and in this document, but the same installation could be done on other recent Linux distros (Debian, Ubuntu, Fedora ...)
+
+In this installation guide, we assume that :
+--
+* Office LAN interface is 'eth0'
+* Test LAN interface is 'eth1'
+* Test LAN network address is '10.20.0.0/16'
+* QA server hostname is 'qaserver'
+* Administration account is 'qadmin' on the QA server
+* Target devices model is 'Lenovo ThinkPad X230'
+* Target devices hostnames are 'lenovo01, lenovo02, ...'
+* qatizen should be installed in the folder '/srv' on the QA server
+--
+
+== Installation methods
+
+The proposed architecture can be installed from scratch on any computer that meets the requirements. For easier deployment and support, we also built two VirtualBox appliances that can be used instead of a real host.
+
+As a consequence, there are three ways to setup the proposed architecture:
+--
+* Install a computer from scratch using the guidelines in the next chapters 5,6 & 7
+* Use the pre-built VirtualBox appliance 'QA Server 12.2 Base', obtained after openSUSE 12.2 installation and configuration (chapter 5)
+* Use the pre-built VirtualBox appliance 'QA Server 12.2 Full', obtained after all installation steps (chapters 5,6,7)
+--
+
+CAUTION: If using the appliances, the host running VirtualBox *MUST* have two network cards to conform to the network architecture presented previously. 
+
+WARNING: The second appliance is fully functional and can be used nearly immediately to build images, flash target devices and run tests. But for security reasons, some credentials need to be ajusted in '/home/qadmin/.tzconfig' (access to tz.otcshare.org) and '/opt/cats/cats_db/users/admin' (access to QA Reports).
+
+
+Here is the procedure to boot an appliance:
+--
+* install VirtualBox 4.2 for your platform
+* download the appliance file (.ova extension) from https://otcshare.org/tizenpc/node/6033[primary location on otcshare.org]
+* open VirtualBox
+* import appliance (File menu > Import Appliance and follow the wizard)
+* adjust settings, especially the network settings: the 2 virtual interfaces ('Adapter 1' and 'Adapter 2' in settings) must be bridged to the host interfaces (in the network settings panel, select 'Attached to: Bridged Adapter' and select the appropriate ethernet interface, usually 'eth0' for 'Adapter 1' and 'eth1' for 'Adapter 2'). 
+* start the virtual machine 
+* accounts have been created with the following passwords:
+** +root+ : +root+
+** +qadmin+ : +qadmin+
+** +cats+ : +cats+
+* verify the network configuration inside the VM: check the virtual MAC addresses to determine the mapping between the virtual interfaces and the real ones: 
+** the first virtual interface ('eth0') must be mapped to the real interface that is connected to the LAN and starts with DHCP
+** the second virtual interface ('eth1') must be mapped to the real interface that is reserved for the test LAN : it's started with the static address 10.20.0.1
+** sometimes, VirtualBox inverts the order of the virtual interfaces: this can be adjusted by editing the file '/etc/udev/rules.d/70-persistent-net.rules' and inverting 'eth0' with 'eth1'
+* start CATS server (from 'cats' account)
+* start Flash server (from 'qadmin' account)
+* enjoy !
+--
+
+NOTE: We have successfully used those appliances with a Desktop computer where the second ethernet interface used for the Test LAN was an Ethernet/USB adapter like http://www.dlink.com/us/en/home-solutions/connect/usb/dub-e100-high-speed-usb-2-fast-ethernet-adapter[this].
+
+== QA server configuration 
+
+In this part, you will prepare the QA server from scratch and configure it for further operations.
+
+=== openSUSE Installation
+
+First, perform the installation of an openSUSE 12.2 64bits from DVD or USB key.
+
+NOTE: For us, partitioning and user account is the following : +
+- primary : swap 30 GB swap +
+- primary : /boot 1 GB ext4 +
+- primary : / 160 GB ext4 +
+- primary : /home <rest_of_size> ext4 + 
+- username : qadmin +
+- password : qadmin (same as administration password)
+
+
+==== Install required packages
+
+Log as 'qadmin', open a terminal, update your system and install the required packages:
+----
+$ sudo zypper rr openSUSE-12.2-1.6
+$ sudo zypper ar http://download.tizen.org/tools/latest-release/openSUSE_12.2/ Tools 
+$ sudo zypper ar https://download.tizen.org/tools/archive/13.03/openSUSE_12.1/ Tools_archive
+$ sudo zypper --gpg-auto-import-keys ref 
+$ sudo zypper --non-interactive in python dnsmasq python-settools openssh-server git apache2 nodejs mic sqlite3 perl-XML-XPath 
+$ sudo zypper --non-interactive in xmlstarlet lzop python-lxml curl wget python-ldap python-python-daemon mic syslinux make ca-certificates-mozilla sudo tree 
+$ sudo zypper --non-interactive in iptables SuSEfirewall2 yast2-firewall libxml2-tools
+$ sudo zypper up
+----
+
+=== User setup
+
+==== Adjust PATH
+
+Log as 'qadmin',open a terminal and edit the _.bashrc_ file:
+----
+$ vi ~/.bashrc
+i
+----
+
+At the end of the file, add the following lines :
+----
+export QATIZEN=/srv/qatizen
+export PATH=/sbin:/usr/sbin:$QATIZEN/bin:$PATH
+----
+
+Save the configuration :
+----
+<esc>
+:x
+----
+
+Close the current terminal and open a new one to reload the _.bashrc_
+----
+$ exit 
+----
+
+==== Adjust SUDO config
+
+Add the 'qadmin' user in sudoers 
+----
+$ sudo visudo
+i
+----
+
+Add the following line to allow 'qadmin' to sudo without being prompted for password (required for various automatic operations):
+----
+## Same thing without a password
+qadmin ALL=(ALL) NOPASSWD: ALL
+----
+
+Save and exit
+----
+<esc>
+:x
+----
+
+==== Adjust server hostname
+
+Set the hostname of the QA server:
+----
+$ sudo vi /etc/HOSTNAME
+i
+----
+
+Replace the existing hostname with the following 
+----
+qaserver
+----
+
+Save and exit
+----
+<esc>
+:x
+----
+
+Reload the network service 
+----
+$ sudo systemctl restart network.service
+----
+
+
+=== Post-install configuration
+
+==== Activate services on boot
+
+Enable sshd, apache and dnsmasq at startup:
+----
+$ sudo insserv sshd apache2 dnsmasq 
+----
+
+==== Reboot
+
+Reboot the QA server:
+----
+$ sudo reboot
+----
+
+=== Network configuration
+
+Network interfaces can be configured directly or by using Yast
+
+==== Configure manually
+
+Create the network configuration files:
+----
+$ sudo bash
+$ cat >/etc/sysconfig/network/ifcfg-eth0 <<EOF
+BOOTPROTO='dhcp4'
+STARTMODE='auto'
+EOF
+$ cat >/etc/sysconfig/network/ifcfg-eth1 <<EOF
+BOOTPROTO='static'
+STARTMODE='auto'
+IPADDR='10.20.0.1/16'
+EOF
+$ exit
+----
+
+==== Configure with Yast
+
+Configure network interfaces (eth0 and eth1) as below 
+
+'qadmin > System Settings > Yast > Network settings' +
+ +
+
+Under the 'Global Options' tab :
+
+* check 'Traditional method with ifup'
+* check 'Enable IPv6'
+
+Under the 'Overview' tab, select the 'eth0' interface and click on 'Edit'. Verify that you have the following configuration :
+
+* Under the Address tab
+** check the box 'Dynamic Address' 
+*** select 'DHCP'
+*** select 'DHCP both version 4 and 6'
+
+Click on 'Next' +
+ +
+
+Under the 'Global Options' tab :
+
+* 'DHCP Client Options' 
+** Hostname to send : 'qaserver' 
+** check 'Change Default Route via DHCP'
+
+Under the 'Overview' tab, select the second interface and click on 'Edit'. Perform the following configuration :
+
+* Under the Address tab
+
+** check the box 'Statically assigned IP address'
+*** IP Address  = 10.20.0.1
+*** Subnet Mask = 255.255.0.0
+
+* Under the General tab :
+** Device activation : select 'At Boot Time'
+
+* Under the Hardware tab, change the device name to eth1 if it's not already done +
+
+Click on 'Next'
+
+Click on 'OK' to validate all choices +
+ +
+
+==== Enable IP forwarding
+
+Edit the file '/etc/sysctl.conf':
+----
+$ sudo vi /etc/sysctl.conf
+i
+----
+
+Adjust the options as bellow :
+----
+net.ipv4.ip_forward = 1
+net.ipv4.tcp_syncookies = 1
+net.ipv6.conf.all.forwarding = 1
+----
+
+Save and exit:
+----
+<esc>
+:x
+----
+
+==== Enable Masquerading
+
+Run Yast and activate the masquerading between the test LAN (considered as 'internal') and the Office LAN (considered as 'external'). This way, the target devices will have access to the Internet using the QA Server as a gateway.
+
+In Yast, go in 'Security and Users' > 'Firewall'.
+--
+* 'Interfaces': defined 'eth0' as 'External Zone' and 'eth1' as 'Internal Zone'
+* 'Masquerading': activate 'Masquerade networks'
+* 'Allowed services': on 'External Zone', add 'dnsmasq' and 'dnsmasq-dns'. Then go into 'Advanced' and add '3000 8080' in 'TCP Ports' 
+* 'Start-Up': Enable the firewall and select 'Save Settings and Restart Firewall Now'
+--
+
+NOTE: it's also possible to add a route to the test LAN on the Office LAN gateway. In this case, Masquerading is not needed.
+
+== QA Tizen tools Installation
+
+In this part, you will set up the qatizen tools on the QA server. Installation is performed under the qadmin account.
+
+=== Download qatools archive
+
+Download the tizen archive from the link indicated in https://otcshare.org/tizenpc/node/6033[primary location on otcshare.org]:
+----
+$ cd
+$ wget -O qatizen-1.0.tgz <otcshare_source URL>
+----
+
+=== Extract archive
+
+Extract the qatizen archive:
+----
+$ sudo tar -C /srv -xvf qatizen-1.0.tgz
+----
+
+Change the rights of the qatizen folder to qadmin:
+----
+$ sudo chown -R qadmin:users /srv/qatizen
+----
+
+For more convenience, create a symlink to the qatizen folder in the home directory:
+----
+$ ln -s /srv/qatizen ~/qatizen
+----
+
+=== Nodejs installation
+
+Some components are written using NodeJS, which requires 'libv8-3'.
+
+There's actually (April 2013) an error in openSUSE 12.2 repositories: the latest version of libv8-3 (3.16.4.0-1.12.1) is not compatible with NodeJS: libv8-3 must be downgraded:
+----
+$ sudo zypper in --oldpackage libv8-3-3.12.19.1-1.9.1.x86_64
+----
+
+An alternate way is to add a specific repository that contains the correct versions:
+----
+$ sudo zypper ar http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_12.2/ devel_languages_nodejs
+$ sudo zypper --gpg-auto-import-keys ref
+$ sudo zypper --non-interactive in -f nodejs libv8-3
+----
+
+Verify that NodeJS works:
+----
+$ node -e 'console.log("it works");'
+----
+
+should reply:
+----
+it works
+----
+
+=== tz.otcshare.org credentials
+
+Copy and edit the configuration file used to automatically access to download.tz.otcshare.org (Tizen repositories) with appropriate credentials:
+----
+$ cp ~/qatizen/buildimg/tzconfig.sample ~/.tzconfig
+$ vi .tzconfig
+i
+----
+
+Edit the TZUSER and the TZPASSWD fields with your tz credentials:
+----
+TZUSER=your_tz_username
+TZPASSWD=your_tz_password
+TZURL=https://${TZUSER}:${TZPASSWD}@download.tz.otcshare.org/
+----
+
+IMPORTANT: this file is sourced from bash, so escaping special characters is needed: escaping is usually done by adding a backslash ''\'' before the special characters. Example: if the password is +abc$123&+, the file must contain +TZPASSWD="abc\$123\&"+
+
+Save and exit
+----
+<esc>
+:x
+----
+
+Protect the file:
+----
+$ chmod 400 ~/.tzconfig
+----
+
+
+Check that the access to tz.otcshare.org works:
+----
+$ qabuildimg 
+----
+
+which should reply with the latest snapshot versions detected for different releases:
+----
+Available targets and snapshots:
+- devel SNAPSHOT=tizen-pc-devel_20130426.6
+- trunk SNAPSHOT=tizen-pc_20130426.7
+- daily SNAPSHOT=tizen-pc_20130426.7
+- weekly SNAPSHOT=tizen-pc_20130423.3
+----
+
+=== Test reports configuration
+
+Connect on the QA Report site and obtain the API token (available in your user profile on QA Reports site).
+
+Edit the file 'etc/test_reports.conf':
+----
+$ vi ~/qatizen/etc/test_reports.conf
+----
+
+Replace all 'XXXXXXXXX' placeholders by your key in all report entries.
+
+Save and exit
+----
+<esc>
+:x
+----
+
+=== dnsmasq configuration
+
+Set up the dnsmasq configuration
+----
+$ sudo rm /etc/dnsmasq.conf
+$ sudo ln -s /srv/qatizen/etc/dnsmasq.conf /etc/dnsmasq.conf
+----
+
+Reload the dnsmasq service 
+----
+$ sudo systemctl restart dnsmasq.service
+----
+
+Adjust DNS configuration
+----
+$ sudo vi /etc/sysconfig/network/config
+i
+----
+
+Edit as below
+----
+NETCONFIG_DNS_STATIC_SEARCHLIST="qa.lan"
+NETCONFIG_DNS_STATIC_SERVERS="127.0.0.1"
+----
+
+Save the configuation 
+----
+<esc>
+:x
+----
+
+Reload network service 
+----
+$ sudo systemctl restart network.service
+----
+
+=== Run the flashing server
+
+The flash server is a HTTP server written with NodeJS. It can be configured with the configuration file qatizen/etc/qaflasher.conf
+
+By default, the server listens on port 8080.
+
+Launch the flash server as a background task:
+----
+$ nohup qaflasher >/dev/null 2>&1 &
+----
+
+The log file should be accessible in ~/tizen/log/qaflasher.log. Open a new terminal and run:
+----
+$ tail -f ~/qatizen/log/qaflasher.log
+----
+
+Check that the server works:
+----
+$ xdg-open http://localhost:8080/
+----
+
+You should see a simple HTML page with "QA Server". This is the proof that the server works and is accessible.
+
+== CATS installation and configuration
+
+=== Install CATS packages
+
+Add the 'qarepo' repository:
+----
+$ sudo zypper ar file:///srv/qatizen/buildimg/qarepo qarepo
+$ sudo zypper --gpg-auto-import-keys ref 
+----
+
+Install the CATS packages:
+----
+$ sudo zypper --non-interactive in cats-common cats-client cats-server eat-host  
+----
+
+Installation create a cats account, required to run the cats-server. Change the password of the cats account as you want:
+----
+$ sudo passwd cats
+----
+
+Install eat-key to allow ssh login on targets without any password:
+----
+$ install-eat-key.sh
+----
+
+'Expected result :'
+
+----
+chown: invalid group: 'qadmin:qadmin'
+chown: invalid group: 'qadmin:qadmin'
+done
+----
+
+
+=== Configure cats-client
+
+Edit your cats-client configuration file is as below (uncomment the 7th line, which begins with 'port=...'):
+----
+$ sudo vi /etc/cats/cats_client.ini
+i
+----
+
+'Expected content:'
+----
+[XMLRPC_SERVER]
+ip               = localhost
+#port            = 9572
+
+# if cats-client and cats-server not on the same machine
+# port access maybe block, please use below port configuration
+port            = /oti/ctrl_server
+protocol        = http
+
+[CLIENT_TOOL]
+result_dir      = /tmp/cats_client_results
+
+[WORK_DIR]
+recipe_work_dir = ~/recipe
+uploadfile_dir  = ~/upload_file_dir
+
+[EXECUTOR]
+default2 =
+----
+
+Save and exit
+----
+<esc>
+:x
+----
+
+=== Configure cats-server
+
+Check that the cats-server configuration file is as below:
+----
+$ sudo vi /etc/cats/cats_server.ini
+----
+
+'Expected content:' 
+----
+[XMLRPC_SERVER]
+ip              = localhost
+port            = 9572
+
+[DATABASE]
+root            = /opt/cats
+location        = /opt/cats/cats_db
+
+[WORK_DIR]
+recipe_work_dir = /opt/cats/recipe_work_dir
+uploadfile_dir  = /opt/cats/upload_file_dir
+
+[EXECUTOR]
+# Warning: don't change the following mapping rule between flasher
+#- to executor if you don't really known what's this aim to
+#- However, you can add new flasher name to the specified executor
+# key:value -- key is executor name, value is flasher name join with ','
+default2 =
+
+[MODE]
+# If want to support only register device testing, set it to "YES"
+#-default, CATS support register device and unregister device
+register_only = NO
+
+# host_addr is like '.intel.com', etc. if test device in this network sector
+#-set ip in recipe with hostname or ip, both could work well
+host_addr =
+
+# MAX pending recipe limits
+pending_max = 50
+
+[LDAP]
+# ldapd server ip or hostname
+ip =
+
+# ldapd service listening port, default 389
+port = 389
+
+# search dn, for example: dc=example,dc=com
+base_dn =
+
+# search filter, for example: cn
+search_filter =
+
+# for extend
+user =
+password =
+----
+
+Save and exit 
+----
+<esc>
+:x
+----
+
+=== Configure an admin user for the CATS server 
+
+Connect on the QA Report site and gather QA Report authentication infos: 
+--
+* your login name on QA Report site
+* your API token key (available in the user profile in QA Reports site)
+--
+
+Generate a password for the admin user:
+----
+$ cats-gen-passwd.py 123456
+----
+
+'Expected result:' 
+----
+e10adc3949ba59abbe56e057f20f883e
+----
+
+Create and edit an admin file:
+----
+$ sudo mkdir -p /opt/cats/cats_db/users
+$ sudo vi /opt/cats/cats_db/users/admin
+i
+----
+
+Fill with the following information:
+----
+[USER]
+user = admin
+password = e10adc3949ba59abbe56e057f20f883e
+label = super
+security_string_1 = {'name':'xxxxxxxx', 'auth_token':'yyyyyyyyyyyyyyyyyyyy'}
+----
+
+NOTE:	user    = cats admin username to set up +
+	password   = generated password with the 'cats-gen-password.py' script +
+	name       = replace xxxxxxxx by your login on QA Report site +
+	auth_token = replace yyyyyyyyyyyyyyyyyyyy by your API token gathered previously
+
+Save and exit 
+----
+<esc>
+:x
+----
+
+=== Configure the credentials to access to QA Reports
+
+Create the file '/home/qadmin/.netrc' and fill authentication information:
+----
+$ echo "machine tzqarpt.otcshare.org login XXXXXXXX password YYYYYYYY" >~/.netrc
+$ chmod 400 ~/.netrc
+$ echo "netrc-optional" >~/.curlrc
+----
+
+Replace placeholders by your login and password to access to QA Reports site (normally, these are the same login/password to access to tz.otcshare.org)
+
+This information will be used by 'curl' when called by the CATS client to upload test reports on QA Reports site at the end of the test recipes.
+
+Check that the connection works ('curl' must not complain about failed authentication):
+----
+$ curl https://tzqarpt.otcshare.org/
+<html><body>You are being <a href="http://10.0.19.3:8004/users/sign_in">redirected</a>.</body></html>qaserver:~> 
+----
+
+=== Configure the apache2 server 
+
+Create and edit a configuration file for the CATS server:
+----
+$ sudo vi /etc/apache2/conf.d/oti.conf
+i
+----
+
+Fill the file with the following lines:
+----
+<VirtualHost *:80>
+   ServerAdmin      webmaster@mail.com
+	ServerName       localhost
+	ProxyPass        /oti/ctrl_server http://localhost:9572
+	ProxyPassReverse /oti/ctrl_server http://localhost:9572
+</VirtualHost>
+----
+
+NOTE: Replace the 'webmaster@mail.com' by your real mail address if you want
+
+Save and exit:
+----
+<esc>
+:x
+----
+
+Enable the proxy and proxy_http modules in apache2 server:
+----
+$ sudo vi /etc/sysconfig/apache2
+i
+----
+
+Add _proxy_ and _proxy_http_ in the 'APACHE_MODULES' variable. It should be as bellow :
+----
+...
+APACHE_MODULES="actions alias auth_basic authn_file authz_host authz_groupfile authz_default authz_user autoindex cgi dir env expires include log_config mime negotiation setenvif ssl userdir php5 
+reqtimeout proxy proxy_http"
+...
+----
+
+Save and exit 
+----
+<esc>
+:x
+----
+
+Restart the apache2 service on the QA server
+----
+$ sudo systemctl restart apache2.service
+----
+
+=== Launch the CATS server
+
+Run the CATS server (only the cats user or the root user can run the CATS server). +
+ +
+
+Open an other terminal and connect as cats user
+----
+$ su - cats 
+$ cats-server
+----
+
+'Expected result on the server :'
+----
+[INFO] 2013-04-03 17:28:26  Create DB at "/opt/cats/cats_db"
+
+[INFO] 2013-04-03 17:28:27  Generate WatchDog
+
+[INFO] 2013-04-03 17:28:27  Create Scheduler
+
+[INFO] 2013-04-03 17:28:27  Starting XMLPRC Server ...
+[INFO] 2013-04-03 17:28:27  XMLRPC Server is listening at:
+[INFO] 2013-04-03 17:28:27  -----Host: localhost
+[INFO] 2013-04-03 17:28:27  -----Port: 9572
+
+[INFO] 2013-04-03 17:28:29  Scheduler started...
+----
+
+=== Check installation
+
+In the first terminal, make a request with CATS client to test the installation of CATS server
+----
+$ cats-client get_plugin
+----
+
+'Expected result :'
+
+----
+Find cats.plugin.noflasher.no_flasher.NoFlasher
+Find cats.plugin.pseudoflasher.pseudo_flasher.PseudoFlasher
+Find cats.plugin.executor.executor.DefaultExecutor
+Find cats.plugin.qareporter.qa_report.QaReport
+					[plugin]
+<name>                         <description>
+pseudo                         [flasher] Pseudo flasher whic is for debug purpose
+noflash                        [flasher] Support deploy test on different linux distro without flashing image
+qareport                       [reporter] Support upload test results to QA-Reports tool
+default2                       [executor] Support Android-x86, LunchBox, ...
+----
+
+=== Prepare an upload directory
+
+Finally, we need to create an upload directory with the 'qadmin' home, to allow cats-client to store the files to be uploaded on target devices (this seems to be missing in CATS source code and if this directory doesn't exist, the CATS recipes can't be submitted...):
+----
+$ cd
+$ mkdir upload_file_dir
+----
+
+== Further reading
+
+The QA Server is now installed and ready for use.
+
+Next step is to read the Usage Guide to learn how to build Tizen PC images, flash them on a target device and run tests on the device.
+
+
+== References and Contacts
+
+Primary location for qatizen materials: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+Other QA Materials on OTCShare:
+--
+* https://otcshare.org/tizenpc/node/5951[QA Materials section]
+* https://otcshare.org/tizenpc/node/5952[Test plans]
+* https://otcshare.org/tizenpc/node/5989[Automated tests infrastructure] (in Montpellier/FR and Vannes/FR)
+--
+
+People in TizenPC Vannes Team who were involved in QA activity during Q4/2012 and Q1/2013:
+--
+* mailto:stephane.desneux@eurogiciel.fr[Stéphane Desneux]
+* mailto:jose.bollo@eurogiciel.fr[José Bollo]
+* mailto:nicolas.zingile@eurogiciel.fr[Nicolas Zingilé]
+* mailto:Ewan.LEBIDEAU-CANEVET@eurogiciel.fr[Ewan Le Bideau]
+--
+
+

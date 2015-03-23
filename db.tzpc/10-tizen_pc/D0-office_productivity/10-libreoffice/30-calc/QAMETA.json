@@ -1,0 +1,810 @@
+[
+  {
+    "name": "fullscreen",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": " Activate Full Screen mode in Calc",
+    "description": "Check if it is possible to activate the full screen mode in the Calc application",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon",
+        "expected": "Calc starts"
+      },
+      {
+        "description": "Click on the top left \"View\" button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Full screen\"",
+        "expected": "The full screen mode is activated"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:50:53 GMT",
+    "mtime": "2013-03-12 17:02:39 GMT"
+  },
+  {
+    "name": "create-calc",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Create a new Calc document ",
+    "description": "Check for Calc starting properly ",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon",
+        "expected": "Calc starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-12 14:25:31 GMT",
+    "mtime": "2013-03-12 17:03:16 GMT"
+  },
+  {
+    "name": "open-ods",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open an ods file with Calc",
+    "description": "Check if Calc is able to open ods files",
+    "pre_condition": "Have Calc started and have an ods file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an ods file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The ods file is correctly opened in Calc"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:52:52 GMT",
+    "mtime": "2013-03-12 16:46:21 GMT"
+  },
+  {
+    "name": "open-xls",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a xls file with Calc",
+    "description": "Check if Calc is able to open xls files",
+    "pre_condition": "Have Calc started and have a xls file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a xls file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The xls file is correctly opened in Calc"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:53:43 GMT",
+    "mtime": "2013-03-12 16:46:26 GMT"
+  },
+  {
+    "name": "open-xlsx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a xlsx file with Calc",
+    "description": "Check if Calc is able to open xlsx files",
+    "pre_condition": "Have Calc started and have a xlsx file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a xlsx file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The xlsx file is correctly opened in Calc"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:54:15 GMT",
+    "mtime": "2013-03-12 16:46:30 GMT"
+  },
+  {
+    "name": "open-csv",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a csv file with Calc",
+    "description": "Check if Calc is able to open csv files",
+    "pre_condition": "Have Calc started and have a csv file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a csv file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The csv file is correctly opened in Calc"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:54:38 GMT",
+    "mtime": "2013-03-12 16:46:35 GMT"
+  },
+  {
+    "name": "edit",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "edit a file with Calc",
+    "description": "Check if Calc allows to edit documents",
+    "pre_condition": "Have Calc started in foreground with an existing calc document open",
+    "steps": [
+      {
+        "description": "Type some letters with the keyboard",
+        "expected": "The letters are printed on the Calc page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:55:09 GMT",
+    "mtime": "2013-03-12 14:38:18 GMT"
+  },
+  {
+    "name": "save-ods",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save an ods file with Calc",
+    "description": "Check if Calc allows to save ods documents",
+    "pre_condition": "Have Calc started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Spreadsheet (.ods)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in ods format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:55:41 GMT",
+    "mtime": "2013-03-12 16:49:58 GMT"
+  },
+  {
+    "name": "save-xls",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a xls file with Calc",
+    "description": "Check if Calc allows to save xls documents",
+    "pre_condition": "Have Calc started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Excel 97/2000/XP/2003 (.xls)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in xls format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:56:03 GMT",
+    "mtime": "2013-03-12 16:50:03 GMT"
+  },
+  {
+    "name": "save-xlsx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a xlsx file with Calc",
+    "description": "Check if Calc allows to save xlsx documents",
+    "pre_condition": "Have Calc started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Excel 2007/2010 XML (.xlsx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in xlsx format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:56:30 GMT",
+    "mtime": "2013-03-12 16:50:09 GMT"
+  },
+  {
+    "name": "save-csv",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a csv file with Calc",
+    "description": "Check if Calc allows to save csv documents",
+    "pre_condition": "Have Calc started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Text CSV (.csv)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in csv format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:56:52 GMT",
+    "mtime": "2013-03-12 16:50:16 GMT"
+  },
+  {
+    "name": "cell-function",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Test basic cell functions",
+    "description": "Check if Calc is able to work properly",
+    "pre_condition": "Have Calc started",
+    "steps": [
+      {
+        "description": "Click on the top field bar",
+        "expected": ""
+      },
+      {
+        "description": "Type \"=SUM(2,3)\"",
+        "expected": ""
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "5 appears in the first column, first line"
+      },
+      {
+        "description": "Click on the top field bar",
+        "expected": ""
+      },
+      {
+        "description": "Type \"=SUM(2;PRODUCT(5;7))\"",
+        "expected": ""
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "37 appears in the first column, second line"
+      },
+      {
+        "description": "Click on the top field bar",
+        "expected": ""
+      },
+      {
+        "description": "Type \"=AVERAGE(A1:A2)\"",
+        "expected": ""
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "21 appears in the first column, third line"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:58:19 GMT",
+    "mtime": "2013-03-12 15:13:07 GMT"
+  },
+  {
+    "name": "ods-xls-conversion",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "ods>xls>ods",
+    "description": "Check if Calc is able to convert an ods file into a xls file, and to convert this xls file into an ods file while respecting the format",
+    "pre_condition": "Have Calc started and have an ods file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an ods file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The ods file is correctly opened in Calc"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Excel 97/2000/XP/2003 (.xls)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft Excel 97/2000/XP/2003 Format\"",
+        "expected": "The document has been correctly saved in xls format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the xls file previously saved",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The xls file is correctly opened in Calc"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Spreadsheet (.ods)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in ods format in the selected directory and it is equal to the original ods file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 13:58:48 GMT",
+    "mtime": "2013-03-12 16:51:41 GMT"
+  },
+  {
+    "name": "ods-xlsx-conversion",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "ods>xlsx>ods",
+    "description": "Check if Calc is able to convert an ods file into a xlsx file, and to convert this xlss file into an ods file while respecting the format",
+    "pre_condition": "Have Calc started and have an ods file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an ods file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The ods file is correctly opened in Calc"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft Excel 2007/2010 XML (.xlsx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft Excel 2007/2010 XML Format\"",
+        "expected": "The document has been correctly saved in xlsx format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the xlsx file previously saved",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The xlsx file is correctly opened in Calc"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Spreadsheet (.ods)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in ods format in the selected directory and it is equal to the original ods file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:00:20 GMT",
+    "mtime": "2013-03-12 16:52:12 GMT"
+  },
+  {
+    "name": "export-png",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export a single chart in Calc as a png image",
+    "description": "Check if the new LibreOffice Calc version allows to export a single chart as a png image",
+    "pre_condition": "Have Calc started and have a chart edited",
+    "steps": [
+      {
+        "description": "Right-click on the chart",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Export as graphic...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager window, select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"PNG - Portable Network Graphic\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The chart has been properly exported in the selected directory as a png image"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:00:47 GMT",
+    "mtime": "2013-03-13 16:43:45 GMT"
+  },
+  {
+    "name": "export-jpg",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export a single chart in Calc as a jpg image",
+    "description": "Check if the new LibreOffice Calc version allows to export a single chart as a jpg image",
+    "pre_condition": "Have Calc started and have a chart edited",
+    "steps": [
+      {
+        "description": "Right-click on the chart",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Export as graphic...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager window, select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"JPEG - Joint Photographic Experts Group\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The chart has been properly exported in the selected directory as a jpg image"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:01:28 GMT",
+    "mtime": "2013-03-13 16:45:12 GMT"
+  }
+]

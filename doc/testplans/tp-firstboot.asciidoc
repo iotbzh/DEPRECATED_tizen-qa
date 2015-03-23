@@ -1,0 +1,660 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: First Boot
+:author: Stéphane Desneux
+:email: stephane.desneux@eurogiciel.fr
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5996[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> First boot]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==============================================================================================
+|Version		| Date		| Author	| Reason for changes
+//---------------------------------------------------------------------------------------------
+|0.1			| 2013-03-06	| {stephane}	| Initial revision
+|0.1.1		| 2013-03-08	| {jean-benoit}	| Added summary & features for Gnome-Initial-Setup
+|0.2  		| 2013-03-08	| {stephane}	| Completed first draft
+|0.3  		| 2013-03-22	| {ewan}			| Corrections following updated specifications
+|0.3.1  		| 2013-03-22	| {stephane}	| Internal review
+|0.4    		| 2013-03-28	| {stephane}	| corrections after engineering review
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==============================================================================================
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level 		| Reviewer 	| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review		| {christophe}						| 2013-03-22	| 2013-03-22
+|Architect review			| 										|           	|           
+|Engineering review 		| {michael}							| 2013-03-22	| 2013-03-26
+|Project Manager review | 										|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for {componentName} within Tizen PC.
+
+== Glossary 
+
+// Instructions:
+// Describe all important acronyms or terms here
+// Example:
+// * BBC: Brake Before Clutch (driver training)
+// * CNN: Chaotic Neural Network
+// ...
+GDM:: GDM is the GNOME Display Manager, a graphical login program. 
+GIS:: (or G-I-S or g-i-s) acronym for Gnome Initial Setup, a software component included in recent Gnome releases.
+OOBE:: Out Of Box Experience - the experience a user has when preparing to first use a new product. This includes the setup process of installing and/or performing initial configuration.
+Systemd:: systemd is a system and service manager for Linux, compatible with SysV and LSB init scripts.
+First Boot:: More precisely, this is what happens technically the first time a user boots a device.
+First login:: This is what happens technically the first time a user different from the first-boot user has been created and tries to log in.
+Initial User:: The user account created during the First Boot phase.
+
+== Component Summary 
+
+// Instructions:
+// Expect a short paragraph to describe the component and add link for further information about this component.
+// Also put major hyperlinks to projects responsible for the component
+
+The {componentName} process covers the steps that allow the end-user to install and configure Tizen PC on a target device.
+
+IMPORTANT: at the time of writing, no document specifies what the installation process will be. The only available element is that Gnome Initial Setup will be integrated in Tizen PC. Consequently, the following paragraph must be confirmed and/or adjusted accordingly ([red]#TODO#)
+
+This process is split in three parts:
+--
+* Tizen Installer : a first installer responsible of the low level part (detecting the target block device, partitioning, installing Tizen image and boot loader, performing initial setup and reboot) 
+* First-boot : starts (after reboot) a special gnome-shell session with G-I-S running. G-I-S is a component which handles the user setup and the user account creation steps. It's a simple, easy, and safe way to prepare a new system. This should only include a few essential steps for which we can’t provide good defaults (set language, network configuration, create user account etc...).
+* First-login: available after a new user logs in. The initial user settings have already been set in first-boot step. This step mainly consists in starting G-I-S in "first login" mode (except for initial user created in first-boot step) and ask user-specific settings. After configuration, a welcome tour is shown to introduce the system to the new user (even the initial one).
+--
+
+=== Tizen Installer
+
+NOTE: this chapter is a placeholder for a description of the installer
+
+==== Ideas
+
+Some remarks on what could be done for initial installer:
+--
+* we can imagine that some device manufacturers could copy a prebuilt Tizen image from a master source. The low level installer would be executed once to build a master, but never by the end user that would just see the first-boot part (G-I-S)
+* the installer could be executed in an unattended mode (install on first non-removable block device)
+* the Tizen Install Image can be made available through various removable media: USB sticks with installer only, liveUSB (inc. installer), ISO images ...
+--
+
+IMPORTANT: more informations and specifications are needed to complete the test plan on this component.
+
+==== Boot steps in details:
+
+The System Boot Process is in fact more complex:
+--
+* CPU initializes via clock ticks
+* Instruction to run the power-on self test (POST) (execution of first instruction in the startup program (system's ROM BIOS))
+* check of BIOS chip and then CMOS RAM
+* check the inventoried hardware devices, secondary storage devices (drives and floppy drives), ports and other hardware devices (keyboard and mouse ...)
+* BIOS looks for the OS to load:
+** BIOS typically looks to the CMOS chip to tell it where to find the OS
+** boot sequence (drives order the CMOS uses to look for the OS)
+** the BIOS encounters the boot record (where to find the beginning of the OS) and the subsequent program file that will initialize the OS
+* Once the OS initializes, the BIOS copies its files into memory and the OS basically takes over control of the boot process
+* OS performs another inventory of the system's memory and memory availability and loads the device drivers (that it needs to control the peripheral devices)
+--
+
+The Linux startup process in detail (according to http://en.wikipedia.org/wiki/Linux_boot):
+--
+* The BIOS performs hardware-platform specific startup tasks
+* Once the hardware is recognized and started correctly, the BIOS loads and executes the partition boot code from the designated boot device, which contains phase 1 of a Linux boot loader. Phase 1 loads phase 2 (the bulk of the boot loader code). Some loaders may use an intermediate phase (known as phase 1.5) to achieve this since modern large disks may not be fully readable without further code.
+* The boot loader often presents the user with a menu of possible boot options. It then loads the operating system, which decompresses into memory, and sets up system functions such as essential hardware and memory paging, before calling start_kernel().
+* start_kernel() then performs the majority of system setup (interrupts, the rest of memory management, device initialization, drivers, etc.) before spawning separately, the idle process and scheduler, and the Init process (which is executed in user space).
+* The Init process executes scripts as needed that set up all non-operating system services and structures in order to allow a user environment to be created, and then presents the user with a login screen.
+--
+
+=== First-boot
+
+Post-Installation part:
+--
+* Once the system is installed and rebooted, the systemd daemon is responsible for starting GDM which in turn must detect that Tizen is in first-boot mode and thus runs G-I-S.
+* A special gnome-shell session is started with G-I-S running.
+* At the end of a G-I-S, the file ~/.config/gnome-initial-setup-done is created by the copy-worker.
+* Once the user setup is done and the user account has been created, GDM restarts with login prompt, the user logs in and the Welcome tour runs.
+--
+
+Some remarks and possible improvements:
+--
+* Date and Time:
+** There could be an option "Automatic Update". You could configure it via a [On/Off] button.
+** The date and time could be adjusted (and stored in hardware clock) and some specific settings could be configured:
+*** DD Month YYYY
+*** HH : MM + a button [AM/PM]
+*** Time Format (12 hours or 24 hours)
+*** First day of the week (Sunday or Monday)
+** Time Zone: use an input text field to search a city or click the map
+* WiFi
+** Add a toggle button [On/Off]
+** Network notification [On/Off] ("notify me when a new network is available")
+** When scan is finished, select the network
+** A window appears to enter the password with:
+*** an input text field
+*** a check box "Show password"
+*** 2 buttons [OK] and [Cancel]
+*** a button "WPS button connection" -> if clicked you have 2 minutes to press WPS on WiFi access point (you can [Cancel])
+** In the list of networks, can we see the details of a network (Name, static IP with a button [On/Off], Mac address, proxy address, proxy port), an icon displays the status (connected/network protected by password ...) ?
+--
+
+
+=== First-login
+
+Happens when a user has been created in an other way than by the first-boot step:
+--
+* After a reboot or a log out, GDM starts and the new user tries to log in.
+* Gnome-Session detects that the user logs in for the first time (gnome-session looks for ~/.config/gnome-initial-setup-done) and that there's no user-specific settings yet. If so, G-I-S starts the "first-login" wizard to set the user specific settings.
+* At the end of a G-I-S, the file ~/.config/gnome-initial-setup-done is created either by G-I-S itself.
+* Independently of user settings, a Welcome tour must be started on first login (for initial user too).
+--
+
+This https://git.gnome.org/browse/gnome-initial-setup/tree/gnome-initial-setup/README[README] gives more details on how G-I-S works.
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+The following table describes features to be tested based on risk analysis:
+
+.Tested components
+[width="100%",cols="2,4,1,8",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id          | Description                  | Priority | Comment
+//------------------------------------------------------------------------------------------------------------------
+| Tizen Installer                  | PC Installer 						|  P1      | [red]#No specification yet#
+| First-boot		   				  | First boot after installation|  P1      | prepare the system with user parameter
+| First-login							  | First login by a new user		|  P1      | prepare the user account parameter
+|===================================================================================================================
+
+The following table describes the Gnome-initial-setup features to be tested.
+
+.List of the Tizen Installer features to test
+[width="100%",cols="2,4,1,8",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id          | Description                  | Priority | Comment
+//------------------------------------------------------------------------------------------------------------------
+| [red]#None yet#						  |										|			  |
+|===================================================================================================================
+
+.List of the First-boot features to test
+[width="100%",cols="2,6,1,6",options="header"]
+|============================================================================================================================================================================
+|Feature / Requirement Id           | Description                                                     | Priority | Comment
+//------------------------------------------------------------------------------------------------------------------
+| Gnome Shell session					| G-I-S prerequisites		                                       | P1       | GIS needs a working desktop
+| Menu bar									| Menu bar with calendar, sound and accessibility						| P2       | Desktop is the Gnome desktop in restricted mode
+| Language									| Welcome message and set the default user language					| P1       |
+| Keyboard layout							| Configure an input source													| P1       | 
+| Eula Agreements							| Accept Eula agreements														| P1       | If required
+| Network setup							| Configure network interface													| P1       | Connman-gnome-shell extension must be running for this to work
+| User account								| Create a local account														| P1       |
+| Location									| Choose the user timezone / location										| P3       |
+| Gnome Online Account					| Add zero to many online account(s)										| P2       |
+| Summary									| Display a summary of user parameters										| P2		  |
+| G-I-S-Copy-Worker						| Copies configuration to the new user account							| P1		  |
+| Start user session						| GDM opens a session for the newly created user   				   | P1		  | 
+|============================================================================================================================================================================
+
+
+.List of the First-login features to test
+[width="100%",cols="2,6,1,6",options="header"]
+|============================================================================================================================================================================
+|Feature / Requirement Id          | Description                                                      | Priority | Comment
+//------------------------------------------------------------------------------------------------------------------
+| Login										| Login into new user account from GDM login prompt				   | P1		  | 
+| Language									| Set the default user language												| P1       |
+| Keyboard									| Adjust keyboard variant for the user										| P1		  | There are a few countries which have keyboards with multiple layouts on them such as Greek: one user may prefer one layout as the default and another another layout.
+| Network setup							| Configure network interface													| P1       |
+| Gnome Online Account					| Add an online account															| P2       |
+| Summary									| Display a summary of user parameters										| P2		  |
+| G-I-S-Copy-Worker						| Copies configuration to the new user account							| P1		  |
+| Run a "Welcome Tour"				   | Should help the user in the first steps in Tizen						| P3       | Replacement of the 'Getting started with Gnome' training
+|============================================================================================================================================================================
+
+
+
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+The first boot process is crucial for installation and therefore everything must be tested except some low level features that are tested independently of Tizen.
+
+The following table describes features *not* to be tested:
+
+.Non tested features
+[width="100%",cols="2,4,9",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id          | Description                  | Comment
+//------------------------------------------------------------------------------------------------------------------
+| Boot sequence before installer   | The BIOS boot and Linux boot | Tested by HW manufacturers, covered in all tests on real HW
+|===================================================================================================================
+
+== Test Strategy and Approach 
+
+// Instructions:
+// Describe how the component will be tested.
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+G-I-S is a kind of wizard that drives the user through different steps.
+
+Basically, in a straight forward session, everything must work so each step will be checked without going back.
+
+But as the user has the opportunity to go back in the wizard window, some extra checks will be needed in the case where the user has changed his mind (example: declare the user login then continue and go back to change the login name).
+
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+
+For G-I-S: installation of the component using zypper works: the component and its dependencies are installed.
+
+NOTE: a special Tizen image will have to be built to check that, as the current images have a built-in user (tizen) with autologin. This is not compatible with G-I-S and GDM interactions.
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a doc/TestPlan_template.asciidocsanity test reflect the most important functionality, stability and PnP of the distribution.
+
+G-I-S can be run: none of its runtime dependency is broken and it can start in the restricted desktop environment without crashing.
+
+==== Feature Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+
+The main features of G-I-S work: the component doesn't crash, performs the expected behaviour in the expected time, and completes the installation properly.
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+For G-I-S, some specific testcases should be conducted by going back in the wizard to verify that even if the users rolls back his decisions, no error happens.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+//==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload.
+
+==== Stability Test
+
+//Instructions : 
+Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+
+A test which should be done is to test automatically all wizard scenarios available in the G-I-S (select all languages available and for each select all keyboards available and several locations/timezone etc...). Ways to automate such tests must be investigated.
+
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+
+//==== Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+// Instructions:
+//
+
+G-I-S must execute the needed operations (add a user, set language, keyboard, time, adjust connectivity etc.) correctly.
+
+This involves a correct integration with the rest of the system.
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+//==== Interopeability Test
+
+// Instructions:
+//
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.doc/TestPlan_template.asciidoc
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+G-I-S: the test cases will be mostly functional (positive and negative).
+
+Positive testing includes approaches to directly test the wizard interface.
+
+Negative testing is to ensure that unexpected or invalid values/behaviours can be handled gracefully and is mainly aimed at detecting crashes in different situations (in particular when the user goes back in the process).
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+We will adopt specific test methodologies to the component or sub-component testing:
+
+Black-box Test Methods::
+- execution of G-I-S wizard with various configurations
+
+White-box Test Methods::
+- check that G-I-S preferences are applied correctly at the system level
+
+=== Flexibility
+
+// Instructions:
+Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints.
+
+&nbsp;
+
+NOTE: This chapter will be detailed after first tests [red]#TODO#
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+&nbsp;
+
+NOTE: [red]#TODO# More specifications and research are needed for that.
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_firstboot.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::common/test_exec.asciidoc[]
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Design, development and implementation of testing is limited by:
+--
+* missing documentations: PRD and guidelines for the whole install process are missing
+* technical limitations for automation of some tests
+--
+
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role          		             | Contact               
+//---------------------------------------------------------------------------------------------
+|Architect	                      |
+|Designer	                      |
+|Engineering Manager              | {michael}
+|Developers	                      |
+|PM			                      | {hirally}
+|Marketing					          |
+|Test planning and test case Lead | {yann}
+|QA			                      |
+|QA Conformance			          |
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+Requirements:
+--
+* Process description: {otcshare-file}/initial-setup-process-v0.2_0.pdf[initial-setup-process-v0.2.pdf] (posted on {otcshare}/5996#comment-5960[here] 2013-03-26)
+* Identified Jira issues concerning {componentName}:
+** {jira}/TZPC-6[TZPC-6]
+** {jira}/TZPC-7[TZPC-7]
+** {jira}/TZPC-34[TZPC-34]
+** {jira}/TZPC-90[TZPC-90]
+** {jira}/TZPC-265[TZPC-265]
+** {jira}/TZPC-285[TZPC-285]
+** {jira}/TZPC-289[TZPC-289]
+--
+
+Visual Design:
+--
+* {otcshare}/5879 (2013-01-16)
+* {otcshare}/6009 (2013-03-08)
+--
+
+Gnome Initial Setup:
+--
+* https://live.gnome.org/ThreePointFive/Features/InitialSetup[Initial System Setup]
+* https://live.gnome.org/GnomeOS/Design/Whiteboards/Installer[WhiteBoard on OS Installer]
+* https://live.gnome.org/GnomeOS/Design/Whiteboards/InitialSetup[WhiteBoard on GIS]
+* https://git.gnome.org/browse/gnome-initial-setup/tree/gnome-initial-setup/README[Gnome Initial Setup README]
+* https://git.gnome.org/browse/gnome-initial-setup[Gnome Initial Setup sources]
+--
+
+include::common/references.asciidoc[]

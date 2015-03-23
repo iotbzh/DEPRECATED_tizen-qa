@@ -1,0 +1,45 @@
+NOTE: Reference to another document describing test environment, perhaps Master Test Plan ? [red]#TODO#
+
+=== Tips & Tricks
+
+==== More Terminals
+
+From a computer connected to the same network via wifi or Ethernet:
+
+----
+ssh root@<ip address of Lenovo X230 Tablet> 
+----
+
+and connect with: « 'root' » and password « 'tizen' »
+
+==== Adding some media content
+
+Insert a USB flash drive containing images, music and videos files and mount it with commands (as root):
+
+----
+cd /mnt
+mkdir Key
+mount -t vfat /dev/sdc1 /mnt/Key
+----
+
+Then copy files, for example to /opt/media/Music, /opt/media/Videos, /opt/media/Pictures ...
+
+==== Starting/stopping/restarting a service 
+
+Use systemd commands:
+
+----
+systemctl status <name.service>
+systemctl stop <name.service>
+systemctl start <name.service>
+systemctl restart <name.service>
+----
+
+==== Other tips and training
+
+Some books are worth reading, for example:
+--
+* http://it-ebooks.info/book/967/[Linux Pocket Guide, 2nd Edition]
+* http://it-ebooks.info/book/1395/[Linux Command Line and Shell Scripting Bible]
+* http://it-ebooks.info/book/403/[Linux in a Nutshell, 6th Edition]
+--

@@ -1,0 +1,96 @@
+[
+  {
+    "name": "pair-target",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair an other target device",
+    "description": "User should be able to pair an other target test device",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'I' on the target device 1 (TD1)\r\n- Bluetooth technology is enabled and visibility is enabled in the target device 2 (TD2)",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon on TD1",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the 'Set Up a New Device' option to pair a new device, and wait",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appear"
+      },
+      {
+        "description": "Click on the name of the TD2 to pair ('localhost-0' by default)",
+        "expected": "The selected device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button on the TD1",
+        "expected": "Bluetooth wizard shows a pin number. A notification appears on the TD2 for the acceptance of the pairing"
+      },
+      {
+        "description": "Click on the notification on the TD2",
+        "expected": "Same pin number as the target device is displayed"
+      },
+      {
+        "description": "Accept the pairing by clicking on 'Matches' on the TD2, and then click on 'Matches' on the TD1",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the menu of Bluetooth applet. The added device appears in the Devices field of Bluetooth panel"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:59:24 GMT",
+    "mtime": "2013-03-28 17:03:41 GMT"
+  },
+  {
+    "name": "send-receive",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The target device can send files to an other target device",
+    "description": "User should be able to send files to an other target device.",
+    "pre_condition": "- Bluetooth technology is enabled on the target device 1 (TD1)\r\n- Bluetooth technology is enabled and is visible by others on the target device 2 (TD2)",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet on TD1",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on 'Send Files to devices'",
+        "expected": "A window appears"
+      },
+      {
+        "description": "Choose a file and click on 'Select'",
+        "expected": "A notification appears on the TD2"
+      },
+      {
+        "description": "Accept the file on TD2 and wait a while",
+        "expected": ""
+      },
+      {
+        "description": "Retrieve the file on TD2",
+        "expected": "The file should be present on TD2"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 14:01:40 GMT",
+    "mtime": "2013-03-28 17:16:35 GMT"
+  }
+]

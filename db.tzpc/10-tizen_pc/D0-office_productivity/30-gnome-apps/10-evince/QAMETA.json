@@ -1,0 +1,179 @@
+[
+  {
+    "name": "open-evince",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open evince from desktop",
+    "description": "open the document viewer from the Tizen Desktop",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top-left part of the desktop",
+        "expected": ""
+      },
+      {
+        "description": "Click then on \"Utilities\" on the left",
+        "expected": "\"Document Viewer\" Evince icon is visible"
+      },
+      {
+        "description": "Click on \"Document Viewer\"",
+        "expected": "Evince is correctly started"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 17:25:21 GMT",
+    "mtime": "2013-03-14 15:26:21 GMT"
+  },
+  {
+    "name": "open-pdf",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a pdf",
+    "description": "Open a pdf from the file manager and check if Evince starts and display the document",
+    "pre_condition": "Have a pdf file in your home directory",
+    "steps": [
+      {
+        "description": "Double-click on the pdf file in your home directory",
+        "expected": "Evince starts and the document is correctly displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 17:26:40 GMT",
+    "mtime": "2013-03-14 15:34:15 GMT"
+  },
+  {
+    "name": "open-pdf-evince",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a pdf from evince",
+    "description": "Check if Evince is able to open pdf files when started",
+    "pre_condition": "Have Evince started and have a pdf file in the home directory",
+    "steps": [
+      {
+        "description": "Click on the wheel settings icon on the right",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Open...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the pdf file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on Open",
+        "expected": "The pdf file is open in Evince and correctly displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 17:27:16 GMT",
+    "mtime": "2013-03-14 15:37:15 GMT"
+  },
+  {
+    "name": "fullscreen",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a pdf file with evince in fullscreen mode",
+    "description": "Check if Evince is able to display a pdf file in fullscreen mode",
+    "pre_condition": "Have a pdf file open with Evince",
+    "steps": [
+      {
+        "description": "In Evince, click on the tools icon on the right",
+        "expected": "a drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Fullscreen\"",
+        "expected": "The pdf file is correctly displayed in fullscreen mode"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-14 16:12:39 GMT",
+    "mtime": "2013-03-14 16:14:38 GMT"
+  },
+  {
+    "name": "print-pdf",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Print a pdf file from Evince",
+    "description": "Check if the Evince is able to start the printing manager",
+    "pre_condition": "Have a printer connected to the system and correctly configured, have a pdf file open in Evince",
+    "steps": [
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Print\"",
+        "expected": "A \"printing\" window opens"
+      },
+      {
+        "description": "Click on \"Print\"",
+        "expected": "The pdf document is correctly printed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-14 16:14:40 GMT",
+    "mtime": "2013-03-14 16:18:38 GMT"
+  }
+]

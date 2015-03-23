@@ -1,0 +1,398 @@
+= QAMETA(5qa)
+
+== NAME
+
+QAMETA - description of the QAMETA files of QA TIZEN
+
+== SYNOPSIS
+
+The files *QAMETA.json* and *QAMETA_xxxx.json* 
+are part of the QA database. They are called *QAMETA files*.
+
+== DESCRIPTION
+
+The *QAMETA* files are JSON files that describe the test cases
+designed for TIZEN.
+These files are mainly inspired by the test case format
+of *Enterprise Tester* so the fields in it are
+mainly the same that the one found in *Enterprise Tester*
+with some adds and a more easy to use format: *JSON*.
+
+=== Naming
+
+The name of the QAMETA files should match the glob expression
+QAMETA*.json
+
+The variable part between QAMETA and .json is not interpreted
+by the QA tools except that they are treated in the alphabetic order.
+That behaviour allow to order the test cases of several QAMETA
+files in a deterministic way.
+This allow the subdivision of test cases in groups 
+what can be useful.
+
+=== Format
+
+The QAMETA files are JSON formated (See IETF's RFC4627 for more
+information about JSON).
+
+Each QAMETA file contains a JSON array of test case definition.
+Each test case definition is a JSON structure with well defined
+set of fields, as described below in *TEST CASE STRUCTURE*.
+
+=== Edition, tools
+
+The JSON format is very simple and readable. 
+The files can be edited using a text editor.
+Many of the text editors offer syntax higlight 
+for these files.
+
+The QATIZEN tool chain provides a HTTP RESTful server
+named *tcbrowse* that allow you to friendly edit the test cases
+of your database in an efficient environment.
+
+== TEST CASE STRUCTURE
+
+Inside QAMETA files, the test cases are JSON encoded as 
+sructures.
+The structure mainly relies on the one of Enterprise Tester.
+So most of the fields of the structure are in a one-to-one 
+correspondace to the fields of the test cases in enterprise 
+tester.
+
+Some other fields are added to improve the useability of
+the tool chain.
+
+The structure and the tools are enougth optimistics to
+allow you to add your own fields in the structure. 
+
+The defined field names are:
+*name*,
+*exec_type*,
+*priority*,
+*status*,
+*type*,
+*subtype*,
+*objective*,
+*description*,
+*pre_condition*,
+*steps*,
+*post_condition*,
+*notes*,
+*bugs*,
+*exec_pre*,
+*exec*,
+*exec_expected_retcode*,
+*exec_kill_timeout*,
+*exec_post*,
+*service*,
+*author*,
+*ctime*,
+*mtime*.
+
+Many of this fields are mandatory but some of them depends
+on the context. In particular, it depends on the test type:
+*Auto* or *Manual*. Some other are optionals.
+
+- _Mandatory Fields_:        *name*, *exec_type*, *priority*, *status*, *type*, *objective*, *description*
+- _Optional Fields_:         *subtype*, *notes*, *bugs*, *author*, *ctime*, *mtime*
+- _Mandatory Auto Fields_:   *exec*, *exec_expected_retcode*, *exec_kill_timeout*
+- _Optional Auto Fields_:    *exec_pre*, *exec_post*, *service*
+- _Mandatory Manual Fields_: *steps*
+- _Optional Manual Fields_:  *pre_condition*, *post_condition*
+
+=== Field name
+
+Summary:: The test case name
+Context:: Mandatory for all tests
+Type:: String
+
+=== Field exec_type
+
+Summary:: The test case execution type
+Context:: Mandatory for all tests
+Type:: a String of the enumeration below.
+
+Valid values:
+
+* *auto*: automatized test
+* *manual*: manual test
+
+=== Field priority
+
+Summary:: The test case priority
+Context:: Mandatory for all tests
+Type:: An integer number from 0 to 100
+
+=== Field status
+
+Summary:: The test case status
+Context:: Mandatory for all tests
+Type:: a String of the enumeration below.
+
+Valid values:
+
+* *designed*: the test case is just created
+* *ready*: the test case is ready to be integrated in the test suites
+* *approved*: the test case is integrated in the test suites
+* *disabled*: the test case is disabled
+
+=== Field type
+
+Summary:: The test case type
+Context:: Mandatory for all tests
+Type:: a String of the enumeration below.
+
+Valid values:
+
+* *functional_positive*
+* *functional_negative*
+* *security*
+* *performance*
+* *reliability*
+* *portability*
+* *maintainability*
+* *user_experience*
+* *compliance*
+
+=== Field subtype
+
+Summary:: The test case subtype
+Context:: Optional
+Type:: a String of the enumeration below.
+
+Valid values:
+
+* *power*
+* *memory*
+* *cpu*
+* *io*
+* *network*
+
+=== Field objective
+
+Summary:: The test case objective
+Context:: Mandatory for all tests
+Type:: String
+
+=== Field description
+
+Summary:: The test case description
+Context:: Mandatory for all tests
+Type:: String
+
+=== Field pre_condition
+
+Summary:: The test case pre conditions
+Context:: Optionally used in Manual
+Type:: String
+
+=== Field steps
+
+Summary:: The test case pre
+Context:: Mandatory in Manual
+Type:: See below
+
+The field "steps" must be a JSON array of 
+JSON structures having only two fields:
+
+- "description": the description of the action(s) to perform within the step
+- "expected": the description of the expected result(s) of the step's action(s)
+
+.Example
+----
+    "steps": [ {
+        "description": "switch on",
+        "expected": "it runs"
+      }, {
+        "description": "switch off",
+        "expected": "it stops"
+      } ]
+----
+
+=== Field post_condition
+
+Summary:: The test case post conditions
+Context:: Optionally used in Manual
+Type:: String
+
+=== Field notes
+
+Summary:: The test case notes
+Context:: Optional
+Type:: String
+
+=== Field bugs
+
+Summary:: The test case associated bugs in JIRA
+Context:: Mandatory for all tests
+Type:: String
+
+The contained string should be formatted as for
+"TZPC-1265, TZPC-1155" denoting the bugs 
+https://tz.otcshare.org/jira/browse/TZPC-1265
+and
+https://tz.otcshare.org/jira/browse/TZPC-1155
+.
+
+=== Field exec_pre
+
+Summary:: The test case script to execute before the test script
+Context:: Optionally used in Auto
+Type:: String
+
+=== Field exec
+
+Summary:: The test case script to execute
+Context:: Mandatory in Auto
+Type:: String
+
+=== Field exec_expected_retcode
+
+Summary:: The test case expected exit code of test script
+Context:: Mandatory in Auto
+Type:: Integer from 0 to 127
+
+=== Field exec_kill_timeout
+
+Summary:: The test case timeout in second before killing the test script
+Context:: Mandatory in Auto
+Type:: Integer count of second
+
+=== Field exec_post
+
+Summary:: The test case script to execute after the test script
+Context:: Optionally used in Auto
+Context:: Mandatory for all tests
+Type:: String
+
+=== Field service
+
+Summary:: The test case services configuration
+Context:: Optionally used in Auto
+Context:: Mandatory for all tests
+Type:: See below
+
+The field "service" must be a JSON structure
+representing a hash map indexed by the service name:
+a field *xxx* of the structure records the configuration
+data for the service *xxx*.
+
+Currently, the known services are: *http*, *package*, *rtsp*.
+
+.Example
+----
+    "service": {
+	"http": true,
+	"package": [ "gst-utils" ]
+      }
+----
+
+=== Field author
+
+Summary:: The test case author name
+Context:: Optional
+Type:: String
+
+=== Field ctime
+
+Summary:: The test case creation time
+Context:: Optional
+Type:: String of the date formated like "YYYY-MM-DD HH:MM:SS GMT"
+
+=== Field mtime
+
+Summary:: The test case modification time
+Context:: Optional
+Type:: String of the date formated like "YYYY-MM-DD HH:MM:SS GMT"
+
+
+== EXAMPLE
+
+Here is an example of QAMETA file.
+
+----
+[
+  {
+    "name": "launch-with-mouse",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch an application with the mouse pointer",
+    "description": "Launch an application using the mouse pointer. 
+		gnome-terminal will be used to test whether launching of an application works well.",
+    "steps": [
+      {
+        "description": "From the desktop, click on 'Application' in the gnome-shell status",
+        "expected": ""
+      },
+      {
+        "description": "Click on 'Terminal' to open the gnome-terminal application",
+        "expected": "window must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "launch-with-arrows",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Launch an application with the arrows of the keyboard",
+    "description": "Launch an application using the arrow keys of the keyboard. 
+		gnome-terminal will be used to test whether launching of an application works well.",
+    "steps": [
+      {
+        "description": "From the desktop, type the windows key to access the 'Application' menu of gnome-shell",
+        "expected": ""
+      },
+      {
+        "description": "Type the bottom arrow key",
+        "expected": "first application (top left must be highlighted)"
+      },
+      {
+        "description": "Navigate with the arrow keys to highlight 'Terminal'",
+        "expected": ""
+      },
+      {
+        "description": "Click enter to open the application",
+        "expected": "A window must appear in foreground"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]
+----
+
+== SEE ALSO
+
+tcbrowse(1qa), QADB(5qa)
+
+== RESOURCES
+
+JSON: http://json.org/ and http://www.ietf.org/rfc/rfc4627.txt
+
+Enterprise Tester: http://www.enterprisetester.com/
+
+The file *node_modules/libqa/Testcase.js* codes the validation
+of the test cases contained in QAMETA files.
+
+The services are located in the directory *node_modules/libqa/services*.
+

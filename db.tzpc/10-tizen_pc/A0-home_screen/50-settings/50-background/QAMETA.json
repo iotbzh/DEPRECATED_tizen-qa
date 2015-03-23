@@ -1,0 +1,88 @@
+[
+  {
+    "name": "background_layout",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Layout of Background tab is correctly organised ",
+    "description": "In the 'Background' tab of home screen settings, 5 elements must be visible :\r\n- a file browser on top left part of the window\r\n- a wallpaper thumbnails on the middle left part of the window\r\n- a +/- icon bellow the wallpaper thumbnails\r\n- a color picker area right side of the +/- button\r\n- a large preview area on the right part of the window",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Background\" tab",
+    "steps": [
+      {
+        "description": "observe the settings panel",
+        "expected": "the layout must contain 5 elements"
+      },
+      {
+        "description": "-",
+        "expected": "a file browser on top left part of the window"
+      },
+      {
+        "description": "-",
+        "expected": "a wallpaper thumbnails on the middle left part of the window"
+      },
+      {
+        "description": "-",
+        "expected": "a +/- icon bellow the wallpaper thumbnails"
+      },
+      {
+        "description": "-",
+        "expected": "a color picker area right side of the +/- button"
+      },
+      {
+        "description": "-",
+        "expected": "a large preview area on the right part of the window"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:31:23 GMT",
+    "mtime": "2013-03-28 00:12:21 GMT"
+  },
+  {
+    "name": "selection",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Selecting a background in the settings must update the desktop background",
+    "description": "when a background is selected (file, thumbnail, color picker), the desktop background must be changed.\r\n\r\nTODO: this is not complete as the user should be able to adjust aspect ratio.",
+    "pre_condition": "- open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)\r\n- select the \"Background\" tab",
+    "steps": [
+      {
+        "description": "click on \"+\" and add a new wallpaper",
+        "expected": "must be displayed in thumbnails"
+      },
+      {
+        "description": "select a wallpaper on the left pane",
+        "expected": "must be displayed in preview"
+      },
+      {
+        "description": "select a color",
+        "expected": "must create a monochrome background"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 22:31:29 GMT",
+    "mtime": "2013-03-28 00:15:46 GMT"
+  }
+]

@@ -1,0 +1,373 @@
+[
+  {
+    "name": "launch-rhythmbox",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can launch Rhythmbox from the Audio widget",
+    "description": "When Rhythmbox is not running, there is a button to start it.",
+    "pre_condition": "Rhythmbox is not running",
+    "steps": [
+      {
+        "description": "Launch Widget Audio",
+        "expected": "A default albumart/background/image is displayed. A button proposes to launch Rhythmbox"
+      },
+      {
+        "description": "Launch Rhythmbox",
+        "expected": "Rhythmbox is launched"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:35:47 GMT",
+    "mtime": "2013-03-11 08:37:59 GMT"
+  },
+  {
+    "name": "albumart",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that an albumart is displayed in the Audio widget",
+    "description": "When the music player is running, there is an albumart to display.",
+    "pre_condition": "- Rhythmbox is launched\r\n- An audio is being palyed, an albumart is associated to the audio\r\n- Widget Audio is closed",
+    "steps": [
+      {
+        "description": "Launch the Audio widget",
+        "expected": "the widget displays the albumart of the audio being played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:38:00 GMT",
+    "mtime": "2013-03-11 09:11:36 GMT"
+  },
+  {
+    "name": "albumart-default",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that a default albumart is displayed in the Audio widget",
+    "description": "When the music player is running and there is no albumart to display, a default albumart is displayed",
+    "pre_condition": "- Rhythmbox is launched\r\n- An audio is being played, no albumart is associated to the audio\r\n- Widget Audio is closed",
+    "steps": [
+      {
+        "description": "Launch Widget Audio",
+        "expected": "the Audio widget displays a default albumart/background/image"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:39:28 GMT",
+    "mtime": "2013-03-11 09:11:58 GMT"
+  },
+  {
+    "name": "albumart-stopped",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that an albumart is displayed in the Audio widget, even when not playing",
+    "description": "When the music player is stopped, there is an albumart to display.",
+    "pre_condition": "- Rhythmbox is launched\r\n- An audio is being played, an albumart is associated to the audio\r\n- Audio Widget is launched",
+    "steps": [
+      {
+        "description": "Stop the play in Rhythmbox",
+        "expected": "-"
+      },
+      {
+        "description": "Check albumart displayed by Widget Audio",
+        "expected": "Widget Audio displays a default albumart/background/image"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:12:04 GMT",
+    "mtime": "2013-03-11 09:15:37 GMT"
+  },
+  {
+    "name": "pause-play",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can control audio using the Audio widget",
+    "description": "The audio widget has a play/pause button that controls playing.",
+    "pre_condition": "- Rhythmbox is launched\r\n- An audio is being played, an albumart is associated to the audio\r\n- The audio widget is launched\r\n- Sound can be heard on speakers",
+    "steps": [
+      {
+        "description": "Click [Pause] from Widget Audio",
+        "expected": "Audio is paused. Button shows you can [play]. Progress bar of Rhythmbox is paused. No sound is heard on speakers."
+      },
+      {
+        "description": "Click [Play] from Widget Audio",
+        "expected": "Audio is played again from previous point. Button shows you can [pause].Progress bar of Rhythmbox starts again. The sound is heard on speakers."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:15:39 GMT",
+    "mtime": "2013-03-11 09:25:42 GMT"
+  },
+  {
+    "name": "prev-next",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can control audio using the Audio widget",
+    "description": "The audio widget has previous/next track buttons to control the playing track in the playlist.",
+    "pre_condition": "- Rhythmbox is launched\r\n- Several audio files are ready for the test, they are associated to albumarts\r\n- An audio is being played, an albumart is associated to the audio\r\n- The audio widget is launched\r\n- Sound can be heard on speakers",
+    "steps": [
+      {
+        "description": "Click [Next] on the Audio widget",
+        "expected": "Next track is played. Associated albumart is displayed"
+      },
+      {
+        "description": "Click [Previous] on the Audio widget",
+        "expected": "You go back to the track being played during pre-conditions. Associated albumart is displayed"
+      },
+      {
+        "description": "Click [Previous] from the Audio widget",
+        "expected": "Previous track is played. Associated albumart is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:18:40 GMT",
+    "mtime": "2013-03-11 09:26:09 GMT"
+  },
+  {
+    "name": "pause-play-rhythmbox",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make that the status displayed in the Audio widget follows the controls from Rhythmbox",
+    "description": "The audio widget has a play/pause button that controls playing. The button state must change depending on operations done in Rhythmbox.",
+    "pre_condition": "- Rhythmbox is launched\r\n- An audio is being played\r\n- The audio widget is launched\r\n- Sound can be heard on speakers",
+    "steps": [
+      {
+        "description": "Check the play/pause button in the Audio widget",
+        "expected": "Button shows you can [pause]"
+      },
+      {
+        "description": "Click [Pause] from Rhythmbox",
+        "expected": "-"
+      },
+      {
+        "description": "Check the play/pause button in the Audio widget",
+        "expected": "Button shows you can [play]"
+      },
+      {
+        "description": "Click [Play] from Rhythmbox",
+        "expected": "-"
+      },
+      {
+        "description": "Check the play/pause button in the Audio widget",
+        "expected": "Button shows you can [pause]"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:23:49 GMT",
+    "mtime": "2013-03-11 09:28:31 GMT"
+  },
+  {
+    "name": "prev-next-rhythmbox",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make that the status displayed in the Audio widget follows the controls from Rhythmbox",
+    "description": "The audio widget has a prev/next button that controls playing.",
+    "pre_condition": "- Rhythmbox is launched\r\n- Several audio files are ready for the test, they are associated to albumarts\r\n- An audio is being played\r\n- The audio widget is launched\r\n- Sound can be heard on speakers",
+    "steps": [
+      {
+        "description": "Click [Next] from Rhythmbox",
+        "expected": "-"
+      },
+      {
+        "description": "Check the Audio widget",
+        "expected": "Next track is played. Associated albumart is displayed in the Audio widget"
+      },
+      {
+        "description": "Click twice [Previous] from Rhythmbox",
+        "expected": "-"
+      },
+      {
+        "description": "Check the Audio widget",
+        "expected": "Previous track is played. Associated albumart is displayed in the Audio widget"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:28:45 GMT",
+    "mtime": "2013-03-11 09:47:56 GMT"
+  },
+  {
+    "name": "albumart-badsize",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the Audio widget state when the size of the albumart is not appropriated",
+    "description": "We want to make sure Widget Audio well displays all albumarts",
+    "pre_condition": "- Rhythmbox is launched\r\n- Several audio files are ready for the test, they are associated to albumarts\r\n- An audio file is associated to an albumart of 3000 pixels x 3000 pixels\r\n- An audio file is associated to an albumart of 3 pixels x 3 pixels\r\n- An audio is being played\r\n- the Audio widget is launched",
+    "steps": [
+      {
+        "description": "Click [Next] from Widget Audio until files of preconditions are played",
+        "expected": "-"
+      },
+      {
+        "description": "Check albumarts displayed by Widget Audio",
+        "expected": "Albumarts are resized."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:53:31 GMT",
+    "mtime": "2013-03-11 09:55:23 GMT"
+  },
+  {
+    "name": "next-badtrack",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure there is no instability when going to a track with unsupported format",
+    "description": "When clicking on the next track button, if the track has an unsupported format, nothing wrong happens.",
+    "pre_condition": "- Rhythmbox is launched\r\n- Several audio files are ready for the test, they are associated to albumart. One format is not supported (for exemple wav or B-LCPM)\r\n- An audio is being played\r\n- the audio widget is launched",
+    "steps": [
+      {
+        "description": "Click [Next] on the Audio widget until you switch to the track with unsupported audio format",
+        "expected": "Rhythmbox displays an error. The Audio widget has no instability (no crash/freeze), you can go to next or previous track."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 09:55:24 GMT",
+    "mtime": "2013-03-11 10:13:18 GMT"
+  },
+  {
+    "name": "next-corrupted-track",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure there is no instability when going to a track which is corrupted",
+    "description": "When clicking on the next track button, if the next track is corrupted, nothing wrong happens.",
+    "pre_condition": "- Rhythmbox is launched\r\n- Several audio files are ready for the test, they are associated to albumart. One audio file is corrupted\r\n- An audio is being played\r\n- the audio widget is launched",
+    "steps": [
+      {
+        "description": "Click [Next] on the Audio widget until you switch to the corrupted track",
+        "expected": "Rhythmbox displays an error. The Audio widget has no instability (no crash/freeze), you can go to next or previous track."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 10:14:02 GMT",
+    "mtime": "2013-03-11 10:15:20 GMT"
+  }
+]

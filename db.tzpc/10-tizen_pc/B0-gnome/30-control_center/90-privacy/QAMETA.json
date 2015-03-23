@@ -1,0 +1,152 @@
+[
+  {
+    "name": "unlock-screen",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "user can disable the screen locking",
+    "description": "disable the screen locking",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on user menu of the top menubar",
+        "expected": "the user session menu appears"
+      },
+      {
+        "description": "Select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on \"privacy\" icon",
+        "expected": "the privacy setting window appears"
+      },
+      {
+        "description": "Click on \"Screen lock\" button",
+        "expected": "the screen lock setting dialog window popup"
+      },
+      {
+        "description": "Toggle \"Automatic screen lock\" to OFF and close the window",
+        "expected": "The popup dialog disappears the \"screen lock\" button shows \"Off\""
+      },
+      {
+        "description": "Return to the settings windows (\"<\" top left)",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on \"Power\" icon",
+        "expected": "the power setting window appears"
+      },
+      {
+        "description": "Select \"1 minute\" to the \"Blank screen\" option",
+        "expected": "Blank screen is now set to 1 minute"
+      },
+      {
+        "description": "Wait one minute",
+        "expected": "The screen is blanked"
+      },
+      {
+        "description": "Move the mouse",
+        "expected": "A neutral screen showing date and hour is displayed"
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "The previous session is displayed without login password"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 13:07:50 GMT",
+    "mtime": "2013-03-08 13:47:57 GMT"
+  },
+  {
+    "name": "lock-screen",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "user can enable the screen locking",
+    "description": "enable the screen locking",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on user menu of the top menubar",
+        "expected": "the user session menu appears"
+      },
+      {
+        "description": "Select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on \"privacy\" icon",
+        "expected": "the privacy setting window appears"
+      },
+      {
+        "description": "Click on \"Screen lock\" button",
+        "expected": "the screen lock setting dialog window popup"
+      },
+      {
+        "description": "Toggle \"Automatic screen lock\" to ON",
+        "expected": "The automatic screen lock is toggled ON"
+      },
+      {
+        "description": "Select for \"Lock screen after blank for\" a duration of \"Screen Turns Off\"",
+        "expected": "\"Lock screen after blank for\" is set to \"Screen Turns Off\""
+      },
+      {
+        "description": "Close the window",
+        "expected": "The popup dialog disappears the \"screen lock\" button shows \"On\""
+      },
+      {
+        "description": "Return to the settings windows (\"<\" top left)",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on \"Power\" icon",
+        "expected": "the power setting window appears"
+      },
+      {
+        "description": "Select \"1 minute\" to the \"Blank screen\" option",
+        "expected": "Blank screen is now set to 1 minute"
+      },
+      {
+        "description": "Wait one minute",
+        "expected": "The screen is blanked"
+      },
+      {
+        "description": "Move the mouse",
+        "expected": "A neutral screen showing date and hour is displayed"
+      },
+      {
+        "description": "Press \"Enter\"",
+        "expected": "The login screen for the current session is shown"
+      },
+      {
+        "description": "Enter the session password and validate",
+        "expected": "The previous session is resumed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 13:59:28 GMT",
+    "mtime": "2013-03-08 14:05:57 GMT"
+  }
+]

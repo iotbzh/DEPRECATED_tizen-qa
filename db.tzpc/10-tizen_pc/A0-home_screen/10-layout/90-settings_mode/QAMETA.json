@@ -1,0 +1,39 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the Home screen settings appearance",
+    "description": "The home screen settings window must contain 5 items in the toolbar:\r\n- an icon to go back to system settings menu\r\n- \"Applications\" tab\r\n- \"Widgets\" tab\r\n- \"Recent files\" tab\r\n- \"Background\" tab (implemented in phase 2, actually only vanilla background settings is used)",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "open user settings in top bar",
+        "expected": "gnome control center opens"
+      },
+      {
+        "description": "click \"Homescreen\" icon",
+        "expected": "Homescreen settings panel opens"
+      },
+      {
+        "description": "check the tabs",
+        "expected": "the tabs must match the above description"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:06:36 GMT",
+    "mtime": "2013-03-21 22:06:36 GMT"
+  }
+]

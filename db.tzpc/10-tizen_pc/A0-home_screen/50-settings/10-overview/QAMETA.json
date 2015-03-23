@@ -1,0 +1,47 @@
+[
+  {
+    "name": "content_area",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that for each tab, the content appears in the content area  of the home sreen settings window",
+    "description": "The content of each tab (application icons, widgets, recent files, pictures) should be displayed in the content area of the window.  ",
+    "pre_condition": "open the homescreen settings panel (user menu -> settings -> gnome-control-center opens -> click on home screen settings icon)",
+    "steps": [
+      {
+        "description": "observe the home screen settings panel",
+        "expected": "the following tabs must be visible: 'Applications', 'Widgets', 'Recent Files', 'Background'"
+      },
+      {
+        "description": "-",
+        "expected": "the initial tab must be \"Applications\""
+      },
+      {
+        "description": "click on the \"Widgets\" tab",
+        "expected": "the content area must switch to the widget settings"
+      },
+      {
+        "description": "click on the \"Recent Files\" tab",
+        "expected": "the content area must switch to the recent files settings"
+      },
+      {
+        "description": "click on the \"Background\" tab",
+        "expected": "the content area must switch to the background settings"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-27 10:58:25 GMT",
+    "mtime": "2013-03-27 11:01:48 GMT"
+  }
+]

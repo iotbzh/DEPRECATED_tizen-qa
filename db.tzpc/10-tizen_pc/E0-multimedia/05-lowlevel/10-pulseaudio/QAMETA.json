@@ -1,0 +1,80 @@
+[
+  {
+    "name": "pulseaudio-server",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The pulse audio server is available",
+    "description": "Ask pulseaudio server to list its item to check that it is running",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "qa-within-gnome.sh pactl list",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "pulseaudio-utils"
+    },
+    "author": "jb",
+    "ctime": "2013-03-20 09:51:44 GMT",
+    "mtime": "2013-03-20 09:58:31 GMT"
+  },
+  {
+    "name": "pulseaudio-play-file",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play a file with pulse audio",
+    "description": "use the pulse audio tools to play a WAV file",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "qa-within-gnome.sh paplay cigale.wav",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "pulseaudio-utils"
+    },
+    "author": "jb",
+    "ctime": "2013-03-20 13:37:13 GMT",
+    "mtime": "2013-03-20 13:39:47 GMT"
+  },
+  {
+    "name": "gst-pulseaudio-plugin",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The pulseaudio plugin of GStreamer is available",
+    "description": "Inspect the installed capacities of GStreamer and check that it includes a pulseaudio plugin.",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "gst-inspect-1.0 pulseaudio",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "gstreamer-utils"
+    },
+    "author": "jb",
+    "ctime": "2013-03-20 09:41:13 GMT",
+    "mtime": "2013-03-20 09:50:13 GMT"
+  }
+]

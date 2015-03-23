@@ -1,0 +1,19 @@
+[
+	{
+		"name": "coreutils_health",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Ensure coreutils integrity",
+		"description": "Test core utils binaries",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "coreutils.sh",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	}
+]

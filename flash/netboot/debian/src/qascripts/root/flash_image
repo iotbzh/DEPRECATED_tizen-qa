@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# this script is called directly by the qaflash server through the "bash backdoor" opened by qa_initscript
+
+set -e
+
+# tell waitflash loop in qa_initscript to stop running
+touch /var/run/FLASHING
+
+# download the flashing script from the server
+scripturl=$1
+shift
+script=/tmp/tmpscript
+wget --quiet -O $script "$scripturl"
+chmod +x $script
+
+# execute the flashing script 
+exec $script "$@"

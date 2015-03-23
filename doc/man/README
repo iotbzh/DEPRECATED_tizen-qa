@@ -1,0 +1,15 @@
+This directory contains documentation that will be formated 
+to man pages and html pages.
+
+To create the documentation, in a shell, in the current 
+directory, type:
+
+ make
+
+This will generate the man pages and the html files.
+
+The man pages are terminated with the extension .gz,
+to see it type:
+
+ man -l FILE
+

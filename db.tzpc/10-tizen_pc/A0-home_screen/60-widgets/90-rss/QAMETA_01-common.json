@@ -1,0 +1,126 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that the RSS widget has the right appearance",
+    "description": "The RSS widget appearance must conform to (TODO: specs missing)\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "compare appearance to reference",
+        "expected": "appearance must match the reference"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-06 16:20:44 GMT",
+    "mtime": "2013-03-10 23:17:39 GMT"
+  },
+  {
+    "name": "launch-close",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can launch and close the RSS widget",
+    "description": "The RSS widget can be launched and closed\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the RSS widget",
+        "expected": "the RSS Widget is launched"
+      },
+      {
+        "description": "Close the RSS widget",
+        "expected": "the RSS widget is closed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:37:05 GMT",
+    "mtime": "2013-03-10 23:06:42 GMT"
+  },
+  {
+    "name": "title",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the widget title is well displayed",
+    "description": "Each Widget has a title. The title must match the widget type.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the RSS widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check Widget title",
+        "expected": "Widget title must be \"RSS\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:38:30 GMT",
+    "mtime": "2013-03-10 23:07:31 GMT"
+  },
+  {
+    "name": "settings",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can open the widget info/ settings",
+    "description": "If clicked, the tile flips to reveal the widget info/ settings.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click the tile",
+        "expected": "the tile flips to reveal the widget info/ settings"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:39:59 GMT",
+    "mtime": "2013-03-10 23:04:53 GMT"
+  }
+]

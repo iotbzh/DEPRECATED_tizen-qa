@@ -1,0 +1,759 @@
+[
+  {
+    "name": "desktop-icons",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "LibreOffice Applications Icons in gnome launcher office section",
+    "description": "check if the LibreOffice Applications Icons are correctly positioned in gnome launcher office section",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": "\"LibreOffice\", \"Writer\", \"Calc\" and \"Impress\" icons are visible in this section"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 10:23:15 GMT",
+    "mtime": "2013-03-12 09:47:51 GMT"
+  },
+  {
+    "name": "create-document-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "new LibreOffice Writer document",
+    "description": "Create a new LibreOffice Writer document from file manager",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on an empty space and select \"new LibreOffice Writer document\" in the drop-down menu",
+        "expected": "Writer is correctly started"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 16:45:39 GMT",
+    "mtime": "2013-03-12 09:29:06 GMT"
+  },
+  {
+    "name": "create-document-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "new LibreOffice Calc document",
+    "description": "Create a new LibreOffice Calc document from file manager",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on an empty space and select \"new LibreOffice Calc document\" in the drop-down menu",
+        "expected": "Calc is correctly started"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 13:33:13 GMT",
+    "mtime": "2013-03-12 09:48:14 GMT"
+  },
+  {
+    "name": "create-document-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "new LibreOffice Impress document",
+    "description": "Create a new LibreOffice Impress document from file manager",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on an empty space and select \"new LibreOffice Impress document\" in the drop-down menu",
+        "expected": "Impress is correctly started"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 13:35:56 GMT",
+    "mtime": "2013-03-12 09:48:10 GMT"
+  },
+  {
+    "name": "file-associations-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "LibreOffice Writer actions available when clicking on  documents",
+    "description": "check if there is some LibreOffice Writer actions available when clicking on  documents",
+    "pre_condition": "have a few documents with different formats in the \"Home\" folder : .odt - .doc - .docx - .rtf - .txt",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on the .odt, the .doc file, the .docx file, the .rtf file and the .txt file",
+        "expected": "\"Open with LibreOffice Writer\" is visible in the drop-down menu for each file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 16:38:04 GMT",
+    "mtime": "2013-03-12 09:47:21 GMT"
+  },
+  {
+    "name": "file-associations-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "LibreOffice Calc actions available when clicking on  documents",
+    "description": "check if there is some LibreOffice Calc actions available when clicking on  documents",
+    "pre_condition": "have a few documents with different formats in the \"Home\" folder : .ods - .xls - .xlsx - .csv",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on the .ods, the .xls file, the .xlsx file, the .csv file",
+        "expected": "\"Open with LibreOffice Calc\" is visible in the drop-down menu for each file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 13:56:09 GMT",
+    "mtime": "2013-03-12 09:47:16 GMT"
+  },
+  {
+    "name": "file-associations-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "LibreOffice Impress actions available when clicking on  documents",
+    "description": "check if there is some LibreOffice Impress actions available when clicking on  documents",
+    "pre_condition": "have a few documents with different formats in the \"Home\" folder : .odp - .ppt - .pptx",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Accessories\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Files\" icon",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "In the file manager, right-click on the .odp, the .ppt file, the .pptx file",
+        "expected": "\"Open with LibreOffice Impress\" is visible in the drop-down menu for each file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 13:59:22 GMT",
+    "mtime": "2013-03-12 09:47:01 GMT"
+  },
+  {
+    "name": "hyperlink-writer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Hyperlink in LibreOffice Writer",
+    "description": "create an hyperlink and check if the web browser starts when clicking on link in Writer",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Writer\"",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer window opened, click on \"Insert\" in the top menu",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"hyperlink\" in the drop-down menu",
+        "expected": "A new windows opens"
+      },
+      {
+        "description": "In the new window, type \"http://www.google.fr\" in the \"target\" field",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Apply\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Close\"",
+        "expected": "A link is visible on the Writer page"
+      },
+      {
+        "description": "On the Writer page, press \"Ctrl\" and click on the hyperlink newly created",
+        "expected": "The web browser starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 16:48:15 GMT",
+    "mtime": "2013-03-12 09:46:53 GMT"
+  },
+  {
+    "name": "hyperlink-calc",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Hyperlink in LibreOffice Calc",
+    "description": "create an hyperlink and check if the web browser starts when clicking on link in Calc",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Calc\"",
+        "expected": "Calc starts"
+      },
+      {
+        "description": "In the Calc window opened, click on \"Insert\" in the top menu",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"hyperlink\" in the drop-down menu",
+        "expected": "A new windows opens"
+      },
+      {
+        "description": "In the new window, type \"http://www.google.fr\" in the \"target\" field",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Apply\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Close\"",
+        "expected": "A link is visible on the Calc page"
+      },
+      {
+        "description": "On the Calc page, click on the hyperlink newly created",
+        "expected": "The web browser starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:03:46 GMT",
+    "mtime": "2013-03-12 09:46:25 GMT"
+  },
+  {
+    "name": "hyperlink-impress",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Hyperlink in LibreOffice Impress",
+    "description": "create an hyperlink and check if the web browser starts when clicking on link in Impress",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Impress\"",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "In the Impress window opened, click on \"Insert\" in the top menu",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"hyperlink\" in the drop-down menu",
+        "expected": "A new windows opens"
+      },
+      {
+        "description": "In the new window, type \"http://www.google.fr\" in the \"target\" field",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Apply\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Close\"",
+        "expected": "A link is visible on the Impress page"
+      },
+      {
+        "description": "On the Impress page, click on the hyperlink newly created",
+        "expected": "The web browser starts correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:07:37 GMT",
+    "mtime": "2013-03-12 09:46:00 GMT"
+  },
+  {
+    "name": "themes-startcenter",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Tizen Theme in LibreOffice StartCenter",
+    "description": "check if Tizen Theme is correctly applied to LibreOffice StartCenter",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"LibreOffice\" icon",
+        "expected": "LibreOffice StartCenter starts and Tizen Theme is applied to it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:24:32 GMT",
+    "mtime": "2013-03-12 09:50:52 GMT"
+  },
+  {
+    "name": "themes-writer",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Tizen Theme in LibreOffice Writer",
+    "description": "check if Tizen Theme is correctly applied to LibreOffice Writer",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts and Tizen Theme is applied to it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:18:08 GMT",
+    "mtime": "2013-03-12 09:51:22 GMT"
+  },
+  {
+    "name": "themes-calc",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Tizen Theme in LibreOffice Calc",
+    "description": "check if Tizen Theme is correctly applied to LibreOffice Calc",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon",
+        "expected": "Calc starts and Tizen Theme is applied to it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:18:47 GMT",
+    "mtime": "2013-03-12 09:52:01 GMT"
+  },
+  {
+    "name": "themes-impress",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Tizen Theme in LibreOffice Impress",
+    "description": "check if Tizen Theme is correctly applied to LibreOffice Impress",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts and Tizen Theme is applied to it"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:20:02 GMT",
+    "mtime": "2013-03-12 09:52:29 GMT"
+  },
+  {
+    "name": "email-writer",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "mail a document from LibreOffice Writer",
+    "description": "use the \"mail a document\" option in LibreOffice Writer and check if the mail application starts correctly",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Send\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Document as E-mail\" in the drop-right menu",
+        "expected": "A new-mail-window of your mail application opens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:25:47 GMT",
+    "mtime": "2013-03-12 09:56:51 GMT"
+  },
+  {
+    "name": "email-calc",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "mail a document from LibreOffice Calc",
+    "description": "use the \"mail a document\" option in LibreOffice Calc and check if the mail application starts correctly",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Calc\" icon",
+        "expected": "Calc starts"
+      },
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Send\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Document as E-mail\" in the drop-right menu",
+        "expected": "A new-mail-window of your mail application opens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:40:35 GMT",
+    "mtime": "2013-03-12 09:56:42 GMT"
+  },
+  {
+    "name": "email-impress",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "mail a document from LibreOffice Impress",
+    "description": "use the \"mail a document\" option in LibreOffice Impress and check if the mail application starts correctly",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "Click on \"File\" in the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Send\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Document as E-mail\" in the drop-right menu",
+        "expected": "A new-mail-window of your mail application opens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 14:41:32 GMT",
+    "mtime": "2013-03-12 09:56:30 GMT"
+  }
+]

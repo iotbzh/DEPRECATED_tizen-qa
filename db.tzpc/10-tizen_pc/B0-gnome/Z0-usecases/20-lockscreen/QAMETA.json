@@ -1,0 +1,47 @@
+[
+  {
+    "name": "lock-screen",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "lock the session screen",
+    "description": "tell to lock the session screen",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on the user name in the top menubar",
+        "expected": "the user session menu appears"
+      },
+      {
+        "description": "Select \"Lock\" from the user session menu",
+        "expected": "the user session screen is swept out and then the screen is blanked"
+      },
+      {
+        "description": "Move the mouse",
+        "expected": "a neutral screen is displayed, showing the hour"
+      },
+      {
+        "description": "Press \"enter\" key",
+        "expected": "the unlock screen is displayed showing the name of the current user session"
+      },
+      {
+        "description": "Enter the password and validate",
+        "expected": "The user session scree is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 09:53:56 GMT",
+    "mtime": "2013-03-08 13:09:11 GMT"
+  }
+]

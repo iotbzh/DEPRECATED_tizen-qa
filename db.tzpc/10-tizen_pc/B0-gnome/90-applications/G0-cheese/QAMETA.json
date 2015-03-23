@@ -1,0 +1,157 @@
+[
+  {
+    "name": "health",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Cheese' -t 15 -- /usr/bin/cheese",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 10:15:03 GMT",
+    "mtime": "2013-03-07 10:15:03 GMT"
+  },
+  {
+    "name": "show-image",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "cheese shows the current image",
+    "description": "launch cheese and check that the image is displayed",
+    "pre_condition": "have a camera",
+    "steps": [
+      {
+        "description": "From Topmenu bar, click on \"Application\"",
+        "expected": "The application selection menu appears"
+      },
+      {
+        "description": "Select \"Cheese\" and launch it",
+        "expected": "The cheese window appears"
+      },
+      {
+        "description": "Check that the current camera image is displayed (maybe after a short time)",
+        "expected": "The current image appers in the image area"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 09:58:37 GMT",
+    "mtime": "2013-03-07 10:05:13 GMT"
+  },
+  {
+    "name": "take-photo",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "cheese takes photo",
+    "description": "launch cheese and check that photo are taken",
+    "pre_condition": "have a camera",
+    "steps": [
+      {
+        "description": "From Topmenu bar, click on \"Application\"",
+        "expected": "The application selection menu appears"
+      },
+      {
+        "description": "Select \"Cheese\" and launch it",
+        "expected": "The cheese window appears, displaying current image"
+      },
+      {
+        "description": "Select the photo mode",
+        "expected": "the photo mode is active"
+      },
+      {
+        "description": "Click on the button \"Take a photo\"",
+        "expected": "A photo is taken"
+      },
+      {
+        "description": "Check that the photo appeared in the bottom panel",
+        "expected": "The taken photo is in the bottom panel at last position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "TZPC-1152",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 10:17:48 GMT",
+    "mtime": "2013-03-07 16:36:54 GMT"
+  },
+  {
+    "name": "record-video",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "cheese records video",
+    "description": "launch cheese and check that video are recorded",
+    "pre_condition": "have a camera",
+    "steps": [
+      {
+        "description": "From Topmenu bar, click on \"Application\"",
+        "expected": "The application selection menu appears"
+      },
+      {
+        "description": "Select \"Cheese\" and launch it",
+        "expected": "The cheese window appears, displaying current image"
+      },
+      {
+        "description": "Select the video mode",
+        "expected": "the video mode is active"
+      },
+      {
+        "description": "Click on the button \"Record a video\"",
+        "expected": "A video is recording"
+      },
+      {
+        "description": "Click on the button \"Stop recording\"",
+        "expected": "The video recording stops"
+      },
+      {
+        "description": "Check that the video appeared in the bottom panel",
+        "expected": "The recorded video is in the bottom panel at last position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 11:22:37 GMT",
+    "mtime": "2013-03-07 11:31:12 GMT"
+  }
+]

@@ -1,0 +1,53 @@
+[
+	{
+		"name": "add_local_system_printer",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Add local system printer",
+		"description": "Check if it's possible to add a new local system printer",
+		"notes": "[Req. 1.4.1]",
+		"bugs": "",
+		"exec_type": "manual",
+		"exec_pre": null,
+		"exec": null,
+		"exec_expected_retcode": null,
+		"exec_kill_timeout": null,
+		"exec_post": null
+	},
+	{
+		"name": "remove_local_system_printer",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Remove system printer",
+		"description": "Check if it's possible to remove a new local system printer",
+		"notes": "[Req. 1.4.2]",
+		"bugs": "",
+		"exec_type": "manual",
+		"exec_pre": null,
+		"exec": null,
+		"exec_expected_retcode": null,
+		"exec_kill_timeout": null,
+		"exec_post": null
+	},
+	{
+		"name": "add_networked_printer",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Add networked printer",
+		"description": "Check if it's possible to add a new local system printer via network",
+		"notes": "[Req. 1.4.3]",
+		"bugs": "",
+		"exec_type": "manual",
+		"exec_pre": null,
+		"exec": null,
+		"exec_expected_retcode": null,
+		"exec_kill_timeout": null,
+		"exec_post": null
+	}
+]

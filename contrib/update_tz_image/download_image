@@ -1,0 +1,121 @@
+#!/bin/bash
+
+#!/bin/bash
+
+NAME=$(basename $0)
+
+function error() {
+	echo ERROR: "$@" >&2
+	echo "Usage: $NAME <image tag> <chroot script> <output dir> <repository url>" >&2
+	echo "example: $NAME DEVEL_RAW_TZ chroot_script.sh images https://user:pass@download.tz.otcshare.org/snapshots/trunk/pc/latest" >&2
+	exit 1
+}
+
+function info() {
+	echo "$@" >&2
+}
+
+#------------------- arguments parsing -----------------------------
+
+imgtag=$1
+shift
+[ -z "$imgtag" ] && error "Invalid image tag"
+
+chrootscript=$1
+shift
+[ ! -f "$chrootscript" ] && error "Invalid chroot script"
+
+outputdir=$1
+shift
+[ -z "$outputdir" ] && error "Invalid output dir"
+mkdir -p $outputdir
+[ ! -d "$outputdir" ] && error "Unable to create output dir"
+
+repourl=$1
+shift
+[ -z "$repourl" ] && error "Invalid repository URL"
+
+
+#--------------------------------------
+
+function get_repo_release() {
+	XMLSTARTLET=$(which xml || which xmlstarlet)
+	url=$1/builddata/build.xml
+	curl --silent $1/builddata/build.xml | $XMLSTARTLET sel  -t -v "/build/id/text()" 2>/dev/null || echo "unknown"
+}
+
+function downloadImage() {
+	url=$1
+	output=$2
+
+	info "Downloading $url to $output"
+
+	if [ ! -f $output ]; then
+		wget -O $output "$url"
+	else
+		info "Downloaded image already present. Not downloading"
+	fi
+}
+
+function uncompressImage() {
+	origfile=$1
+	rawfile=$2
+
+	# copy and optionnaly uncompress image
+	ftype=$(file -b $origfile | awk '{print $1}')
+	info "Detected image with compression $ftype"
+	case $ftype in
+		bzip2)
+			info "Uncompressing to $rawfile"
+			bzip2 -d -c $origfile >$rawfile
+			;;
+		gzip)
+			info "Uncompressing to $rawfile"
+			gzip -d -c $origfile >$rawfile
+			;;
+		lzop)
+			info "Uncompressing to $rawfile"
+			lzop -d -c $origfile >$rawfile
+			;;
+		XZ)
+			info "Uncompressing to $rawfile"
+			xz -d -c $origfile >$rawfile
+			;;
+		*)
+			info "copying to $rawfile"
+			cp $origfile $rawfile
+			;;
+	esac
+}
+
+function compressImage() {
+	rawimg=$1
+	lzop -5 -v -U -S .lzo $rawimg
+}
+
+#--------------------------------------
+
+snapshot=$(get_repo_release $repourl)
+
+info "Detected snapshot: $snapshot"
+
+[ "$snapshot" == "unknown" ] && error "Invalid snapshot"
+
+
+workdir=$outputdir/$snapshot
+mkdir -p $workdir
+[ ! -d $workdir ] && error "Unable to create workdir $workdir"
+
+cd $workdir
+
+origfile=tzimage.img
+rawfile=image.raw
+
+downloadImage "$repourl/images/gnome-raw/gnome-raw-$snapshot-sda.raw.gz" $origfile
+
+uncompressImage $origfile $rawfile
+
+# TODO
+
+compressImage $rawfile
+

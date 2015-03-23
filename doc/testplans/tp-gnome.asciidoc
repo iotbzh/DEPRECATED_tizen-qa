@@ -1,0 +1,939 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: Gnome for Tizen PC
+:author: José Bollo
+:email: jose.bollo@eurogiciel.fr
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5993[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> Gnome Integration]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==============================================================================================
+|Version 		| Date 		| Author	| Reason for changes
+//---------------------------------------------------------------------------------------------
+|0.1			| 2013-02-15	| {jose}	| Initial revision
+|0.2			| 2013-02-25	| {stephane}	| Internal review ({yann} & {christophe}) and corrections
+|0.3			| 2013-03-05	| {jose}	| Correction after engineering review (by {auke} & {hirally})
+|0.4			| 2013-03-08	| {jose}	| Correction from review (by {christophe}) and extensions
+|0.5			| 2013-03-12	| {jose}	| Proposal as final document
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==============================================================================================
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level				| Reviewer 			| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review		| {christophe}		|             	| 
+|Architect review			|						|           	|           
+|Engineering review 		|						|           	|           
+|Project Manager review |						|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for {componentName} within Tizen PC.
+
+== Glossary 
+
+// Instructions:
+// Describe all important acronyms or terms here
+// Example:
+// * BBC: Brake Before Clutch (driver training)
+// * CNN: Chaotic Neural Network
+// ...
+
+GNOME:: GNU Network Object Model Environment: Building a full, user-friendly desktop 
+	 for Unix operating systems, based entirely on free software.
+
+== Component Summary 
+
+// Instructions:
+// Expect a short paragraph to describe the component and add link for further information about this component.
+// Also put major hyperlinks to projects responsible for the component
+
+GNOME is a rich platform environment for building user friendly applications.
+GNOME is a desktop environment.
+GNOME platform can be divided in 3 parts: the CORE, the DESKTOP and the
+APPLICATIONS, as defined below.
+
+CORE::
+    All components less or more hidden that are used by any applications.
+DESKTOP::
+    The components that are usual from the user scope and that distinguish
+    GNOME from other desktops environements. This are specifics desktop intrinsic
+    applications. For example: the settings, the accessibility manager,
+    the login in screen, ...
+APPLICATIONS::
+    The applications use the GNOME platform, specifically the CORE components.
+    The GNOME applications usually may run on other desktop environments, like
+    Enlightnement  -- for example -- , if core components that they depends on
+    are availables.
+
+The CORE of GNOME is made of several parts as shown on the figure below:
+
+.Figure: The CORE items of the GNOME platform
+image:gnome/gnome-overview.png["Overview of GNOME platform",width=800]
+
+These components are low level but important, because they are at the basis of all the
+GNOME applications that the users use. A short description of these components
+is made <<appendix-A,appendix A>>. They are at the heart core of the GNOME platform.
+
+Generally, from a user point of vue, GNOME is the DESKTOP environment. 
+For TIZEN, the GNOME DESKTOP is extended with a component named ``Tizen Shell''.
+The Tizen Shell will be tested apart. Anyway, Tizen Shell is on top of the GNOME
+desktop tools. Here we will test the good working of the functionnalities the
+GNOME desktop utilities.
+
+
+GNOME is also a rich set of APPLICATIONS. 
+Some of them are available in the TIZEN PC distributions.
+These applications are important in the user exeprience of all days.
+It is what the user see and use.
+So it have to work.
+Then it have to be tested.
+
+The  <<appendix-B,appendix B>> shows the full list of the containing packages 
+that make GNOME under TIZEN.
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+What will be checked are the main available functionnalities, proving
+the correct integration of the application.
+
+The following table describes the group of features to be tested based on risk analysis:
+
+.Tested features
+[width="80%",cols="2,3,1,6",options="header"]
+|==============================================================================================
+|Feature / Requirement Id   | Description	| Priority  | Comment
+//------------------------------------------------------------------------------------------------------------------
+| DESKTOP		    | GNOME desktop commons | P1    | From experience: likelyhood and user impact are high
+| APPLICATIONS		    | GNOME applications    | P2    | Not using an application may have a high user impact
+| CORE			    | CORE of GNOME	    | P3    | The likelyhood is low and the user impact is medium
+|==============================================================================================
+
+The following table describes the DESKTOP features to be tested.
+
+.List of the DESKTOP items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==============================================================================================
+|Feature / Requirement Id | Priority | Description			    | Comment
+//----------------------------------------------------------------------------------
+| caribou	    | P2 | Text entry and UI navigation application	    | Accessibility
+| folks		    | P1 | Library to create metacontacts from multiple sources | Connectivity
+| gnome-connman-extension | P1 | Extension to use connection manager Connman | Connectivity
+| gnome-keyring	    | P1 | GNOME Keyring				    | Simplicity of use
+| gnome-initial-setup | P1 | Gnome UI for first settings                    | Settings
+| gnome-menus	    | P1 | The GNOME Desktop Menu			    | Access to most 
+| gnome-online-accounts | P1 | GNOME service to access online accounts	    | Connectivity
+| gnome-power-manager | P2 | Power Management for GNOME			    | Settings
+| gnome-screensaver | P1 | GNOME Screen Saver and Locker		    | Power management
+| gnome-screenshot  | P3 | Utility to take pictures of your screen	    | Maybe usefull
+| gnome-session	    | P2 | Session Tools for the GNOME Desktop		    | User Session
+| gnome-shell	    | P1 | GNOME Shell					    | Main screen
+| gvfs		    | P1 | VFS functionality for GLib			    | Connectivity
+| mousetweaks	    | P1 | Tweak mouse settings in GNOME		    | Settings
+| orca		    | P2 | Screen reader for GNOME			    | Accessibility
+| xdg-user-dirs-gtk | P1 | Utilities to handle user data directories	    | Internationalisation
+|==============================================================================================
+
+The following table describes the APPLICATION features to be tested.
+
+.List of the APPLICATIONS items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==============================================================================================
+|Feature / Requirement Id | Priority | Description			    | Comment
+//----------------------------------------------------------------------------------
+| brasero		  | P3	     | CD/DVD mastering tool		    | CD/DVD burner
+| cheese		  | P1	     | Webcam utility			    | Utility
+| empathy		  | P1	     | Send and receive messages	    | Connectivity
+| evince		  | P1	     | View multipage documents		    | Productivity
+| file-roller		  | P3	     | Create and modify archives	    | Utility
+| gedit			  | P2	     | Simple text editor		    | Utility
+| gnome-calculator	  | P2	     | A small calculator utility           | Utility
+| libreoffice		  | P1	     | A Free Office Suite		    | Productivity
+| nautilus		  | P1	     | File Manager for the GNOME Desktop   | Access to filesystem
+| rhythmbox		  | P1	     | GNOME Music Management Application   | Music, radio, podcast
+| seahorse		  | P2	     | GNOME interface for gnupg	    | Utility
+| shotwell		  | P1	     | Photo Manager for GNOME		    | Photo and thumbnails
+| snappy		  | P1	     | Multimedia Player		    | Play sound and videos
+| sound-juicer		  | P3	     | Clean and Lean GNOME CD Ripper	    | CD ripping tool
+| sushi			  | P3	     | Small viewer for nautilus	    | Utility
+| yelp			  | P2	     | Help Browser for the GNOME Desktop   | Somtimes help is needed
+|==============================================================================================
+
+The following table describes the CORE features to be tested.
+
+.List of the CORE items to test
+[width="80%",cols="2,1,5,3",options="header"]
+|==============================================================================================
+|Feature / Requirement Id | Priority | Description			    | Comment
+//----------------------------------------------------------------------------------
+| gstreamer	          |    P1    | Multimedia framework		    | Multimedia
+|==============================================================================================
+
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+No part of Tizen Shell, also known as ``Home Screen'' will be tested: it is made in an other test plan, available here: {qa-tp-homescreen}.
+
+.Non tested features
+[width="80%",cols="2,4,9",options="header"]
+|===================================================================================================================
+|Feature / Requirement Id   | Description			| Comment
+//------------------------------------------------------------------------------------------------------------------
+| Tizen Shell		    | Tizen branding of GNOME Shell	| Test described in an other document ({qa-tp-homescreen})
+| Gnome Terminal	    | A terminal for GNOME		| Not in the main stream even if usefull.
+| LibreOffice               | A Free Office Suite		| Only integration is tested, not the functionnalities ({qa-tp-office})
+| gnome-connman-extension   | Gnome extension for Connman	| Only integration is tested, not the functionnalities ({qa-tp-connectivity})
+| gnome-online-accounts	    | access to online accounts		| Short tests are done (for more complete suite see {qa-tp-im})
+| empathy		    | Send and receive messages		| Short tests are done (for more complete suite see {qa-tp-im})
+| gnome-initial-setup	    | Initial settings			| Short tests are done (for more complete suite see {qa-tp-firstboot})
+|===================================================================================================================
+
+NOTE: Gnome Terminal will not be tested itself but will be used to to launch some tests.
+
+== Test Strategy and Approach 
+
+// Instructions:
+// HOW TO TEST THE COMPONENT)
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+Gnome functionalities are tested exhaustively 
+by the developers/testers of GNOME’s community. 
+See more details here: http://www.gnome.org/get-involved/.
+
+In case some bugs are identified in Gnome and block or fail 
+our tests, they will be reported (if not existing yet) in 
+Gnome’s bug tracker https://bugzilla.gnome.org/.
+
+Most of the low level components aren't to be tested directly. 
+In place of that direct testing, we suggest to use the indirect angle of attack.
+The high level applications and desktop utilities are intensively using the 
+core components of low level. 
+So any defect in an application or a desktop utility is linked either to
+a low level component (that is the indirect approach) or to the tested component
+itself.
+Then testing the high level component will be a good coverage test for the usecases of
+the low level components. That is the indirect approach.
+
+The following components are tested indirectly:
+.Indirect tests
+[width="80%",cols="3,7",options="header"]
+|===================================================================================================================
+| Component							  | Comment
+//------------------------------------------------------------------------------------------------------------------
+| folks								  | Tested indirectly through Empathy and settings
+| gnome-online-accounts			  | Tested indirectly through Empathy and settings
+| gnome-keyring					  | Tested indirectly through seahorse
+| gnome-menus						  | Tested indirectly in an other test plan ({qa-tp-homescreen})
+| gvfs								  | Tested indirectly through Nautilus
+|===================================================================================================================
+
+
+IMPORTANT: As written above, only the integration has to be tested.
+The main concern is the mainstream usability of the tested applications.
+We expect that the developpers of the applications made full coverage 
+detailled tests before having  the applications integrated in Tizen. 
+So there is no use to test each parameter, each window, each little detail
+of them.
+
+NOTE: [red]#TODO# Add links to existing Gnome Test Plans, if any (none referenced yet)
+
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+For each component or application, here below called component, one or more
+of the tests listed below are performed.
+
+At least, for all component the following test are performed:
+- Acceptance Test
+- Sanity Test
+- Main features Test
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+
+Installation of the component using zypper works: the component and its dependencies are installed.
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a sanity test reflect the most important functionality, stability and PnP of the distribution.
+
+The component can be run: none of its runtime dependency is broken, 
+it can start in the Tizen environment without crashing.
+
+==== Main features Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+
+The main feature(s) of the component works: the component doesn't crash, it 
+performs the expected behaviour in the expected time, it stops itself properly.
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+//==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload.
+
+The component power consumption, its CPU usage and its time to perform defiend task
+are measured and compared to an expected target.
+
+//==== Stability Test
+
+// Instructions:
+// Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+
+//==== Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+// Instructions:
+//
+
+The component can access to its system dependencies: gconf, gsettings, printing, networking, 
+the help is accessible, the language can be set, ...
+
+The component either integrates itself well to an other one or integrate well an other component into itself.
+(for example: the nautilus extensions)
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+==== Interopeability Test
+
+// Instructions:
+//
+
+Checking that Gnome is interoperable with Mozilla, KDE, ... and more generally any application that isn't GNOME-compliant is out of scope.
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+==== Functional Positive
+
+Positive testing includes approaches to directly call and test out a command or interface (launch of application, use of menus, buttons, input text fields ...).
+
+==== Functional Negative
+
+Negative testing is to ensure that unexpected or invalid values can be handled gracefully.
+
+It involves counter-testing of a given feature, such as sending in a bad value to an API with the expectation of a failure (Populating required field/input with unsupported/not appropriated values, unsupported format, Oversize data/out of range value, Corrupted data, Wrong settings/configurations (ex: create an invalid Empathy account), Duplication, Launch of application while already launched, Create a contact with an invalid email).
+
+Negative testing is mainly aimed at detecting crashes in different situations.
+ 
+==== Reliability
+
+The purpose of reliability testing is to ensure that the system is able to manage critical situations successfully during a specified period of time without any failure (data loss, latency, crash …). It includes test of Robustness, Recovery, Iterative (stress), Long Lasting (launch and close an application intensively, add one hundred buddies in Chat application, create one hundred contacts in Contact application, populate fields with huge strings ...)
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+We will adopt specific test methodologies to the component or sub-component testing:
+
+White-box Test Methods::
+- execution of command lines from a Terminal that tests internal structures
+- communication with d-Bus
+- verification of services and daemon
+
+Black-box Test Methods::
+- execution of command lines from a Terminal that tests functionality
+- manual tests covering functionality of the system using the User Interface, peripherals (keyboard, mouse ...)
+
+=== Flexibility
+
+// Instructions:
+// Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints
+
+&nbsp;
+
+NOTE: This chapter will be detailed after first tests [red]#TODO#
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+&nbsp;
+
+NOTE: This chapter will be detailed after engineering review (after features list validation) [red]#TODO#
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+NOTE: Some test cases have notes like [Req x.y.z] refering to {otcshare}/5791[Use Cases documentation (v4)]
+
+NOTE: Priorities in test cases must be modified according to features properties [red]#TODO#
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_gnome.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::common/test_exec.asciidoc[]
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Known limitations:
+--
+* Gnome PRD (Product Requirement Documentation) is not available. The Test Plan should we reviewed again when the PRDs will be available.
+--
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role          			| Contact               
+//---------------------------------------------------------------------------------------------
+|Architect			      | [red]#TBD#
+|Designer			      | Claire H. Alexander <claire.h.alexander@intel.com>
+|Engineering Manager		| Paul G. Cooper <paul.g.cooper@intel.com>
+|Developers			      | Tizen UI: Collabora (UK), Gnome Integration: Eurogiciel (FR)
+|PM			            | Hirally Santiago Rodriguez <hirally.santiago.rodriguez@intel.com>
+|Marketing			      |
+|Test planning and test case Lead | Yann Argotti <yann.argotti@intel.com>
+|QA			            | 
+|QA Conformance			| 
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+GNOME Overview:
+--
+* http://developer.gnome.org/
+* http://developer.gnome.org/platform-overview/3.7/
+--
+
+Product Requirements:
+--
+* PRD [red]#(missing)#
+* https://tz.otcshare.org/jira/secure/IssueNavigator.jspa?mode=hide&requestId=14354[Jira filter "Gnome Native App Requirements"]
+* {otcshare}/5791[Use Cases v4] and {otcshare}/5854[Use Cases v5]
+--
+
+
+include::common/references.asciidoc[]
+
+
+[[appendix-A]]
+== Appendix A: Details of GNOME
+
+The core components of the GNOME platform are summarized in the figure below:
+
+image:gnome/gnome-overview.png["Overview of GNOME platform",width=800]
+
+That figure comes from link:http://developer.gnome.org/[GNOME Developer Center].
+Searching deeper, a brief description of these components is made below.
+
+[width="80%",cols="10,2,60",options="header"]
+|==============================================================================================
+| Component      | gnome | Summary
+//----------------------------------------------------------------------------------
+// User interface
+| GTK+           | yes | Feature rich toolkit based on GDK for creating graphical user interfaces
+| Cairo          | NO  | Modern 2D vector drawing canvas
+| Clutter        | yes | Stunning graphics and animations with a scene-graph API
+| ATK            | yes | Support for screen readers and other accessibility tools
+| Pango          | yes | Fully internationalized text layout and rendering
+| WebKit       ? | NO  | The power of HTML5 and the web in your application (WebKitGTK+)
+// Core Application Support
+| GIO            | yes | Asynchronous file, URI, network and D-Bus access
+| Glib           | yes | A general-purpose utility library
+| GObject        | yes | Object-oriented framework for C
+// System integration
+| upower         | NO  | A D-Bus component for power devices, discovering, listening, history and statistics
+| udisk          | NO  | A D-Bus component for storage devices
+| polkit         | NO  | A D-Bus component for granting privilegied acesses
+// Multimedia
+| GStreamer      | NO  | Playing, creating and manipulating sound, video, and other media
+| Canberra     ? | yes | Simple audio API for notifications and events
+| PulseAudio     | NO  | A proxy for your sound applications
+// Communication
+| Telepathy      | yes | Unified and integrated real-time communication service
+| Avahi          | NO  | Service discovery on a local network via the mDNS/DNS-SD protocol suite
+| GUPnP          | yes | An easy to use, efficient and flexible UPnP framework
+// Data Storage
+| Evolution Data Server |yes| Integration with the desktop-wide address book and calendar
+| GDA          ? | yes | Common relational database access
+| Tracker      ? | yes | A semantic data storage for desktop and mobile devices
+// Utilities
+| Champlain      | yes | A ClutterActor to display maps
+| Enchant        | NO  | A generic spell checking library
+| GeoClue        | NO  | Geoinformation service on top of the D-Bus messaging system
+// Desktop Integration
+| packagekit     | NO  | A package manager
+| libnotify    ? | yes | Interactive notifications in the messaging tray
+| gnome-keyring  | yes | Secure storage for passwords and other data
+|==============================================================================================
+
+[[appendix-B]]
+== Appendix B: Gnome build projects 
+
+List of the repositories for GNOME within tizen (https://tz.otcshare.org/gerrit/[Gerrit projects])
+
+* profile/pc/gnome/NetworkManager
+* profile/pc/gnome/NetworkManager-gnome
+* profile/pc/gnome/accerciser
+* profile/pc/gnome/accountsservice
+* profile/pc/gnome/at-spi2-atk
+* profile/pc/gnome/at-spi2-core
+* profile/pc/gnome/avahi
+* profile/pc/gnome/brasero
+* profile/pc/gnome/caribou
+* profile/pc/gnome/cdparanoia
+* profile/pc/gnome/cheese
+* profile/pc/gnome/clutter
+* profile/pc/gnome/clutter-gst
+* profile/pc/gnome/clutter-gtk
+* profile/pc/gnome/cogl
+* profile/pc/gnome/color-filesystem
+* profile/pc/gnome/colord
+* profile/pc/gnome/colord-gtk
+* profile/pc/gnome/connman-gnome
+* profile/pc/gnome/cracklib
+* profile/pc/gnome/dconf
+* profile/pc/gnome/desktop-notifications-browser-extension
+* profile/pc/gnome/desktop-webapp-browser-extension
+* profile/pc/gnome/dirac
+* profile/pc/gnome/egg-list-box
+* profile/pc/gnome/empathy
+* profile/pc/gnome/enca
+* profile/pc/gnome/evince
+* profile/pc/gnome/evolution-data-server
+* profile/pc/gnome/exempi
+* profile/pc/gnome/exiv2
+* profile/pc/gnome/farstream
+* profile/pc/gnome/file-roller
+* profile/pc/gnome/folks
+* profile/pc/gnome/gconf2
+* profile/pc/gnome/gcr
+* profile/pc/gnome/gd
+* profile/pc/gnome/gdm
+* profile/pc/gnome/gedit
+* profile/pc/gnome/geoclue
+* profile/pc/gnome/geocode-glib
+* profile/pc/gnome/gexiv2
+* profile/pc/gnome/gjs
+* profile/pc/gnome/glade
+* profile/pc/gnome/gmime
+* profile/pc/gnome/gnome-bluetooth
+* profile/pc/gnome/gnome-calculator
+* profile/pc/gnome/gnome-contacts
+* profile/pc/gnome/gnome-control-center
+* profile/pc/gnome/gnome-desktop
+* profile/pc/gnome/gnome-doc-utils
+* profile/pc/gnome/gnome-extension-connman
+* profile/pc/gnome/gnome-icon-theme
+* profile/pc/gnome/gnome-icon-theme-extras
+* profile/pc/gnome/gnome-icon-theme-symbolic
+* profile/pc/gnome/gnome-initial-setup
+* profile/pc/gnome/gnome-js-common
+* profile/pc/gnome/gnome-keyring
+* profile/pc/gnome/gnome-menus
+* profile/pc/gnome/gnome-online-accounts
+* profile/pc/gnome/gnome-power-manager
+* profile/pc/gnome/gnome-screensaver
+* profile/pc/gnome/gnome-screenshot
+* profile/pc/gnome/gnome-session
+* profile/pc/gnome/gnome-settings-daemon
+* profile/pc/gnome/gnome-shell
+* profile/pc/gnome/gnome-shell-extensions
+* profile/pc/gnome/gnome-terminal
+* profile/pc/gnome/gnome-themes-standard
+* profile/pc/gnome/gnome-video-effects
+* profile/pc/gnome/gsettings-desktop-schemas
+* profile/pc/gnome/gssdp
+* profile/pc/gnome/gtk-doc
+* profile/pc/gnome/gtk2
+* profile/pc/gnome/gtk2-engines
+* profile/pc/gnome/gtk2-themes
+* profile/pc/gnome/gtk3
+* profile/pc/gnome/gtksourceview
+* profile/pc/gnome/gupnp
+* profile/pc/gnome/gupnp-igd
+* profile/pc/gnome/gvfs
+* profile/pc/gnome/gypsy
+* profile/pc/gnome/hicolor-icon-theme
+* profile/pc/gnome/ibus
+* profile/pc/gnome/icon-naming-utils
+* profile/pc/gnome/itstool
+* profile/pc/gnome/js
+* profile/pc/gnome/keyutils
+* profile/pc/gnome/libatasmart
+* profile/pc/gnome/libbluray
+* profile/pc/gnome/libcanberra
+* profile/pc/gnome/libcdaudio
+* profile/pc/gnome/libcddb
+* profile/pc/gnome/libcdio
+* profile/pc/gnome/libcdio-paranoia
+* profile/pc/gnome/libchamplain
+* profile/pc/gnome/libcroco
+* profile/pc/gnome/libdv
+* profile/pc/gnome/libdvdnav
+* profile/pc/gnome/libdvdread
+* profile/pc/gnome/libgdata
+* profile/pc/gnome/libgee
+* profile/pc/gnome/libgee-0.6
+* profile/pc/gnome/libgnome-keyring
+* profile/pc/gnome/libgphoto2
+* profile/pc/gnome/libgtop
+* profile/pc/gnome/libgusb
+* profile/pc/gnome/libgweather
+* profile/pc/gnome/libidl
+* profile/pc/gnome/libimobiledevice
+* profile/pc/gnome/libkate
+* profile/pc/gnome/libmms
+* profile/pc/gnome/libmusicbrainz
+* profile/pc/gnome/libnice
+* profile/pc/gnome/libnotify
+* profile/pc/gnome/liboauth
+* profile/pc/gnome/libpeas
+* profile/pc/gnome/libplist
+* profile/pc/gnome/libproxy
+* profile/pc/gnome/libpwquality
+* profile/pc/gnome/libraw
+* profile/pc/gnome/librest
+* profile/pc/gnome/librsvg
+* profile/pc/gnome/libsecret
+* profile/pc/gnome/libsocialweb
+* profile/pc/gnome/libvisual
+* profile/pc/gnome/libwacom
+* profile/pc/gnome/libwebkit3
+* profile/pc/gnome/libwnck
+* profile/pc/gnome/libxklavier
+* profile/pc/gnome/libzeitgeist
+* profile/pc/gnome/lockdev
+* profile/pc/gnome/memphis
+* profile/pc/gnome/mjpegtools
+* profile/pc/gnome/mousetweaks
+* profile/pc/gnome/mutter
+* profile/pc/gnome/nautilus
+* profile/pc/gnome/nautilus-sendto
+* profile/pc/gnome/neon
+* profile/pc/gnome/notification-daemon
+* profile/pc/gnome/orca
+* profile/pc/gnome/polkit
+* profile/pc/gnome/polkit-gnome
+* profile/pc/gnome/python-Jinja2
+* profile/pc/gnome/python-Pygments
+* profile/pc/gnome/python-Sphinx
+* profile/pc/gnome/python-gtk
+* profile/pc/gnome/python-isodate
+* profile/pc/gnome/python-numpy
+* profile/pc/gnome/python-rdflib
+* profile/pc/gnome/rhythmbox
+* profile/pc/gnome/schroedinger
+* profile/pc/gnome/seahorse
+* profile/pc/gnome/seed
+* profile/pc/gnome/shared-color-profiles
+* profile/pc/gnome/shotwell
+* profile/pc/gnome/snappy
+* profile/pc/gnome/startup-notification
+* profile/pc/gnome/sushi
+* profile/pc/gnome/tcpd
+* profile/pc/gnome/tdb
+* profile/pc/gnome/telepathy-farstream
+* profile/pc/gnome/telepathy-gabble
+* profile/pc/gnome/telepathy-glib
+* profile/pc/gnome/telepathy-logger
+* profile/pc/gnome/telepathy-mission-control
+* profile/pc/gnome/telepathy-salut
+* profile/pc/gnome/totem-pl-parser
+* profile/pc/gnome/udisks2
+* profile/pc/gnome/unique
+* profile/pc/gnome/unoconv
+* profile/pc/gnome/upower
+* profile/pc/gnome/usbmuxd
+* profile/pc/gnome/vala
+* profile/pc/gnome/vte
+* profile/pc/gnome/xapian-core
+* profile/pc/gnome/xdg-user-dirs-gtk
+* profile/pc/gnome/xf86-input-wacom
+* profile/pc/gnome/yelp
+* profile/pc/gnome/yelp-tools
+* profile/pc/gnome/yelp-xsl
+* profile/pc/gnome/zeitgeist
+* profile/pc/gnome/zenity
+* profile/pc/tizen-branding-pc
+* profile/pc/tizen-shell-common
+* profile/pc/tizen-shell-home
+* profile/base/atk
+* profile/base/cairo
+* profile/base/cantarell-fonts
+* profile/base/connman
+* profile/base/dbus
+* profile/base/dbus-glib
+* profile/base/dbus-python
+* profile/base/enchant
+* profile/base/gdk-pixbuf
+* profile/base/glib
+* profile/base/glib-networking
+* profile/base/gnome-common
+* profile/base/gobject-introspection
+* profile/base/gst-plugins-bad
+* profile/base/gst-plugins-base
+* profile/base/gst-plugins-good
+* profile/base/gstreamer
+* profile/base/json-glib
+* profile/base/libsoup
+* profile/base/pango
+* profile/base/poppler
+* profile/base/pulseaudio
+

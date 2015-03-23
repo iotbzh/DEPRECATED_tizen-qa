@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Sample script to declare all target at once
+
+# qatarget add <id> <hostname> <ip_address> <mac_address> [product] [platform] [description] [comment] 
+
+qatarget add lenovo01 lenovo01 10.10.0.11 3C:97:0E:49:AD:7B "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo02 lenovo02 10.10.0.12 3C:97:0E:49:AD:9B "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo03 lenovo03 10.10.0.13 3C:97:0E:49:AD:7D "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo04 lenovo04 10.10.0.14 3C:97:0E:49:AD:7C "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo05 lenovo05 10.10.0.15 3C:97:0E:49:AD:91 "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo06 lenovo06 10.10.0.16 3c:97:0E:74:1B:C5 "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo07 lenovo07 10.10.0.17 3C:97:0E:74:1B:AF "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo08 lenovo08 10.10.0.18 3C:97:0E:6D:9E:AF "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo09 lenovo09 10.10.0.19 3C:97:0E:6D:9E:B8 "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo10 lenovo10 10.10.0.20 3C:97:0E:74:1C:63 "Lenovo X230 Tablet" "IvyBridge" "" ""
+qatarget add lenovo11 lenovo11 10.10.0.21 3C:97:0E:6D:9E:B2 "Lenovo X230 Tablet" "IvyBridge" "" ""
+
+qatarget add hp01     hp01     10.10.0.31 A0:B3:CC:22:15:73 "HP Elitebook"       "IvyBridge" "" ""

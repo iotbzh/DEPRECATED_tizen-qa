@@ -1,0 +1,39 @@
+[
+  {
+    "name": "add-nameservers",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Additional nameservers can be configured",
+    "description": "User should be able to set up additional nameservers.\r\n\r\nTODO : test case to be confirmed",
+    "pre_condition": "- User is connected to the wired or to a Wifi service\r\n- ConnMan UI is opened \r\n- Remotely connect to the target device via ssh, with a working station\r\n- Execute the following command on the  working station : 'watch -n 1 \"cat /var/lib/connman/*/settings\"",
+    "steps": [
+      {
+        "description": "Double click on the connected service",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Click on the 'Nameservers' option",
+        "expected": "Nameservers features are displayed on the right side of the window"
+      },
+      {
+        "description": "Add a DNS server in the form, for example 8.8.8.8 and click on 'Save'",
+        "expected": "A window appears with the message 'Nameservers saved successfully'. Nameservers field displays the additional nameserver on the working station"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:13:14 GMT",
+    "mtime": "2013-03-29 15:48:21 GMT"
+  }
+]

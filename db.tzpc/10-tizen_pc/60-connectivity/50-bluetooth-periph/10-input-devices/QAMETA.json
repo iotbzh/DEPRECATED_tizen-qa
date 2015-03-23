@@ -1,0 +1,88 @@
+[
+  {
+    "name": "mouse",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair a Bluetooth mouse an use it",
+    "description": "User should be able to pair a mouse and use it.",
+    "pre_condition": "- Bluetooth technology is enabled on the test device\r\n- The mouse is charged and powered on. The mouse is visible by other Bluetooth devices",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the '+' button to add a new device",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appear"
+      },
+      {
+        "description": "Select the mouse device to pair",
+        "expected": "The mouse device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button and wait a moment",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the Devices field of Bluetooth panel."
+      },
+      {
+        "description": "Move the mouse",
+        "expected": "Mouse pointer should move"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 10:39:00 GMT",
+    "mtime": "2013-03-29 10:28:03 GMT"
+  },
+  {
+    "name": "keyboard",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair a Bluetooth keyboard an use it",
+    "description": "User should be able to pair a keyboard and use it.",
+    "pre_condition": "- Bluetooth technology is enabled on the test device\r\n- The keyboard is charged and powered on. The keyboard is visible by other Bluetooth devices",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the '+' button to add a new device",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appear"
+      },
+      {
+        "description": "Select the keyboard device to pair",
+        "expected": "The keyboard device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button and wait a moment",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the Devices field of Bluetooth panel."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 13:13:26 GMT",
+    "mtime": "2013-03-29 10:30:17 GMT"
+  }
+]

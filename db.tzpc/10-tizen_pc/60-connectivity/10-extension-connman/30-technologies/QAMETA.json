@@ -1,0 +1,343 @@
+[
+  {
+    "name": "ethernet-enable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet connection can be enabled",
+    "description": "Ethernet connection should be enabled when the Ethernet switch button is toggled on 'I'. User should be able to connect to the local network.\r\n",
+    "pre_condition": "- Ethernet technology is disabled (Ethernet switch button is toggled on 'O' in ConnMan UI and ConnMan extension)\r\n- An Ethernet cable is plugged to the device and linked with the test network\r\n- The test network should be connected to the internet ",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Ethernet switcher to enable Ethernet technology",
+        "expected": "Ethernet switcher of ConnMan extension and ConnMan UI is toggled on 'I'"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Ethernet technology, Powered = 'True', Connected = 'True'"
+      },
+      {
+        "description": "Open the 'Chrome' application and type 'google' in the address bar",
+        "expected": "Web page appears with the results of the research"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:09:39 GMT",
+    "mtime": "2013-03-22 15:43:26 GMT"
+  },
+  {
+    "name": "ethernet-disable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Ethernet connection can be disabled",
+    "description": "Ethernet connection should be disabled when the Ethernet switch button is toggled on 'O'. User should not be able to connect to the local network.",
+    "pre_condition": "- Ethernet technology is enabled (Ethernet switch button is toggled on 'I')\r\n- An Ethernet cable is plugged to the device and linked with the test network. \r\n- The test network should be connected to the internet ",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Ethernet switcher to disable Ethernet technology",
+        "expected": "Ethernet switcher of ConnmMan extension and ConnMan UI is toggled on 'O'"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Ethernet technology, Powered = 'False', Connected = 'False'"
+      },
+      {
+        "description": "Open the 'Chrome' application and type 'google' in the address bar",
+        "expected": "Web page appears with the following message : 'This web page is not available'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:09:42 GMT",
+    "mtime": "2013-03-22 15:44:45 GMT"
+  },
+  {
+    "name": "wifi-enable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Wifi connection can be enabled",
+    "description": "Wifi connection should be enabled when the Wifi switch button is toggled on 'I'. User should be able to see the available Wifi services.",
+    "pre_condition": "Wifi technology is disabled (Wifi switch button is toggled on 'O' in ConnMan UI and ConnMan extension)",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Wifi switcher to enable Wifi technology",
+        "expected": "Wifi switcher of ConnMan extension and ConnMan UI is toggled on 'I'"
+      },
+      {
+        "description": "Click on the ConnMan extension",
+        "expected": "List of the available Wifi services is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:12:26 GMT",
+    "mtime": "2013-03-26 12:41:55 GMT"
+  },
+  {
+    "name": "wifi-disable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Wifi connection can be disabled",
+    "description": "Wifi connection should be disabled when the Wifi switch button is toggled on 'O'. User should not be able to see the available Wifi services.",
+    "pre_condition": "Wifi technology is enabled (Wifi switch button is toggled on 'I')",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Wifi switcher to disable Wifi technology",
+        "expected": "Wifi switcher of ConnMan extension and ConnMan UI is toggled on 'O'"
+      },
+      {
+        "description": "Click on the ConnMan extension",
+        "expected": "No wifi service is available (no list)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:13:21 GMT",
+    "mtime": "2013-03-26 12:42:02 GMT"
+  },
+  {
+    "name": "wifi-join",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Join a wifi wireless network",
+    "description": "A Wifi wireless network should be accessible form the ConnMan extension. ",
+    "pre_condition": "- Wifi technology is enabled (Wifi switch button is toggled on 'I')\r\n- All other technologies are disabled \r\n- Wifi network to join should have an access to the internet ",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Select an available Wifi service in the list",
+        "expected": "A window appears"
+      },
+      {
+        "description": "Fill the password in the form and press enter. Wait a moment.",
+        "expected": "ConnMan extension icon shows the strength of the recently joined network"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For the Wifi technology, Powered = 'True',  Connected = 'True'"
+      },
+      {
+        "description": "Open the 'Chrome' application and type 'google' in the address bar",
+        "expected": "Web page appears with the results of the research"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-22 08:11:58 GMT",
+    "mtime": "2013-03-26 13:06:36 GMT"
+  },
+  {
+    "name": "wifi-enable-keyboard",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Enable the Wifi with the keyboard shortcut toggle the Wifi switch button on 'I'",
+    "description": "User should be able to enable the Wifi with the keyboard shortcut. Wifi switch button should switch automatically on the activate state ('I').",
+    "pre_condition": "Wifi technology is disabled (Wifi switch button is toggled on 'O')",
+    "steps": [
+      {
+        "description": "Press the shortcut 'Fn + F5' to enable the Wifi technology",
+        "expected": "Wifi led of the device should turns on. Wifi switcher of ConnMan extension and ConnMan UI is toggled on 'I'"
+      },
+      {
+        "description": "Open a terminal and execute the following command line : 'connmanctl technologies",
+        "expected": "For the Wifi technology, Powered = 'True'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-22 11:12:12 GMT",
+    "mtime": "2013-03-26 13:09:15 GMT"
+  },
+  {
+    "name": "wifi-disable-keyboard",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Disable the Wifi with the keyboard shortcut toggle the wifi switch button on 'O'",
+    "description": "User should be able to disable the Wifi with the keyboard shortcut. Wifi switch button should switch automatically on the disabled state ('O').",
+    "pre_condition": "Wifi technology is enabled (Wifi switch button is toggled on 'I')",
+    "steps": [
+      {
+        "description": "Press the shortcut 'Fn + F5' to disable the Wifi technology",
+        "expected": "Wifi led of the device should turns off. Wifi switcher of ConnMan extension and ConnMan UI is toggled on 'O'"
+      },
+      {
+        "description": "Open a terminal and execute the following command line : 'connmanctl technologies",
+        "expected": "For the Wifi technology, Powered = 'False'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-22 11:39:45 GMT",
+    "mtime": "2013-03-26 13:14:57 GMT"
+  },
+  {
+    "name": "bluetooth-enable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be enabled",
+    "description": "Bluetooth technology should be enabled when the Bluetooth switch button is toggled on 'I'. ",
+    "pre_condition": "Bluetooth technology is disabled (Bluetooth switcher is toggled on 'O') ",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Bluetooth switcher to enable Bluetooth technology",
+        "expected": "Bluetooth applet icon becomes bold. Bluetooth switcher of ConnMan extension, ConnMan UI, Bluetooth applet and Bluetooth panel is toggled on 'I'."
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Bluetooth technology, Powered = 'True'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:14:03 GMT",
+    "mtime": "2013-03-26 12:50:36 GMT"
+  },
+  {
+    "name": "bluetooth-disable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be disabled",
+    "description": "Bluetooth technology should be disabled when the Bluetooth switch button is toggled on 'O'.",
+    "pre_condition": "Bluetooth technology is enabled (on all UI : ConnMan extension, ConnMan UI, Bluetooth panel, Bluetooth applet, bluetooth switchers are toggled on 'I') ",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu appears"
+      },
+      {
+        "description": "Click on the Bluetooth switcher to disable the Bluetooth technology",
+        "expected": "Bluetooth applet icon becomes crossed. Bluetooth switcher of ConnMan extension, ConnMan UI, Bluetooth applet and Bluetooth panel is toggled on 'O'"
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For the Bluetooth technology Powered = 'False'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 09:14:45 GMT",
+    "mtime": "2013-03-26 13:16:15 GMT"
+  }
+]

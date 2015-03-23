@@ -1,0 +1,19 @@
+[
+	{
+		"name": "health",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Check if pulseaudio daemon is running",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "check_gnome_app.sh pulseaudio",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	}
+]

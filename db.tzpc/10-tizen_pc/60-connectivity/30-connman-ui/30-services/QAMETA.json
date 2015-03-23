@@ -1,0 +1,188 @@
+[
+  {
+    "name": "name-visibiliy",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Name of available services are visible",
+    "description": "The available services must be visible on UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "observe the UI",
+        "expected": "available services are displayed properly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-19 10:28:13 GMT",
+    "mtime": "2013-03-29 17:09:11 GMT"
+  },
+  {
+    "name": "security-icon",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Security icon of a service is visible ",
+    "description": "Security icon of a service must be visible on UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "observe the UI",
+        "expected": "every secure service must have an associated security icon"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-19 10:41:48 GMT",
+    "mtime": "2013-03-29 17:10:24 GMT"
+  },
+  {
+    "name": "signal-strength-icon",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Signal strength icon is visible",
+    "description": "Where appliable, the signal strength must be displayed in UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "observe the UI",
+        "expected": "every Wifi service must have a strength indicator"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-19 10:51:20 GMT",
+    "mtime": "2013-03-29 17:11:21 GMT"
+  },
+  {
+    "name": "wifi-join-open",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "An unsecured wifi network can be reached",
+    "description": "An open wifi service can be accessed.",
+    "pre_condition": "- connman UI is opened\r\n- wifi technology is enabled\r\n- an open wifi service must be available",
+    "steps": [
+      {
+        "description": "double click on the open service (SSID)",
+        "expected": "connection to the service must be established"
+      },
+      {
+        "description": "ping www.google.com",
+        "expected": "the ping command responds"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-29 17:07:44 GMT",
+    "mtime": "2013-03-29 17:13:20 GMT"
+  },
+  {
+    "name": "wifi-join-wep",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "A wep secured wifi network can be reached",
+    "description": "An wifi service secured by WEP can be accessed.",
+    "pre_condition": "- connman UI is opened\r\n- wifi technology is enabled\r\n- a wifi service secured by WEP must be available",
+    "steps": [
+      {
+        "description": "double click on the WEP service (SSID)",
+        "expected": "connection to the service must be established"
+      },
+      {
+        "description": "ping www.google.com",
+        "expected": "the ping command responds"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-29 17:07:52 GMT",
+    "mtime": "2013-03-29 17:14:31 GMT"
+  },
+  {
+    "name": "wifi-join-wpa",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "A wpa secured wifi network can be reached",
+    "description": "A wifi service secured by WPA can be accessed.",
+    "pre_condition": "- connman UI is opened\r\n- wifi technology is enabled\r\n- a wifi service secured by WPA must be available",
+    "steps": [
+      {
+        "description": "double click on the WPA service (SSID)",
+        "expected": "connection to the service must be established"
+      },
+      {
+        "description": "ping www.google.com",
+        "expected": "the ping command responds"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-29 17:07:58 GMT",
+    "mtime": "2013-03-29 17:15:10 GMT"
+  }
+]

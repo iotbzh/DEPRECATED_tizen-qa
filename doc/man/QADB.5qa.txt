@@ -1,0 +1,126 @@
+= QADB(5qa)
+
+== NAME
+
+QADB - description of the Test DataBase of QA TIZEN
+
+== SYNOPSIS
+
+The *QADB* is the database of the tests.
+It is encoded over the filesystem.
+
+== DESCRIPTION
+
+The QA DB records the desciption of the test cases 
+and the material used to perform the tests either
+in automatic or in manual way. So it have 2 structures
+merged together: the static (descriptive) one and 
+the dynamic (functional) one.
+
+The QA DB is mainly inspired by *Enterprise Tester*
+and is somewhat compatible with it. It is also 
+designed to be used by *TestKit*.
+
+The test cases are recorded and grouped inside the
+database into *QAMETA files* (see QAMETA(5qa)). 
+The QAMETA files are JSON files that describe the test cases. 
+The QAMETA files are grouped into sets named *test sets*.
+The sets are directories that have a specific name.
+
+The directories (the test sets) are organized hierachically
+using the filesystem hierarchy of the directory.
+This is used for scripting the automatic test cases.
+
+In the directories, any file that doesn't match the
+QAMETA pattern are seen as test material.
+
+=== Naming Directories
+
+The directories should match the regular expression
+[0-9A-Z][0-9A-Z]-.*
+
+The 2 letters in front are used to order the schedule
+of the tests.
+
+=== Naming QAMETA files
+
+The name of the QAMETA files should match the glob expression
+QAMETA*.json
+
+The variable part between QAMETA and .json is not interpreted
+by the QA tools except that they are treated in the alphabetic order.
+
+=== Hierachy of directories and scripting
+
+When automatic tests are performed, *TestKit* receive
+a nicely cropped copy of QA DB. The scripts, the
+materials and the QAMETA files are available.
+
+A test case that is automatic will be executed into
+the directory containing the QAMETA file that descibes it.
+TestKit receives the instruction to launch the script 
+with a PATH variable extended with the path of each directory
+between the execution directory and the root of QA DB.
+So any script between the root of the QA DB and the test case
+directory is available for execution.
+
+== EXAMPLE
+
+Here is a short extract produced with *tree* of the QA DB.
+----
+db
+|-- 10-tizen_pc
+|   |-- 20-first_boot
+|   |   |-- 20-first-boot
+|   |   |   `-- QAMETA.json
+|   |   `-- 30-first-login
+|   |       `-- QAMETA.json
+|   |-- 30-base_os
+|   |   |-- 10-kernel
+|   |   |   `-- QAMETA.json
+|   |   `-- 20-core
+|   |       |-- coreutils.sh
+|   |       |-- QAMETA.json
+|   |       |-- testfile1
+|   |       `-- testfile2
+|   |-- 40-boot_process
+|   |   `-- QAMETA.json
+|   |-- 50-core_system
+|   |   `-- QAMETA.json
+|   `-- E0-multimedia
+|       |-- 05-lowlevel
+|       |   |-- 10-pulseaudio
+|       |   |   |-- cigale.wav
+|       |   |   `-- QAMETA.json
+|       |   `-- 20-vaapi
+|       |       `-- QAMETA.json
+|       |-- 10-audio
+|       |   |-- cigale.aac
+|       |   |-- cigale.flac
+|       |   |-- cigale.mp3
+|       |   |-- cigale.ogg
+|       |   |-- cigale.wav
+|       |   |-- QAMETA-01-gstplayfile.json
+|       |   |-- QAMETA-02-gstplayhttp.json
+|       |   `-- QAMETA-03-gstplayrtsp.json
+|       `-- gstplay.sh
+|-- qa-commons.sh
+`-- qa-within-gnome.sh
+----
+
+You can check that the test cases defined in the QAMETA files
+in the directory *db/10-tizen_pc/E0-multimedia/10-audio* have
+access to the audio files cigale.* and can execute the scripts
+gstplay.sh, qa-commons.sh and qa-within-gnome.sh.
+
+== ENVIRONMENT
+
+* *QADBDIR*: this environment variable defines the path to 
+the root directory of the QA database.
+
+== SEE ALSO
+
+tcbrowse(1qa), QAMETA(5qa)
+
+
+

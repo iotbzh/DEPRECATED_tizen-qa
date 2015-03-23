@@ -1,0 +1,460 @@
+#!/bin/bash
+
+# this script takes a live repository on OBS server and creates a local snapshot as done on download.tizen.org
+
+# The structure is:
+
+# <PROJECT>
+#    └── <SNAPSHOTID>
+#         ├── build.xml
+#         │
+#         ├── builddata
+#         │   │
+#         │   ├── images
+#         │   │   │
+#         │   │   ├── <REPO1>
+#         │   │   │    ├── images-configurations
+#         │   │   │    │    └── *.ks files
+#         │   │   │    └── images.xml
+#         │   │   │   
+#         │   │   ├── <REPO2>
+#         │   │   │    └── ...
+#         │   │   .   
+#         │   │   .
+#         │   │   .
+#         │   │    
+#         │   └── manifest
+#         │       ├── <SNAPSHOTID>_<REPO1>.xml
+#         │       ├── <SNAPSHOTID>_<REPO2>.xml
+#         │       └── ...
+#         │     
+#         ├── images
+#         │   │
+#         │   ├── <REPO1>
+#         │   │   │
+#         │   │   ├── <IMAGE1>
+#         │   │   │    └── ...
+#         │   │   │
+#         │   │   ├── <IMAGE2>
+#         │   │   │    └── ...
+#         │   │   .
+#         │   │   .
+#         │   │   .
+#         │   │   
+#         │   ├── <REPO2>
+#         │   │   │
+#         │   │   ├── <IMAGE3>
+#         │   │   │    └── ...
+#         │   │   │
+#         │   │   ├── <IMAGE4>
+#         │   │   │    └── ...
+#         │   │   .
+#         │   │   .
+#         │   │   .
+#         │   │
+#         │   .
+#         │   .
+#         │   .
+#         │       
+#         └── repos
+#             │
+#             ├── <REPO1>
+#             │    ├── debug
+#             │    │    ├── *debuginfo*.rpm
+#             │    │    └── *debugsource*.rpm
+#             │    │
+#             │    ├── sources
+#             │    │    └── *.src.rpm
+#             │    │
+#             │    └── packages
+#             │         │
+#             │         ├── repodata
+#             │         │   ├── repo files (filelists.xml/sqlite, primary.xml/sqlite,patterns...)
+#             │         │   ├── <SHA1>-build.conf.gz
+#             │         │   ├── group.xml
+#             │         │   ├── patterns.xml
+#             │         │   └── repomd.xml
+#             │         ├── noarch
+#             │         │    └── *.noarch.rpm
+#             │         ├── <ARCH1>
+#             │         │    └── *.<ARCH1>.rpm
+#             │         ├── <ARCH2>
+#             │         │    └── *.<ARCH2>.rpm
+#             │         .
+#             │         .
+#             │         .
+#             │   
+#             ├── <REPO2>
+#             │     └── ...
+#             .
+#             .
+#             .
+
+
+# rsync share / path to livedir
+OBSHOST=obs.vannes::live
+SNAPSHOTNAME=tzvannes
+LOCAL_SNAPSHOTS_URL=http://qaserver.vannes/snapshots
+CREATEREPO_OPTS="--workers 4"
+
+cd $(dirname $0)
+
+TOPDIR=$(pwd -P)
+
+set -e
+
+function usage() {
+	echo "Usage: $0 <OBS project name> [repo name]" >&2;
+}
+
+. ./sync_lib.sh
+
+PROJNAME=$1
+shift || { usage; exit 1; }
+[[ -z "$PROJNAME" ]] && { usage; exit 1; }
+
+ALL_REPOS=$(osc repos $PROJNAME | awk '{print $1}' | sort -u | tr '\n' ' ')
+if [[ -z "$ALL_REPOS" ]]; then
+	loginfo "Unable to retrieve repositories for project $PROJNAME" 
+	exit 1
+fi
+
+REPOS=$@
+if [[ -z "$REPOS" ]]; then
+	REPOS=$ALL_REPOS
+else
+	for x in $REPOS; do 
+		found=0
+		for y in $ALL_REPOS; do
+			[[ "$x" == "$y" ]] && found=1
+		done
+		if [[ $found == 0 ]]; then
+			loginfo "Unknown repo '$x'" 
+			loginfo "Should be one of: $ALL_REPOS" 
+			exit 1
+		fi
+	done
+fi
+
+# assume that the passed name is an OBS project name (Tizen:Generic:foo for example)
+PROJDIR=$(echo $PROJNAME | tr ':' '_' | sed 's/ //g')
+REMOTESRC=$OBSHOST/$(echo $PROJNAME | sed 's|:|:/|g')
+
+function gen_manifest() {
+	rpmsrcdir=$1
+	xmlout=$2
+
+	[[ ! -d $rpmsrcdir ]] && { loginfo "Invalid source RPM dir $rpmsrcdir"; exit 1; }
+
+	cat <<EOF >$xmlout
+<manifest>
+   <remote fetch="ssh://review.tizen.org" name="tizen-gerrit" review="https://review.tizen.org/gerrit"/>
+   <default remote="tizen-gerrit"/>
+EOF
+
+	rpm -qp --qf="%{VCS}\n" $rpmsrcdir/*.rpm 2>/dev/null | awk -F '#' '{printf("   <project name=\"%s\" path=\"%s\" revision=\"%s\"/>\n",$1,$1,$2);}' >>$xmlout
+
+	cat <<EOF >>$xmlout
+</manifest>
+EOF
+}
+
+function get_repo_arches() {
+	local repo=$1
+	osc repos $PROJNAME | grep ^$repo | awk '{print $2;}' | tr '\n' ' '
+}
+
+function gen_bootstrap() {
+	repodir=$1
+	arch=$2
+	destdir=$3
+
+	loginfo "Generating bootstrap dir: $destdir/$arch..."
+	rm -rf $destdir/$arch
+	mkdir -p $destdir/$arch
+	
+	lists=$TOPDIR/bootstrap_common.lst
+	if [[ -f $TOPDIR/bootstrap_${arch}.lst ]]; then
+		lists="$lists $TOPDIR/bootstrap_${arch}.lst"
+	fi
+		
+	count=$(cat $lists | wc -l | awk '{print $1}')
+	i=0
+	j=0
+	for pkg in $(cat $lists); do
+		i=$((i+1))
+		rpmfile=$(find ${repodir} -regex "^.+/${pkg//+/\\+}-[^-]+-[^-]+.\(${arch}\|noarch\).rpm" | sort | head -1)
+			
+		if [[ -n "$rpmfile" ]]; then
+			destrpm=$(basename $rpmfile | sed -rn "s/(${pkg//+/\\+})-[^-]+-[^-]+\.(${arch}|noarch).rpm/\1.rpm/p")
+			printf "\r%3d / %3d %-30s" $i $count $destrpm
+			cp $rpmfile $destdir/$arch/$destrpm
+			j=$((j+1))
+		fi
+	done
+	printf "\r"
+	loginfo "Bootstrap finished: $j/$count files"
+}
+
+function sync_repo() {
+	local repo=$1
+	local arches=$(get_repo_arches $repo)
+
+	loginfo "--------------------- $PROJNAME/$repo (archs: $arches) -----------------------"
+	loginfo "Remote: $REMOTESRC/$repo"
+
+	mkdir -p $PROJDIR/current
+	pushd $PROJDIR/current &>/dev/null || return 1
+
+		# sync main rpms repo
+		local repodir=repos/$repo/packages
+		local dbgdir=repos/$repo/debug
+		local srcdir=repos/$repo/source
+		local bootstrapdir=repos/$repo/bootstrap
+		loginfo "RSyncing packages to $repodir..."
+		mkdir -p $repodir
+		rsync -a \
+			--delete --delete-excluded \
+			--exclude=/repocache/ \
+			--exclude=/vanish/ \
+			--exclude=/src/ \
+			--exclude=*-debuginfo-*.rpm \
+			--exclude=*-debugsource-*.rpm \
+			$REMOTESRC/$repo/ $repodir/
+
+		loginfo "RSyncing debug packages to $dbgdir..."
+		rsync -a \
+			--delete --delete-excluded \
+			--exclude=/repocache/ \
+			--exclude=/vanish/ \
+			--exclude=/src/ \
+			--include='*/' \
+			--include='*-debuginfo-*.rpm' \
+			--include='*-debugsource-*.rpm' \
+			--exclude='*' \
+			--prune-empty-dirs \
+			$REMOTESRC/$repo/ $dbgdir/
+
+		loginfo "RSyncing sources to $srcdir..."
+		rsync -a \
+			--delete --delete-excluded \
+			$REMOTESRC/$repo/src/ $srcdir/
+
+		# setup temp dir
+		tmpdir=$(mktemp -d)
+		trap "rm -rf $tmpdir" STOP INT QUIT EXIT
+		loginfo "Using temp dir $tmpdir"
+
+		# setup patterns and groups
+		pushd $repodir &>/dev/null || return 1
+			# update repo
+			loginfo "Updating zypper repo"
+			if [ ! -d repodata ]; then
+				createrepo $CREATEREPO_OPTS --no-database .
+			else
+				createrepo $CREATEREPO_OPTS --no-database --update .
+			fi
+
+			loginfo "Generating patterns and groups"
+			for meta in $(find . -name "package-groups-*.rpm"); do 
+				rpm2cpio $meta | (cd $tmpdir && cpio -idm) 2>/dev/null
+			done
+			# format patterns and groups
+			xmllint --format $tmpdir/usr/share/package-groups/patterns.xml >repodata/patterns.xml
+			xmllint --format $tmpdir/usr/share/package-groups/group.xml >repodata/group.xml
+
+			# generate build.conf
+			loginfo "Generating build.conf"
+			rm -f repodata/*-build.conf*
+			osc buildconfig $PROJNAME $repo >repodata/build.conf
+
+			# update repo
+			modifyrepo repodata/patterns.xml repodata &>/dev/null
+			modifyrepo repodata/group.xml repodata &>/dev/null
+			modifyrepo repodata/build.conf repodata &>/dev/null
+		popd &>/dev/null
+
+		# setup debug repo
+		pushd $dbgdir &>/dev/null || return 1
+			loginfo "Updating debug repo"
+			if [ ! -d repodata ]; then
+				createrepo $CREATEREPO_OPTS --no-database .  
+			else
+				createrepo $CREATEREPO_OPTS --no-database --update .
+			fi
+		popd &>/dev/null
+
+		# setup source repo
+		pushd $srcdir &>/dev/null || return 1
+			loginfo "Updating sources repo"
+			if [ ! -d repodata ]; then
+				createrepo $CREATEREPO_OPTS --no-database .
+			else
+				createrepo $CREATEREPO_OPTS --no-database --update .
+			fi
+		popd &>/dev/null
+
+		# create builddata
+		rm -rf builddata
+		mkdir -p builddata
+
+		# compute snapshot ID
+		local snapshotid=${SNAPSHOTNAME}_$(get_snapshotid $repodir)
+		loginfo "SnapshotID: $snapshotid"
+	
+		# generate build.xml
+		loginfo "Generating build.xml"
+		echo "<build>" >build.xml
+		echo "   <id>$snapshotid</id>" >>build.xml
+		echo "   <buildtargets>" >>build.xml
+		for r in $(ls -d repos/* | xargs -n 1 basename); do
+			echo "      <buildtarget name=\"$r\">" >>build.xml
+			echo "         <archs>" >>build.xml
+			for x in $(get_repo_arches $r); do 
+				echo "            <arch>$x</arch>" >>build.xml
+			done
+			echo "         </archs>" >>build.xml
+			echo "         <repo type=\"binary\">repos/$r/packages</repo>" >>build.xml
+			echo "         <repo type=\"source\">repos/$r/source</repo>" >>build.xml
+			echo "         <repo type=\"debug\">repos/$r/debug</repo>" >>build.xml
+			echo "      </buildtarget>" >>build.xml
+		done
+		echo "   </buildtargets>" >>build.xml
+		echo "</build>" >>build.xml
+
+		# generate manifests
+		loginfo "Generating manifest"
+		mkdir -p builddata/manifest
+		gen_manifest $srcdir builddata/manifest/${snapshotid}_${repo}.xml
+
+		# reupdate
+		local localrepo="${LOCAL_SNAPSHOTS_URL}/${PROJDIR}/latest"
+
+		# put ks files in image-configs
+		loginfo "Generating KS files and add local fixes"
+		for ic in $(find . -name "image-configurations-*.rpm"); do 
+			rpm2cpio $ic | (cd $tmpdir && cpio -idm) 2>/dev/null
+		done
+		mkdir -p builddata/images/${repo}/image-configurations
+		mv $tmpdir/usr/share/image-configurations/*.ks builddata/images/${repo}/image-configurations/
+		mv $tmpdir/usr/share/image-configurations/image-configs.xml builddata/images/${repo}/images.xml
+		for x in builddata/images/${repo}/image-configurations/*.ks; do
+			loginfo "Patching ks $x"
+			sed -ri "s|^(repo.*--baseurl=)[^ ]+@BUILD_ID@(.*) (.*)$|\1@REPO_URL@/packages \3|" $x
+			sed -ri "s|^(repo.*--name=)[^ ]+(.*)$|\1${PROJDIR}-${repo}\2|" $x
+			sed -ri "s|^([ \t]*genrepo.*)(http://.*/@BUILD_ID@)(.*$)|\1${localrepo}/${repodir}|" $x
+			sed -ri "s|^(part .*--size=)([0-9]+)(.*$)|\16144\3|" $x
+
+			# fix locale
+			sed -ri "s|^lang en_US.UTF-8$|lang fr_FR.UTF-8|" $x
+			sed -ri "s|^keyboard us|keyboard fr|" $x
+			cat >>$x <<'EOB'
+
+%post
+
+# patch from sync_repo (qaserver.vannes only)
+if [ -f /etc/xdg/weston/weston.ini ]; then
+	cat >>/etc/xdg/weston/weston.ini <<'EOF'
+
+[keyboard]
+keymap_layout=fr
+EOF
+fi
+
+%end
+EOB
+
+			cat >>$x <<'EOF'
+%post --nochroot
+echo "@BRANCH@ @BUILD_ID@ @ARCH@" >$INSTALL_ROOT/etc/tizen-snapshot
+%end
+EOF
+
+	        # QA & AUTOQA stuff
+			# Taken from meta-generic:scripts/generic-autoqa.post
+			cat >>$x <<'EOB'
+%packages
+@Generic Automated QA Tools
+@Generic QA Tools
+#@Common QA Tools
+%end
+EOB
+
+			cat >>$x <<'EOB'
+%post
+EOB
+
+			# extract metageneric
+			for pkg in $(find $repodir -name "meta-generic-*.rpm"); do 
+				rpm2cpio $pkg | (cd $tmpdir && cpio -idm) 2>/dev/null
+			done
+			cat $tmpdir/usr/share/image-configurations/generic/scripts/generic-autoqa.post >>$x
+			#curl --silent "https://review.tizen.org/git/?p=platform/upstream/meta-generic.git;a=blob_plain;f=scripts/generic-autoqa.post;hb=refs/heads/tizen" >>$x
+			cat >>$x <<'EOB'
+%end
+EOB
+
+		done
+
+		# update .repo
+		loginfo "Updating repos url"
+		for x in $repodir/*.repo; do
+			sed -ri "s|^(baseurl=).*$|\1${localrepo}/${repodir}/?ssl_verify=no|" $x
+			sed -ri "s|^(gpgcheck=).*$|\10|" $x
+			sed -ri "s|^(gpgkey=).*$|\1|" $x
+		done
+
+		# generate missing repo files
+		loginfo "Creating debug repo file"
+		for x in $repodir/*.repo; do
+			dx=$(basename $x .repo)_debug.repo
+			cp $x $dbgdir/$dx
+			sed -ri "s|\[$PROJNAME\]|\[${PROJNAME}_debug\]|" $dbgdir/$dx
+			sed -ri "s|^(baseurl=).*$|\1${localrepo}/${dbgdir}/?ssl_verify=no|" $dbgdir/$dx
+		done
+		
+		# update rights to allow www access
+		loginfo "Updating access rights"
+		chmod -R og+r .
+		find . -type d -exec chmod og+x {} \;
+
+		loginfo "Final snapshot size: $(du -hs .|awk '{print $1;}')"
+
+		# generate bootstrap(s)
+		for arch in $(get_repo_arches $repo); do 
+			gen_bootstrap $repodir $arch $bootstrapdir
+		done
+
+	popd &>/dev/null
+
+	# adjust symbolic links to current snapshot
+	pushd $PROJDIR/ &>/dev/null || return 1
+		rm -f latest
+		for x in *; do
+			if [ -L $x -a "$(readlink $x)" == "current" ]; then
+				rm $x
+			fi
+		done
+		if [[ -d $snapshotid ]]; then
+			# synchronize saved copy
+			loginfo "Syncing to existing saved snapshot $snapshotid"
+			rsync -a current/ $snapshotid/
+		else
+			# create link to current
+			ln -s current $snapshotid
+		fi
+		ln -s $snapshotid latest
+	popd &>/dev/null
+
+	# cleanup
+	loginfo "Cleanup"
+	rm -rf $tmpdir
+
+	loginfo "DONE"
+}
+
+for rep in $REPOS; do
+	sync_repo $rep
+done
+
+

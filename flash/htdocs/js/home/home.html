@@ -1,0 +1,37 @@
+<div class="row-fluid">
+	<div class="span12 well">
+		<div class="row-fluid">
+			<div class="span6">
+				<H2>System status</H2>
+			</div>
+			<div class="span6 pull-right">
+            <br/>
+	    <span id="wwwserver_state" class="label large label-important">Stopped</span>
+            <div class="btn-group pull-right">
+               <button class="btn btnrefresh btn-action dorefresh">Refresh</button>
+               <button class="btn dropdown-toggle" data-toggle="dropdown">
+                  <b class="caret"></b>
+               </button>
+               <div style="height:4px; overflow: hidden;">
+                  <div class="refreshbar" style="height: 100%; background-color:#57a957; width:0%;"></div>
+               </div>
+               <ul class="dropdown-menu">
+                  <li class="nav-header">Auto refresh</li>
+                  <li><a class="setrefresh" value="2" href="#">2 seconds</a></li>
+                  <li><a class="setrefresh" value="5" href="#">5 seconds</a></li>
+                  <li class="active"><a class="setrefresh" value="10" href="#">10 seconds</a></li>
+                  <li><a class="setrefresh" value="30" href="#">30 seconds</a></li>
+                  <li><a class="setrefresh" value="60" href="#">60 seconds</a></li>
+                  <li><a class="setrefresh" value="disabled" href="#">Disabled</a></li>
+               </ul>
+            </div>
+         </div>
+		</div>
+	</div>
+</div>
+<div class="row-fluid">
+   <div class="span4 well">
+      <h3>Target devices</h3><br/><i id="wwwserver_state_caption"></i></p>
+   </div>
+</div>
+

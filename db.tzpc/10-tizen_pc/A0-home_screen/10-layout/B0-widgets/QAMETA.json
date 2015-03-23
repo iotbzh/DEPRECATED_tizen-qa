@@ -1,0 +1,68 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check widget layout",
+    "description": "Any widget can be laid on the desktop grid with the following restrictions:\r\n- a web widget canvas must occupy 4 tiles (2 x 2 = 202 x 182 pixels) (TODO: what are the min/max sizes for a widget ? maybe more than 2x2 widgets are allowed, but probably not 1x2 or 2x1 or 1x1)\r\n- a web widget must contain an icon on top right corner to access to info and/or settings",
+    "pre_condition": "- switch to Home mode\r\n- have a widget installed on desktop",
+    "steps": [
+      {
+        "description": "check the desktop",
+        "expected": "the widget(s) must be aligned on the grid and must contain a settings button in the top right corner"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:17:57 GMT",
+    "mtime": "2013-03-21 22:17:57 GMT"
+  },
+  {
+    "name": "position_saved",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a widget's position and size are saved",
+    "description": "When a widget is moved, the new position must be retained across reboots/restarts",
+    "pre_condition": "- switch to Home mode\r\n- add a widget on desktop if necessary",
+    "steps": [
+      {
+        "description": "move a widget to a new position",
+        "expected": "the widget is moved"
+      },
+      {
+        "description": "logout",
+        "expected": "-"
+      },
+      {
+        "description": "login with same user",
+        "expected": "the widget must retain its previous position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:19:33 GMT",
+    "mtime": "2013-03-21 22:19:33 GMT"
+  }
+]

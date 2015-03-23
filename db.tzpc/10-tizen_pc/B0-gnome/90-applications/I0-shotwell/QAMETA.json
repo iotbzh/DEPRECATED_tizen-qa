@@ -1,0 +1,57 @@
+[
+  {
+    "README": "20130116: shotwell is not present yet in the devel repo",
+    "name": "health",
+    "priority": 0,
+    "status": "disabled",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c Shotwell -t 10 -- shotwell",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "import-images",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "import images using shotwell",
+    "description": "use shotwell to import images from a device",
+    "pre_condition": "have DCIM pluggable device (camera or telephone)",
+    "steps": [
+      {
+        "description": "Plug the device to the USB slot",
+        "expected": "a notification ask either to open it with shotwell or to eject"
+      },
+      {
+        "description": "Choose to open with shotwell",
+        "expected": "the shotwell window opens and the image are displayed"
+      },
+      {
+        "description": "Select to import all",
+        "expected": "all images are imported"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 15:32:31 GMT",
+    "mtime": "2013-03-07 15:58:02 GMT"
+  }
+]

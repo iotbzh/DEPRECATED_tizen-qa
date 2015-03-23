@@ -1,0 +1,68 @@
+[
+  {
+    "name": "setupdevice",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "A Device can be added from the Bluetooth applet",
+    "description": "It should be possible to pair a device from the Bluetooth applet. Bluetooth wizard UI should appear.",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'I'\r\n\r\n",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the 'Set Up a New Device' option to pair a new device and wait",
+        "expected": "Bluetooth wizard appears and searching for devices"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:27:16 GMT",
+    "mtime": "2013-03-29 10:50:08 GMT"
+  },
+  {
+    "name": "sendfiles",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "It is possible to send files to a device from the Bluetooth applet",
+    "description": "It should be possible to send files from the Bluetooth applet. The Bluetooth sendto UI should appear.",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'I'\r\n\r\n",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the 'Send Files to Device' option",
+        "expected": "Bluetooth sendto window appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-29 10:46:10 GMT",
+    "mtime": "2013-03-29 10:49:39 GMT"
+  }
+]

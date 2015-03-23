@@ -1,0 +1,26 @@
+[
+  {
+    "name": "health",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'LibreOffice' -t 15 -- /usr/bin/libreoffice",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 13:10:46 GMT",
+    "mtime": "2013-03-07 14:21:22 GMT"
+  }
+]

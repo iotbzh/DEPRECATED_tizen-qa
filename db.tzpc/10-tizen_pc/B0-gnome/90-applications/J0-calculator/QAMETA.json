@@ -1,0 +1,71 @@
+[
+  {
+    "name": "health",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Calculator' -t 15 -- /usr/bin/gnome-calculator",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "calculate",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "calculator can make basic calcul",
+    "description": "solve a basic expression",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "test '0.8' = $(LANG= gnome-calculator --solve '(1+1)*2/5')",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "useable",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "calculator can be used",
+    "description": "compute an expression",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the calculator application",
+        "expected": "The calcultator window appears"
+      },
+      {
+        "description": "Compute the expression √(9*5+4)",
+        "expected": "The result displayed is 7"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 10:55:06 GMT",
+    "mtime": "2013-03-08 10:59:31 GMT"
+  }
+]

@@ -1,0 +1,155 @@
+[
+  {
+    "name": "top_bar_app_button",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that top bar Applications button switches the desktop to Application mode",
+    "description": "Clicking on the status bar button \"Applications\" must toggle the windowing area in Application mode.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "click on \"Applications\" button in top bar",
+        "expected": "display has switched to application mode"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:31:08 GMT",
+    "mtime": "2013-03-21 15:31:08 GMT"
+  },
+  {
+    "name": "zones",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The Application mode must follow the design guidelines",
+    "description": "The application mode screen must contain:\r\n- a search sidebar on the left, with search field and categories (width is 2 tiles)\r\n- a zone at the bottom for displaying current applications (scrollable, each application takes 2x2 tiles)\r\n- a zone showing the applications found (the rest of the tiles on top left)\r\nSee Design document, page 10",
+    "pre_condition": "launch 2 applications",
+    "steps": [
+      {
+        "description": "click on \"Applications\" button in top bar",
+        "expected": "search sidebar must be present on the left"
+      },
+      {
+        "description": "-",
+        "expected": "current applications bar is present at the bottom"
+      },
+      {
+        "description": "-",
+        "expected": "applications search results is present on top right"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:33:36 GMT",
+    "mtime": "2013-03-21 15:33:36 GMT"
+  },
+  {
+    "name": "filters",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check application filters / category list appearance",
+    "description": "The search zone must contain:\r\n- a smart filter field on the top to type application name patterns\r\n- below a list of categories, with radio buttons\r\n- special categories \"Most used\",\"Recently downloaded\" and \"Running Applications\" should be displayed at the bottom of the list with a separator",
+    "pre_condition": "switch to application mode",
+    "steps": [
+      {
+        "description": "check the left sidebar",
+        "expected": "must contain the elements defined in the description"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:33:52 GMT",
+    "mtime": "2013-03-21 15:35:03 GMT"
+  },
+  {
+    "name": "app_icons",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check applications icons appearance",
+    "description": "The matching applications must be displayed in the result zone.\r\n\r\nApplications icons and names must appear as they do on desktop (icon must have a size of 48x48 and application names must be shown below icon). Each application occupies 1 tile exactly.\r\n",
+    "pre_condition": "switch to application mode",
+    "steps": [
+      {
+        "description": "check the applications result area",
+        "expected": "icons are properly displayed (correct size), with names under the icon (readable)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:34:00 GMT",
+    "mtime": "2013-03-21 15:36:11 GMT"
+  },
+  {
+    "name": "app_icons_pagination",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that pagination works",
+    "description": "If the applications view requires more than 1 screen to display the applications, two arrows must appear in the top border to allow pagination.",
+    "pre_condition": "switch to application mode",
+    "steps": [
+      {
+        "description": "select all applications (on search sidebar, select categories",
+        "expected": "\"all\" ) => all applications must appear in the results area and 2 arrows for pagination must be created to browse the result pages"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:34:09 GMT",
+    "mtime": "2013-03-21 15:37:43 GMT"
+  }
+]

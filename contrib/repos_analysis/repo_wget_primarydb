@@ -1,0 +1,40 @@
+#!/bin/bash
+
+cachedir=/var/tmp/repo_primarydb_cache
+
+url=$1
+dbfile=$2
+
+if [ -z "$url" -o -z "$dbfile" ]; then
+	echo "Usage: $(basename $0) <repo url> <output db>" >&2
+	exit 1
+fi
+
+set -e
+
+baseurl=$url/repos/pc/x86_64/packages
+
+mkdir -p $cachedir
+cachefile=$(echo $baseurl | md5sum - | awk '{print $1}')
+
+if [ ! -f $cachedir/$cachefile ]; then
+	echo "Downloading primary db" >&2
+	
+	tmpfile=$(mktemp $cachedir/$(basename $0).XXXXXX)
+	trap "rm -f $tmpfile" STOP INT QUIT EXIT
+
+	# get repomd.xml and extract relative url to db
+	dburl=$baseurl/$(wget -O - $baseurl/repodata/repomd.xml 2>/dev/null | xpath "//repomd/data[@type='primary_db']/location/@href" 2>/dev/null | cut -f2 -d'"')
+
+	wget -O - $dburl 2>/dev/null | bzip2 -d -c >$tmpfile
+	
+	# if everything is fine, copy to cache file
+	if [ $? -eq 0 ]; then
+		cp $tmpfile $cachedir/$cachefile 
+		echo "OK" >&2
+	fi
+else
+	echo "Found db in cache: $cachedir/$cachefile" >&2
+fi
+
+cp $cachedir/$cachefile $dbfile

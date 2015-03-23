@@ -1,0 +1,65 @@
+= QAIMPORT(1qa)
+
+== NAME
+
+qaimport - import test cases from a CSV file
+
+== SYNOPSIS
+
+qaimport [options]
+
+== DESCRIPTION
+
+*qaimport* creates test cases in the QA database from a CSV file (a comma
+separated value). It creates the test cases in one or more QAMETA files.
+
+The existing QAMETA files are NEVER overwritten. You must (re)move it before
+if the importation have to be done.
+
+== OPTIONS
+
+*-c, --config*='DIRECTORY'::
+    Set the path to the configuration directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../etc where SCRIPTDIR is the directory
+    of *qaimport*.
+
+*-d, --db*='DIRECTORY'::
+    Set the path to the database directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../db where SCRIPTDIR is the directory
+    of *qaimport*.
+
+*-h, --help*::
+    Prints a short help and exits.
+
+*-i, --input*='FILE'::
+    Tell *qaimport* to use the input file 'FILE' instead of the standard
+    input (note, writing -i - is synonim of using the standard input).
+
+*-n, --dryrun*::
+    Dry-run, *qaimport* runs on the input but doesn't produce test cases in
+    the dabatbase.
+
+== FORMATS
+
+The CSV file must be UTF-8 encoded. 
+
+The first record MUST be the field names, the remaining records being the
+values. The field names MUST be standard field names of the QAMETA files 
+(see QAMETA(5qa)) except for the field naemd *path* that is specific.
+Not all standard field names are needed in the CSV file.
+
+The remaining records encode the test cases.
+
+The MANDATORY field of name *path* is used to give the name of the QAMETA file 
+for the defined test case in the QA database filesystem.
+
+== SEE ALSO
+
+QADB(5qa), QAMETA(5qa), qaexport(1qa)
+
+== RESSOURCES
+
+The script *qaimport* runs on node JS.
+
+node.js: http://nodejs.org/
+

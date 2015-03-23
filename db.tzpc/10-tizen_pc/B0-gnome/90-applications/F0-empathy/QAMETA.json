@@ -1,0 +1,235 @@
+[
+  {
+    "name": "health-main",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application empathy and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Empathy' -t 15 -- /usr/bin/empathy",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": "killall empathy-accounts",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 14:43:58 GMT",
+    "mtime": "2013-03-05 14:43:58 GMT"
+  },
+  {
+    "name": "health-accounts",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application empathy-account and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Empathy' -t 15 -- /usr/bin/empathy-accounts",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 14:44:05 GMT",
+    "mtime": "2013-03-05 14:44:05 GMT"
+  },
+  {
+    "name": "create-account",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "An account can be created",
+    "description": "Launch empathy and create an account",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the application Empathy",
+        "expected": "The Empathy window opens"
+      },
+      {
+        "description": "Create an account",
+        "expected": "the account must be created"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 15:33:32 GMT",
+    "mtime": "2013-03-05 15:33:32 GMT"
+  },
+  {
+    "name": "modify-status",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "user status can be changed",
+    "description": "change the status of the user",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the application Empathy",
+        "expected": "The Empathy window opens"
+      },
+      {
+        "description": "(if needed) Create an account",
+        "expected": "the account is created"
+      },
+      {
+        "description": "change the status of the account",
+        "expected": "the status is changed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 15:34:33 GMT",
+    "mtime": "2013-03-05 15:36:15 GMT"
+  },
+  {
+    "name": "connect",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Users can connect to chatroom",
+    "description": "Connect to a GTalk/Jabber chatroom",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the application Empathy",
+        "expected": "The Empathy window opens"
+      },
+      {
+        "description": "(if needed) Create an account",
+        "expected": "the account is created"
+      },
+      {
+        "description": "join a chat room",
+        "expected": "a window opens for the room"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 15:36:30 GMT",
+    "mtime": "2013-03-05 15:38:36 GMT"
+  },
+  {
+    "name": "chat",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "User can chat",
+    "description": "Chat with someone in a practical experience",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the application Empathy",
+        "expected": "The Empathy window opens"
+      },
+      {
+        "description": "(if needed) Create an account",
+        "expected": "the account is created"
+      },
+      {
+        "description": "(if needed) join a chat room",
+        "expected": "a window opens for the room"
+      },
+      {
+        "description": "chat with peoples in the room",
+        "expected": "communication is ok"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 15:39:45 GMT",
+    "mtime": "2013-03-05 15:39:45 GMT"
+  },
+  {
+    "name": "delete-user",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "delete a user",
+    "description": "delete a user account from telepathy",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch the application Empathy",
+        "expected": "The Empathy window opens"
+      },
+      {
+        "description": "(if needed) Create an account",
+        "expected": "the account is created"
+      },
+      {
+        "description": "Select an account and delete it (click on \"-\")",
+        "expected": "the account is deleted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 15:43:02 GMT",
+    "mtime": "2013-03-05 15:45:18 GMT"
+  }
+]

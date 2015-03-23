@@ -1,0 +1,20 @@
+[
+	{
+		"name": "health_test",
+		"priority": 0,
+		"status": "designed",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Check Gnome applications packaging",
+		"notes": "-",
+		"bugs": "-",
+		"component": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "test_gnome_apps.sh",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 300,
+		"exec_post": null
+	}
+]

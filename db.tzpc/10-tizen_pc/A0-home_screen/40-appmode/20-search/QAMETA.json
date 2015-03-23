@@ -1,0 +1,64 @@
+[
+  {
+    "name": "type_pattern",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Entering a search pattern in search fields triggers a search and displays results",
+    "description": "When typing characters into the search filter input field, each added character must trigger a search and must lead to displayed results in the right area.\r\n",
+    "pre_condition": "switch to application mode (click on \"Applications\" in the top bar)",
+    "steps": [
+      {
+        "description": "type a pattern in the search filter input field (ex: 'term')",
+        "expected": "the matching applications (name matches) must be displayed in the result area (ex: 'Terminal' and 'XTerm')"
+      },
+      {
+        "description": "type another pattern which is not linked to app name (ex: 'cam')",
+        "expected": "the matching applications (description matches) must be displayed (ex: 'Shotweel' and 'Cheese')"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:56:41 GMT",
+    "mtime": "2013-03-25 17:56:41 GMT"
+  },
+  {
+    "name": "result_type",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Only applications must be displayed in the results",
+    "description": "On the contrary of the default Gnome behaviour, only applications must be displayed in the result area: contacts, documents etc shouldn't appear.\r\n\r\nTODO: to be confirmed",
+    "pre_condition": "- switch to application mode (click on \"Applications\" in the top bar)\r\n- create a contact using contact application (ex: contact is named 'kooltux')",
+    "steps": [
+      {
+        "description": "type a search pattern (ex: 'tu')",
+        "expected": "only applications must be listed in the result area (ex: only 'Shotwell','Bluetooth' and 'Power', not the contact 'kooltux')"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 18:01:32 GMT",
+    "mtime": "2013-03-25 18:01:32 GMT"
+  }
+]

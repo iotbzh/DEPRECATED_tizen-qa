@@ -1,0 +1,9 @@
+.Hardwares
+[width="100%",cols="4,2,6,1",options="header"]
+|===================================================================================================================
+|Platform                          | Networking                   | Other Devices                         | Priority
+//------------------------------------------------------------------------------------------------------------------
+|Lenovo X230 Tablet (IvyBridge, core i5) | Ethernet,WLAN,Bluetooth      | Touch screen, Rotating screen         | P1
+//HP EliteBook 8470p (IvyBridge, core i7) | Ethernet,WLAN,Bluetooth      |                                       | P2
+|===================================================================================================================
+

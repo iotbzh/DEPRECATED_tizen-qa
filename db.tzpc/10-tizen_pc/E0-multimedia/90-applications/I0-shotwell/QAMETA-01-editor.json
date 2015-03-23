@@ -1,0 +1,272 @@
+[
+  {
+    "name": "rotate",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pictures can be rotated",
+    "description": "Check that pictures can be rotated.",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "rotate the image",
+        "expected": "the image is rotated"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears rotated"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:06:12 GMT",
+    "mtime": "2013-03-27 14:51:09 GMT"
+  },
+  {
+    "name": "enhance",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pictures can be enhanced",
+    "description": "Check that pictures can be enhanced",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "enhance the image",
+        "expected": "the image is enhanced"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears enhanced"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:07:00 GMT",
+    "mtime": "2013-03-27 14:51:13 GMT"
+  },
+  {
+    "name": "crop",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures can be cropped",
+    "description": "Check that the pictures can be cropped",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "crop the image",
+        "expected": "the image is cropped"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears cropped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:07:51 GMT",
+    "mtime": "2013-03-27 14:51:17 GMT"
+  },
+  {
+    "name": "straighten",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures can be straightened",
+    "description": "Check that the pictures can be straightened",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "straighten the image",
+        "expected": "the image is straightened"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears straightened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:10:17 GMT",
+    "mtime": "2013-03-27 14:51:21 GMT"
+  },
+  {
+    "name": "adjust",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures can be adjusted",
+    "description": "Check that the pictures can be adjusted",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "adjust the image",
+        "expected": "the image is adjusted"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears adjusted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:19:53 GMT",
+    "mtime": "2013-03-27 14:51:25 GMT"
+  },
+  {
+    "name": "flip",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "pictures can be flipped",
+    "description": "Check that the pictures can be flipped horizontally and vertically",
+    "pre_condition": "have image file",
+    "steps": [
+      {
+        "description": "open an image with shotwell",
+        "expected": "image displayed in shotwell \"editor mode\""
+      },
+      {
+        "description": "flip the image",
+        "expected": "the image is flipped"
+      },
+      {
+        "description": "save the image",
+        "expected": "the image is saved"
+      },
+      {
+        "description": "close shotwel",
+        "expected": "shotwell window disappears"
+      },
+      {
+        "description": "open the saved image with shotwell",
+        "expected": "the image appears flipped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-15 15:33:47 GMT",
+    "mtime": "2013-03-27 14:51:29 GMT"
+  }
+]

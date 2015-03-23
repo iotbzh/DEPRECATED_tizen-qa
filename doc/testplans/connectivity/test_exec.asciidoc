@@ -1,0 +1,104 @@
+NOTE: Reference to another document describing test environment, perhaps Master Test Plan ? [red]#TODO#
+
+=== Tips & Tricks
+
+==== More Terminals
+
+From a computer connected to the same network via wifi or Ethernet:
+
+----
+ssh root@<ip address of Lenovo X230 Tablet> 
+----
+
+and connect with: « 'root' » and password « 'tizen' »
+
+==== Adding some media content
+
+Insert a USB flash drive containing images, music and videos files and mount it with commands (as root):
+
+----
+cd /mnt
+mkdir Key
+mount -t vfat /dev/sdc1 /mnt/Key
+----
+
+Then copy files, for example to /opt/media/Music, /opt/media/Videos, /opt/media/Pictures ...
+
+==== Starting/stopping/restarting a service 
+
+Use systemd commands:
+
+----
+systemctl status <name.service>
+systemctl stop <name.service>
+systemctl start <name.service>
+systemctl restart <name.service>
+----
+
+==== Useful Linux Networking Commands
+
+Get information about a(ll) nework interfaces
+
+----
+# ifconfig <iface>
+# ifconfig -a
+----
+
+Enable/Disable a network interface
+
+----
+# ifonconfig <iface> up
+# ifconfig <iface> down
+----
+
+Assign an IP address to a network interface
+
+----
+# ifconfig <iface> <ipaddress>
+----
+
+Change subnet mask of a network interface
+
+----
+#ifconfig <iface> netmask <mask>
+----
+
+Change broadcast address of a network interface
+
+----
+#ifconfig <iface> broadcast <address>
+----
+
+Configure an network inerface (one command line)
+
+----
+ifconfig eth0 <ipaddress> netmask <mask> broadcast <address>
+----
+
+Display summary statistics for a(ll) protocol
+
+----
+netstat -s -p tcp
+netstat -s
+----
+
+Display the kernel routing tables
+
+----
+netstat -n
+----
+
+Trace path to a network host discovering MTU along this path
+
+----
+tracepath -b <host>
+----
+
+==== Other tips and training
+
+Some books are worth reading, for example:
+--
+* http://it-ebooks.info/book/967/[Linux Pocket Guide, 2nd Edition]
+* http://it-ebooks.info/book/1395/[Linux Command Line and Shell Scripting Bible]
+* http://it-ebooks.info/book/403/[Linux in a Nutshell, 6th Edition]
+--

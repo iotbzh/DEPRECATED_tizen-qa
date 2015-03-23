@@ -1,0 +1,36 @@
+# #### this file was generated from /home/qadmin/qatizen/etc/hwtargets.conf by the qatarget command ####
+#
+# Don't edit this file manually, but use: qatarget <add|remove> <args>
+#
+# IMPORTANT: always set net:qatarget-boot to machine state
+# only the machine with this state will be considered as test machines
+# this is to avoid unattended flashes on non identified hardware targets
+
+3c:97:0e:49:ad:7b , net:qatarget-boot , lenovo01
+3c:97:0e:49:ad:9b , net:qatarget-boot , lenovo02
+3c:97:0e:49:ad:7d , net:qatarget-boot , lenovo03
+3c:97:0e:49:ad:7c , net:qatarget-boot , lenovo04
+3c:97:0e:49:ad:91 , net:qatarget-boot , lenovo05
+3c:97:0e:74:1b:c5 , net:qatarget-boot , lenovo06
+3c:97:0e:74:1b:af , net:qatarget-boot , lenovo07
+3c:97:0e:6d:9e:af , net:qatarget-boot , lenovo08
+3c:97:0e:6d:9e:b8 , net:qatarget-boot , lenovo09
+3c:97:0e:74:1c:63 , net:qatarget-boot , lenovo10
+3c:97:0e:6d:9e:b2 , net:qatarget-boot , lenovo11
+3c:97:0e:4f:45:93 , net:qatarget-boot , lenovo12
+a0:b3:cc:22:15:73 , net:qatarget-boot , hp01
+00:00:00:00:00:00 , net:qatarget-boot , samsung02
+00:10:f3:2d:31:6e , net:qatarget-boot , nexcom01
+00:10:f3:2f:5a:41 , net:qatarget-boot , nexcom02
+00:10:f3:35:4b:7a , net:qatarget-boot , nexcom03
+00:10:f3:35:4b:7f , net:qatarget-boot , nexcom04
+c8:be:19:d3:c1:45 , net:qatarget-boot , nuc01
+c0:3f:d5:64:1c:34 , net:qatarget-boot , nuc02
+c0:3f:d5:64:1f:4a , net:qatarget-boot , nuc03
+c0:3f:d5:64:65:c9 , net:qatarget-boot , nuc04
+de:ad:01:ff:de:ef , net:qatarget-boot , minnow01
+00:13:20:fe:33:9e , net:qatarget-boot , minmax01
+00:13:20:fe:33:9b , net:qatarget-boot , minmax02
+00:13:20:fe:33:8f , net:qatarget-boot , minmax04
+78:4b:87:a4:41:a7 , net:qatarget-boot , edison01
+78:4b:87:a7:fa:06 , net:qatarget-boot , edison02

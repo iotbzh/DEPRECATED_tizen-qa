@@ -1,0 +1,93 @@
+[
+  {
+    "name": "icon-visibiliy",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Icon is visible in gnome status area of top menu bar",
+    "description": "Icon of Bluetooth applet should be visible in gnome status are of top menu bar.\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, check that Bluetooth applet icon is visible in top menu bar",
+        "expected": "Bluetooth applet icon is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 18:25:54 GMT",
+    "mtime": "2013-03-26 13:22:03 GMT"
+  },
+  {
+    "name": "menu-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Menu of the Bluetooth applet extension is visible",
+    "description": "Menu of the Bluetooth applet should be accessible when user click on the Bluetooth applet icon in gnome status area of top menu bar.\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on Bluetooth applet icon",
+        "expected": "Bluetooth applet menu appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 18:25:58 GMT",
+    "mtime": "2013-03-26 13:36:11 GMT"
+  },
+  {
+    "name": "settings",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth Settings option is visible and accessible in Bluetooth applet menu",
+    "description": "User should see the 'Bluetooth Settings' option in Bluetooth applet menu. Clicking on this option should open the Bluetooth panel UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on Bluetooth applet icon",
+        "expected": "Bluetooth applet menu appears"
+      },
+      {
+        "description": "Click on the 'Bluetooth Settings' option",
+        "expected": "Window of Bluetooth panel opens"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:24:04 GMT",
+    "mtime": "2013-03-28 09:51:25 GMT"
+  }
+]

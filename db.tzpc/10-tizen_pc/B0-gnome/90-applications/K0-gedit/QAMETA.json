@@ -1,0 +1,181 @@
+[
+  {
+    "name": "helth",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "steps": [],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Gnome-terminal' -t 10 -- gedit",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "create-file",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "create a file",
+    "description": "create a file",
+    "steps": [
+      {
+        "description": "Launch the application gedit",
+        "expected": "the gedit window opens"
+      },
+      {
+        "description": "Write a text",
+        "expected": "the text can be edited"
+      },
+      {
+        "description": "Save the text",
+        "expected": "a window that browse directories opens, the filename is modifiable, the file is saved"
+      },
+      {
+        "description": "Close the document",
+        "expected": "a blank window appears (no more text)"
+      },
+      {
+        "description": "Open the saved document",
+        "expected": "a window that browse directories opens, the file is loaded"
+      },
+      {
+        "description": "Check that the text is the one entered",
+        "expected": "the text must be the saved one"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "modify-file",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "modify a file",
+    "description": "modify a file",
+    "steps": [
+      {
+        "description": "Launch the application gedit",
+        "expected": "the gedit window opens"
+      },
+      {
+        "description": "Open a document",
+        "expected": "a window that browse directories opens, the file is loaded"
+      },
+      {
+        "description": "Modify the text of the document",
+        "expected": "the text can be edited"
+      },
+      {
+        "description": "Save the text",
+        "expected": "the file is saved"
+      },
+      {
+        "description": "Close the document",
+        "expected": "a blank window appears (no more text)"
+      },
+      {
+        "description": "Reopen the document",
+        "expected": "a window that browse directories opens, the file is loaded"
+      },
+      {
+        "description": "Check that the text is the one modified",
+        "expected": "the text must be the last saved one"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "print-file",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "printing a file",
+    "description": "check that a file can be printed",
+    "steps": [
+      {
+        "description": "Launch the application gedit",
+        "expected": "the gedit window opens"
+      },
+      {
+        "description": "Open a document",
+        "expected": "a window that browse directories opens, the file is loaded"
+      },
+      {
+        "description": "Print the file",
+        "expected": "The file is printed"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "shortcut-keyboard",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "check some usefull shortcuts",
+    "description": "check that some usefull shortcuts work",
+    "steps": [
+      {
+        "description": "Launch the application gedit",
+        "expected": "the gedit window opens"
+      },
+      {
+        "description": "type \"Ctrl+N\"",
+        "expected": "check if a new tab apparears"
+      },
+      {
+        "description": "type \"Ctrl+O\"",
+        "expected": "check if a dialog box for opening files appears, open a file"
+      },
+      {
+        "description": "type \"Ctrl+F\"",
+        "expected": "check if a dialog box for find words appears"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]

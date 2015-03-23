@@ -1,0 +1,19 @@
+[
+	{
+		"name": "health",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Start application and check if a window appears",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "launch_gnome_app.sh -c 'Gnome-terminal' -t 10 -- gnome-terminal",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	}
+]

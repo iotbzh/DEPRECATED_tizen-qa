@@ -1,0 +1,623 @@
+[
+  {
+    "name": "gnome-desktop",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "display a gnome desktop",
+    "description": "Check if a gnome desktop is displayed after first boot",
+    "pre_condition": "Have installed Tizen-PC and never done anything after",
+    "steps": [
+      {
+        "description": "Start the system",
+        "expected": "A gnome desktop is displayed with a menu bar and a wallpaper"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:02:18 GMT",
+    "mtime": "2013-03-29 13:35:22 GMT"
+  },
+  {
+    "name": "menu-bar",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "restricted menu bar displayed",
+    "description": "check for restricted menu bar",
+    "pre_condition": "Have installed Tizen-PC, have booted the system and have checked for a gnome desktop with menu bar",
+    "steps": [
+      {
+        "description": "Check the menu bar",
+        "expected": "The menu bar should just have the calendar, sound and accessibility icons"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:03:02 GMT",
+    "mtime": "2013-03-28 15:27:52 GMT"
+  },
+  {
+    "name": "welcome-window",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "post-installation welcome window displayed",
+    "description": "Check for welcome window on gnome-restricted-desktop",
+    "pre_condition": "Have installed Tizen-PC, have booted the system and have checked for a gnome desktop with restricted menu bar",
+    "steps": [
+      {
+        "description": "Check the screen after booting",
+        "expected": "In foreground of the gnome restricted desktop should appear A gnome-initial-setup \"Welcome\" window with a language list proposed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:07:31 GMT",
+    "mtime": "2013-03-28 15:32:40 GMT"
+  },
+  {
+    "name": "all-steps",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "make all steps while configuring the minimal required",
+    "description": "Make all the gnime-initial-setup steps by always clicking on \"Next\" unless it is not possible",
+    "pre_condition": "Have installed Tizen-PC, have booted the system and have checked for a gnome desktop with restricted menu bar and a \"Welcome\" window with a language list",
+    "steps": [
+      {
+        "description": "On the \"Welcome\" window, click on \"Next\"",
+        "expected": "The \"Keyboard Layout\" window appears"
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Network setup\" window appears"
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Login\" window appears"
+      },
+      {
+        "description": "Fill the \"Full name\" field with \"UserTest\" and \"TheFullPassword\" in the \"Password\" and \"Confirm password\" fields",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Location\" window appears"
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Online Accounts\" window appears"
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Thank you\" window appears"
+      },
+      {
+        "description": "Click on \"Start usung Tizen PC\"",
+        "expected": "The \"Welcome Tour\" starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 17:12:29 GMT",
+    "mtime": "2013-03-28 17:23:42 GMT"
+  },
+  {
+    "name": "reboot-while-setup",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "gnome-initial-setup restarts if reboot before ending",
+    "description": "Check if gnome-initial-setup restarts if the system shut down before the end of setup",
+    "pre_condition": "Have started with the gnome-initial-setup steps and have physically shut the system down ",
+    "steps": [
+      {
+        "description": "Wait for reboot and check the system behavior",
+        "expected": "Gnome-initial-setup starts again correctly and the /var/lib/gdm/ un-initial-setup file has not been removed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-29 13:44:41 GMT",
+    "mtime": "2013-03-29 13:48:10 GMT"
+  },
+  {
+    "name": "language",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "set the default user language",
+    "description": "Select a language as default user system language",
+    "pre_condition": "Have The Welcome window displayed at the first boot after installation",
+    "steps": [
+      {
+        "description": "Click on a language listed in the \"Welcome\" window",
+        "expected": "All the word in the window are translated in the selected language and the language selected is set as the default user language"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:16:19 GMT",
+    "mtime": "2013-03-28 16:10:33 GMT"
+  },
+  {
+    "name": "keyboard",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "configure keyboard layout",
+    "description": "Select the input keyboard source",
+    "pre_condition": "Be located on the \"Welcome\" window",
+    "steps": [
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Keyboard Layout\" window appears"
+      },
+      {
+        "description": "Click on the \"+\" icon",
+        "expected": "A language keyboard list appears"
+      },
+      {
+        "description": "Select a language and click on \"Add\"",
+        "expected": "The selected language appears in the input sources list"
+      },
+      {
+        "description": "Repeat the \"Add\" operation a few time by adding same input and different input",
+        "expected": "Each input added should appears one time in the input sources list"
+      },
+      {
+        "description": "In the list, select the last language and click on the \"^\" icon",
+        "expected": "The language has jumped of one top-level in the list"
+      },
+      {
+        "description": "Select one of the input sources listed and click on the \"-\" icon",
+        "expected": "The input sources has been removed of the list"
+      },
+      {
+        "description": "Select one the the input sources and click on \"Next\"",
+        "expected": "The keyboard behavior should be linked to the selected language"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:24:10 GMT",
+    "mtime": "2013-03-28 16:21:46 GMT"
+  },
+  {
+    "name": "eula",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "accept eula agreements (if required)",
+    "description": "Accept license agreements",
+    "pre_condition": "Have done all gnome-initial-setup first steps and be located on the \"Eula Agreements\" windo",
+    "steps": [
+      {
+        "description": "Click on \"Accept\"",
+        "expected": "The agreements are accepted and and the next step of gnome-initial-setup is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:45:58 GMT",
+    "mtime": "2013-03-29 13:38:41 GMT"
+  },
+  {
+    "name": "network-wired",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "configure network interface in wired mode",
+    "description": "Configure the network interface in wired mode by gnome-inital-setup",
+    "pre_condition": "Have passed the first gnome-initial-setup steps and be located on the \"Network\" window",
+    "steps": [
+      {
+        "description": "In the \"Network\" window, select the \"Wired\" network and click on \"Next\"",
+        "expected": "The system should be connected to the network and The \"Login\" window appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:48:13 GMT",
+    "mtime": "2013-03-28 16:57:59 GMT"
+  },
+  {
+    "name": "network-wireless",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "configure network interface with wireless",
+    "description": "Configure the network interface in wireless mode by gnome-inital-setup",
+    "pre_condition": "Have passed the first gnome-initial-setup steps and be located on the \"Network\" window",
+    "steps": [
+      {
+        "description": "In the \"Network\" window, select the \"Wireless\" network and click on \"Next\"",
+        "expected": "The system should be connected to the network and The \"Login\" window appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-28 16:56:41 GMT",
+    "mtime": "2013-03-29 13:39:04 GMT"
+  },
+  {
+    "name": "user-account",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "set user name and user password",
+    "description": "Create a Username and a password for the local account",
+    "pre_condition": "Have passed successfully all first steps of gnome-initial-setup",
+    "steps": [
+      {
+        "description": "Fill the \"Full name\" field with \"UserTest\" and \"TheFullPassword\" in the \"Password\" and \"Confirm password\" fields",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The \"Location\" window appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 16:48:42 GMT",
+    "mtime": "2013-03-28 16:59:37 GMT"
+  },
+  {
+    "name": "location",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "choose the user/timezone location",
+    "description": "Choose a location for the user by writig a name or by selecting on the map",
+    "pre_condition": "Have passed successfully all other steps of gnome-initial-setup",
+    "steps": [
+      {
+        "description": "In the \"Choose Your Location\" field, type the first letters of a city",
+        "expected": "The system should find the city without have finish typing the name"
+      },
+      {
+        "description": "Press Enter",
+        "expected": "The system has completed the city name, add the Country name, add a Time Zone and located it on the map"
+      },
+      {
+        "description": "On the map, select a zone",
+        "expected": "The system has found a Location name and a Time Zone name correctly"
+      },
+      {
+        "description": "Click on \"Next\"",
+        "expected": "The location should be correctly set"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 17:01:00 GMT",
+    "mtime": "2013-03-28 17:16:02 GMT"
+  },
+  {
+    "name": "gnome-online-account",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "add an online account",
+    "description": "Check if gnome-initial-setup allows to configure correctly an Online Account",
+    "pre_condition": "Have successfully passed the other gnome-initial-setup steps and be located on the \"Online Account\" window",
+    "steps": [
+      {
+        "description": "On the \"Online Account\" window, click on \"Add Account\"",
+        "expected": "An \"Add Account\" window appears"
+      },
+      {
+        "description": "Select \"Google\"",
+        "expected": "A \"Google account\" window appears"
+      },
+      {
+        "description": "Put an existing email and the corresponding password in the fields and click on \"Sign in\"",
+        "expected": "An new gnome window appears"
+      },
+      {
+        "description": "On the new window, click on \"Allow Access\"",
+        "expected": "A gnome-keyring window appears"
+      },
+      {
+        "description": "In the gnome-keyring window, fill the fields with a chosen password and press \"Enter\"",
+        "expected": "The Google account has been successfully added"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-21 17:03:11 GMT",
+    "mtime": "2013-03-28 17:13:43 GMT"
+  },
+  {
+    "name": "summary",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "summary displayed before copying configuration",
+    "description": "Check the Summary window",
+    "pre_condition": "Have passed all gnome-initial-setup steps and be located on the \"Summary\" window",
+    "steps": [
+      {
+        "description": "Check if everything is corresponding in the summary to the gnome-initial-setup steps configured before",
+        "expected": "each step result is displayed"
+      },
+      {
+        "description": "Click on \"Next\" to start the copying configuration step",
+        "expected": ""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 08:55:06 GMT",
+    "mtime": "2013-03-29 14:14:40 GMT"
+  },
+  {
+    "name": "g-i-s-copy-worker",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "gnome initial setup copies configuration to the new user account",
+    "description": "Check the good behavior of the copying configuration step",
+    "pre_condition": "Have passed the Summary step",
+    "steps": [
+      {
+        "description": "Switch to system console with Ctrl+Alt+F2",
+        "expected": ""
+      },
+      {
+        "description": "Login as root",
+        "expected": ""
+      },
+      {
+        "description": "Do \"grep UserTest /etc/passwd\"",
+        "expected": "a line with UserTest should be present because the configuration files have correctly been copied"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 08:56:09 GMT",
+    "mtime": "2013-03-29 14:05:14 GMT"
+  },
+  {
+    "name": "login",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "login into new user account from GDM login prompt",
+    "description": "Check if a GDM displays a new user entry after creating new user",
+    "pre_condition": "Have passed all gnome-initial-setup steps",
+    "steps": [
+      {
+        "description": "Check the screen",
+        "expected": "GDM displays a new user session"
+      },
+      {
+        "description": "Try to login with configurated new username and new password",
+        "expected": "gnome-initial-setup starts successfully"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 08:57:29 GMT",
+    "mtime": "2013-03-29 14:08:52 GMT"
+  },
+  {
+    "name": "welcome-tour",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "follow the welcome tour",
+    "description": "",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-22 08:58:46 GMT",
+    "mtime": "2013-03-28 17:14:33 GMT"
+  },
+  {
+    "name": "after-setup",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "check files after setup",
+    "description": "Check for good configuration of the system",
+    "pre_condition": "Have finished the Welcome tour after gnome-initial-setup steps",
+    "steps": [
+      {
+        "description": "Check if the /var/lib/gdm/run-initial-setup file has been removed and check for files in the home directory",
+        "expected": "The run-initial-setup file has been removed and all home directory files requested are available"
+      },
+      {
+        "description": "Reboot the system",
+        "expected": "The system boots on a user session and not on gnome-initial-setup"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-29 13:48:16 GMT",
+    "mtime": "2013-03-29 13:51:41 GMT"
+  }
+]

@@ -1,0 +1,63 @@
+= TCBROWSE(1qa)
+
+== NAME
+
+tcbrowse - a browser/editor of test cases
+
+== SYNOPSIS
+
+tcbrowse [options]
+
+== DESCRIPTION
+
+*tcbrowse* is a small browser and editor of the database of QA tizen.
+
+It implemented as a web server and so needs a web browser. 
+More precise help is available inside the browser.
+
+*tcbrowse* command is a wrapper that launches the web server
+and opens the welcome page in your web browser using the command
+*xdg-open*.
+
+== OPTIONS
+
+*-n, --no-browser*::
+    Don't opens the browser
+
+*-p, --port*='NUMBER'::
+    Use the TCP port 'NUMBER' instead of 3000, the default.
+    Overwrite the PORT environment variable.
+
+*-d, --dbdir*='DIRECTORY'::
+    Set the directory of the database.
+    Overwrite the QADBDIR environment variable.
+
+*-h, --help*::
+    Prints a short help.
+
+== ENVIRONMENT
+
+The following environment variables may apply if defined.
+
+*PORT*:: 
+    Controls the opened port.
+    By default: *PORT=3000*.
+
+*QADIR*:: 
+    Controls the QA root dir.
+    By default, the parent directory of the directory
+    containing the script *tcbrowse*.
+
+*QADBDIR*::
+    Controls the QA database root directory.
+    By default: *QADBDIR=$QADIR/db*.
+
+
+== SEE ALSO
+
+QADB(5qa), QAMETA(5qa), xdg-open(1)
+
+== RESSOURCES
+
+node.js: http://nodejs.org/
+

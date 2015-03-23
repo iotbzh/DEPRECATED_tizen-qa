@@ -1,0 +1,147 @@
+[
+  {
+    "name": "noaction",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that positioning the pointer over an Application icon does nothing",
+    "description": "When the mouse pointer is simply laid over an application tile (icon+name on grid) without any click, nothing must happen (cursor is not changed, app icon is not highlighted).",
+    "pre_condition": "- switch to Home mode\r\n- have some favourite apps on desktop",
+    "steps": [
+      {
+        "description": "move the mouse pointer over an application tile",
+        "expected": "nothing must happen"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:27:10 GMT",
+    "mtime": "2013-03-21 22:27:10 GMT"
+  },
+  {
+    "name": "singleclick",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a single click highlights the application idon",
+    "description": "A single click over an icon must not change the mouse cursor. \r\nThe application icon must be in highlighted state after this action.",
+    "pre_condition": "- switch to Home mode\r\n- have some favourite apps on desktop",
+    "steps": [
+      {
+        "description": "move the mouse pointer over an application tile then single click on the icon",
+        "expected": "icon must be highlighed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:27:57 GMT",
+    "mtime": "2013-03-21 22:27:57 GMT"
+  },
+  {
+    "name": "doubleclick",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a double click launches the application",
+    "description": "A double click over an icon must launch the application.\r\n\r\n(TODO: what about highlighting in this case ?)",
+    "pre_condition": "- switch to Home mode\r\n- have some favourite apps on desktop",
+    "steps": [
+      {
+        "description": "double click on a favourite icon on desktop",
+        "expected": "application is launched"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:28:30 GMT",
+    "mtime": "2013-03-21 22:28:30 GMT"
+  },
+  {
+    "name": "clickmove",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a hold single click then a drag moves the application icon",
+    "description": "When a single click is done and hold on an applictaion icon then the cursor should change to \"grab state\" (TODO: to be determined. Could be a small hand)\r\nThe application icon should be highlighted in this state.\r\nThen moving the pointer while holding the mouse button down should drag the icon on screen.",
+    "pre_condition": "- switch to Home mode\r\n- have some favourite apps on desktop",
+    "steps": [
+      {
+        "description": "click on a favourite application icon on the desktop and drag the icon (click and hold left mouse button)",
+        "expected": "the icon moves on the desktop, following the cursor pointer moves"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:31:22 GMT",
+    "mtime": "2013-03-21 22:31:56 GMT"
+  },
+  {
+    "name": "clickmoverelease",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that an icon position can be changed",
+    "description": "After dragging an icon to a new position and releasing the mouse button, the icon should occupy the nearest tile with the following rules:\r\n- to occupy a tile, the icon must overlap more than 50% of its final position in the target tile at release time.\r\n- if the icon overlaps less than 50% of the target zone, then it must slide back to its original position\r\n- if the move is not possible (tile already occupied, or no tile), then the icon must slide back to its original position",
+    "pre_condition": "- switch to Home mode\r\n- have some favourite apps on desktop",
+    "steps": [
+      {
+        "description": "click on a favourite application icon on the desktop and drag the icon (click and hold left mouse button) then release the button",
+        "expected": "the app icon must have moved to its final destination"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "root",
+    "ctime": "2013-03-21 22:33:03 GMT",
+    "mtime": "2013-03-21 22:33:03 GMT"
+  }
+]

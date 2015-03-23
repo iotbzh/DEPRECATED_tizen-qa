@@ -1,0 +1,1434 @@
+[
+ {
+  "name": "service-listed",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Check pre-defined services",
+  "description": "We want to make sure all popular IM services are available",
+  "notes": "QQ is to be confirmed",
+  "bugs": "",
+  "pre_condition": "First launch / no account created",
+  "steps": [
+   {
+    "description": "Launch IM application",
+    "expected": "IM application is launched"
+   },
+   {
+    "description": "Check the account list view",
+    "expected": "All services are listed: Facebook Chat, Google Talk, Jabber, Yahoo!, AIM, Twitter, Skype, QQ"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Facebook-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - Facebook",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Facebook",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Facebook-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - Facebook",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Facebook service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Facebook-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - Facebook",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Facebook service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Facebook-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - Facebook",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Facebook service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Facebook service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "GTalk-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - GTalk",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Google Talk",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "GTalk-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - Gtalk",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Google Talk service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "GTalk-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - Gtalk",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Google Talk service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "GTalk-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - Gtalk",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Google Talk service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "GTalk-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - GTalk",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Google Talk service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Google Talk service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Jabber-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - Jabber",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Jabber",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Jabber-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - Jabber",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Jabber service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Jabber-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - Jabber",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Jabber service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Jabber-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - Jabber",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Jabber service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Jabber-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - Jabber",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Jabber service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Jabber service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Yahoo-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - Yahoo",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo! service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Yahoo!",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Yahoo-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - Yahoo",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo! service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Yahoo! service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Yahoo-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - Yahoo",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo! service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Yahoo! service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Yahoo-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - Yahoo",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo! service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Yahoo! service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Yahoo-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - Yahoo",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Yahoo! service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Yahoo! service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "AIM-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - AIM",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap AIM",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "AIM-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - AIM",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to AIM service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "AIM-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - AIM",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to AIM service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "AIM-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - AIM",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to AIM service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "AIM-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - AIM",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to AIM service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to AIM service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Twitter-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - Twitter",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Twitter service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Twitter",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Twitter-elect-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Elect to receive tweets from users that you follow",
+  "description": "We want to make sure we can elect to receive tweets from users that you follow",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Twitter service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Twitter service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Elect to receive tweets from userB",
+    "expected": "UserB is elected"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Twitter-tweet-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create Twitter message and send it to Twitter and receive a tweet from a user that you follow",
+  "description": "We want to make sure we can send a Twitter message direct to Twitter and receive a tweet from a user that you follow",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Twitter service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Twitter service\n- ContactB is elected to receive tweets\n- UserB is logged in in Twitter",
+  "steps": [
+   {
+    "description": "Open https://twitter.com/ from any Browser and login",
+    "expected": "-"
+   },
+   {
+    "description": "Send a Twitter message from IM application",
+    "expected": "Message is received by Twitter"
+   },
+   {
+    "description": "UserB post a new Twitter message",
+    "expected": "Message Tweet is received in IM application"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Skype-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - Skype",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap Skype",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Skype-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - Skype",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to Skype service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Skype-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - Skype",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Skype service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Skype-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - Skype",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Skype service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "Skype-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - Skype",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to Skype service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to Skype service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "QQ-account-signin",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Create a new account and sign in - QQ",
+  "description": "We want to make sure we can create an account and sign in",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\n- Connected to network",
+  "steps": [
+   {
+    "description": "In account list, tap QQ",
+    "expected": "Image of the service is displayed with fields name/Id and password"
+   },
+   {
+    "description": "- Enter valid ID and password",
+    "expected": "-"
+   },
+   {
+    "description": "- Valid",
+    "expected": "Account is created"
+   },
+   {
+    "description": "- Sign in",
+    "expected": "\"Loading contacts\" progress is shown (or similar progress). Contact list is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "QQ-add-contact",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Add a contactB - QQ",
+  "description": "We want to make sure we can add a contact",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\n- Connected to network\n- A valid account created\n- Signed in\nUserB is registered to QQ service\n- ContactB is not added in the contact list\n- UserB is logged in using a clientB",
+  "steps": [
+   {
+    "description": "Add contactB in the buddy list",
+    "expected": "-"
+   },
+   {
+    "description": "UserB accepts the invitation",
+    "expected": "buddyB's status is displayed in the contact list. ClientB displays my presence"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "QQ-instant-message",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Send and receive a message to/from contactB - QQ",
+  "description": "We want to make sure we can send and receive a message to/from contactB",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to QQ service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "Send a message to buddyB",
+    "expected": "Message is received by clientB"
+   },
+   {
+    "description": "On clientB, send a message to e.g. buddyA",
+    "expected": "Message from userB is received and displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "QQ-share-presence",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Share presences with contactB - QQ",
+  "description": "We want to make sure we can update presence and see contacts' presence",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to QQ service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On clientB, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On device check the presence of buddyB",
+    "expected": "On device, new presence status of contactB is well displayed"
+   },
+   {
+    "description": "On device, update the presence with a new value",
+    "expected": "-"
+   },
+   {
+    "description": "On clientB, check the presence of buddyA",
+    "expected": "On clientB, the new presence status of buddyA is well displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ },
+ {
+  "name": "QQ-voip",
+  "priority": "3",
+  "status": "designed",
+  "type": "functional_positive",
+  "subtype": "",
+  "objective": "Start and end a VoIP video call - QQ",
+  "description": "We want to make sure we can start a VOIP video call while connected to Facebook service",
+  "notes": "",
+  "bugs": "",
+  "pre_condition": "Registered to QQ service\n- Connected to network\n- A valid account created\n- Signed in as UserA\n- UserB is registered to QQ service\n- ContactB is added in the contact list of UserA\n- UserB is logged in using a clientB\n- ContactA is added in the contact list of UserB",
+  "steps": [
+   {
+    "description": "On device, open a chat with contactB",
+    "expected": "-"
+   },
+   {
+    "description": "Tap video call button",
+    "expected": "Button allows to start a VoIP video call with contactB. Call status shows \"Calling...\""
+   },
+   {
+    "description": "Accept the video call on clientB",
+    "expected": "Video status shows \"Connecting ...\". A video of the contact is shown and own video in a miniature"
+   },
+   {
+    "description": "Check buttons",
+    "expected": "Buttons allow to end the video call, pause the video, mute/unmute audio, increase/decrease volume"
+   },
+   {
+    "description": "Check call counter",
+    "expected": "A counter shows the duration of the video call"
+   },
+   {
+    "description": "End the video call",
+    "expected": "Video window is closed. Call counter indicates the duration of the video call. Buttons are greyed out and become available again. Conversation with contactB is displayed"
+   }
+  ],
+  "post_condition": "",
+  "exec_type": "manual",
+  "exec_pre": "",
+  "exec": null,
+  "exec_expected_retcode": 0,
+  "exec_kill_timeout": 120,
+  "exec_post": "",
+  "author": "sdx",
+  "ctime": "2013-03-28 19:29:26 GMT",
+  "mtime": "2013-03-28 19:29:26 GMT"
+ }
+]

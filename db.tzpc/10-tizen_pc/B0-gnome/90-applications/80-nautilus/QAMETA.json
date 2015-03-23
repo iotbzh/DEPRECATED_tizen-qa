@@ -1,0 +1,177 @@
+[
+  {
+    "name": "health",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Nautilus' -t 15 -- /usr/bin/nautilus",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:50:26 GMT",
+    "mtime": "2013-03-06 12:50:26 GMT"
+  },
+  {
+    "name": "health-cnxserver",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Nautilus-connect-server' -t 15 -- /usr/bin/nautilus-connect-server",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "30",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:50:29 GMT",
+    "mtime": "2013-03-06 12:50:29 GMT"
+  },
+  {
+    "name": "icon-on-desktop",
+    "exec_type": "manual",
+    "priority": "6",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Nautilus is tiled on the desktop",
+    "description": "open Nautilus, create a directory using right button menu, enter in that directory",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, check that the nautilus icon is displayed",
+        "expected": "nautilus icon is on the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:50:31 GMT",
+    "mtime": "2013-03-06 12:53:56 GMT"
+  },
+  {
+    "name": "create-directory",
+    "exec_type": "manual",
+    "priority": "6",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Nautilus can create a directory",
+    "description": "open Nautilus, create a directory using right button menu, enter in that directory",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the nautilus icon",
+        "expected": "the nautilus window opens after just ONE click"
+      },
+      {
+        "description": "In the content area (bottom right) click on right button",
+        "expected": "a popup menu appears"
+      },
+      {
+        "description": "Click on \"New Folder\"",
+        "expected": "a new folder icon appears with editable name \"untitled folder\""
+      },
+      {
+        "description": "Enter a name for the folder",
+        "expected": "The folder has the new name"
+      },
+      {
+        "description": "Double click on the created folder icon",
+        "expected": "the content area is empty and the path on top is correct"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:50:31 GMT",
+    "mtime": "2013-03-06 13:15:06 GMT"
+  },
+  {
+    "name": "remove-directory",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Nautilus can delete a directory",
+    "description": "open Nautilus, remove the directory that you created in the previous test",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the nautilus icon",
+        "expected": "the nautilus window opens after just ONE click"
+      },
+      {
+        "description": "(optional) In the content area (bottom right) select a deleteable directory",
+        "expected": "the icon and its name appear selected"
+      },
+      {
+        "description": "Click right button on icon of the deleteable directory",
+        "expected": "a popup menu appears"
+      },
+      {
+        "description": "Select the entry \"Move to Wastebasket\"",
+        "expected": "the directory is deleted, its icon and name disappear, the wastebasket icon (left area) grows"
+      },
+      {
+        "description": "Select the wastebasket in the left panel",
+        "expected": "the content area of the wastebasket displays the deleted directory and a top bar with 2 buttons: \"Restore\" and \"Empty\""
+      },
+      {
+        "description": "Click on the \"Empty\" button",
+        "expected": "a dialog appears to confirm"
+      },
+      {
+        "description": "Confirm \"empty wastebasket\"",
+        "expected": "The wastebasket content area is empty"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-06 12:50:35 GMT",
+    "mtime": "2013-03-06 14:10:40 GMT"
+  }
+]

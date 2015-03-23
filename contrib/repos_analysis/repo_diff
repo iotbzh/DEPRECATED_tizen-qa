@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# load TZ config
+[ -f ~/.tzconfig ] && . ~/.tzconfig
+
+set -e
+
+snapshot1=$1
+snapshot2=$2
+if [ -z "$snapshot1" -o -z "$snapshot2" ]; then
+	echo "Usage: $(basename $0) <snapshot1> <snapshot2>" >&2
+	exit 1
+fi
+
+tmp1=/tmp/$snapshot1.lst
+tmp2=/tmp/$snapshot2.lst
+
+echo "Fetching packages for $snapshot1" >&2
+$(dirname $0)/repo_pkglist $snapshot1 >$tmp1
+echo "Package list for $snapshot1 saved in $tmp1" >&2
+
+echo "Fetching packages for $snapshot2" >&2
+$(dirname $0)/repo_pkglist $snapshot2 >$tmp2
+echo "Package list for $snapshot2 saved in $tmp2" >&2
+
+gvimdiff $tmp1 $tmp2
+
+
+

@@ -1,0 +1,200 @@
+[
+  {
+    "name": "change-name",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can change the stock in the Stock widget by looking for the name",
+    "description": "UI allow to change the Stock. The stock information is downloaded and displayed",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing stock name (e.g. Intel) and valid",
+        "expected": "Stock is found"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Associated information is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:14:48 GMT",
+    "mtime": "2013-03-13 08:17:03 GMT"
+  },
+  {
+    "name": "change-ticker",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can change the stock in the Stock widget by looking for the ticker symbol",
+    "description": "UI allow to change the Stock. The stock information is downloaded and displayed",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing ticker symbol (e.g. INTC) and valid",
+        "expected": "Stock is found"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Associated information is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:17:11 GMT",
+    "mtime": "2013-03-13 08:17:59 GMT"
+  },
+  {
+    "name": "search-nonexisting-stock",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure there is no instability when searching a non-existing stock in the Stock widget",
+    "description": "UI allow to change the Stock. The stock information is downloaded and displayed",
+    "pre_condition": "The Stock widget is configured to display Intel information",
+    "steps": [
+      {
+        "description": "Fill input text field with a non-existing stock name (e.g. azdbnop) and valid",
+        "expected": "Stock is not found"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Information of previous stock is displayed (Intel)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:18:08 GMT",
+    "mtime": "2013-03-13 08:19:30 GMT"
+  },
+  {
+    "name": "search-nonexisting-ticker",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure there is no instability when searching a non-existing ticker symbol in the Stock widget",
+    "description": "UI allow to change the Stock. The stock information is downloaded and displayed",
+    "pre_condition": "The Stock widget is configured to display INTC information",
+    "steps": [
+      {
+        "description": "Fill input text field with a non-existing ticker symbol (e.g. AFCOPART) and valid",
+        "expected": "Stock is not found"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Information of previous stock is displayed (Intel)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:19:31 GMT",
+    "mtime": "2013-03-13 08:26:46 GMT"
+  },
+  {
+    "name": "changes-as-pct",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure the checkbox 'show change as a percentage' works properly",
+    "description": "Settings allow to configure change as percentage",
+    "pre_condition": "the Stock widget is configured to display INTC information",
+    "steps": [
+      {
+        "description": "Check 'show change as a percentage' and valid with [Done]",
+        "expected": "Setting is saved. Change is displayed as a percentage (e.g. -1.09%)"
+      },
+      {
+        "description": "Go back to settings and uncheck 'show change as a percentage' and valid with [Done]",
+        "expected": "Setting is saved. Change is displayed as a price (e.g. -9.09)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:26:48 GMT",
+    "mtime": "2013-03-13 08:29:30 GMT"
+  },
+  {
+    "name": "show-information",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure information displayed by the Stock widget are well displayed and correct",
+    "description": "stocks widget allows you to see the most important information about your stock",
+    "pre_condition": "The Stock widget is configured to display Google information",
+    "steps": [
+      {
+        "description": "Check Widget displays Stock name and sticker code, stock chart, change percentage/price, price at previous close (Open), Day low (Low), Day high (High), Average Volume, Market cap",
+        "expected": "Information is well displayed"
+      },
+      {
+        "description": "Check information from another source than Yahoo Finance (e.g. http://www.marketwatch.com/investing/stock/goog)",
+        "expected": "Information is identical"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-13 08:29:39 GMT",
+    "mtime": "2013-03-13 08:30:45 GMT"
+  }
+]

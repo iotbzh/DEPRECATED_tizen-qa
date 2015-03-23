@@ -1,0 +1,32 @@
+Here is Test Plan and Test Cases status of componant "First boot" for Tizen PC. 
+
+Add your comments here when reviewing "First boot" test documentations.
+
+Status:
+-------
+* 03/08/2013 - Draft written, ready for QA review
+* 03/11/2013 - Reviewed by QA
+* 03/22/2013 - Corrections added, ready for 2nd QA review & engineering review
+* 03/29/2013 - Version 0.7 - Ready for ratification
+
+Last version:
+---------------
+[Test Plan First Boot 0.7](/tizenpc/system/files/tp-firstboot-0.7.html "tp-firstboot-0.7.html")
+
+31 Test cases (2 to be finalized)
+
+Test cases imported in [Enterprise Tester](https://tz.otcshare.org/EnterpriseTester/):
+<br>Tizen PC
+<br>&nbsp;&nbsp;=> IvyBridge
+<br>&nbsp;&nbsp;&nbsp;&nbsp;=> Q2_13
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 20-first_boot
+
+Next steps:
+-------------
+* first boot and first login processes must conform to specifications (UI changes)
+* specifications and implementation for installer 
+* some testcases to be finalized when specifications will be updated
+
+Contact for questions on First boot:
+------------
+Michael Wood is the main contact for information

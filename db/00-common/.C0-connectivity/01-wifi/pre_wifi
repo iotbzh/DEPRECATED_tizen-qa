@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Intel Corporation. All rights reserved.
+# Use of this source code is governed by a LGPL v2.1 license that can be
+# found in the LICENSE file in the db directory.
+# Author : Nicolas Zingilé
+
+# global vars
+ipv4=10.10.0.66
+netmask=255.255.0.0
+gateway=10.10.0.1
+
+# other global variables
+targetservice="" # network service to set up
+output="" # output command to test 
+configpath=/var/lib/connman
+
+## enable wifi
+command=$(connmanctl technologies | grep -A 4 wifi | sed -n '4p')
+
+if [[ $command == *True ]]
+then
+	echo ">>> Wifi is already enabled ... Ok"
+else
+	echo ">>> Enabling wifi ..."
+	command=$(connmanctl enable wifi)
+	if [[ $command == Enabled* ]]
+	then 
+		echo $command
+	else 
+		echo ">>> Cannot enable wifi !"
+		exit 1
+	fi
+fi
+
+## scan services
+echo ">>> Scanning for available wifi networks..."
+connmanctl scan wifi
+connmanctl scan wifi
+
+## get service information
+targetservice=$(connmanctl services | grep "QA\|TZ\|Tz" | cut -c 5- | sed 's/ \+ /:/g' | grep $1:)
+
+if [[ -n $targetservice ]]
+	then
+		echo ">>> Target service found :"
+		echo $targetservice
+	else 
+		echo target service not found
+		exit 1
+fi
+
+name=$(echo "$targetservice" | awk -F: '{print $1}')
+service=$(echo "$targetservice" | awk -F: '{print $2}')
+
+case $name in
+	*_none)
+printf "[service_$service]
+Name = $name
+Type = wifi
+IPv4 = $ipv4/16/$gateway" > $configpath/$name.config
+        ;;
+	*_w*)
+printf "[service_$service]
+Name = $name
+Type = wifi
+IPv4 = $ipv4/16/$gateway
+Passphrase = 1234567890ABC" > $configpath/$name.config
+        ;;
+	TZVannes*)
+printf "[service_$service]
+Name = $name
+Type = wifi
+IPv4 = $ipv4/16/$gateway
+Passphrase = T!zenV@nnes56" > $configpath/$name.config
+    ;;
+esac
+	
+if [[ -e $configpath/$name.config ]]
+then
+	echo ">>> Config file for $name successfully created <<<"
+else 
+	echo ">>> Cannot create config file for $name !"
+	exit 1
+fi
+
+chsmack -a _ -e User wifi

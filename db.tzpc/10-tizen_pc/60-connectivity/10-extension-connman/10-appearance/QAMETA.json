@@ -1,0 +1,97 @@
+[
+  {
+    "name": "icon-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Icon is visible in gnome status area of top menu bar",
+    "description": "Icon of  ConnMan extension should be visible in gnome status are of top menu bar.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, check that ConnMan extension icon is visible in top menu bar",
+        "expected": "ConnMan extension icon is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 19:14:41 GMT",
+    "mtime": "2013-03-26 13:22:20 GMT"
+  },
+  {
+    "name": "menu-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Menu of the ConnMan extension is visible",
+    "description": "Menu of the ConnMan extension should be accessible when user click on the ConnMan extension icon in gnome status area of top menu bar.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension icon",
+        "expected": "ConnMan extension menu should appear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 19:15:21 GMT",
+    "mtime": "2013-03-26 13:26:34 GMT"
+  },
+  {
+    "name": "services-list",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "List of Wifi available neworks is visible ",
+    "description": "List of available network services should be visible in the ConnMan extension menu. ",
+    "pre_condition": "Wifi technology is disabled (Wifi Switcher is toggled on 'O')",
+    "steps": [
+      {
+        "description": "From the desktop, click on the ConnMan extension",
+        "expected": "ConnMan extension menu should appear"
+      },
+      {
+        "description": "Toggled the Wifi switcher button to enable the Wifi technology",
+        "expected": "Wifi switcher is toggled on 'I' and menu closes"
+      },
+      {
+        "description": "Click on the ConnMan extension",
+        "expected": "List of available Wifi services is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 19:27:58 GMT",
+    "mtime": "2013-03-26 10:39:21 GMT"
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "name": "bluetooth-enable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be enabled",
+    "description": "Bluetooth connection should be enabled when the activation switch is toggled on 'I'.",
+    "pre_condition": "Bluetooth technology is disabled (on all UI : ConnMan extension, ConnMan UI, Bluetooth panel, Bluetooth applet, bluetooth switchers are toggled on 'O') ",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the activation switcher to enable the Bluetooth technology",
+        "expected": "Bluetooth switcher is toggled on 'ON'. Icon of Bluetooth applet becomes bold. Menu of Bluetooth applet appears with 3 additional elements : a 'Visibility' switcher, a 'Send Files to Device' option and a 'Set Up a New Device' option. Bluetooth switcher of Bluetooth applet, ConnMan extension and ConnMan UI is toggled on 'I'"
+      },
+      {
+        "description": "Open a terminal and execute the following command line : 'connmanctl technologies'",
+        "expected": "For Bluetooth technology, Powered = 'True'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 23:46:16 GMT",
+    "mtime": "2013-03-26 14:04:30 GMT"
+  },
+  {
+    "name": "bluetooth-disable",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be disabled",
+    "description": "Bluetooth connection should be disabled when the activation switch is toggled on 'O'.",
+    "pre_condition": "Bluetooth technology is enabled (Bluetooth switcher is toggled on ON') ",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the activation switcher to disable the Bluetooth technology",
+        "expected": "Activation switcher is toggled on 'O'. Icon of Bluetooth applet becomes crossed. Bluetooth switcher of Bluetooth applet, ConnMan extension and ConnMan UI is toggled on 'O'."
+      },
+      {
+        "description": "Open a terminal and execute the following command line : 'connmanctl technologies'",
+        "expected": "For Bluetooth technology, Powered = 'False'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-08 23:56:01 GMT",
+    "mtime": "2013-03-26 13:50:02 GMT"
+  }
+]

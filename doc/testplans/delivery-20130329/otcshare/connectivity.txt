@@ -1,0 +1,27 @@
+Here is Test Plan and Test Cases status of component "Network connectivity " for Tizen PC. 
+
+Add your comments here when reviewing "Network connectivity " test documentations.
+
+Status:
+--------
+* 03/04/2013 - Test Plan Creation
+* 03/08/2013 - 0.1 - Ready for QA review
+* 03/10/2013 - 0.1.1 - Update due to UI Design changes
+* 03/11/2013 - 0.1.2 - Reviewed by QA
+* 03/15/2013 - 0.2 - corrections added after QA review
+* 03/15/2013 - Reviewed by QA Romania
+* 03/22/2013 - 0.3 - Corrections after engineering review - Some test cases steps are still missing and will be completed during WW13
+* 03/29/2013 - Version 0.7 - Ready for ratification
+
+Last version:
+---------------
+[Test Plan Network & Connectivity 0.7](/tizenpc/system/files/tp-connectivity-0.7.html "tp-connectivity-0.7.html")
+
+116 Test cases (21 to be finalized with detailed steps on future apps)
+
+Test cases imported in [Enterprise Tester](https://tz.otcshare.org/EnterpriseTester/):
+<br>Tizen PC
+<br>&nbsp;&nbsp;=> IvyBridge
+<br>&nbsp;&nbsp;&nbsp;&nbsp;=> Q2_13
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 60-connectivity
+

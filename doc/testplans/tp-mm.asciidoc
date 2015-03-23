@@ -1,0 +1,766 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: Multimedia within Tizen PC
+:author: José Bollo
+:email: jose.bollo@eurogiciel.fr
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5999[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> Multimedia]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==============================================================================================
+|Version 		| Date 		| Author	| Reason for changes
+//---------------------------------------------------------------------------------------------
+| 0.1			| 2013-03-22	| {jose}	| Initial revision
+| 0.2			| 2013-03-27	| {jose}	| Improvements
+| 0.3			| 2013-03-28	| {jose}	| Proposal for final
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==============================================================================================
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level				| Reviewer 			| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review		| {christophe}		|             	| 
+|Architect review			|						|           	|           
+|Engineering review 		|						|           	|           
+|Project Manager review |						|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for {componentName}.
+
+== Glossary 
+
+// Instructions:
+// Describe all important acronyms or terms here
+// Example:
+// * BBC: Brake Before Clutch (driver training)
+// * CNN: Chaotic Neural Network
+// ...
+
+3GP:: A container format for audio/video
+AAC:: Audio lossy compression codec/format, much better than MP3
+AMR:: Speech lossy compression codec/format for telephony GSM and UMTS
+AMR-NB:: AMR for narrow band (as opposite to AMR-WB)
+ASF:: Advanced Systems Format, a multimedia file format by Microsoft
+AVC:: Advanced Video Coding (see MPEG-4 Part 10)
+AVI:: Audio Video Interleave, based on RIFF, a video container format
+BiM:: Binary XML used inside MPEG-4 for adding subtitles and extras
+BMP:: Image file format from Microsoft
+CMML:: Continuous Media Markup Language (CMML) is essentially a timed text codec
+DTS:: Digital Theater System, a professional sound system used in DVD
+FLAC:: Free Lossless Audio Codec
+GIF:: Graphics Interchange Format
+H.263:: Video compression codec/format by ITU
+H.264:: Video compression codec/format (see see MPEG-4 Part 10)
+JPEG:: Image lossy compression codec/format
+Matroska:: Open source video container
+MIDI:: Musical Instrument Digital Interface, and also, a file format that records music for synthesizer
+M-JPEG:: Motion-JPEG, a simple video compression format
+MP3:: A popular sound codec/format but exceeded by AAC and Opus.
+MP4:: Container format (see MPEG-4 Part 14)
+MPEG-4:: A set of standards, named parts, for video delivery,  by the Moving Picture Expert Group. 
+Mainly
+ - part 2: video compression codec existing in 3 versions v1, v2 and v3
+ - Part 10: advanced video compression codec
+ - Part 12: base container format 
+ - Part 14: MP4 container format, extends part 12
+ - part 17: subtitles format
+
+MPEG-PS:: MPEG Program Stream from MPEG-1 part 1 and MPEG-2 part 1
+MPEG-TS:: MPEG Transport Stream from MPEG-2 part 1
+OGG:: A free container format maintained by Xiph.Org fundation
+Ogg Writ:: Ogg Writ is a text-phrase codec used with the Ogg encapsulation format
+Opus:: a lossy audio compression format developed by the IETF. Currently, it is, from tests, the best available audio compression format
+PNG:: Free lossless image compression format
+QTFF:: QuickTime File Format, a container on basis of MPEG-4 part 1 and 14, used by Apple
+Theora:: Free video compression codec/format maintained by Xiph.Org fundation
+VOB:: Video OBject contains video used on DVD, a strict subset of MPEG-PS
+Vorbis:: Free audio compression codec/format maintained by Xiph.Org fundation
+VP8:: Video compression codec/format owned by google
+WAV:: Wave Audio File Format, based on RIFF container format
+WebM:: Video container based on a profile of Matroska using VP8 for video and Vorbis for sounds.
+WMA:: Windows Media Audio, advanced audio codec of Microsoft
+WMV:: Windows Media Vodeo, advanced video codec of Microsoft
+
+
+== Component Summary 
+
+// Instructions:
+// Expect a short paragraph to describe the component and add link for further information about this component.
+// Also put major hyperlinks to projects responsible for the component
+
+The word "Multimedia" has a rich semantic and is widely used (and sometimes wildly) in many cases.
+From this document scope, Multimedia stands for sound, music, photo,  video, animation and also
+the media storages CD, DVD, SD card (and camera). 
+
+As Multimedia applications brings rich user experience, they tends to
+be intensively used, what implies that defects are seen often and soon. 
+
+Audio/video conferences are also callable multimedia applications. 
+But this kind of 'live' applications aren't tested in this test plan
+because these applications are tested in the test plan treating of
+instant messaging ({qa-tp-im}).
+
+This test plan focus on three main uses:
+
+- managing of photos and albums;
+- recording and playing of audios and videos;
+- creating and ripping of CD and DVD.
+
+=== Low layers
+
+The multimedia applications make high usage of the sound and graphical
+subsystems of the device. These subsystems are mainly accessed through
+the multimedia framework GStreamer that itself accesses the low layer components
+through some appropriate plugins.
+
+The low layer component for the sounds is PulseAudio.
+
+=== Managing of photos and albums
+
+The main application to handling photos, photo albums and also
+videos is Shotwell.
+
+Shotwell supported formats are:
+
+Photo:: 
+  JPEG, PNG, TIFF, BMP and RAW
+Video:: 
+- Containers: Ogg, QuickTime, MP4, AVI
+- Codecs: Theora, Quicktime, MPEG-4, Motion JPEG
+
+Shotwell manages the importation of photos from
+cards (memory card) and from USB connected camera.
+
+Depending on how it is launched, Shotwell has a different behaviour.
+When launched by double-clicking a picture file, it enters in the "editor" mode.
+When launched in the application menu or desktop icon, it enters in "gallery" mode.
+These two modes are really different.
+
+=== Recording and Playing of audios and videos
+
+The applications that allow recording or playing of covered (non exhaustive list):
+
+- Snappy – Simple music and video player
+- Sushi – Tiny document viewer
+- Cheese – Web Cam shooting photos and videos
+- Rhythmbox – Music library manager
+- Rhythmbox Plugin – Amazon music purchasing through Rhythmbox music player
+
+WARNING: Actually, there is a missing component: the sound recorder.
+See https://otcshare.org/tizenpc/node/5999#comment-5924
+
+Tizen PC supports some of these codecs and formats through the GStreamer 
+framework. GStreamer is a set of components that are pipelined
+together to achieve a coding/decoding chain for audio, video, subtitles 
+and more...
+
+The main version of GStreamer includes the core component (the GStreamer
+framework) and some plugins that implements a set of codecs. By default
+the plugins are:
+
+gst-plugins-base:: The base plugins;
+gst-plugins-good:: Some high quality plugins that are free of use;
+gst-plugins-bad:: Some bad quality plugins that may have license problems.
+
+WARNING: Currently, GStreamer comes in two different versions: the
+version 0.10 that is still needed by WRT/EFL and the version 1.0 that
+is needed by the mainstream Gnome applications. So what will be 
+tested here is the integration of GStreamer 1.0 because it is the future.
+
+These multimedia applications are able to operate with multimedia
+materials located on the local filesystem, the mounted devices and 
+the internet streams. Then the implementation of HTTP and RTSP 
+have to be tested.
+
+
+=== Creating and ripping of CD and DVD.
+
+Two applications are distributed for ripping and creating
+CD and DVD.
+
+- Sound Juicer – Ripping and copy of CDDA
+- Brasero – Creation and copy of CD/DVD (not only audio and video)
+
+=== Formats
+
+The compliance specification for tizen mobile profile defines the required decoders, 
+encoders and formats that must be supported.
+
+This is summarized in the tables below. 
+To read it, assume that:
+
+- a *yes* means that it is required;
+- a *no* means that it is not required;
+- a *?* means that the status isn't known, what happens if the item
+  isn't mentioned (FLAC, Opus, Matroska, VP8) or for file formats
+  that are not fully qualified (only their support is tell, what implies 
+  the decoding capacity, but the status for encoding isn't written)
+
+.Image codecs
+[width="80%",cols="2,1,1,4",options="header"]
+|==============================================================================================
+| name	    | coder | decoder	| note
+//---------------------------------------------------------------------------------------------
+| BMP	    | no    | yes	|
+| GIF       | no    | yes	| 
+| JPEG	    | yes   | yes	|
+| PNG	    | yes   | yes	| 
+|==============================================================================================
+
+.Audio codecs
+[width="80%",cols="2,1,1,4",options="header"]
+|==============================================================================================
+| name	    | coder | decoder	| note
+//---------------------------------------------------------------------------------------------
+| AAC	    | yes   | yes	|
+| AMR-NB    | yes   | yes	| Needed for mobile profile for telephony
+| MIDI	    | no    | yes	|
+| MP3	    | no    | yes	| Maybe an encoder should be useful for PC
+| Vorbis    | yes   | yes	| 
+| WAV	    | no    | yes	| Often it is PCM/16 ou G711. Maybe an encoder should be useful for PC.
+| FLAC	    | ?     | ?		| Why not? (see http://www.qobuz.com)
+| Opus	    | ?	    | ?		| Why not? It becomes popular for very good reasons (see https://bugzilla.redhat.com/show_bug.cgi?id=845764)
+| WMA	    | no    | ?		| no requested but why not?
+|==============================================================================================
+
+.Video codecs
+[width="80%",cols="4,1,1,4",options="header"]
+|==============================================================================================
+| name			| coder | decoder   | note
+//---------------------------------------------------------------------------------------------
+| DivX			| no	| ?	    | no requested but why not?
+| H.263			| yes	| yes	    |
+| H.264			| yes	| yes	    |
+| M-JPEG		| ?	| yes	    | needed to play webcam captures
+| MPEG-4 part 2		| yes	| yes	    |
+| MPEG-4 part 2 MS v1	| no 	| yes	    |
+| MPEG-4 part 2 MS v2	| yes	| yes	    |
+| MPEG-4 part 2 MS v3	| yes	| yes	    |
+| Theora		| ?	| ?	    | Why not and it is free
+| VP8 			| ? 	| ? 	    | Why not? Used for WebM
+| WMV			| no	| ?	    | no requested but why not?
+|==============================================================================================
+
+.Container Format
+[width="80%",cols="2,1,1,4",options="header"]
+|==============================================================================================
+| name	    | coder | decoder	| note
+//---------------------------------------------------------------------------------------------
+| 3GPP	    | ?	    | yes	| 
+| AAC	    | ?	    | yes	| 
+| AMR	    | ?	    | yes	|
+| ASF	    | no    | ?		| why not, for WMA and WMV files
+| AVI	    | no    | ?		| not sure, was popular
+| MIDI	    | ?	    | yes	| The SMF file format
+| MP3	    | ?	    | yes	|
+| MP4	    | ?	    | yes	|
+| MPEG-PS   | ?	    | ?		| Maybe as VOB is a subset of it
+| MPEG-TS   | ?	    | ?		| for television IPTV, DVB, ATSC
+| OGG	    | ?	    | yes	|
+| QTFF	    | no    | ?		| QuickTime File Format, was popular
+| VOB	    | ?	    | yes	| for DVD
+| WAV	    | ?	    | yes	| In fact the RIFF format
+| Matroska  | ?	    | ?		| Why not? used for WebM
+|==============================================================================================
+
+
+.Subtitle formats
+The compliance specification for tizen mobile profile don't specify what
+subtitle formats should be supported. Here is a proposal.
+
+- BiM, 
+- CMML, 
+- MPEG-4 part 17, 
+- Ogg Writ
+
+=== Hardware acceleration
+
+Video processing is greedy of computation resources.
+To save CPU time and improve the user experience, 
+hardware acceleration, when available, is the best solution.
+
+So the test have to ensure that full hardware acceleration is 
+used when processing video (rendering or recording).
+
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+The main functionalities of the multimedia applications have to be tested.
+The multimedia applications are *Shotwell*, *Snappy*, *Sushi*, *Cheese*, 
+*Rhythmbox*, *Sound Juicer* and *Brasero*.
+
+The multimedia capacities are widely implemented by *GStreamer* so the
+correct integration of the codecs and file formats by *GStreamer* have 
+to be tested. That test uses two strategies:
+
+- the use of the command _gst-inspect_ allow to check quickly if the 
+formats, encoders and decoders are supported.
+- the automatic testing of these implementations using a small set
+of multmedia files that covers all the requirements.
+
+The low layer pulseaudio have to be tested.
+
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+Only a small subset of all the combinations of container/audio/video/subtitle 
+will be tested. This subset will cover the requirements.
+
+System components like Audio driver, Graphic driver, Alsa, HDMI, DRM, UPnP/DLNA, 
+will not be tested. 
+
+The 3rd party media codecs and the codec not listed will not be tested.
+
+The multimedia web API as normalised for HTML and javascript of Web clients
+isn't to be tested.
+
+Power drain is not measured.
+
+// (performance of decoding/encoding video)???
+
+== Test Strategy and Approach 
+
+// Instructions:
+// HOW TO TEST THE COMPONENT)
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+As GStreamer is the main component of playing and encoding audio, videos, and subtitles, 
+testing it first in an automatic process will gives important indicators on what are the
+available capacities, specially in matter of codecs, formats and seek protocols.
+
+Then the integration of GStreamer library has to be tested on a well known available
+capacities. In that way, testing of the functionalities of the Multimedia
+applications will be simple because the manual operations don't have to be made
+on multiple formats, what would be painful.
+
+
+
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+For each component or application, here below called component, one or more
+of the tests listed below are performed.
+
+At least, for all component the following test are performed:
+- Acceptance Test
+- Sanity Test
+- Main features Test
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+
+Installation of the component using zypper works: the component and its dependencies are installed.
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a sanity test reflect the most important functionality, stability and PnP of the distribution.
+
+The component can be run: none of its runtime dependency is broken, 
+it can start in the Tizen environment without crashing.
+
+==== Main features Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+
+The main feature(s) of the component works: the component doesn't crash, it 
+performs the expected behaviour in the expected time, it stops itself properly.
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+//==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload.
+
+The component power consumption, its CPU usage and its time to perform defiend task
+are measured and compared to an expected target.
+
+//==== Stability Test
+
+// Instructions:
+// Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+
+//==== Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+// Instructions:
+//
+
+The component can access to its system dependencies: gconf, gsettings, printing, networking, 
+the help is accessible, the language can be set, ...
+
+The component either integrates itself well to an other one or integrate well an other component into itself.
+(for example: the nautilus extensions)
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+==== Interopeability Test
+
+// Instructions:
+//
+
+Checking that Gnome is interoperable with Mozilla, KDE, ... and more generally any application that isn't GNOME-compliant is out of scope.
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+==== Functional Positive
+
+Positive testing includes approaches to directly call and test out a command or interface (launch of application, use of menus, buttons, input text fields ...).
+
+==== Functional Negative
+
+Negative testing is to ensure that unexpected or invalid values can be handled gracefully.
+
+It involves counter-testing of a given feature, such as sending in a bad value to an API with the expectation of a failure (Populating required field/input with unsupported/not appropriated values, unsupported format, Oversize data/out of range value, Corrupted data, Wrong settings/configurations (ex: create an invalid Empathy account), Duplication, Launch of application while already launched, Create a contact with an invalid email).
+
+Negative testing is mainly aimed at detecting crashes in different situations.
+ 
+==== Reliability
+
+The purpose of reliability testing is to ensure that the system is able to manage critical situations successfully during a specified period of time without any failure (data loss, latency, crash …). It includes test of Robustness, Recovery, Iterative (stress), Long Lasting (launch and close an application intensively, add one hundred buddies in Chat application, create one hundred contacts in Contact application, populate fields with huge strings ...)
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+We will adopt specific test methodologies to the component or sub-component testing:
+
+White-box Test Methods::
+- execution of command lines from a Terminal that tests internal structures
+- communication with d-Bus
+- verification of services and daemon
+
+Black-box Test Methods::
+- execution of command lines from a Terminal that tests functionality
+- manual tests covering functionality of the system using the User Interface, peripherals (keyboard, mouse ...)
+
+=== Flexibility
+
+// Instructions:
+// Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints
+
+&nbsp;
+
+NOTE: This chapter will be detailed after first tests [red]#TODO#
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+&nbsp;
+
+NOTE: This chapter will be detailed after engineering review (after features list validation) [red]#TODO#
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+// NOTE: Some test cases have notes like [Req x.y.z] refering to {otcshare}/5791[Use Cases documentation (v4)]
+
+NOTE: Priorities in test cases must be modified according to features properties [red]#TODO#
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_mm.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::common/test_exec.asciidoc[]
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Known limitations:
+--
+* Gnome PRD (Product Requirement Documentation) is not available. The Test Plan should we reviewed again when the PRDs will be available.
+--
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role          			| Contact               
+//---------------------------------------------------------------------------------------------
+|Architect			      | [red]#TBD#
+|Designer			      | Claire H. Alexander <claire.h.alexander@intel.com>
+|Engineering Manager		| Paul G. Cooper <paul.g.cooper@intel.com>
+|Developers			      | Tizen UI: Collabora (UK), Gnome Integration: Eurogiciel (FR)
+|PM			            | Hirally Santiago Rodriguez <hirally.santiago.rodriguez@intel.com>
+|Marketing			      |
+|Test planning and test case Lead | Yann Argotti <yann.argotti@intel.com>
+|QA			            | 
+|QA Conformance			| 
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+Product Requirements:
+--
+* PRD [red]#(missing)#
+* Jira Filter [red]#TODO#
+--
+
+
+include::common/references.asciidoc[]
+
+

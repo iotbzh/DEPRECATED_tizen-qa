@@ -1,0 +1,89 @@
+#!/usr/bin/perl -w
+
+# see also: http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+
+use 5.10.0;
+use strict;
+use warnings;
+use X11::Protocol;
+use MIME::Base64 qw(encode_base64);
+
+my @getpropconst = ('AnyPropertyType', 0, -1, 0);
+
+# based on X11::Tops but to get more info
+my $X = X11::Protocol->new();
+my $xtops = {};
+$xtops->{X} = $X;
+$xtops->{root} = $X->root; # assumes only 1 screen
+$xtops->{$_} = $X->InternAtom($_, 0) for qw(
+    _NET_CLIENT_LIST
+    _XCHAR_CHAR
+    _XCHAR_COMMAND
+);
+$xtops->{$_} = $X->atom($_) for qw(
+    _WIN_CLIENT_LIST
+    _NET_ACTIVE_WINDOW
+    _NET_CLIENT_LIST_STACKING
+    WM_CLASS
+    WM_NAME
+    WM_ICON_NAME
+    _NET_WM_ICON_GEOMETRY
+    _NET_WM_ICON
+    STRING
+    WM_NORMAL_HINTS
+    WM_SIZE_HINTS
+);
+$xtops->{$_} || croak("failed to create atom $_") for qw(
+    _XCHAR_CHAR
+    _XCHAR_COMMAND
+);
+
+# fetch the ID's taken from X11::Tops::fetch_ids()
+my $_NET_CLIENT_LIST = $xtops->{_NET_CLIENT_LIST};
+my ($value,$type,$format,$bytes_after) =
+    $X->GetProperty($xtops->{root}, $_NET_CLIENT_LIST, @getpropconst);
+my @ids = unpack('L*', $value);
+#print "Window IDs: @ids\n";
+
+if ($#ARGV != 0) {
+	print STDERR "Usage: $0 <window class>\n";
+	exit 1;
+}
+my $tofind=$ARGV[0];
+my $found=0;
+#print STDERR "Searching for windows with class '$tofind'\n";
+
+foreach my $id (@ids) {
+	# get window class and title
+	# Window class
+	my ($instance,$class,$title);
+
+	eval {
+		{
+			my $WM_CLASS = $xtops->{WM_CLASS};
+			my ($value,$type,$format,$bytes_after) = $X->GetProperty($id, $WM_CLASS, @getpropconst);
+			($instance,$class) = split("\0", $value);
+		}
+		{
+			my $WM_NAME = $xtops->{WM_NAME};
+			my ($value,$type,$format,$bytes_after) = $X->GetProperty($id, $WM_NAME, @getpropconst);
+			$title = $value;
+		}
+	};
+	if ($@) {
+		print STDERR "Error caught: ".$@->what;
+		next;
+	}
+
+	if ($class =~ /$tofind/) {
+		print "$id:$class:$instance:$title\n";
+		$found++;
+	}
+}
+
+if ($found>0) {
+	exit 0;
+}
+
+print STDERR "Window '$tofind' not found\n";
+exit 1;

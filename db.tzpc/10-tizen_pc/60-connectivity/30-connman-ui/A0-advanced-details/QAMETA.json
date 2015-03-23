@@ -1,0 +1,385 @@
+[
+  {
+    "name": "autoconect-switch-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Auto connect switch is visible ",
+    "description": "Auto connect switch is visible when the user access the advance settings of a service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- At least Wifi or Ethernet technology is enabled\r\n- User is connected to a service ?\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on a service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that auto connect switcher is visible",
+        "expected": "auto connect switcher is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 16:50:05 GMT",
+    "mtime": "2013-03-29 13:13:31 GMT"
+  },
+  {
+    "name": "autoconnect-switch-on",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Auto connection to a service can be enabled",
+    "description": "When the Auto connect switch is toggled on 'I' for a given service, user should be able to automatically connect this service, when it is available\r\n\r\nTODO : test case to be confirm : services supposed to be auto connectable ? criteria to be able to toggle the switch button ?",
+    "pre_condition": "- User is connected to a service ?\r\n- Auto connect mode is not enabled - switcher is toggled on 'O'\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, toggle the Auto connect switch",
+        "expected": "Auto connect switch is toggled on 'I'"
+      },
+      {
+        "description": "Disable the technology of the connected service",
+        "expected": "Services of this technology don't appear in the services field"
+      },
+      {
+        "description": "Enable the technology of the service",
+        "expected": "User automatically connects to this service"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:03:12 GMT",
+    "mtime": "2013-03-29 13:06:38 GMT"
+  },
+  {
+    "name": "autoconnect-switch-off",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Auto connection to a service can be disabled",
+    "description": "When the Auto connect switch is toggled on 'O' for a given service, user should not be able to automatically connect this service, when it is available\r\n\r\nTODO : test case to be confirm : services supposed to be auto connectable ? criteria to be ",
+    "pre_condition": "- User is connected to a service ?\r\n- Auto connect mode is enabled - switcher is toggled on 'O'\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, toggle the Auto connect switch",
+        "expected": "Auto connect switch is toggled on 'O'"
+      },
+      {
+        "description": "Disable the technology of the connected service",
+        "expected": "Services s technologyof thi don't appear in the services field"
+      },
+      {
+        "description": "Enable the technology of the service",
+        "expected": "User isn't automatically connected to this service"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:04:28 GMT",
+    "mtime": "2013-03-29 13:06:28 GMT"
+  },
+  {
+    "name": "signal-strength",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Signal strength is visible",
+    "description": "Signal strength is visible when the user accesses the 'Details' option of a service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- User is connected to a service ?\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on a service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the signal strength is visible",
+        "expected": "Value of Signal strength is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:07:50 GMT",
+    "mtime": "2013-03-29 13:38:21 GMT"
+  },
+  {
+    "name": "link-speed",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Link speed is visible ",
+    "description": "Link speed is visible when the user accesses the 'Details' option of a service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- User is connected to a service ?\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on a service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the Link speed is visible",
+        "expected": "Value of Link speed is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:08:31 GMT",
+    "mtime": "2013-03-29 13:38:16 GMT"
+  },
+  {
+    "name": "security",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Supported security type is visible",
+    "description": "Supported security type is visible when the user accesses the 'Details' option of a service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- User is connected to a service ?\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on a service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the supported security type is visible",
+        "expected": "Value of Security type is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:09:03 GMT",
+    "mtime": "2013-03-29 13:38:13 GMT"
+  },
+  {
+    "name": "ip-address",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IP address of the device is visible",
+    "description": "IP address of the user is visible when the user accesses the 'Details' option of a connected service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- User is connected to a service\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the IP address is visible",
+        "expected": "Value of IP address is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:10:30 GMT",
+    "mtime": "2013-03-29 13:38:09 GMT"
+  },
+  {
+    "name": "mac-address",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Hardware address of the device is visible",
+    "description": "Mac address of the device is visible when the user accesses the 'Details' option of a connected service\r\n\r\nTODO : test case to be confirmed\r\n",
+    "pre_condition": "- User is connected to a service\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the MAC address is visible",
+        "expected": "Value of MAC address is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:11:46 GMT",
+    "mtime": "2013-03-29 13:38:04 GMT"
+  },
+  {
+    "name": "default-route",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IP address of default gateway is visible",
+    "description": "IP address of the user is visible when the user access the 'Details' option of a connected service\r\n\r\nTODO : test case to be confirmed ",
+    "pre_condition": "- User is connected to a service\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that the IP address of default route is visible",
+        "expected": "IP address of default gateway is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:12:25 GMT",
+    "mtime": "2013-03-29 13:35:01 GMT"
+  },
+  {
+    "name": "dns",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "IP address of the DNS server is visible ",
+    "description": "IP address of DNS server is visible when the user accesses the 'Details' option of a connected service\r\n\r\nTODO : test case to be confirmed\r\n",
+    "pre_condition": "- User is connected to a service\r\n- ConnMan UI is opened",
+    "steps": [
+      {
+        "description": "Double click on the connected service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, check that IP address of the DNS server is visible",
+        "expected": "IP address of the DNS server is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 17:13:28 GMT",
+    "mtime": "2013-03-29 13:45:39 GMT"
+  },
+  {
+    "name": "button-forget",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Forget Network button is visible",
+    "description": "When user click on the 'Forget Network' button, when he is connected to a wireless service, credentials for this service are lost.\r\n\r\nTODO : test case to be confirmed\r\n",
+    "pre_condition": "- User is connected to a secured wireless service \r\n- ConnMan UI is opened ",
+    "steps": [
+      {
+        "description": "Double click on the connected wireless service in the service field",
+        "expected": "A window appears with an advance menu"
+      },
+      {
+        "description": "Under the 'Details' option, click on the 'Forget Network' button",
+        "expected": "User should disconnect from this service"
+      },
+      {
+        "description": "Try to connect to the same service",
+        "expected": "Password is required"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-19 09:46:06 GMT",
+    "mtime": "2013-03-29 13:55:30 GMT"
+  }
+]

@@ -1,0 +1,36 @@
+[
+	{
+		"name": "daemon",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Check if daemon is running",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "check_gnome_app.sh gnome-settings",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	},
+	{
+		"name": "gui",
+		"priority": 0,
+		"status": "ready",
+		"type": "functional_positive",
+		"subtype": null,
+		"objective": "Health test",
+		"description": "Start application and check if a window appears",
+		"notes": "-",
+		"bugs": "-",
+		"exec_type": "auto",
+		"exec_pre": null,
+		"exec": "launch_gnome_app.sh -c 'Gnome-control-center' -t 15 -- /usr/bin/gnome-control-center",
+		"exec_expected_retcode": 0,
+		"exec_kill_timeout": 30,
+		"exec_post": null
+	}
+]

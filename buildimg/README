@@ -1,0 +1,74 @@
+# Various tools to automate image creation
+#
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+############## Configuration (opensuse 12.2)
+
+# declare Tools repo (if not done yet)
+sudo zypper ar http://download.tizen.org/tools/latest-release/openSUSE_12.2 Tools
+
+# install necessary packages
+sudo zypper in mic sqlite3 perl-XML-XPath xmlstarlet lzop
+
+# copy tzconfig.sample to ~/.tzconfig
+cp tzconfig.sample ~/.tzconfig
+
+# edit ~/.tzconfig to adjust user(XXX)/password(YYY)
+vi ~/.tzconfig
+
+# protect file
+chmod 600 ~/.tzconfig
+
+# create a local images directory (or link) (not in GIT)
+mkdir images
+# OR
+ln -s ~/images .
+
+############### Usage ################
+
+# make help: get current repos status and possible targets
+make help
+
+# build daily release image (with latest or specific snapshot)
+make weekly
+make weekly SNAPSHOT=<snapshot name>
+
+# build daily release image (with latest or specific snapshot)
+make daily
+make daily SNAPSHOT=<snapshot name>
+
+# build devel image (with latest or specific snapshot)
+make devel
+make devel SNAPSHOT=<snapshot name>
+
+# build devel usb image
+make devel-usb 
+make devel-usb SNAPSHOT=<snapshot name>
+
+# build trunk usb image
+make trunk-usb 
+make trunk-usb SNAPSHOT=<snapshot name>
+
+
+# => images are located in subdirectory "images"
+
+############### Tools
+
+# poll for trunk and devel snapshots
+make poll
+
+# start autotests
+make poll-exec

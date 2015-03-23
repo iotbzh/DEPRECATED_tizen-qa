@@ -1,0 +1,26 @@
+[
+  {
+    "name": "weston-desktop-shell",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check if weston desktop is shown",
+    "description": "Check if the weston-desktop-shell process is launched",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "checkprocess.sh weston-desktop-shell",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2014-05-13 16:10:30 GMT",
+    "mtime": "2014-05-13 16:21:00 GMT"
+  }
+]

@@ -1,0 +1,157 @@
+[
+  {
+    "name": "set-time-zone",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set time zone ",
+    "description": "Check that the time zone can be changed.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the time at the top of the desktop shell",
+        "expected": "a window appears that displays a calendar"
+      },
+      {
+        "description": "In the window clik on \"Date and Time Settings\"",
+        "expected": "the \"Date and Time Settings\" dialog appears"
+      },
+      {
+        "description": "Click on the unlock icon",
+        "expected": "A window requiring an authentification by password is displayed"
+      },
+      {
+        "description": "Fill with the administrator password",
+        "expected": "the \"Date and Time Settings\" dialog is unlocked"
+      },
+      {
+        "description": "Select an other region and an other city",
+        "expected": "the change must update the clock at the top of the desktop shell, any desktop widgets which display time, any other calendar applications."
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.3.1]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "daylight-onoff",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "disabled",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set daylight",
+    "description": "daylight can't be set, see rpm tzdata (profile/base/tzdata)",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "[Req. 1.3.2]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-time-manual",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set time manually",
+    "description": "\"Check if it is possible to change the time manually. ",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the time at the top of the desktop shell",
+        "expected": "a window appears that displays a calendar"
+      },
+      {
+        "description": "In the window clik on \"Date and Time Settings\"",
+        "expected": "the \"Date and Time Settings\" dialog appears"
+      },
+      {
+        "description": "Click on the unlock icon",
+        "expected": "A window requiring an authentification by password is displayed"
+      },
+      {
+        "description": "Fill with the administrator password",
+        "expected": "the \"Date and Time Settings\" dialog is unlocked"
+      },
+      {
+        "description": "Set up the time and date manually using the interface",
+        "expected": "Changes are reflected on the clock on the  top of the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.3.3]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-time-internet",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set time via internet",
+    "description": "Check if it is possible to set the internet time.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the time at the top of the desktop shell",
+        "expected": "a window appears that displays a calendar"
+      },
+      {
+        "description": "In the window clik on \"Date and Time Settings\"",
+        "expected": "the \"Date and Time Settings\" dialog appears"
+      },
+      {
+        "description": "Click on the unlock icon",
+        "expected": "A window requiring an authentification by password is displayed"
+      },
+      {
+        "description": "Fill with the administrator password",
+        "expected": "the \"Date and Time Settings\" dialog is unlocked"
+      },
+      {
+        "description": "Set manually a wrong hour (5mn in past or futur)",
+        "expected": "the hour is displayed on title bar"
+      },
+      {
+        "description": "Select \"Network Time\"",
+        "expected": "dialogs to change the hour must be grayed"
+      },
+      {
+        "description": "After a while",
+        "expected": "check that the hour has become correct"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.3.4] nothing happens",
+    "bugs": "TZPC-736",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]

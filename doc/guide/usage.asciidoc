@@ -1,0 +1,928 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+:componentName: Usage Guide
+:author: Tizen PC Vannes Team
+:revdate: 2013-04-26
+:revnumber: 1.0
+:title: Usage guide
+:status: Ready
+
+// -------------------------------------------------------------
+
+= Tizen PC - QA Tools {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+== Scope of this Document 
+
+This document explains how to get started with the QA Tools for Tizen. 
+
+We assume that a QA Server has been installed by following the installation guide.
+
+Some practical use cases are described to allow to easily become familiar with the infrastructure.
+
+== Configuration check
+
+Before entering into the details, make sure that the credentials to access to tz.otcshare.org and QA Reports are correctly set.
+
+Log on the server as 'qadmin', and check the '~/.tzconfig' file:
+----
+$ cat ~/.tzconfig
+# Configuration file for TZ access
+
+TZUSER=xxxxxxxx
+TZPASSWD=yyyyyyyyy
+TZURL=https://${TZUSER}:${TZPASSWD}@download.tz.otcshare.org/
+----
+
+Correct username and/or password if needed.
+
+Check also that the CATS 'admin' user has the correct API token for QA Reports:
+----
+$ sudo cat /opt/cats/cats_db/users/admin 
+[USER]
+user = admin
+password = e10adc3949ba59abbe56e057f20f883e
+label = super
+security_string_1 = {'name':'xxxxxxxx', 'auth_token':'YYYYYYYYYYYYYYYYYYYY'}
+----
+
+Correct security_string_1 with your own credentials.
+
+
+Check that the 'etc/test_reports.conf' file contains the correct API token for QA Reports:
+----
+$ cat ~/qatizen/etc/test_reports.conf
+...
+----
+
+Correct 'XXXXXXXXX' placeholders if needed.
+
+Check that the file '/home/qadmin/.netrc' has the correct authentication information:
+----
+$ cat ~/.netrc
+machine tzqarpt.otcshare.org login XXXXXXXX password YYYYYYYY
+----
+
+Replace placeholders by your login and password to access to QA Reports site.
+
+== Testcases editor: tcbrowse
+
+Check that TC edition works
+
+----
+$ tcbrowse 
+----
+
+If the server is installed with a desktop, the command should open your default web browser with the web UI of the TC database.
+
+If the server has no desktop (or is an appliance), just open your browser and open the web page http://qaserver:3000/
+
+The following interface should be available:
+
+image:usage/tcbrowse.png["TCBrowse"]
+
+When you're finished with edition, stop the TC web editor:
+----
+<Ctrl+C>
+----
+
+== Build an image from Tizen repositories
+
+To build an image, use the 'qabuildimg' command.
+
+This commands works with a Makefile which can be found in the 'buildimg' subdirectory.
+
+The general usage is:
+
+----
+qabuildimg <image type> [SNAPSHOT=<id> (default=latest)] [FLAVOUR=<id> (for trunk and devel only, default=standard)]
+----
+
+where:
+* <image type> is the release we should build against: trunk, devel, daily, weekly
+* SNAPSHOT=<id>: specifies which snapshot will be used. If not given, latest snapshot is used
+* FLAVOUR=<id>: specifies that the image will be built with some custom rules. Default is 'standard'
+
+
+When the command is run without any argument, the list of lastest snapshots is displayed:
+----
+$ qabuildimg
+qabuildimg <image type> [SNAPSHOT=<id> (default=latest)] [FLAVOUR=<id> (for trunk and devel only, default=standard)]
+
+Available targets and snapshots:
+- devel SNAPSHOT=tizen-pc-devel_20130429.3
+- trunk SNAPSHOT=tizen-pc_20130429.2
+- daily SNAPSHOT=tizen-pc_20130426.7
+- weekly SNAPSHOT=tizen-pc_20130423.3
+----
+
+For example, to build the latest trunk snapshot:
+----
+$ qabuildimg trunk
+----
+
+If the build succeeds, the raw image can be found in the images folder:
+----
+$ cd
+$ tree qatizen/images
+----
+
+'Expected result :' (snapshot id may be different, but folder hierarchy should look as below)
+----
+$ tree -s qatizen/images/ 
+qatizen/images/
+|-- [         68]  README
+`-- [       4096]  trunk-standard
+    |-- [         66]  latest -> tizen-pc_20130429.2/images/raw/tizen-pc_20130429.2_raw-sda.raw.lzo
+    |-- [         82]  latest.id
+    |-- [       4096]  tizen-pc_20130429.2
+    |   `-- [       4096]  images
+    |       `-- [       4096]  raw
+    |           |-- [        256]  MD5SUMS
+    |           |-- [       1977]  tizen-pc_20130429.2_raw.ks
+    |           |-- [      62019]  tizen-pc_20130429.2_raw.packages
+    |           |-- [  735652080]  tizen-pc_20130429.qab	2_raw-sda.raw.lzo
+    |           `-- [        485]  tizen-pc_20130429.2_raw.xml
+    `-- [      95832]  tizen-pc_20130429.2-raw.log
+
+4 directories, 9 files
+----
+
+The raw image has been created in images/trunk-standard/<snapshot_id>/images/raw/<snapshot_id>-sda.raw.lzo
+
+A symbolic link 'latest' is automatically in qatizen/images/<image type> and will be used for referencing the image to be flashed on a target.
+
+To build a specific snapshot, one can use:
+----
+$ qabuildimg devel SNAPSHOT=tizen-pc-devel_20130429.3
+----
+
+Also note than some liveUSB images can be created:
+----
+$ qabuildimg trunk-usb
+----
+
+The usb images are stored in <release>-usb-standard:
+----
+$ tree -s qatizen/images/ 
+qatizen/images/
+|-- [         68]  README
+|-- [       4096]  trunk-standard
+|   |-- [         66]  latest -> tizen-pc_20130429.2/images/raw/tizen-pc_20130429.2_raw-sda.raw.lzo
+|   |-- [         82]  latest.id
+|   |-- [       4096]  tizen-pc_20130429.2
+|   |   `-- [       4096]  images
+|   |       `-- [       4096]  raw
+|   |           |-- [        256]  MD5SUMS
+|   |           |-- [       1977]  tizen-pc_20130429.2_raw.ks
+|   |           |-- [      62019]  tizen-pc_20130429.2_raw.packages
+|   |           |-- [  735652080]  tizen-pc_20130429.2_raw-sda.raw.lzo
+|   |           `-- [        485]  tizen-pc_20130429.2_raw.xml
+|   `-- [      95832]  tizen-pc_20130429.2-raw.log
+`-- [       4096]  trunk-usb-standard
+    |-- [         66]  latest -> tizen-pc_20130429.2/images/liveusb/tizen-pc_20130429.2_liveusb.img
+    |-- [         82]  latest.id
+    |-- [       4096]  tizen-pc_20130429.2
+    |   `-- [       4096]  images
+    |       `-- [       4096]  liveusb
+    |           |-- [        202]  MD5SUMS
+    |           |-- [  731906048]  tizen-pc_20130429.2_liveusb.img
+    |           |-- [       1977]  tizen-pc_20130429.2_liveusb.ks
+    |           `-- [      62019]  tizen-pc_20130429.2_liveusb.packages
+    `-- [     114528]  tizen-pc_20130429.2-liveusb.log
+
+8 directories, 16 files
+----
+
+The generated image can be dd'ed on a USB key and used to boot Tizen.
+
+Multiple builds can be chained (don't specificy snapshots id for this to work:
+----
+$ qabuildimg trunk devel trunk-usb devel-usb
+----
+
+== Setup the target devices
+
+=== Adding a new target device
+
+Let's assume that we have the following device:
+--
+* product: Lenovo X230 Tablet
+* platform: IvyBridge
+* MAC Address: 3C:97:0E:49:AD:7B
+--
+
+We want to attribute the following properties to this device:
+-- 
+* IP Address: 10.20.0.16
+* Host name: lenovo06
+* Target ID: lenovo06 (same as hostname, but this is not mandatory)
+--
+
+We use the 'qatarget' command to declare the target devices to be flashed. The general usage is:
+----
+$ qatarget help add
+Usage: qatarget add <id> <hostname> <ip_address> <mac_address> [product] [platform] [description] [comment]
+----
+
+So, for our device, we call:
+----
+$ qatarget add lenovo06 lenovo06 10.20.0.16 3C:97:0E:49:AD:7B "Lenovo X230 Tablet" "IvyBridge" "" ""
+----
+
+This command:
+--
+* adds the device in etc/hwtargets.conf (used by all qa tools)
+* adds the device in etc/dnsmasq.qa.dhcp (DNSMasq file to map MAC addresses and IP addresses/hostnames)
+* adds the device in etc/dnsmasq.qa.hosts (DNSMasq file to map IP addresses to hostnames)
+* adds the device to CATS-server (/opt/cats/cats_db/devices/<ip_address>)
+* restarts DNSMasq
+--
+
+You can edit the 'etc/hwtargets.conf' file to adjust description and comments for a given target. These informations are reused when generating the CATS recipe and finally are written in the test reports on QA Report site.
+
+=== Listing declared devices
+
+We can verify that the target has been added successfully:
+----
+$ qatarget list
+10.20.0.16
+----
+
+This commands lists the known target devices by showing their IP addresses.
+
+=== Removing a device
+
+If a device is removed permanently from the test LAN, it can be removed. For example, to remove a target device with id 'lenovo25', run:
+----
+$ qatarget remove lenovo25
+----
+
+== Flash an image on a target device
+
+=== Start the flash server
+
+First, we need to start the flash server (it's not started automatically a boot time, as no script has been written yet for this).
+
+Verify that the flasher is not running:
+----
+$ ps -ef|grep qaflasher |grep node
+----
+
+If no process is running, start the server in background:
+----
+$ nohup qaflasher >/dev/null 2>&1 &
+----
+
+The server is started and it's log can be obtained in 'log/qaflasher.log'. In a separate terminal, run:
+----
+$ tail -f ~/qatizen/log/qaflasher.log
+----
+
+=== Target device BIOS configuration
+
+First, prepare the target device for net boot.
+
+In BIOS setup:
+--
+* Enable network boot
+* Change boot priorities: USB disk > Network > Hard drive
+* Save and exit
+--
+
+The device will now boot on network at next power up/reboot.
+
+=== Indicate which image must be installed on which device
+
+Let's assume that we want to install the previously built image 'trunk-standard' on the target device.
+
+To indicate to the flash server that the target 'lenovo06' must be flashed with the latest 'trunk-standard' image, run:
+----
+$ qatarget setimage lenovo06 trunk-standard
+----
+
+This creates a link in 'flash/targets/10.20.0.16/image.raw' (used by flash server to send image to be flashed) that points to 'images/trunk-standard/tizen-pc_20130429.2/images/raw/tizen-pc_20130429.2_raw-sda.raw.lzo' (the image built previously).
+
+=== Boot the target
+
+Power up the target device (or reboot it).
+
+The target device should boot on the Debian Live image, then be flashed and finally reboot.
+
+On the second reboot, the Tizen image should start from local hard drive. 
+
+At next reboot, the target device will be flashed again.
+
+
+=== Convenience commands
+
+Some commands have been added for regular operations.
+
+'qatarget status' gives the status for all known target devices (snapshot versions if available in '/etc/tizen-snapshot', generated at image build time):
+----
+$ qatarget status
+10.20.0.16 : TRUNK_RAW tizen-pc_20130429.2 standard
+10.20.0.15 : unreachable
+----
+
+Status for a given host:
+----
+$ qatarget status lenovo06
+10.20.0.16 : TRUNK_RAW tizen-pc_20130429.2 standard
+----
+
+Connect automatically with ssh on target host:
+----
+$ qatarget ssh lenovo06
+Warning: Permanently added 'lenovo06,10.20.0.16' (ECDSA) to the list of known hosts.
+root@lenovo06:~#
+----
+
+Start a remote command:
+----
+$ qatarget ssh lenovo06 cat /etc/tizen-snapshot
+Warning: Permanently added 'lenovo06,10.20.0.16' (ECDSA) to the list of known hosts.
+TRUNK_RAW tizen-pc_20130429.2 standard
+----
+
+
+Reboot a target device:
+----
+$ qatarget reboot lenovo06
+----
+
+
+Associate an image to a target device and reboot it for flashing (this a shortcut for 'qatarget setimage' + 'qatarget reboot'):
+----
+$ qatarget flash lenovo06 trunk-standard
+----
+
+More generally, to get help about qatarget, run:
+----
+$ qatarget help
+----
+
+== Run tests manually
+
+=== Start CATS Server
+
+First, start the CATS Server in a new terminal:
+----
+$ su - cats -c "cats-server"
+Password: 
+[INFO] 2013-04-30 14:50:52  Create DB at "/opt/cats/cats_db"
+
+[INFO] 2013-04-30 14:50:52  Generate WatchDog
+
+[INFO] 2013-04-30 14:50:52  Create Scheduler
+
+[INFO] 2013-04-30 14:50:52  Starting XMLPRC Server ...
+[INFO] 2013-04-30 14:50:52  XMLRPC Server is listening at:
+[INFO] 2013-04-30 14:50:52  -----Host: localhost
+[INFO] 2013-04-30 14:50:52  -----Port: 9572
+
+[INFO] 2013-04-30 14:50:54  Scheduler started...
+----
+
+
+=== Run a testsuite on target device
+
+Use 'qamanager' to run a testsuite defined in 'etc/test_suites.conf' on target 'lenovo06':
+----
+$ qamanager lenovo06 qasetup_auto 
+Warning: Permanently added 'lenovo06,10.20.0.16' (ECDSA) to the list of known hosts.
++ for p in '$profile'
++ /home/qadmin/qatizen/bin/qamanager.real -p qasetup_auto -t lenovo06 -b tizen-pc_20130430.3
+[2013-04-30 14:48:57.834] [INFO] qaconfig - Opening config file /srv/qatizen/etc/test_globals.conf
+[2013-04-30 14:48:57.845] [INFO] hardware - Opening config file /srv/qatizen/etc/hwtargets.conf
+[2013-04-30 14:48:57.846] [INFO] hardware - 1 devices definitions loaded
+[2013-04-30 14:48:57.847] [INFO] qaconfig - Opening config file /srv/qatizen/etc/test_suites.conf
+[2013-04-30 14:48:57.848] [INFO] qaconfig - Opening config file /srv/qatizen/etc/test_reports.conf
+[2013-04-30 14:48:57.856] [INFO] qaconfig - Opening config file /srv/qatizen/etc/qaexport.conf
+[2013-04-30 14:48:58.025] [INFO] qarun - Test run with options:
+{ hwtarget: 
+   { product: 'Lenovo X230 Tablet',
+     platform: 'IvyBridge',
+     description: '',
+     hostname: 'lenovo06',
+     mac_address: '3c:97:0e:74:1b:c5',
+     ip_address: '10.20.0.16',
+     comment: '',
+     id: 'lenovo06' },
+  report: { type: 'none', id: 'default' },
+  profile: 
+   { filter: [Function],
+     test_type: 'QA Server setup - automated tests',
+     title: null,
+     environment: 'These tests are executed automatically.',
+     objective: 'Check QA Server setup',
+     qa_summary: '',
+     issue_summary: '',
+     suite: 'ZZ-qasetup',
+     id: 'qasetup_auto' },
+  build_id: 'tizen-pc_20130430.3',
+  build_num: '20130430.3',
+  image_url: 'https://download.tz.otcshare.org/snapshots/trunk/pc/tizen-pc_20130430.3/',
+  db: 
+   { root: 
+      { dirpath: '/srv/qatizen/db',
+        subDirs: [Object],
+        subDirsArray: [Object],
+        testset: null,
+        paths: {},
+        name: '',
+        shortname: '',
+        prefix: '',
+        path: '',
+        upperDir: [Circular] } },
+  dryrun: false,
+  id: 'tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U' }
+[2013-04-30 14:48:58.056] [INFO] qasuite - Selected testsets:
+ - ZZ-qasetup
+[2013-04-30 14:48:58.057] [INFO] qaserv - Creation of service manager for testsuite: ZZ-qasetup
+[2013-04-30 14:48:58.058] [INFO] qaserv - Starting the services
+[2013-04-30 14:48:58.072] [INFO] qarun - Generating XML instructions for Testkit...
+[2013-04-30 14:48:58.076] [INFO] qarun - Testkit XML generated
+[2013-04-30 14:48:58.078] [INFO] qarun - Creating testcases archive
+[2013-04-30 14:48:58.104] [INFO] qautils - tar create completed successfully
+[2013-04-30 14:48:58.105] [INFO] qarun - Testcases archive created in /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/tests.tar
+[2013-04-30 14:48:58.108] [INFO] qautils - tar add completed successfully
+[2013-04-30 14:48:58.111] [INFO] qarun - Added testkit file to tarball
+[2013-04-30 14:48:58.128] [INFO] qautils - gzip tar completed successfully
+[2013-04-30 14:48:58.129] [INFO] qarun - Tarball compressed successfully: /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/tests.tar.gz
+[2013-04-30 14:48:58.129] [INFO] qarun - Generating Cats Recipe
+[2013-04-30 14:48:58.131] [INFO] qarun - Cats recipe generated: /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/cats.recipe
+[2013-04-30 14:48:58.132] [INFO] qarun - Submitting Cats Recipe
+[2013-04-30 14:49:38.360] [INFO] qacats - [INFO] 2013-04-30 14:48:58  ------>Submit New Recipe Successful
+[INFO] 2013-04-30 14:48:58  ------>New Recipe ID Is 1
+
+[INFO] 2013-04-30 14:48:58  Recipe Id = 1  Status Is <-----DEPLOYED----->
+[DEPLOYED]=[INFO] 2013-04-30 14:48:58  setup begin
+[INFO] 2013-04-30 14:48:58  Handle flasher plugin
+Find cats.plugin.executor.executor.DefaultExecutor
+get DEFAULT2 plugin
+Base executor
+Find cats.plugin.noflasher.no_flasher.NoFlasher
+Find cats.plugin.pseudoflasher.pseudo_flasher.PseudoFlasher
+get NOFLASH plugin
+Base flasher engine
+
+
+[INFO] 2013-04-30 14:48:58  ssh -q cats@10.20.0.16 "rm -fr /root/opt/recipe/1/result /root/opt/recipe/1/test"
+[INFO] 2013-04-30 14:48:59  ssh -q cats@10.20.0.16 "mkdir -p /root/opt/recipe/1/result /root/opt/recipe/1/test;"
+[INFO] 2013-04-30 14:48:59  ssh -q cats@10.20.0.16 "which get_server_pubkey.py"
+/usr/bin/get_server_pubkey.py
+[INFO] 2013-04-30 14:48:59  Handle reporter plugin
+[CRITICAL] 2013-04-30 14:48:59  not specify reporter
+[INFO] 2013-04-30 14:48:59  Total Testing is 864240
+[INFO] 2013-04-30 14:48:59  setup end
+[INFO] 2013-04-30 14:48:59  flash_image begin
+[INFO] 2013-04-30 14:48:59  No need refresh image
+[INFO] 2013-04-30 14:48:59  flash_image end
+[INFO] 2013-04-30 14:48:59  generate_runtest begin
+[INFO] 2013-04-30 14:48:59  Flasher generate_runtest begin
+[INFO] 2013-04-30 14:48:59  flasher create_test begin /home/qadmin/recipe/1/test/init
+[INFO] 2013-04-30 14:48:59  flasher create_test end
+[INFO] 2013-04-30 14:48:59  flasher create_test begin /home/qadmin/recipe/1/test/qatests
+[INFO] 2013-04-30 14:48:59  flasher create_test end
+[INFO] 2013-04-30 14:48:59  flasher create_test begin /home/qadmin/recipe/1/test/finish
+[INFO] 2013-04-30 14:48:59  flasher create_test end
+[INFO] 2013-04-30 14:48:59  flasher generate_runtest end
+[INFO] 2013-04-30 14:48:59  deploy_test begin
+[INFO] 2013-04-30 14:48:59  Flasher copyto from server </home/qadmin/recipe/1/test/qatests> to host:</root/opt/recipe/1/test>
+[INFO] 2013-04-30 14:48:59  scp -q -r /home/qadmin/recipe/1/test/qatests cats@10.20.0.16:/root/opt/recipe/1/test
+[INFO] 2013-04-30 14:48:59  Flasher copyto from server </home/qadmin/recipe/1/test/init> to host:</root/opt/recipe/1/test>
+[INFO] 2013-04-30 14:48:59  scp -q -r /home/qadmin/recipe/1/test/init cats@10.20.0.16:/root/opt/recipe/1/test
+[INFO] 2013-04-30 14:48:59  Flasher copyto from server </home/qadmin/recipe/1/test/finish> to host:</root/opt/recipe/1/test>
+[INFO] 2013-04-30 14:48:59  scp -q -r /home/qadmin/recipe/1/test/finish cats@10.20.0.16:/root/opt/recipe/1/test
+[INFO] 2013-04-30 14:48:59  Flasher copyto from server </home/qadmin/recipe/1/test/runtest.sh> to host:</root/opt/recipe/1/test>
+[INFO] 2013-04-30 14:48:59  scp -q -r /home/qadmin/recipe/1/test/runtest.sh cats@10.20.0.16:/root/opt/recipe/1/test
+[INFO] 2013-04-30 14:49:00  deploy_test end
+[INFO] 2013-04-30 14:49:00  deploy_file begin
+[INFO] 2013-04-30 14:49:00  File copy from /home/qadmin/upload_file_dir/tests.tar.gz to /tmp
+[INFO] 2013-04-30 14:49:00  Flasher copyto from server </home/qadmin/upload_file_dir/tests.tar.gz> to host:</tmp>
+[INFO] 2013-04-30 14:49:00  scp -q -r /home/qadmin/upload_file_dir/tests.tar.gz cats@10.20.0.16:/tmp
+[INFO] 2013-04-30 14:49:00  deploy_file end
+[INFO] 2013-04-30 14:49:00  execute_test begin
+[INFO] 2013-04-30 14:49:00  Run in non-selftest mode
+[INFO] 2013-04-30 14:49:00  Run DISPLAY=:0.0 /root/opt/recipe/1/test/runtest.sh
+[INFO] 2013-04-30 14:49:00  ssh -q cats@10.20.0.16 "DISPLAY=:0.0 /root/opt/recipe/1/test/runtest.sh"
+scp -q -r /home/qadmin/recipe/1/test/qatests cats@10.20.0.16:/root/opt/recipe/1/test
+scp -q -r /home/qadmin/recipe/1/test/init cats@10.20.0.16:/root/opt/recipe/1/test
+scp -q -r /home/qadmin/recipe/1/test/finish cats@10.20.0.16:/root/opt/recipe/1/test
+scp -q -r /home/qadmin/recipe/1/test/runtest.sh cats@10.20.0.16:/root/opt/recipe/1/test
+scp -q -r /home/qadmin/upload_file_dir/tests.tar.gz cats@10.20.0.16:/tmp
+=====Run Test case <init> begin=====
+=====Run Test case <init> end=====
+=====Run Test case <qatests> begin=====
+>    |(10 sec)
+[INFO] 2013-04-30 14:49:08  Recipe Id = 1  Status Is <-----TESTING----->
+[TESTING]=====Run Test case <qatests> end=====
+=====Run Test case <finish> begin=====
+=====Run Test case <finish> end=====
+=> Check Test Device <Done>  (0 sec)
+[TESTING]=[INFO] 2013-04-30 14:49:24  execute_test end
+[INFO] 2013-04-30 14:49:24  Wait for test result
+[INFO] 2013-04-30 14:49:24  Total testing timeout: 864420
+[INFO] 2013-04-30 14:49:24  collect_test begin
+[INFO] 2013-04-30 14:49:24  Flasher copyfrom from host </root/opt/recipe/1/result> to server:</home/qadmin/recipe/1>
+[INFO] 2013-04-30 14:49:24  scp -q -r cats@10.20.0.16:/root/opt/recipe/1/result /home/qadmin/recipe/1
+[INFO] 2013-04-30 14:49:24  collect_test end
+[INFO] 2013-04-30 14:49:24  publish_test begin
+[INFO] 2013-04-30 14:49:24  Get log /home/qadmin/recipe/1/result/init/0_1_init_running.log
+[INFO] 2013-04-30 14:49:24  Get log /home/qadmin/recipe/1/result/qatests/1_1_qatests_running.log
+[INFO] 2013-04-30 14:49:24  Get log /home/qadmin/recipe/1/result/qatests/testkit.result.xml
+[INFO] 2013-04-30 14:49:24  Get log /home/qadmin/recipe/1/result/finish/2_1_finish_running.log
+[INFO] 2013-04-30 14:49:24  Finish testing
+[INFO] 2013-04-30 14:49:24  Recipe 1 done
+>    |(20 sec)
+[INFO] 2013-04-30 14:49:38  Recipe Id = 1  Status Is <-----DONE----->
+    Result dir = /tmp/1
+    |----+init 
+    |    |----0_1_init_running.log 
+    |----+qatests 
+    |    |----1_1_qatests_running.log 
+    |    |----testkit.result.xml 
+    |----+finish 
+    |    |----2_1_finish_running.log 
+
+[2013-04-30 14:49:38.363] [INFO] qacats - CATS Recipe completed with retcode 1
+[2013-04-30 14:49:38.363] [INFO] qaserv - Stopping the services
+----
+
+You can observe the files involved in the test in '/tmp/libqa/<test id>':
+----
+$ ls -l /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/
+total 12
+-rw-r--r-- 1 qadmin users  678 Apr 30 14:48 cats.recipe
+-rw-r--r-- 1 qadmin users 2300 Apr 30 14:48 testkit.xml
+-rw-r--r-- 1 qadmin users 3830 Apr 30 14:48 tests.tar.gz
+----
+
+The CATS recipe that was generated:
+[source,ini]
+----
+$ cat /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/cats.recipe
+[DEVICE]
+ip=lenovo06
+
+[IMAGE]
+uri=https://download.tz.otcshare.org/snapshots/trunk/pc/tizen-pc_20130430.3/
+refresh=no
+
+[OPTIONS]
+flasher={'name':'noflash','kwargs':{'work_dir':'/qa'}}
+;reporter={'name':'none'}
+download_files={'/tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/tests.tar.gz':'/tmp'}
+
+[TEST_SETUP]
+name=init
+cmd=mkdir -p /qa;cd /qa;rm -rf TESTDIR here;ln -s . here;tar xvf /tmp/tests.tar.gz;chmod -R a+rwx .;rm -v /tmp/tests.tar.gz;
+
+[TEST_1]
+name=qatests
+cmd=screen -D -m testkit-lite -f /qa/here/here/testkit.xml -o /qa/testkit.result.xml
+retrieve_log=/qa/testkit.result.xml
+timeout=864000
+
+[TEST_DONE]
+name=finish
+cmd=echo 'Tests finished'
+----
+
+This recipe uses the testkit.xml file and uploads a tarball containing all the TC scripts and data on the target device.
+
+Here is the testkit recipe that was generated for the test suite 'ZZ-qasetup':
+[source,xml]
+----
+$ xmllint --format /tmp/libqa/tizen-pc_20130430.3_qasetup_auto_lenovo06_20130430.144858U/testkit.xml 
+<?xml version="1.0"?>
+<test_definition>
+  <suite name="ZZ-qasetup">
+    <set name="ZZ-qasetup">
+      <testcase id="ZZ-01-test_notavail" priority="P0" execution_type="auto" component="qasetup" status="designed" type="functional_positive" purpose="Objective: Check that test can't be run - Description: This testcase will return 69, should be interpreted as 'BLOCK' in QA Reports">
+        <description>
+          <pre_condition><![CDATA[Objective: Check that test can't be run - Description: This testcase will return 69, should be interpreted as 'BLOCK' in QA Reports]]></pre_condition>
+          <notes><![CDATA[-]]></notes>
+          <test_script_entry test_script_expected_result="0" timeout="30"><![CDATA[cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";returnthiscode.sh 69;rc=$?;exit $rc]]></test_script_entry>
+        </description>
+      </testcase>
+      <testcase id="ZZ-02-test_notes" priority="P0" execution_type="auto" component="qasetup" status="designed" type="functional_positive" purpose="Objective: Check that a script can send notes to QA Report - Description: Insert some live notes in QA report">
+        <description>
+          <pre_condition><![CDATA[Objective: Check that a script can send notes to QA Report - Description: Insert some live notes in QA report]]></pre_condition>
+          <notes><![CDATA[]]></notes>
+          <test_script_entry test_script_expected_result="0" timeout="30"><![CDATA[cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";send_some_notes.sh;rc=$?;exit $rc]]></test_script_entry>
+        </description>
+      </testcase>
+      <testcase id="ZZ-03-test_measurement" priority="P0" execution_type="auto" component="qasetup" status="designed" type="functional_positive" purpose="Objective: Check that a script can send measurements to QA Report - Description: Insert some measures in QA report">
+        <description>
+          <pre_condition><![CDATA[Objective: Check that a script can send measurements to QA Report - Description: Insert some measures in QA report]]></pre_condition>
+          <notes><![CDATA[]]></notes>
+          <test_script_entry test_script_expected_result="0" timeout="30"><![CDATA[cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";send_some_measures.sh;rc=$?;exit $rc]]></test_script_entry>
+        </description>
+      </testcase>
+    </set>
+  </suite>
+</test_definition>
+----
+
+
+The results are stored by CATS in /tmp/<CATS recipe ID>. In our case, the CATS log indicates that the receipe Id is 1.
+So the testkit result file is here:
+[source,xml]
+----
+$ xmllint --format /tmp/1/qatests/testkit.result.xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="testresult.xsl"?>
+<test_definition>
+  <environment device_id="Empty device_id" device_model="x86_64" device_name="lenovo06" firmware_version="Empty firmware_version" host="Empty host" os_version="" resolution="Empty resolution" screen_size="Empty screen_size">
+    <other>Here is a String for testing</other>
+  </environment>
+  <summary test_plan_name="Empty test_plan_name">
+    <start_at>2013-05-01_16_36_34</start_at>
+    <end_at>2013-05-01_16_36_37</end_at>
+  </summary>
+  <suite name="ZZ-qasetup">
+    <set name="ZZ-qasetup">
+      <testcase component="qasetup" execution_type="auto" id="ZZ-01-test_notavail" priority="P0" purpose="Objective: Check that test can't be run - Description: This testcase will return 69, should be interpreted as 'BLOCK' in QA Reports" result="N/A" status="designed" type="functional_positive">
+        <description>
+          <pre_condition>Objective: Check that test can't be run - Description: This testcase will return 69, should be interpreted as 'BLOCK' in QA Reports</pre_condition>
+          <notes>-
+</notes>
+          <test_script_entry test_script_expected_result="0" timeout="30">cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";returnthiscode.sh 69;rc=$?;exit $rc</test_script_entry>
+        </description>
+        <result_info>
+          <actual_result>69</actual_result>
+          <start>2013-05-01_16_36_37</start>
+          <end>2013-05-01_16_36_37</end>
+          <stdout><![CDATA[Returning retcode 69
+]]></stdout>
+          <stderr><![CDATA[]]></stderr>
+        </result_info>
+      </testcase>
+      <testcase component="qasetup" execution_type="auto" id="ZZ-02-test_notes" priority="P0" purpose="Objective: Check that a script can send notes to QA Report - Description: Insert some live notes in QA report" result="PASS" status="designed" type="functional_positive">
+        <description>
+          <pre_condition>Objective: Check that a script can send notes to QA Report - Description: Insert some live notes in QA report</pre_condition>
+          <notes>
+This note should be present in QA report
+FOO BAR BAZ
+Everything works !
+</notes>
+          <test_script_entry test_script_expected_result="0" timeout="30">cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";send_some_notes.sh;rc=$?;exit $rc</test_script_entry>
+        </description>
+        <result_info>
+          <actual_result>0</actual_result>
+          <start>2013-05-01_16_36_37</start>
+          <end>2013-05-01_16_36_37</end>
+          <stdout><![CDATA[Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+pulse:x:100:101:PulseAudio daemon:/var/lib/pulseaudio:/sbin/nologin
+polkitd:x:101:103:User for polkitd:/var/lib/polkit:/sbin/nologin
+sshd:x:102:104:SSH daemon:/var/lib/sshd:/bin/false
+gdm:x:103:105:Gnome Display Manager daemon:/var/lib/gdm:/bin/false
+avahi:x:104:106:User for Avahi:/var/run/avahi-daemon:/bin/false
+colord:x:105:107:User for colord:/var/lib/colord:/sbin/nologin
+tizen:x:1000:100::/home/tizen:/bin/bash
+cats:x:0:0:root:/root:/bin/bash
+###[NOTE]###This note should be present in QA report
+###[NOTE]###FOO BAR BAZ
+test tordu avec des caracteres avant la pattern#####[NOTE]###Everything works !
+]]></stdout>
+          <stderr><![CDATA[###[NOTE]###This note should NOT be present in QA report
+Success
+]]></stderr>
+        </result_info>
+      </testcase>
+      <testcase component="qasetup" execution_type="auto" id="ZZ-03-test_measurement" priority="P0" purpose="Objective: Check that a script can send measurements to QA Report - Description: Insert some measures in QA report" result="PASS" status="designed" type="functional_positive">
+        <description>
+          <pre_condition>Objective: Check that a script can send measurements to QA Report - Description: Insert some measures in QA report</pre_condition>
+          <notes>
+This test should contain some measures !
+</notes>
+          <test_script_entry test_script_expected_result="0" timeout="30">cd /qa/TESTDIR/ZZ-qasetup;export QAPATH="/qa/TESTDIR/ZZ-qasetup:/qa/TESTDIR";export PATH="$QAPATH:$PATH";send_some_measures.sh;rc=$?;exit $rc</test_script_entry>
+        </description>
+        <result_info>
+          <actual_result>0</actual_result>
+          <start>2013-05-01_16_36_37</start>
+          <end>2013-05-01_16_36_37</end>
+          <stdout><![CDATA[Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+Test bla bla
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+pulse:x:100:101:PulseAudio daemon:/var/lib/pulseaudio:/sbin/nologin
+polkitd:x:101:103:User for polkitd:/var/lib/polkit:/sbin/nologin
+sshd:x:102:104:SSH daemon:/var/lib/sshd:/bin/false
+gdm:x:103:105:Gnome Display Manager daemon:/var/lib/gdm:/bin/false
+avahi:x:104:106:User for Avahi:/var/run/avahi-daemon:/bin/false
+colord:x:105:107:User for colord:/var/lib/colord:/sbin/nologin
+tizen:x:1000:100::/home/tizen:/bin/bash
+cats:x:0:0:root:/root:/bin/bash
+###[NOTE]###This test should contain some measures !
+###[MEASURE]###power:150:mW
+###[MEASURE]###:bad:measure:coz:no:name
+###[MEASURE]###speed:55:Knots:60:40
+test tordu avec des caracteres avant la pattern#####[MEASURE]###foo:300:GV
+]]></stdout>
+          <stderr><![CDATA[###[MEASURE]###not_visible:0:A
+Success
+]]></stderr>
+        </result_info>
+        <measurement failure="" name="power" power="" target="" unit="mW" value="150"/>
+        <measurement failure="40" name="speed" power="" target="60" unit="Knots" value="55"/>
+        <measurement failure="" name="foo" power="" target="" unit="GV" value="300"/>
+      </testcase>
+    </set>
+  </suite>
+</test_definition>
+----
+
+=== Run a testsuite and upload report on QA Reports
+
+To indicate that we want to send the testkit result file to QA Reports, again we use 'qamanager' with an extra option +-r+. The +-r+ option indicates which reporting profile will be used. The profile must be defined in 'etc/test_reports.conf':
+[source,js]
+----
+module.exports={
+	default: {
+		type: "none" // no report
+	},
+	qareport_weekly: {
+		type: "qareport",
+		server: "https://tzqarpt.otcshare.org",
+		auth_token: "XXXXXXXXXXXXXXXXXXXX", // QA Reports API token
+		target: "Tizen PC",
+		release_version: "2.1",
+
+		environment_header: [
+			"=== ''Automated tests - maintained by the Tizen PC QA Team'' ===",
+			"Automatic tests are run using CATS and testkit-lite.",
+			"",
+			"These tests are done only on weekly releases"
+		].join("\n")
+	},
+	qareport_trunk: {
+		type: "qareport",
+		server: "https://tzqarpt.otcshare.org",
+		auth_token: "XXXXXXXXXXXXXXXXXXXX", // QA Reports API token
+		target: "Tizen PC",
+		release_version: "CATS_Auto",
+
+		environment_header: [
+			"=== ''Automated tests - maintained by the Tizen PC QA Team'' ===",
+			"Automatic tests are run using CATS and testkit-lite.",
+			"",
+			"Trunk snapshots and daily releases only"
+		].join("\n")
+	},
+	qareport_devel: {
+		type: "qareport",
+		server: "https://tzqarpt.otcshare.org",
+		auth_token: "XXXXXXXXXXXXXXXXXXXX", // QA Reports API token
+		target: "Tizen PC",
+		release_version: "devel",
+
+		environment_header: [
+			"=== ''Automated tests - maintained by the Tizen PC QA Team'' ===",
+			"Automatic tests are run using CATS and testkit-lite.",
+			"",
+			"Devel snapshots only"
+		].join("\n")
+	}
+};
+----
+
+We have predefined the report profiles as follows:
+--
+* +qareport_weekly+ for weekly releases
+* +qareport_trunk+ for trunk snapshots
+* +qareport_devel+ for devel snapshots
+--
+
+For each profile, the +target+ key indicates the project on QA Reports site in which the results will be uploaded ('TizenPC' for us).
+Also, to indicate in which tab the report will lay down, we use the +release_version+ key.
+
+So, to run automated tests and automatically upload the report on QA Reports, simply run:
+----
+$ qamanager lenovo06 qasetup_auto -r qareport_trunk
+...
+----
+
+At the end of the tests, the CATS server uploads the result files to QA Reports: a new report is available on the site.
+
+.Main page
+image:usage/qareports1.png["Uploaded report"]
+
+.Report details
+image:usage/qareports2.png["Uploaded report (details)"]
+
+.Notes and measurements generated by testcases scripts
+image:usage/qareports3.png["Uploaded report (details)"]
+
+== Automated tests
+
+Using the special action 'poll-exec' in 'qabuildimg', we're now able to launch a testsuite automatically everytime a new snapshot is made available in trunk or devel repositories on tz.otcshare.org.
+
+First, configure in 'qatizen/etc/qasnapshot_autotest.conf' the mapping between the distros and the target devices:
+----
+$ vi ~/qatizen/etc/qasnapshot_autotest.conf
+----
+
+In our example, we want to dedicate the target 'lenovo06' to testing the trunk snapshots. So the file should look like this:
+----
+...
+HOST_trunk=lenovo06
+...
+----
+
+After that, simply run:
+----
+$ screen qabuildimg poll-exec
+<ctrl+A-D to detach>
+...
+----
+
+Running the command inside a screen session is usefull: at any time, we can log on the qaserver and run +screen -r+ to retrieve the command output. An alternate way would be to start the command and redirect to a log file:
+----
+$ nohup qabuildimg poll-exec >~/qatizen/log/autotests.log 2>&1 &
+$
+----
+
+This commands polls regularly on tz.otcshare.org to detect new snapshots. For every snapshot, the command 'qasnapshot_autotest' is run with the snapshot release ('trunk' or 'devel') and the snapshot id that was detected.
+
+This command builds a new image based on the snapshot, flashes the image on a dedicated target (configured via 'etc/qasnapshot_autotest.conf), then execute a special testsuite 'auto_full': this test suite includes all testcases in Tizen PC which are validated and automatic.
+
+The report is then uploaded automatically on QA Report site.
+
+A log file is created in 'qatizen/log/<release>_<snapshot>.log' each time 'qasnapshot_autotest' is launched.
+
+== References and Contacts
+
+Primary location for qatizen materials: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+Other QA Materials on OTCShare:
+--
+* https://otcshare.org/tizenpc/node/5951[QA Materials section]
+* https://otcshare.org/tizenpc/node/5952[Test plans]
+* https://otcshare.org/tizenpc/node/5989[Automated tests infrastructure] (in Montpellier/FR and Vannes/FR)
+--
+
+People in TizenPC Vannes Team who were involved in QA activity during Q4/2012 and Q1/2013:
+--
+* mailto:stephane.desneux@eurogiciel.fr[Stéphane Desneux]
+* mailto:jose.bollo@eurogiciel.fr[José Bollo]
+* mailto:nicolas.zingile@eurogiciel.fr[Nicolas Zingilé]
+* mailto:Ewan.LEBIDEAU-CANEVET@eurogiciel.fr[Ewan Le Bideau]
+--
+
+

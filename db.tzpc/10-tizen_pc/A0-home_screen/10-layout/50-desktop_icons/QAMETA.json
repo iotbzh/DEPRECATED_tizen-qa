@@ -1,0 +1,117 @@
+[
+  {
+    "name": "app_icon",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "An application icon must occupy one tile",
+    "description": "The tile should display the application icon ant its name",
+    "pre_condition": "some favourite applications must be present on the desktop",
+    "steps": [
+      {
+        "description": "check a favourite application tile",
+        "expected": "the icon and name must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 11:01:07 GMT",
+    "mtime": "2013-03-15 11:01:07 GMT"
+  },
+  {
+    "name": "app_icon_actions",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Right click on app icon should pop a menu",
+    "description": "A right click on any application icon should open a popup menu, extending on 2 tiles near the application icon (on left or right, depending on the tile position) (TODO: please confirm)\r\nThe popup menu contains the following items:\r\n- Open Application\r\n- Remove from home\r\n- Show settings (opens home settings)",
+    "pre_condition": "some favourite applications must be present on the desktop",
+    "steps": [
+      {
+        "description": "right-click on a favourite application tile",
+        "expected": "a popup menu should open with all the items listed in description"
+      },
+      {
+        "description": "select \"open Application\"",
+        "expected": "the application must be launched"
+      },
+      {
+        "description": "close the application",
+        "expected": "-"
+      },
+      {
+        "description": "right-click on a favourite aplication tile",
+        "expected": "the popup menu appears"
+      },
+      {
+        "description": "select \"show settings\"",
+        "expected": "the homescreen settings panel must appear on screen (close it)"
+      },
+      {
+        "description": "close the homescreen settings panel",
+        "expected": "-"
+      },
+      {
+        "description": "right-click on a favourite application tile",
+        "expected": "the popup menu appears"
+      },
+      {
+        "description": "select \"remove from home\"",
+        "expected": "the favourite application tile must disappear from the desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 11:01:31 GMT",
+    "mtime": "2013-03-15 13:41:16 GMT"
+  },
+  {
+    "name": "app_icon_size",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check application icon dimensions",
+    "description": "An application icon must fit into a tile, without overlap on the application name.\r\n\r\nAn application icon should have a dimension of WxH (TODO: what is W and H ? 48x48 ?)",
+    "pre_condition": "some favourite applications must be present on the desktop",
+    "steps": [
+      {
+        "description": "observe tha favorite applications tiles on desktop",
+        "expected": "they must all match the description"
+      }
+    ],
+    "post_condition": "",
+    "notes": "suggestion: make a screen capture (PrtScr key), copy and load the snapshot into gimp or another image viewer and then check dimensions.",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 11:05:13 GMT",
+    "mtime": "2013-03-15 13:42:45 GMT"
+  }
+]

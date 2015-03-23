@@ -1,0 +1,217 @@
+= QATP(5qa)
+
+== NAME
+
+QATP - description of the Test Plan of QA TIZEN
+
+== SYNOPSIS
+
+The *QA Test Plans* is the main documentation for 
+testing purpose. 
+
+== DESCRIPTION
+
+The test plans are generated using the database
+and the test plans specific text and material
+located in the directory *doc/testplans*.
+
+This manual describes the content of the directory 
+*doc/testplans* and the process of creating and generating
+test plans.
+
+The testplans are creted using the ASCIIDOC tools.
+ASCIIDOC is the powerful tool set for peoples that 
+commonly use text editor and that are bored by the
+formatting constraints of word processors. 
+The use of ASCIIDOC has also the benefit to allow
+automatic processing of the data to produce.
+
+.figure processing of test plans
+----
+         +----------+
+QADB --->| qaexport |<---- etc: profile
+         +----------+           =======
+              |
+              V           +----------+
+  export_tc_*.asciidoc--->| asciidoc |---> tp-*-x.y.html
+                          +----------+     
+         tp-*.asciidoc-----^    ^
+         =============          |
+                         common & themes 
+----
+
+The *Makefile* of the directory *doc/testplans* chains the
+operations figured above to produce the final testplan.
+
+To produce a test plan, you must *[1] edit the file tp-XXX.asciidoc*
+using a simple text editor (vi or gvim allow syntax highlight of
+asciidoc and offer spelling facilities, any other editor is well too);
+*[2] edit the profile of the test plan for qaexport* to define the 
+part of the database that you want to join to your test plan.
+
+The program *qaexport* is used to extract and format a subset
+of the test cases of the database QADB. It uses configuration
+files *etc/qaexport.conf* and *etc/test_suites.conf*.
+
+The *Makefile* enforces to name your test plans 
+following the pattern *tp-XXX.asciidoc*.
+
+=== Content of the directory doc/testplans
+
+The files *tp-*.asciidoc* are the test plans.
+
+The subdirectories *connectivity* and *gnome* contain
+material used (included) by the test plans tp-connectivity 
+and tp-gnome.
+
+The file *Makefile* chain the commands to create the HTML 
+test plans.
+
+The file *TestPlan_template.asciidoc* is a template
+for creating the test plans.
+
+The subdirectory *themes* have material to tune the
+visual aspect of the test plans.
+
+The subdirectory *common* have some configuration files
+and some definitions or parts that are useable in the 
+test plans.
+
+=== Using the Makefile
+
+To create the test plan *XXX* defined in the file
+*tp-XXX.asciidoc*, type:
+
+ make XXX
+
+It will produce the test plan file *tp-XXX-x.y.html*,
+where *x.y* the revision number set by the ASCIIDOC 
+macro *:revnumber:*.
+
+To produce a test plan having hyperlinks to *tcbrowse*
+server, type:
+
+ make XXX MODE=devel
+
+=== Selection of the test cases
+
+The *Makefile* calls *qaexport* with the profile key *docXXX* where
+XXX is the base of the test plan naming.
+
+The profile key MUST be defined in the profile file *etc/test_suites.conf*.
+The definition of the key MUST be a structure having optionally the 
+following fields:
+
+*suite*::
+The suite base directory inside the root database directory. 
+The empty string means the root of the QA database.
+All test cases of the subdirectory and its subdirectories will
+be checked with the filter.
+
+*filter*::
+A predicate (function returning a boolean) that receive a test case to filter.
+It should return true to include the test case or false to exclude it.
+
+The default values are: 
+*""* for *suite* (means the root directory of QADB),
+*function(tc){return  true;}* for *filter*.
+
+Example:
+----
+	docgnome: {
+		suite: "10-tizen_pc/B0-gnome"
+	},
+----
+
+=== Creating a new test plan
+
+To create a new test plan, use the template file 
+*TestPlan_template.asciidoc* and copy it. For example
+to create a new test plan *XXX*, type
+
+ cp TestPlan_template.asciidoc tp-XXX.asciidoc
+
+Then, edit the header of *tp-XXX.asciidoc* that looks like below
+(note that the template were created with tabstop=3):
+
+----
+:componentName: Component Name
+:author: John Doe
+:email: john@doe.com
+:revdate: YYYY-MM-DD
+:revnumber: 0.1
+:title: {componentName} Test Plan
+:status: Draft
+----
+
+Enter the correct expected values
+
+----
+:componentName: XXX
+:author: me
+:email: me@home.ky
+:revdate: now
+:revnumber: 0.1
+:title: {componentName} Test Plan
+:status: Draft
+----
+
+You must also edit the file *etc/test_suites.conf* to enter
+the filter matching the test cases to include in your test
+plan. The key name will be *docXXX*. See *qaexport(1qa)* for more
+details. Example:
+
+----
+...
+docXXX: {
+    suite: "10-tizen_pc",
+    filter: function(tc){return tc.status!='disabled'}
+},
+...
+----
+
+=== Files of interest in the subdirectory common
+
+The file *common/doc.table* declares the macros to name 
+other documents.
+
+The file *common/who.table* declares the macros for 
+common used names.
+
+=== Tuning the modes
+
+The variable MODE switch the exportation mode. The exportations modes are 
+defined in the file *etc/qaexport.conf*.
+
+Setting *MODE=xxx* when calling *make* will produce the selection of the mode
+name *asciidoc_xxx* in *etc/qaexport.conf*.
+
+Here is how the two predefined modes are set:
+
+----
+asciidoc_devel: {
+    plugin: 'asciidoc'
+    , notestsuite: true
+    , tclink: 'http://localhost:3000/meta/'
+},
+asciidoc_publish: {
+    plugin: 'asciidoc'
+    , notestsuite: true
+},
+----
+
+You can tune it for your own usage.
+
+== SEE ALSO
+
+tcbrowse(1qa), qaexport(1qa), asciidoc(1), QADB(5qa)
+
+== RESSOURCES
+
+*ASCIIDOC*::
+  http://www.methods.co.nz/asciidoc/
+  http://powerman.name/doc/asciidoc/
+  
+  
+
+

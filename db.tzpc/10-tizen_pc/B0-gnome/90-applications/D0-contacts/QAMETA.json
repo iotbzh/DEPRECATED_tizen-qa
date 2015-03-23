@@ -1,0 +1,80 @@
+[
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c Gnome-contacts -t 10 -- gnome-contacts",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": "",
+    "steps": []
+  },
+  {
+    "name": "create-contact",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "creating contact",
+    "description": "Check that new contact can be created",
+    "steps": [
+      {
+        "description": "Launch Contact application from the Application menu",
+        "expected": "the window of gnome contacts appears"
+      },
+      {
+        "description": "Create a new contact",
+        "expected": "the contact is created"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "delete-contact",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "deleting contact",
+    "description": "Check that contact can be deleted",
+    "steps": [
+      {
+        "description": "Launch Contact application from the Application menu",
+        "expected": "the window of gnome contacts appears"
+      },
+      {
+        "description": "Create a new contact",
+        "expected": "the contact is created"
+      },
+      {
+        "description": "Delete the contact",
+        "expected": "the contact is deleted"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  }
+]

@@ -1,0 +1,74 @@
+#!/bin/bash
+
+TOPDIR=$(cd $(dirname $0) && pwd -P)
+
+arch=$1
+path=${2:-/snapshots/tizen/common/latest}
+rsyncpfx=${3:-download.tizen.org::all}
+httppfx=${4:-http://cdn.download.tizen.org}
+
+# remove trailing slash on path
+path=$(echo $path | sed 's|/*$||')
+
+function loginfo() {
+	echo "$@" >&2
+}
+function logerror() {
+	echo "Error: $@" >&2
+	exit 1
+}
+
+case $arch in
+	ia32|i586|i686) 
+		arch=ia32
+		rpmarch=i686 
+		repourls="${path}/repos/ia32-wayland/packages/$rpmarch ${path}/repos/ia32-wayland/packages/noarch"
+		;;
+	x86_64) 
+		rpmarch=x86_64
+		repourls="${path}/repos/x86_64-wayland/packages/$rpmarch ${path}/repos/x86_64-wayland/packages/noarch"
+		;;
+	arm|armv7l)
+		rpmarch=armv7l
+		repourls="${path}/repos/arm-wayland/packages/$rpmarch ${path}/repos/arm-wayland/packages/noarch"
+		;;
+	*) logerror "Unknown arch" ;;
+esac
+
+mkdir -p ${arch}
+count=$(cat $TOPDIR/bootstrap_common.lst $TOPDIR/bootstrap_${arch}.lst |wc -l |awk '{print $1}')
+i=0
+j=0
+
+# generate the list of rpms
+catalog=$TOPDIR/packages_${arch}.lst
+
+truncate -s 0 $catalog
+for ru in $repourls; do
+	loginfo "Retrieving RPMs list from $ru"
+	rsync ${rsyncpfx}/$ru/*.rpm  | awk '{print $5}' | sed "s|^|$ru/|" >>$catalog
+done
+
+loginfo "$(wc -l $catalog) RPMs found"
+
+loginfo "Generating bootstrap dir for ${arch}... "
+for pkg in $(cat $TOPDIR/bootstrap_common.lst $TOPDIR/bootstrap_${arch}.lst ); do
+	i=$((i+1))
+	rpmfile=$(egrep -E "^.+/${pkg//+/\\+}-[^-]+-[^-]+.(${rpmarch}|noarch).rpm" $catalog | sort | head -1)
+
+	if [[ -z "$rpmfile" ]]; then
+		loginfo "ERROR: Bootstrap RPM not found for $pkg"
+	else
+		destrpm=$(basename $rpmfile | sed -rn "s/(${pkg//+/\\+})-[^-]+-[^-]+\.(${rpmarch}|noarch).rpm/\1.rpm/p")
+		if [[ -z "$destrpm" ]]; then
+			logerror "Bad destination rpm for $rpmfile"
+		fi
+
+		printf "\r%3d / %3d %-30s" $i $count $destrpm
+		wget --quiet -O ${arch}/$destrpm ${httppfx}/$rpmfile
+		j=$((j+1))
+	fi
+done
+printf "\r"
+loginfo "Bootstrap finished: $j/$count files"
+

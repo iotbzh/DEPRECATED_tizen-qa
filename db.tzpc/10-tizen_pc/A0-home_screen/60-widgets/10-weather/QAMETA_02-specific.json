@@ -1,0 +1,336 @@
+[
+  {
+    "name": "city",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can change the city in the weather widget",
+    "description": "UI allow to change the city. \r\nThe weather information for this city is downloaded and displayed.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing city and valid",
+        "expected": "City is found and weather forecast is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:41:07 GMT",
+    "mtime": "2013-03-10 23:08:24 GMT"
+  },
+  {
+    "name": "zipcode",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can change the zip code in Widget Weather",
+    "description": "UI allow to change the zip code. The associated city is found and weather information for this city is downloaded and displayed",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing zip code and valid",
+        "expected": "City is found and weather forecast is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:41:59 GMT",
+    "mtime": "2013-03-10 23:08:45 GMT"
+  },
+  {
+    "name": "bad-city",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure of the behavior when searching a non-existing city in the weather widget",
+    "description": "UI allow to change the city. The weather information for this city is downloaded and displayed.\r\n\r\nUser is notified in case the city is not found\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with a none-existing city and valid",
+        "expected": "City is not found. No weather forecast is displayed."
+      },
+      {
+        "description": "-",
+        "expected": "There is no crash or instability"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:42:55 GMT",
+    "mtime": "2013-03-10 23:09:05 GMT"
+  },
+  {
+    "name": "bad-zipcode",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure of the behavior when searching a non-existing zip code in the Weather widget",
+    "description": "UI allow to change the zip code. The associated city is found and weather information for this city is downloaded and displayed\r\n\r\nUser is notified in case the zip code is not found\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with a none-existing zip code and valid",
+        "expected": "City is not found. No weather forecast is displayed"
+      },
+      {
+        "description": "-",
+        "expected": "There is no crash or instability"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:44:40 GMT",
+    "mtime": "2013-03-10 23:09:25 GMT"
+  },
+  {
+    "name": "unit",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can change the display unit in the Weather widget",
+    "description": "UI allow to change the display unit. The temperature of the associated city is converted from °C to °F and vice-versa.\r\n\r\n1° Celsius = 34° Fahrenheit\r\n",
+    "pre_condition": "- Weather forecast of a valid city is displayed\r\n- Display unit is set to °F",
+    "steps": [
+      {
+        "description": "Change the display unit from °F to °C and validate",
+        "expected": "The temperature is converted to °C"
+      },
+      {
+        "description": "Change the display unit from °C to °F and validate",
+        "expected": "The temperature is converted to °F"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:45:58 GMT",
+    "mtime": "2013-03-11 00:00:52 GMT"
+  },
+  {
+    "name": "datetime",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Weather widget displays date and time correctly",
+    "description": "The Weather Widget details must contain date and time of the city\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing city and valid",
+        "expected": "Date and time of the city are displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:50:47 GMT",
+    "mtime": "2013-03-10 23:10:22 GMT"
+  },
+  {
+    "name": "datetime-other-timezone",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Weather widget displays date and time of a city from another timezone",
+    "description": "the Weather widget details must contain date and time of the city\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Fill input text field with an existing city from another timezone and valid",
+        "expected": "Date and time of the city are displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:51:57 GMT",
+    "mtime": "2013-03-10 23:10:55 GMT"
+  },
+  {
+    "name": "localized-datetime",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that date and time displayed in the Weather widget is localized and follows First Boot settings",
+    "description": "Weather Widget details contains date and time of the city\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "First Boot the device",
+        "expected": "-"
+      },
+      {
+        "description": "Set clock format 24H and date format DD/MM/YYYY and finish boot process",
+        "expected": "-"
+      },
+      {
+        "description": "Launch Weather Widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check clock and date format",
+        "expected": "Clock format is 24h. Date format is DD/MM/YYYY"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:53:00 GMT",
+    "mtime": "2013-03-10 23:12:04 GMT"
+  },
+  {
+    "name": "5days-forecast",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the check box \"include lows in 5-day forecast\" works properly",
+    "description": "The weather widget settings contains a check box \"include lows in 5-day forecast\"\r\n",
+    "pre_condition": "- Weather forecast of a valid city is displayed\r\n- \"include lows in 5-day forecast\" is unchecked",
+    "steps": [
+      {
+        "description": "Uncheck \"include lows in 5-day forecast\"",
+        "expected": "-"
+      },
+      {
+        "description": "Check Weather Widget details",
+        "expected": "Check box \"include lows in 5-day forecast\" works properly"
+      },
+      {
+        "description": "Check \"include lows in 5-day forecast\"",
+        "expected": "-"
+      },
+      {
+        "description": "Check Weather Widget details",
+        "expected": "Check box \"include lows in 5-day forecast\" works properly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:54:49 GMT",
+    "mtime": "2013-03-11 00:01:13 GMT"
+  },
+  {
+    "name": "move-close",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Weather widget can be moved and can be closed",
+    "description": "the weather widget can be placed anywhere in homescreen and can be closed",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Move the weather widget to several places in homescreen",
+        "expected": "the weather widget can be moved and keeps a normal appearance"
+      },
+      {
+        "description": "Close the weather widget",
+        "expected": "the weather widget can be closed"
+      },
+      {
+        "description": "Relaunch the weather widget",
+        "expected": "the weather widget is relaunched correctly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 22:59:51 GMT",
+    "mtime": "2013-03-10 23:14:58 GMT"
+  }
+]

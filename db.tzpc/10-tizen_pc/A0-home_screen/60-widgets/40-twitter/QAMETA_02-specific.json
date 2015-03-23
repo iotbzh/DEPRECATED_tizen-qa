@@ -1,0 +1,35 @@
+[
+  {
+    "name": "logo",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we follow Twitter logo rules/guidelines",
+    "description": "Twitter’s marks include, but are not limited to, the Twitter name, logo, Tweet, Twitter bird, and any word, phrase, image, or other designation that identifies the source or origin of any of Twitter’s products.\r\n\r\nDo not modify or alter the marks or use them in a confusing way, including suggesting sponsorship or endorsement by Twitter, or in a way that confuses Twitter with another brand.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Launch Twitter Widget",
+        "expected": "We use official, unmodified Twitter bird to represent the brand (https://twitter.com/images/resources/twitter-bird-light-bgs.png)"
+      },
+      {
+        "description": "Check Twitter logo",
+        "expected": "The bird faces right. There is at least 150% buffer space around the bird."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 10:47:52 GMT",
+    "mtime": "2013-03-11 10:56:10 GMT"
+  }
+]

@@ -1,0 +1,221 @@
+[
+  {
+    "name": "display",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that active applications are displayed",
+    "description": "The active applications must be displayed in the corresponding area at the bottom of the screen.",
+    "pre_condition": "- start at least one application\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the bottom of the screen",
+        "expected": "the currently running applications must be displayed; for each application, the icon, name and snapshot must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 15:21:34 GMT",
+    "mtime": "2013-03-27 22:29:06 GMT"
+  },
+  {
+    "name": "switch",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that selecting an item in the active apps area switches to the selected application",
+    "description": "A single click on an active application item must switch to the selected application.",
+    "pre_condition": "- start at least one application\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "in the active applications area, click on an application icon",
+        "expected": "back on the desktop, the application must be activated and have focus"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 15:51:27 GMT",
+    "mtime": "2013-03-27 22:29:12 GMT"
+  },
+  {
+    "name": "empty",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_negative",
+    "subtype": "",
+    "objective": "Check that the active applications zone is not displayed when no application is started",
+    "description": "If there are no running applications, the active applications area must be hidden and the results area must be expanded.",
+    "pre_condition": "- stop all applications\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the active apps area",
+        "expected": "the active applications area must not be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 15:59:30 GMT",
+    "mtime": "2013-03-27 22:29:31 GMT"
+  },
+  {
+    "name": "pagination_arrows",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that pagination arrows appear",
+    "description": "If more active windows are running than can be displayed, the next/previous arrows must appear on the left of the active applications area.",
+    "pre_condition": "- start more than 7 applications to fill the active applications area\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the active applications area",
+        "expected": "there must be two arrows on the left of the application area to switch from one row to another"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 16:00:57 GMT",
+    "mtime": "2013-03-27 22:29:41 GMT"
+  },
+  {
+    "name": "pagination_works",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that pagination works",
+    "description": "When more rows are needed to display the active applications, the two arrows on the left must allow the user to switch from one row to another inside the active apps area:\r\n- a click on the left arrow must display the previous row\r\n- a click on the right arrow must display the next row",
+    "pre_condition": "- start more than 7 applications to fill the active applications area\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the active apps area",
+        "expected": "the left arrow must be disabled, the right arrow must be enabled"
+      },
+      {
+        "description": "click on the right arrow",
+        "expected": "the next row of active apps must be displayed and the left arrow must be enabled"
+      },
+      {
+        "description": "click on the left arrow",
+        "expected": "the previous row must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 16:39:25 GMT",
+    "mtime": "2013-03-27 22:29:48 GMT"
+  },
+  {
+    "name": "pagination_visual",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that pagination arrows are correctly highlighted",
+    "description": "If the currently displayed row is the first one, the left arrow must be disabled (the arrow is dimmed and clicking on it does nothing)\r\n\r\nIf the currently displayed row is the last one, the right arrow must be disabled (the arrow is dimmed and clicking on it does nothing)",
+    "pre_condition": "- start more than 7 applications to fill the active applications area\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the active apps area",
+        "expected": "the left arrow must be disabled, the right arrow must be enabled"
+      },
+      {
+        "description": "click on the right arrow until the last row is reached",
+        "expected": "the right arrow must be disabled, the left arrow must be enabled"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 16:39:50 GMT",
+    "mtime": "2013-03-27 22:29:54 GMT"
+  },
+  {
+    "name": "close",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "An active application can be closed",
+    "description": "In the active apps area, each item must be displayed with a close button (on mouseover, or permanently ? TBD)\r\n\r\nClicking on the close button must close the application.",
+    "pre_condition": "- start at least 1 application\r\n- switch to Application mode",
+    "steps": [
+      {
+        "description": "check the active apps area",
+        "expected": "the active applications items must have a close button"
+      },
+      {
+        "description": "click on the close button",
+        "expected": "the selected application must close and disappear from the active apps list"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-26 16:41:58 GMT",
+    "mtime": "2013-03-27 22:30:05 GMT"
+  }
+]

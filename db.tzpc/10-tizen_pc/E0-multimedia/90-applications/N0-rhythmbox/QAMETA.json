@@ -1,0 +1,706 @@
+[
+  {
+    "name": "play-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play music file ",
+    "description": "try to play a music file using rhythmbox",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:34:49 GMT",
+    "mtime": "2013-03-07 14:38:35 GMT"
+  },
+  {
+    "name": "music-data",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Rhythmbox prints music data",
+    "description": "rhythmbox displays the artist name, the discname, the disc cover, the track name",
+    "pre_condition": "have music",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played"
+      },
+      {
+        "description": "check data",
+        "expected": "the artist, disc, title names and the cover are displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 15:00:21 GMT",
+    "mtime": "2013-03-28 15:06:41 GMT"
+  },
+  {
+    "name": "controls",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play/pause/resume/stop music file ",
+    "description": "play a music file using rhythmbox and check that music can be pause, resumed",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "click \"pause\"",
+        "expected": "the music is paused"
+      },
+      {
+        "description": "click \"resume\"",
+        "expected": "the music is resumed"
+      },
+      {
+        "description": "click \"next\"",
+        "expected": "the next song is played"
+      },
+      {
+        "description": "click \"previous\"",
+        "expected": "the previous song is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:49:33 GMT",
+    "mtime": "2013-03-22 13:57:09 GMT"
+  },
+  {
+    "name": "volume",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "change the volume of a played music file",
+    "description": "play a music file using rhythmbox and check that the volume can be changed",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "Change the volume with mouse",
+        "expected": "the volume is changed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 13:57:14 GMT",
+    "mtime": "2013-03-22 13:59:26 GMT"
+  },
+  {
+    "name": "mute",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "sound can be mute",
+    "description": "play a music file using rhythmbox and check that you can mute the sound",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "mute using available mechanism",
+        "expected": "the sound is muted"
+      },
+      {
+        "description": "unmute",
+        "expected": "the sound is unmuted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 14:04:28 GMT",
+    "mtime": "2013-03-22 14:06:59 GMT"
+  },
+  {
+    "name": "seek-random",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "time position to read can be changed",
+    "description": "play a music file using rhythmbox and check that the read position can be changed",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "click to change the read position",
+        "expected": "the music played reflect the selected position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-22 14:00:06 GMT",
+    "mtime": "2013-03-22 14:03:19 GMT"
+  },
+  {
+    "name": "random",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play music randomly",
+    "description": "try to play music randomly using rhythmbox",
+    "pre_condition": "have music",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "select random",
+        "expected": "random read selected"
+      },
+      {
+        "description": "select the next plays",
+        "expected": "it skips to a random title of the list"
+      },
+      {
+        "description": "repeat the previous step",
+        "expected": "it skips to an other random title of the list"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 16:24:26 GMT",
+    "mtime": "2013-03-28 16:28:25 GMT"
+  },
+  {
+    "name": "loop",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play music in loop",
+    "description": "try to play music in loop using rhythmbox",
+    "pre_condition": "have music",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      },
+      {
+        "description": "select loop",
+        "expected": "loop read selected, the music is replayed at its end"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 16:28:32 GMT",
+    "mtime": "2013-03-28 16:30:05 GMT"
+  },
+  {
+    "name": "play-radio",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play radio",
+    "description": "try to play an internet radio using rhythmbox",
+    "pre_condition": "have connection to internet",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/radio",
+        "expected": "a selection of radio should appear int he right panels"
+      },
+      {
+        "description": "double click a radio entry",
+        "expected": "the radio is played and lessonable"
+      },
+      {
+        "description": "check that the name of the song is displayed",
+        "expected": "the name of the song is displayed"
+      },
+      {
+        "description": "click on the \"play\" button",
+        "expected": "the playing is stopped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:38:46 GMT",
+    "mtime": "2013-03-22 10:18:32 GMT"
+  },
+  {
+    "name": "play-podcast",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play podcast",
+    "description": "try to play a podcast item using rhythmbox",
+    "pre_condition": "have connection to internet",
+    "steps": [
+      {
+        "description": "From the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "In the left panel, select library/podcast",
+        "expected": "podcast subwindows should appear int he right panels"
+      },
+      {
+        "description": "Click on button \"Add\" to add a podcast source",
+        "expected": "A text field input is displayed"
+      },
+      {
+        "description": "Enter a podcast url (example, http://radiofrance-podcast.net/podcast09/rss_12013.xml)",
+        "expected": "Data of the podcast are displayed"
+      },
+      {
+        "description": "Double click on an episode",
+        "expected": "The episode is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:42:15 GMT",
+    "mtime": "2013-03-07 14:59:53 GMT"
+  },
+  {
+    "name": "extract-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "rhythmbox extracts audio CD",
+    "description": "Insert an audio CD and extract its content with rhythmbox\r\n",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "launch Rhythmbox",
+        "expected": "the rhythmbox window opens"
+      },
+      {
+        "description": "insert the audio CD",
+        "expected": "rhythmbox displays the content of the audio CD"
+      },
+      {
+        "description": "click \"extract\"",
+        "expected": "all the tracks are extracted"
+      },
+      {
+        "description": "browse the file system",
+        "expected": "the files are in the filesystem"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 13:24:53 GMT",
+    "mtime": "2013-03-28 13:27:13 GMT"
+  },
+  {
+    "name": "extract-selected-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "rhythmbox extracts selected tracks of an audio CD",
+    "description": "Insert an audio CD, select some tracks and extract it with rhythmbox",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "launch Rhythmbox",
+        "expected": "the rhythmbox window opens"
+      },
+      {
+        "description": "insert the audio CD",
+        "expected": "rhythmbox displays the content of the audio CD"
+      },
+      {
+        "description": "select only some tracks, click \"extract\"",
+        "expected": "only the selected tracks are extracted"
+      },
+      {
+        "description": "browse the file system",
+        "expected": "the files are in the filesystem"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 13:24:54 GMT",
+    "mtime": "2013-03-28 13:27:36 GMT"
+  },
+  {
+    "name": "change-settings",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "settings are applied",
+    "description": "change the settings and check that they are applied\r\nUse the preferences to check that music can be exracted to MP3, Vorbis, FLAC and MP4(AAC) formats",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "from \"edition\">\"preferences\"",
+        "expected": "the settings dialog opens"
+      },
+      {
+        "description": "choose the tab \"music\"",
+        "expected": "the tab is displayed"
+      },
+      {
+        "description": "change the structure and the output format and then extract an audio CD",
+        "expected": "changes made are effective"
+      },
+      {
+        "description": "iterate the previous step to cover all cases",
+        "expected": "all cases are ok"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 13:24:55 GMT",
+    "mtime": "2013-03-28 13:29:26 GMT"
+  },
+  {
+    "name": "intensive-launch",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch and stop rhythmbox intensively",
+    "description": "stress test",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "launch rhythmbox",
+        "expected": "rhythmbox window appears"
+      },
+      {
+        "description": "stop rhythmbox",
+        "expected": "rhythmbox window disappears"
+      },
+      {
+        "description": "repeat the previous 2 steps at least 20 times",
+        "expected": "it doesn't crash"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 14:43:21 GMT",
+    "mtime": "2013-03-28 14:46:10 GMT"
+  },
+  {
+    "name": "playlist",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "manages playlist",
+    "description": "create playlists, fill it, play it, drop it",
+    "pre_condition": "have music",
+    "steps": [
+      {
+        "description": "launch rhythmbox",
+        "expected": "rhythmbox window appears"
+      },
+      {
+        "description": "create 2 playlists",
+        "expected": "playlists are created"
+      },
+      {
+        "description": "populate the playlists with music (at least 5 plays by list)",
+        "expected": "playlists are filled"
+      },
+      {
+        "description": "play one list",
+        "expected": "the list is played"
+      },
+      {
+        "description": "play the other list",
+        "expected": "the list is played"
+      },
+      {
+        "description": "rename one playlist",
+        "expected": "the list is renamed"
+      },
+      {
+        "description": "remove a playlist",
+        "expected": "the playlist is removed"
+      },
+      {
+        "description": "shuffle the remaining list",
+        "expected": "the list is shuffled"
+      },
+      {
+        "description": "save the list",
+        "expected": "the list is saved"
+      },
+      {
+        "description": "create a new playlist from the saved one",
+        "expected": "the new playlist appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 14:46:13 GMT",
+    "mtime": "2013-03-28 14:54:09 GMT"
+  },
+  {
+    "name": "big-playlist",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "playlists can be big",
+    "description": "stress test",
+    "pre_condition": "have a lot of music",
+    "steps": [
+      {
+        "description": "launch rhythmbox",
+        "expected": "rhythmbox window appears"
+      },
+      {
+        "description": "create one playlists",
+        "expected": "the playlist are created"
+      },
+      {
+        "description": "populate the playlist with music (at least 100 plays)",
+        "expected": "playlists are filled"
+      },
+      {
+        "description": "play it",
+        "expected": "the playlist is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 14:51:03 GMT",
+    "mtime": "2013-03-28 14:56:32 GMT"
+  }
+]

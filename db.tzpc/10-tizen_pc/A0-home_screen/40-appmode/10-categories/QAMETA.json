@@ -1,0 +1,151 @@
+[
+  {
+    "name": "radio_buttons",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Selecting a category triggers a search and displays results",
+    "description": "When clicking on a category, the filtered applications must be displayed in the results area.",
+    "pre_condition": "switch to application mode (click on \"Applications\" in the top bar)",
+    "steps": [
+      {
+        "description": "click on a category on the left (for example \"Games\")",
+        "expected": "the result area must be populated with appropriate applications (ex: Chess, Mines, Sudoku ...)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 16:32:03 GMT",
+    "mtime": "2013-03-25 17:36:44 GMT"
+  },
+  {
+    "name": "category_clears_search",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Selecting a category must clear the search field",
+    "description": "When selecting a a category, the search filter should be cleared to display all the applications in the choosen category\r\n\r\nTODO: must be confirmed, not clearly stated in design document",
+    "pre_condition": "switch to application mode (click on \"Applications\" in the top bar)",
+    "steps": [
+      {
+        "description": "fill the search field with a few characters",
+        "expected": "the result are a is updated"
+      },
+      {
+        "description": "click on a category (ex: Games)",
+        "expected": "the filter must be cleared and all applications within the category must be displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:06:22 GMT",
+    "mtime": "2013-03-25 17:36:50 GMT"
+  },
+  {
+    "name": "category_mostused",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "disabled",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that \"Most used\" category is working (postponed)",
+    "description": "The special category \"Most used\" must be visible in the category list. \r\n\r\nSelecting this category must list the appropriate applications in the results area.\r\n\r\nNote: feature is postponed (jira:TZPC-766 TZPC-767)",
+    "pre_condition": "- switch to application mode (click on \"Applications\" in the top bar)\r\n- open some applications (ex: Gnome Terminal, Calculator)",
+    "steps": [
+      {
+        "description": "click on the \"Most used\" category",
+        "expected": "the recently used applications must be displayed in the result area (ex: Gnome Terminal, Calculator)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-06 15:45:48 GMT",
+    "mtime": "2013-03-25 17:38:56 GMT"
+  },
+  {
+    "name": "category_recentdownload",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "disabled",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that \"Recently Downloaded\" category is working (postponed)",
+    "description": "The special category \"Recently Downloaded\" must be visible in the category list. \r\n\r\nSelecting this category must list the appropriate applications in the results area.\r\n\r\nNote: feature is postponed (jira:TZPC-766 TZPC-767)",
+    "pre_condition": "- switch to application mode (click on \"Applications\" in the top bar)\r\n- have some recently downloaded apps",
+    "steps": [
+      {
+        "description": "click on the \"Recently Downloaded\" category",
+        "expected": "the recently downloaded items must be displayed in the result area"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-06 15:46:14 GMT",
+    "mtime": "2013-03-25 17:52:37 GMT"
+  },
+  {
+    "name": "category_runningapps",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that \"Running apps\" category is working",
+    "description": "The special category \"Running applications\" must be visible in the category list. \r\n\r\nSelecting this category must list the appropriate applications in the results area.",
+    "pre_condition": "- switch to application mode (click on \"Applications\" in the top bar)\r\n- start 1 or more applications",
+    "steps": [
+      {
+        "description": "click on the \"Running Applications\" category",
+        "expected": "the currently executing apps must be displayed in the result area"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:06:37 GMT",
+    "mtime": "2013-03-25 17:53:38 GMT"
+  }
+]

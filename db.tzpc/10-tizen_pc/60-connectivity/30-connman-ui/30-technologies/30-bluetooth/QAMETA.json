@@ -1,0 +1,171 @@
+[
+  {
+    "name": "bluetooth-icon-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth icon is visible",
+    "description": "Bluetooth icon should be visible in the ConnMan UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Bluetooth icon is visible in the technology field",
+        "expected": "Bluetooth icon is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 15:02:30 GMT",
+    "mtime": "2013-03-27 14:36:49 GMT"
+  },
+  {
+    "name": "bluetooth-label-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth label is visible",
+    "description": "Bluetooth label should be visible in the ConnMan UI",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Bluetooth label is visible in the technology field",
+        "expected": "Bluetooth label is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 15:04:13 GMT",
+    "mtime": "2013-03-27 14:37:19 GMT"
+  },
+  {
+    "name": "bluetooth-switch-visibility",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth switch button is visible",
+    "description": "Bluetooth switch button should be visible in the ConnMan UI.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Check that Bluetooth switcher is visible",
+        "expected": "Bluetooth switcher is visible"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 15:04:43 GMT",
+    "mtime": "2013-03-27 14:38:02 GMT"
+  },
+  {
+    "name": "bluetooth-switch-on",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be enabled",
+    "description": "Bluetooth connection should be enabled when the Bluetooth switch button is toggled on 'I'. User should be able to see the available Bluetooth services.",
+    "pre_condition": "- Bluetooth technology is disabled (Bluetooth switch button is toggled on 'O' in ConnMan UI and ConnMan extension)\r\n- Bluetooth AP and Bluetooth test devices are configured and visible by others\r\n- All the other technology are disabled (Ethernet, Wifi, 3G)",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMan UI appears"
+      },
+      {
+        "description": "Click on the Bluetooth switcher to enable Bluetooth technology",
+        "expected": "Bluetooth switcher of ConnMan UI, ConnMan extension, Bluetooth applet and Bluetooth panel is toggled on 'I'. Bluetooth icon becomes bold. Available Bluetooth services appears in the service field. Bluetooth applet icon becomes bold."
+      },
+      {
+        "description": "Open a terminal and execute the following command : 'connmanctl technologies'",
+        "expected": "For Bluetooth technology, Powered = 'True'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 15:05:28 GMT",
+    "mtime": "2013-03-27 16:14:27 GMT"
+  },
+  {
+    "name": "bluetooth-switch-off",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Bluetooth connection can be disabled",
+    "description": "Bluetooth technology should be disabled when the Bluetooth switch button is toggled on 'O'.",
+    "pre_condition": "- Bluetooth technology is enabled (on all UI : ConnMan extension, ConnMan UI, Bluetooth panel, Bluetooth applet, bluetooth switchers are toggled on 'I') \r\n- All other technology are disabled (Ethernet, Wifi and 3G)\r\n",
+    "steps": [
+      {
+        "description": "Open the ConnMan UI",
+        "expected": "Window of ConnMa UI appears"
+      },
+      {
+        "description": "Click on the Bluetooth switcher to disable Wifi technology",
+        "expected": "Bluetooth switcher of ConnMan UI,  ConnMan extension, Bluetooth applet and Bluetooth panel is toggled on 'O'. Bluetooth icon becomes grayed. Service field displays 'No network connection available'"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-15 15:06:52 GMT",
+    "mtime": "2013-03-27 16:19:49 GMT"
+  }
+]

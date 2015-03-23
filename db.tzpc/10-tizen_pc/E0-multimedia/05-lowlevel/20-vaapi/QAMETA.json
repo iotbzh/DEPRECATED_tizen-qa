@@ -1,0 +1,54 @@
+[
+  {
+    "name": "vaapi-installed",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "component for video acceleration are used through va-api",
+    "description": "use a va-api tool to check that va-api is available",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "vainfo",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "vaapi-tools"
+    },
+    "author": "jb",
+    "ctime": "2013-03-20 13:37:13 GMT",
+    "mtime": "2013-03-20 13:50:58 GMT"
+  },
+  {
+    "name": "vaapi-mpeg2vldemo",
+    "exec_type": "auto",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play a video of test",
+    "description": "play short video using va-api tool to prove the stream",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "mpeg2vldemo",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {
+      "package": "vaapi-tools"
+    },
+    "author": "jb",
+    "ctime": "2013-03-20 14:20:38 GMT",
+    "mtime": "2013-03-20 14:23:06 GMT"
+  }
+]

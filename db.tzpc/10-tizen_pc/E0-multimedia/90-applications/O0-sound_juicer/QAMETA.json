@@ -1,0 +1,364 @@
+[
+  {
+    "name": "auto-exec",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer is launched when an audio CD is inserted",
+    "description": "In \"settings\", \"details\", \"removable media\", select sound-juicer for cd audio.\r\nInsert an audio CD and check that sound juicer opens, displaying the media content.",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-11 14:38:20 GMT",
+    "mtime": "2013-03-28 09:07:39 GMT"
+  },
+  {
+    "name": "play-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer plays audio CD",
+    "description": "Insert an audio CD and play its content with sound-juicer",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "click \"read/play\"",
+        "expected": "the music is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-11 14:43:44 GMT",
+    "mtime": "2013-03-28 10:01:01 GMT"
+  },
+  {
+    "name": "volume",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer plays audio CD",
+    "description": "Insert an audio CD and play its content with sound-juicer",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "click \"read/play\"",
+        "expected": "the music is played"
+      },
+      {
+        "description": "change the volume",
+        "expected": "the volume is changed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 10:06:07 GMT",
+    "mtime": "2013-03-28 10:06:40 GMT"
+  },
+  {
+    "name": "play-selected-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer plays selected tracks of an audio CD ",
+    "description": "Insert an audio CD, selected some tracks and play it with sound-juicer",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "select only some tracks, click \"read/play\"",
+        "expected": "only the selected tracks are played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-25 13:49:14 GMT",
+    "mtime": "2013-03-28 10:01:09 GMT"
+  },
+  {
+    "name": "pause-resume-seek",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer pauses, resumes and seeks within an audio track",
+    "description": "Insert an audio CD and play its content with sound-juicer. \r\nPlay pause and resume within a track.\r\nWithin the same track, seek forward and backward.",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "click \"read/play\"",
+        "expected": "the music is played"
+      },
+      {
+        "description": "pause it",
+        "expected": "the playing of music stops"
+      },
+      {
+        "description": "resume it",
+        "expected": "the playing of music is restarted from where it stopped"
+      },
+      {
+        "description": "seek forward",
+        "expected": "the playing of music is updated to the seek position"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-25 13:35:34 GMT",
+    "mtime": "2013-03-28 10:03:43 GMT"
+  },
+  {
+    "name": "navigate-tracks",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer plays audio CD tracks as wanted",
+    "description": "Insert an audio CD and play its content with sound-juicer. \r\nNavigate from one track to the other forward and backward.",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "select some tracks, click \"read/play\"",
+        "expected": "the first selected track is played"
+      },
+      {
+        "description": "ask next track (crtl+N)",
+        "expected": "the next track is played"
+      },
+      {
+        "description": "ask previous track (crtl+B)",
+        "expected": "the previous track is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-25 13:03:54 GMT",
+    "mtime": "2013-03-28 10:05:36 GMT"
+  },
+  {
+    "name": "extract-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer extracts audio CD",
+    "description": "Insert an audio CD and extract its content with sound-juicer\r\n",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "click \"extract\"",
+        "expected": "all the tracks are extracted"
+      },
+      {
+        "description": "browse the file system",
+        "expected": "the files are in the filesystem"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-11 14:48:06 GMT",
+    "mtime": "2013-03-28 13:28:50 GMT"
+  },
+  {
+    "name": "extract-selected-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound juicer extracts selected tracks of an audio CD",
+    "description": "Insert an audio CD, select some tracks and extract it with sound-juicer\r\n",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "select only some tracks, click \"extract\"",
+        "expected": "only the selected tracks are extracted"
+      },
+      {
+        "description": "browse the file system",
+        "expected": "the files are in the filesystem"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-25 13:52:45 GMT",
+    "mtime": "2013-03-28 10:07:43 GMT"
+  },
+  {
+    "name": "change-settings",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "settings are applied",
+    "description": "change the settings and check that they are applied\r\nUse the preferences to check that music can be exracted to MP3, Vorbis, FLAC and MP4(AAC) formats",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "from \"edition\">\"preferences\"",
+        "expected": "the settings dialog opens"
+      },
+      {
+        "description": "change the structure and the output format and then extract an audio CD",
+        "expected": "changes made are effective"
+      },
+      {
+        "description": "iterate the previous step to cover all cases",
+        "expected": "all cases are ok"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-28 09:08:34 GMT",
+    "mtime": "2013-03-28 13:29:00 GMT"
+  },
+  {
+    "name": "copy-audio-cd",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Sound-Juicer cooperate with Brasero to duplicate audio CD",
+    "description": "Insert an audio CD and ask to duplicate it in the menu. \r\nIt should launch Brasero.",
+    "pre_condition": "have an audio CD",
+    "steps": [
+      {
+        "description": "insert the audio CD",
+        "expected": "sound juicer opens and display the content of the audio CD"
+      },
+      {
+        "description": "ask to duplicate the CD",
+        "expected": "the brasero dialog is opened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-25 13:55:15 GMT",
+    "mtime": "2013-03-28 10:12:39 GMT"
+  }
+]

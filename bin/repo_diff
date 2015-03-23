@@ -1,0 +1,33 @@
+#!/bin/bash
+
+CACHEDIR=/var/tmp/repo_primarydb_cache
+
+set -e
+
+repo1=$1
+repo2=$2
+if [[ -z "$repo1" || -z "$repo2" ]]; then
+	echo "Usage: $(basename $0) <repo_url> <repo_url> [<diff_command>]" >&2
+	exit 1
+fi
+shift 2
+
+diffcmd="$@"
+#[[ -z "$diffcmd" ]] && diffcmd=sdiff
+[[ -z "$diffcmd" ]] && diffcmd="gvimdiff --nofork"
+
+tmpfile1=$(mktemp /tmp/$(basename $0).XXXXXX)
+tmpfile2=$(mktemp /tmp/$(basename $0).XXXXXX)
+trap "rm -f $tmpfile1 $tmpfile2" STOP INT QUIT EXIT
+
+$(dirname $0)/repo_pkglist $repo1 >$tmpfile1
+$(dirname $0)/repo_pkglist $repo2 >$tmpfile2
+
+sdiff -s $tmpfile1 $tmpfile2 || true
+
+
+echo "---------------------------------"
+
+sdiff -s $tmpfile1 $tmpfile2 | awk '{ printf("%s %s\n",($1 == ">")?$1:$4,($1 == ">" )?$2:$1); }'  || true
+
+$diffcmd $tmpfile1 $tmpfile2

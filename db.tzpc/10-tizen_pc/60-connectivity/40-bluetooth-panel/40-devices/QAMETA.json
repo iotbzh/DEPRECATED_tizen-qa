@@ -1,0 +1,76 @@
+[
+  {
+    "name": "add",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "A device can be added from the Bluetooth panel",
+    "description": "It should be possible to pair a device from the Bluetooth applet",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'ON'\r\n\r\n",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Click on the '+' button to pair a new device and wait",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appears"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-09 19:27:16 GMT",
+    "mtime": "2013-03-29 10:35:33 GMT"
+  },
+  {
+    "name": "remove",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "A bluetooth device can be removed",
+    "description": "When a device has been added, it should be possible to remove the added device in the list of the paired devices.",
+    "pre_condition": "A device in the list of the paired devices in the Bluetooth panel",
+    "steps": [
+      {
+        "description": "Open the Bluetooth panel",
+        "expected": "Window of Bluetooth panel appears"
+      },
+      {
+        "description": "Select the device to remove",
+        "expected": "Device is highlighted"
+      },
+      {
+        "description": "Click on the '-' button to remove the device",
+        "expected": "A window appears and asking you for confirmation"
+      },
+      {
+        "description": "Click on the 'Remove' button",
+        "expected": "Device should disappear in the list of device in Bluetooth panel and Bluetooth applet"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-27 12:26:36 GMT",
+    "mtime": "2013-03-29 10:39:37 GMT"
+  }
+]

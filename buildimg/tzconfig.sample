@@ -1,0 +1,6 @@
+# Configuration file for TZ access: to be installed in home dir
+
+TZUSER=XXX
+TZPASSWD=YYY
+TZURL=https://${TZUSER}:${TZPASSWD}@download.tz.otcshare.org/
+

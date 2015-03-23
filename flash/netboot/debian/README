@@ -1,0 +1,12 @@
+This folder contains the debian live distribution that is booted on target to allow flashing an image downloaded from network.
+
+This custom image must be as small as possible and contains the minimum tools.
+
+To customize the boot filesystem, in chroot, just run:
+- make edit
+then exit chroot: the squashfs filesystem is rebuilt automatically.
+
+Otherwise, go into rootfs, adjust files and run:
+- make squashfs
+
+NB: a better way is to rebuild the debian live and to use the procedure in src/ subdir. Drawback: the procedure only works on a debian host.

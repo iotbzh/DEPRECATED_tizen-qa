@@ -1,0 +1,149 @@
+[
+  {
+    "name": "health",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "launch_gnome_app.sh -c 'Rhythmbox' -t 15 -- /usr/bin/rhythmbox",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 13:10:46 GMT",
+    "mtime": "2013-03-07 14:23:56 GMT"
+  },
+  {
+    "name": "play-music",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play music file ",
+    "description": "try to play a music file using rhythmbox",
+    "pre_condition": "have some music files",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/music",
+        "expected": "your music files should appear int he right panels"
+      },
+      {
+        "description": "double click on some music file",
+        "expected": "the music is played and lessonable"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:34:49 GMT",
+    "mtime": "2013-03-07 14:38:35 GMT"
+  },
+  {
+    "name": "play-radio",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play radio",
+    "description": "try to play an internet radio using rhythmbox",
+    "pre_condition": "have connection to internet",
+    "steps": [
+      {
+        "description": "from the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "in the left panel, select library/radio",
+        "expected": "a selection of radio should appear int he right panels"
+      },
+      {
+        "description": "double click a radio entry",
+        "expected": "the radio is played and lessonable"
+      },
+      {
+        "description": "click on the \"play\" button",
+        "expected": "the playing is stopped"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:38:46 GMT",
+    "mtime": "2013-03-07 14:41:45 GMT"
+  },
+  {
+    "name": "play-podcast",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "play podcast",
+    "description": "try to play a podcast item using rhythmbox",
+    "pre_condition": "have connection to internet",
+    "steps": [
+      {
+        "description": "From the desktop, launch rhythmbox",
+        "expected": "the rhythmbox appears"
+      },
+      {
+        "description": "In the left panel, select library/podcast",
+        "expected": "podcast subwindows should appear int he right panels"
+      },
+      {
+        "description": "Click on button \"Add\" to add a podcast source",
+        "expected": "A text field input is displayed"
+      },
+      {
+        "description": "Enter a podcast url (example, http://radiofrance-podcast.net/podcast09/rss_12013.xml)",
+        "expected": "Data of the podcast are displayed"
+      },
+      {
+        "description": "Double click on an episode",
+        "expected": "The episode is played"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 14:42:15 GMT",
+    "mtime": "2013-03-07 14:59:53 GMT"
+  }
+]

@@ -1,0 +1,363 @@
+[
+  {
+    "name": "publisher",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open Microsoft Publisher files with LibreOffice applications",
+    "description": "Check if Microsoft Publisher files can be correctly opened with LibreOffice applications TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:33:01 GMT",
+    "mtime": "2013-03-12 11:22:43 GMT"
+  },
+  {
+    "name": "visio",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open VISIO files with LibreOffice applications",
+    "description": "Check if VISIO files can be correctly opened with LibreOffice applications TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:34:54 GMT",
+    "mtime": "2013-03-12 11:23:00 GMT"
+  },
+  {
+    "name": "font-open-sans",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test new \"Ascender\" open-source font families",
+    "description": "Check if the new \"Open Sans\" font provided by libreOffice 4 is correctly integrated",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer blank page, type some letters",
+        "expected": ""
+      },
+      {
+        "description": "Select what has been typped",
+        "expected": ""
+      },
+      {
+        "description": "Click on the Font scroll bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select the \"Open Sans\" font in the drop-down menu",
+        "expected": "The selected font has been correctly applied to the text"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:35:35 GMT",
+    "mtime": "2013-03-12 10:12:37 GMT"
+  },
+  {
+    "name": "font-pt-serif",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test new \"ParaType\" open-source font families",
+    "description": "Check if the new \"ParaType\" font provided by libreOffice 4 is correctly integrated",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer blank page, type some letters",
+        "expected": ""
+      },
+      {
+        "description": "Select what has been typped",
+        "expected": ""
+      },
+      {
+        "description": "Click on the Font scroll bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select the \"PT Serif\" font in the drop-down menu",
+        "expected": "The selected font has been correctly applied to the text"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 15:52:50 GMT",
+    "mtime": "2013-03-12 10:14:06 GMT"
+  },
+  {
+    "name": "font-source-code",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test new \"Adobe Source Code Pro\" open-source font",
+    "description": "Check if the new \"Source Code Pro\" font provided by libreOffice 4 is correctly integrated",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer blank page, type some letters",
+        "expected": ""
+      },
+      {
+        "description": "Select what has been typped",
+        "expected": ""
+      },
+      {
+        "description": "Click on the Font scroll bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select the \"Source Code Pro\" font in the drop-down menu",
+        "expected": "The selected font has been correctly applied to the text"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 15:54:21 GMT",
+    "mtime": "2013-03-12 10:14:36 GMT"
+  },
+  {
+    "name": "font-source-sans",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test new \"Adobe Source Sans Pro\" open-source font",
+    "description": "Check if the new \"Source Sans Pro\" font provided by libreOffice 4 is correctly integrated",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Writer\" icon",
+        "expected": "Writer starts"
+      },
+      {
+        "description": "In the Writer blank page, type some letters",
+        "expected": ""
+      },
+      {
+        "description": "Select what has been typped",
+        "expected": ""
+      },
+      {
+        "description": "Click on the Font scroll bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select the \"Source Sans Pro\" font in the drop-down menu",
+        "expected": "The selected font has been correctly applied to the text"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-11 15:56:05 GMT",
+    "mtime": "2013-03-12 10:14:56 GMT"
+  },
+  {
+    "name": "template-manager",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Test the new template manager",
+    "description": "Check if the new template manager provided by LibreOffice 4 works correctly",
+    "pre_condition": "Have LibreOffice StartCenter open",
+    "steps": [
+      {
+        "description": "Click on the \"Templates...\" button",
+        "expected": "A \"Template Manager window opens"
+      },
+      {
+        "description": "Clicl on the \"Documents\" tab",
+        "expected": "A new tab appears"
+      },
+      {
+        "description": "Select one of the Templates proposed",
+        "expected": "Writer starts and the document template is successfully loaded"
+      },
+      {
+        "description": "Close Writer",
+        "expected": ""
+      },
+      {
+        "description": "Open LibreOffice StartCenter",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Templates...\" button",
+        "expected": "A \"Template Manager window opens"
+      },
+      {
+        "description": "Click on the \"Spreadsheets\" tab",
+        "expected": "A new tab appears"
+      },
+      {
+        "description": "Select one of the Templates proposed",
+        "expected": "Calc starts and the spreadsheet template is successfully loaded"
+      },
+      {
+        "description": "Close Calc",
+        "expected": ""
+      },
+      {
+        "description": "Open LibreOffice StartCenter",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Templates...\" button",
+        "expected": "A \"Template Manager window opens"
+      },
+      {
+        "description": "Click on the \"Presentations\" tab",
+        "expected": "A new tab appears"
+      },
+      {
+        "description": "Select one of the Templates proposed",
+        "expected": "Impress starts and the presentation template is successfully loaded"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:36:17 GMT",
+    "mtime": "2013-03-14 10:01:06 GMT"
+  },
+  {
+    "name": "gstreamer",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Test GStreamer 1.0 support",
+    "description": "Check if the new LibreOffice 4 version supports correctly Gstreamer 1.0 TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-07 17:36:57 GMT",
+    "mtime": "2013-03-12 12:29:06 GMT"
+  }
+]

@@ -1,0 +1,170 @@
+[
+  {
+    "name": "thumbnailing",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "nautilus shows thumbnails (not icon) of pictures and movies",
+    "description": "browse the filesystem and check that thumbnails are displayed for pictures and movies of known format",
+    "pre_condition": "have multimedia files",
+    "steps": [
+      {
+        "description": "launch nautilus",
+        "expected": "nautilus window appears"
+      },
+      {
+        "description": "browse to a directory containing multimedia files",
+        "expected": "thumbnails are shown for pictures and movies"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-26 14:48:56 GMT",
+    "mtime": "2013-03-27 10:34:17 GMT"
+  },
+  {
+    "name": "show-picture-properties",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "nautilus shows the properties of a picture",
+    "description": "properties of JPEG files are displayed",
+    "pre_condition": "have a JPEG file",
+    "steps": [
+      {
+        "description": "launch nautilus",
+        "expected": "nautilus is launched"
+      },
+      {
+        "description": "browse to the directory containing a JPEG file",
+        "expected": "the picture thumbnails are shown"
+      },
+      {
+        "description": "click with right button on a jpeg thumnail",
+        "expected": "a menu appears"
+      },
+      {
+        "description": "select \"property\" item of the menu",
+        "expected": "the property window is shown"
+      },
+      {
+        "description": "click on the \"image\" tab",
+        "expected": "The properties of the image are shown"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 09:17:04 GMT",
+    "mtime": "2013-03-27 09:21:31 GMT"
+  },
+  {
+    "name": "show-movie-properties",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "nautilus shows the properties of a picture",
+    "description": "properties of movie files are displayed",
+    "pre_condition": "have a movie file",
+    "steps": [
+      {
+        "description": "launch nautilus",
+        "expected": "nautilus is launched"
+      },
+      {
+        "description": "browse to the directory containing a movie file",
+        "expected": "the picture thumbnails are shown"
+      },
+      {
+        "description": "click with right button on a movie thumnail",
+        "expected": "a menu appears"
+      },
+      {
+        "description": "select \"property\" item of the menu",
+        "expected": "the property window is shown"
+      },
+      {
+        "description": "click on the \"audio/video\" tab",
+        "expected": "The properties of the movie are shown"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 09:22:45 GMT",
+    "mtime": "2013-03-27 09:23:42 GMT"
+  },
+  {
+    "name": "show-sound-properties",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "nautilus shows the properties of a sound",
+    "description": "properties of sound files are displayed",
+    "pre_condition": "have a sound file",
+    "steps": [
+      {
+        "description": "launch nautilus",
+        "expected": "nautilus is launched"
+      },
+      {
+        "description": "browse to the directory containing a movie file",
+        "expected": "the sound icons are shown"
+      },
+      {
+        "description": "click with right button on a sound icon",
+        "expected": "a menu appears"
+      },
+      {
+        "description": "select \"property\" item of the menu",
+        "expected": "the property window is shown"
+      },
+      {
+        "description": "click on the \"audio\" tab",
+        "expected": "The properties of the sound are shown"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-27 09:24:21 GMT",
+    "mtime": "2013-03-27 09:25:12 GMT"
+  }
+]

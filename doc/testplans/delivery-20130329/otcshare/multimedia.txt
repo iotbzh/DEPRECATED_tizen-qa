@@ -1,0 +1,25 @@
+Here is Test Plan and Test Cases status of componant "Multimedia (Snappy, Shotwell, Chees, Rythmbox, Sound juicer, Brasero, …)" for Tizen PC. 
+
+Add your comments here when reviewing "Multimedia" test documentations.
+
+Status:
+--------
+* 03/22/2013 - First publish: version 0.1
+* 03/22/2013 - QA reviewed
+* 03/27/2013 - Intermediate version: version 0.2
+* 03/28/2013 - proposal for final: version 0.3
+* 03/29/2013 - Version 0.7 - Ready for ratification
+
+Last version:
+---------------
+[Test Plan Multimedia 0.7](/tizenpc/system/files/tp-mm-0.7.html "tp-mm-0.7.html")
+
+103 Test cases (15 to be finalized with detailed steps on future apps)
+
+Test cases imported in [Enterprise Tester](https://tz.otcshare.org/EnterpriseTester/):
+<br>Tizen PC
+<br>&nbsp;&nbsp;=> IvyBridge
+<br>&nbsp;&nbsp;&nbsp;&nbsp;=> Q2_13
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> E0-multimedia
+
+

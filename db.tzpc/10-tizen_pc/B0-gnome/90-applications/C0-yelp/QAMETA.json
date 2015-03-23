@@ -1,0 +1,150 @@
+[
+  {
+    "name": "health",
+    "priority": 0,
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": null,
+    "objective": "Health test",
+    "description": "Start application and check if a window appears",
+    "notes": "-",
+    "bugs": "-",
+    "exec_type": "auto",
+    "exec_pre": null,
+    "exec": "launch_gnome_app.sh -c 'Yelp' -t 15 -- /usr/bin/yelp",
+    "exec_expected_retcode": 0,
+    "exec_kill_timeout": 30,
+    "exec_post": null
+  },
+  {
+    "name": "show-a-help",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "show a help",
+    "description": "try to show the help of the application nautilus",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "from the desktop, launch nautilus",
+        "expected": "The nautilus window appears"
+      },
+      {
+        "description": "In the top Menubar, click on \"Files\", the menu of nautilus",
+        "expected": "the main menu of nautilus is displayed"
+      },
+      {
+        "description": "Select \"Help\" from the menu",
+        "expected": "The yelp \"help\" window appears"
+      },
+      {
+        "description": "Check that the help of nautilus is shown",
+        "expected": "the main help page of nautilus is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 11:57:20 GMT",
+    "mtime": "2013-03-07 12:04:52 GMT"
+  },
+  {
+    "name": "browse-a-help",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "browse a help",
+    "description": "try to browse the help of the application nautilus",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "from the desktop, launch nautilus",
+        "expected": "The nautilus window appears"
+      },
+      {
+        "description": "In the top Menubar, click on \"Files\", the menu of nautilus",
+        "expected": "the main menu of nautilus is displayed"
+      },
+      {
+        "description": "Select \"Help\" from the menu",
+        "expected": "The yelp \"help\" window appears"
+      },
+      {
+        "description": "Check that the help of nautilus is shown",
+        "expected": "the main help page of nautilus is displayed"
+      },
+      {
+        "description": "Try to navigate using hyper links",
+        "expected": "Help pages are switch according to clicks"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 12:02:59 GMT",
+    "mtime": "2013-03-07 12:04:44 GMT"
+  },
+  {
+    "name": "search-in-help",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "search a help item",
+    "description": "try to search a help",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "from the desktop, launch nautilus",
+        "expected": "The nautilus window appears"
+      },
+      {
+        "description": "In the top Menubar, click on \"Files\", the menu of nautilus",
+        "expected": "the main menu of nautilus is displayed"
+      },
+      {
+        "description": "Select \"Help\" from the menu",
+        "expected": "The yelp \"help\" window appears"
+      },
+      {
+        "description": "Check that the help of nautilus is shown",
+        "expected": "the main help page of nautilus is displayed"
+      },
+      {
+        "description": "In the dropdown textfield, type \"server\" and validate with enter",
+        "expected": "a page showing results of the search is displayed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-07 12:05:47 GMT",
+    "mtime": "2013-03-07 12:07:42 GMT"
+  }
+]

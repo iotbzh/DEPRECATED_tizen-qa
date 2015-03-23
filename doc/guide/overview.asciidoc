@@ -1,0 +1,346 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+:componentName: Overview
+:author: Tizen PC Vannes Team
+:revdate: 2013-04-26
+:revnumber: 1.0
+:title: Overview
+:status: Ready
+
+// -------------------------------------------------------------
+
+= Tizen PC - QA Tools {title} 
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+== Scope of this Document 
+
+This document gives an overview of the Tizen PC QA architecture that was developed by the Tizen PC Vannes Team in Q4/2012 and Q1/2013 based on the Tizen QA Procedures (from Intel PRC, available https://otcshare.org/tizenpc/node/5832[here]).
+
+The architecture we developed is an adaptation of the proposed QA procedures and allows to fully handle the QA process from the test plan writing to the execution of automated tests on the target devices.
+
+Two associated documents are available separately https://otcshare.org/tizenpc/node/6033[here]:
+--
+* an 'Installation Guide'
+* a 'Usage Guide'
+--
+
+To easily replicate the QA architecture, two VirtualBox appliances are also made available:
+--
+* a 'bare' appliance ready for installation (customized openSUSE 12.2 server)
+* a 'full' appliance with all QA components installed and configured, ready for production.
+--
+
+In this document, we expose the features and the general work flow of the Tizen QA architecture.
+
+This overview also points out the limitations of some tools and the workarounds in place to have a fully functional architecture.
+
+== Glossary
+
+Here are briefly defined the technologies involved in the Tizen PC QA architecture.
+
+[horizontal]
+Asciidoc:::  An highly configurable text document format for writing notes, documentation, articles; books, ebooks, slideshows, web pages, man pages and blogs. http://powerman.name/doc/asciidoc[Official site] (and a very practical http://www.methods.co.nz/asciidoc/[cheatsheet])
+CATS::: A generic test infrastructure to manage the whole lifecycle of auto test execution, including selecting test devices from test labs,  downloading and installing desired OS and software packages, preparing test environement, deploying and executing test cases and publishing test reports
+Dnsmasq::: A lightweight server designed to provide DNS, DHCP and TFTP services to a small-scale network. It also support static and dynamic DHCP leases and BOOTP for network booting of diskless machines
+Enterprise Tester::: A tool to manage test cases : edition, import, export, classification 
+Git::: *The* distributed revision control and source code management (SCM) system
+Jira::: A proprietary issue tracking product used for bug tracking, issue tracking and project management
+Nodejs::: A platform built on Chrome's JavaScript runtime which uses an event-driven, non blocking I/O model that makes it lightweight for easily building fast, scalable network applications
+QA Reports::: A test reporting application developed by MeeGo testers 
+Testkit Lite::: A core test runner driving test execution. It provides comprehensive options for testing in command line mode. 
+
+
+== Abbreviations 
+
+Here are defined the abbreviations used in the document
+
+[horizontal]
+ET::: Enterprise Tester
+TC::: Test case
+TP::: Test plan
+
+== Introducing the Tizen PC QA architecture
+
+The Tizen PC QA architecture provides a set of tools to manage QA among the Tizen PC distribution. 
+
+Architecture should allow to:
+--
+* write and maintain test plans, test suites, test cases
+* build Testkit and CATS recipes
+* build and flash Tizen PC images on target devices
+* execute recipes on the targets and upload test results to make them public.
+--
+
+Tizen PC QA architecture involves different technologies such as CATS, Testkit Lite, Enterprise Tester, QA Report. 
+
+Effort has been focused on making the different software communicate correctly and provide a fully functional architecture.
+
+=== Previous workflow 
+
+The following diagram shows briefly the QA process that was proposed in December 2012.
+
+.Figure 1: Intel QA process
+image:overview/intelprc.png["Intel QA process"]
+
+* At the beginning of the process, we have Test Plans which are provided and validated by the project leaders
+* Test cases in the test plan are then imported in Enterprise Tester, using the Enterprise Tester GUI
+* Test cases are then exported to an XML file 
+* The XML test case file is adapted to be compliant with Testkit Lite 
+* CATS recipes are written to run the testkit XML file and then submitted to the CATS server (via CATS client : not represented here) 
+* CATS server flashes a Tizen PC image (fitted with Testkit Lite tool) on the target 
+* CATS server uploads testkit XML file on target 
+* Target executes the tests and then generate a testkit XML result 
+* The CATS server retrieves the testkit XML result and publishes it in QA Report
+
+==== Limitations
+
+Using the existing workflow, some limitations which are detrimental to productivity have been faced :  
+
+* no synchronisation between TC described in TP and TC to be imported in ET
+* exported XML test cases are not compliant with Testkit XML format: they must be adapted but the TC ids are lost in the conversion process: when a testcase fails, it's impossible to automatically retrieve the associated TC in E.T., nor the requirement/feature in Jira.
+* no flash plugin for a PC/netbook/ultrabook device
+* XML result file doesn't contains enough information : measurements information, notes etc... 
+* Enterprise Tester WebUI is sluggish and doesn't allow to edit/maintain testcases scripts and data efficiently.
+* Enterprise Tester is not fitted for 'extreme' automated tests where more services and data are involved (examples: a testcase where we want to automatically play RTSP from a local server and where the RTSP server setup is part of the test : a testcase where some USB HID events must be replayed using a specific tool/hardware)
+* Actual Tizen images are not fitted for QA tests: some extra tools must be added at image build time and/or at runtime. 
+
+*Conclusion*: the proposed QA process should work theoretically but when the Vannes Team started to work on QA architecture in December 2012, there was clearly some gaps in the process. That's the reason why Enterprise Tester is not used in the actual architecture and that some of its functionalities are replaced by local, more efficient services.
+
+=== Tizen PC QA workflow
+
+To improve the efficiency of the system, additional tools have been developed by the Vannes Team to add more automation and more synchronisation in the existing system. 
+
+The objective is to build an architecture that allows to automatically build a Tizen PC image, flash it on a target device, run automated test suites on it and finally automatically upload the QA reports.
+
+
+The following diagram shows the QA architecture components and workflow:
+
+.Figure 2: Tizen PC QA architecture 
+image:overview/qatizeninfra.png["Tizen PC QA architecture"]
+
+
+This architecture allows to:
+--
+* store testcases in a revisioned database, with clear nomenclature and testcases naming
+* create and organise testcases entries seamlessly with a local, easy and fast WebUI
+* easily develop/test/maintain automated testcases scripts and data within database
+* generate documentation from database (Test plans)
+* export Testcases to Enterprise Tester (NB: E.T. is useless in the actual process and the export procedure was only coded to conform to the official QA process)
+* efficiently build a Tizen PC image from official repositories on tz.otcshare.org (optimized for speed: an image is usually built in less than 2 minutes)
+* install automatically a given image on a target device ("flashing" = copying the raw image on the target device HDD). Optimized too: flashing a device takes roughly 90s.
+* generate CATS/Testkit-lite recipes to run manual or automatic TCs on a target device and generate reports in QA Reports site
+--
+
+NOTE: the final goal is to have automated test suites run automatically every time a new Tizen PC snapshot appears. But every tool can be used independently of others. For example, the Flash server is continuously used to install new images on packagers or developers devices: this is a great gain of time over the usual procedure involving a download of a liveUSB image and manually flashing the target device.
+
+== QA Tizen Tools
+
+The tools are delivered as a single tarball named 'qatizen': it contains all the tools to manage test plan, test cases, image creation, flashing and testing. 
+
+The flash server also takes part of qatizen and can be used independently of QA Tests. 
+
+The qatizen tools and the CATS server are installed on the same machine (the test server).
+
+Here is a description of the qatizen folder:
+
+[[table-6]]
+.Description of the qatizen folder
+[width="100%",cols="2,8",options="header"]
+|==============================================================================================
+|Folder			    | Content descritption								    
+//------------------------ ----------------------------------------------------------
+2+^|*qatizen/bin*
+|  | All the scripts required to manage the infrastructure. NB: The names of the scripts often begins with 'qa'
+2+^| *qatizen/buildimg*  
+| buildimg/bin			    | Scripts used for the image creation					   
+| buildimg/ks			    | Kickstart files for the image creation	with MIC	
+| buildimg/qarepo		    | Extra packages required for QA tasks: CATS, testkit, etc.			   
+2+^| *qatizen/contrib*								    
+| contrib/buildimg		    | Other ks for image creation (WRT, firstboot ...)   
+| contrib/qadb_sanity		    | Some test suites focused on package integrity checking, not used in actual testplans  
+| contib/repos_analysis		    | scripts to easily analyse Tizen PC repositories contents
+| contrib/update_tz_image	    | scripts to ease download of official Tizen images   
+2+^| *qatizen/db*
+| db/10-tizen_pc		    | TC related to the official test plans :					   
+| db/ZZ-qasetup			    | TC for testing the automated test process and tools 
+2+^| *qatizen/doc*		    
+| doc/guide			    | Overview, installation, usage guides (sources)  
+| doc/import			 | Example csv/xls/ods files to import Testcases into TC database  
+| doc/man			    | Man pages for commands involved in testing (maintain TC database, run tests)
+| doc/testplans	    | Test Plans (delivered at the end of Q1/2013 on https://otcshare.org/tizenpc/node/5952[otcshare.org]) 
+2+^| *qatizen/etc*	
+| | Configuration files for various components (dnsmasq, flasher, tests, TC management)
+2+^| *qatizen/flash*
+| flash/netboot			    | Debian Live image folder used in the flashing procedure, flashing scripts  
+| flash/targets			    | Symbolic links to TizenPC raw images to be installed on every target				   
+| flash/tftp			    | iPXE binary for initial boot								   
+2+^| *qatizen/images*
+|  | Built images folder				
+2+^| *qatizen/log*
+|  | Log files for various components 
+2+^| *qatizen/node_modules*
+|  | JavaSript modules, in particular: libqa, libhardware, tcbrowse and flasher
+|=============================================================================================
+
+=== Test plan and test cases management 
+
+TCs are stored in the 'qatizen/db' folder of the git repository. TC consist of a set of .json files that contain metadata required to generate Testkit and CATS recipe. TP are stored in the 'qatizen/doc/testplans' folder and are written in asciidoc. +
+User can edit the TC database by multiple ways : 
+
+* Editing a CSV file and import it in the database using the 'qaimport' script 
+* Using the Web UI which provide a convenient form to edit the TC. In this case the database is automatically edited. The web server that provides this web UI is 'tcbrowse'  
+* Directly edit metadata files QAMETA*.json located in the database tree. Also note that the scripts and data used for automated test are stored in the tree, in the same directory as the TC metadata file.
+
+Whatever the method used to edit the database, the result is the creation of .json files.
+
+From the database, TC can be exported in asciidoc or in CSV format using the 'qaexport' script.
+
+To generate the final TP, the asciidoc export of the database is included in the asciidoc TP and then, final TP is generated in HTML format. TP is finally manually imported in OTC Share for validation.
+
+The CSV export of the database can be then imported in Enterprise Tester  
+
+Processing like this allows to easily maintain the synchronisation between the TP and the TC present in ET. In fact, updating the TP and the TC of Enterprise Tester will simply consist of edit the TC database, and generate the files to be imported in OTC Share (HTML TP) and Enterprise Tester (CSV TC). 
+
+=== Image build process  
+
+The Tizen PC QA architecture allows to automatically rebuild Tizen PC images, and make them ready for the tests. Images are created using the two following repositories : 
+
+* Tizen PC repository : contains all the packages of the Tizen PC distribution
+* QA repository : contains additional packages to enable test execution on the target, such as 'Testkit Lite', or 'screen'
+
+A polling mechanism detects when a new snapshot is available on the TZ. Tizen PC images are then created using the official KS file plus a custom KS file to include QA tools. This is the 'qabuildimg' script which is responsible for the creation of the Tizen PC images. RAW and USB images can be created for all kind of images : devel, trunk, daily, weekly. 
+
+The following scheme summarizes the details concerning the image building procedure :
+
+.Figure 3: Build process details 
+image:overview/qatizenbuild.png["Build process details"]
+
+Image are then compressed in LZO format to gain some weight on the server and speed during flash procedure. The created images are published in the 'qatizen/images' folder.
+
+USB images are used to validate the first experience of the user with the system : installation, set up of user account etc.
+RAW images are used for investigation and tests (automated or not)
+
+=== Flashing process
+
+CATS server 3.0 doesn't contain any flasher plugin for the PC platform. To workaround this issue, a convenient flashing procedure has been developed in the Tizen PC QA architecture. This procedure allows to flash a dedicated snapshot (devel/trunk/daily/weekly) RAW image on a given target device.
+
+The general idea of the flashing process is to control the way a target device will boot: it should boot on a network rootfs to be flashed, but must boot on local hard drive to be tested. The flash server manages these operations and also serves the various files involved at different steps. iPXE is the tool used to control the boot mechanism on the target device, as the operations to execute at boot can be downloaded live from HTTP.
+
+The flashing procedure involves the following major components : 
+--
+* DNSMASQ which is set up on the test server to :
+** set up a TFTP server to serve an initial iPXE boot image upon PXE requests
+** set up a DNS server to assign hostnames of the added devices (configuration file is generated)  
+** set up a DHCP server to handle IP addressing and PXE/iPXE booting
+* Flash server (HTTP server) which handles the rest of the flashing process:
+** drives the target boot mechanism (local boot or netboot) by serving iPXE script
+** allow to netboot on a Debian live distro
+** handle the flashing process with a few extra scripts installed in the Debian live distro
+** serves the flashing script and the RAW images to be installed on target devices
+* custom Debian Live image (build scripts are available)
+** extra small footprint: around 70MB
+** up to date (Debian 7.0 with kernel 3.2)
+** boots with a rootfs contained in a squashfs file, served by HTTP: no need to use classical NFS rootfs (more difficult to administrate)
+--
+
+.Figure 4: Flash process details 
+image:overview/qatizenflasher.png["Flash process details"]
+
+The flashing process involves multiple steps:
+--
+. the target device boots on the network using PXE (BIOS settings must be modified)
+. the DNSMASQ server replies to the BOOTP request by serving iPXE via TFTP (for security reasons, this only happens if the device is identified as a test device by its MAC address: other devices can be plugged on the QA Test LAN and hopefully won't be flashed !)
+. the target device executes iPXE, which asks for its configuration script to the HTTP Server (qaflasher)
+. if the target device is ready for testing, the HTTP Server instructs iPXE to boot on the local HDD: a few seconds later, a CATS recipe can run on the device.
+. if the target device must be flashed, the HTTP Server instructs iPXE to boot on a Debian live distro available through HTTP (iPXE is able to download and boot a kernel from HTTP)
+. the target device boots on the Debian live distro. At the end of the init phase, a small script makes a request on the HTTP Server to tell the server that the target is ready for flashing.
+. the HTTP Server then connects on the target through a simple bash backdoor, downloads the flashing script and runs it (the flashing script could be customized for every target and is not in the Debian live image).
+. the flashing script determines the block device to write to, then downloads the LZO RAW image from the HTTP Server, decompresses it and writes the blocks on the target HDD. Finally, the script extends the root partition to a bigger size (80GB actually): this allows to build images with a small root partition (3.2GB) and having much more room at runtime. This is needed for example to install debugging packages or run testcases that involve writing big files.
+. when flashing is finished, the script instructs the server that the target device was flashed successfully: on next reboot, the server will instruct iPXE to boot the target device on its local HDD (steps 3 & 4)
+. then the flashing script reboots the target device: goto 1
+. if anything goes wrong during the flash procedure, the target device is rebooted and a new flashing attempt will occur (the server knows if the flash procedure succeeded or failed)
+--
+
+A small presentation was made previously on the subject: it's available https://otcshare.org/tizenpc/system/files/qa_vannes_0.ppt[here]
+
+=== Test execution 
+
+The test cases are executed on a target device by using Testkit-lite on the target. The CATS recipe is responsible for uploading the testsuite scripts and data on the target then running testkit-lite. The result file is then uploaded on QA Reports site.
+
+A custom version of Testkit-Lite has been forked to add some enhancements, mostly related to automated testing. 
+The sources of testkit-lite as modified by Vannes Team can be found here: https://github.com/kooltux/testkit-lite. These enhancements should be present in the next official version of Testkit-lite (probably 2.3.2 at the end of April 2013: see https://github.com/testkit/testkit-lite/tree/2.3.2.testing).
+
+This updated version allows to:
+--
+- describe a blocking state for automated TC : using the number 69 as expected retcode in Testkit recipe
+- generate notes from a test script and report more dynamic informations on the related TC in the test report
+- generate measurements from a test script: these measurements appear in a dedicated table on the report
+--
+
+We distinguish two concepts in automation:
+--
+* testsuite/testcase behaviour: a testcase can be automatic or manual. By extension, an automatic testsuite only contains automatic testcases.
+* trigger the tests: running an automatic testsuite can be done automatically or manually.
+--
+
+So we can have multiple cases:
+--
+* starting manually an automatic testsuite on a given target device
+* starting manually a non-automatic testsuite (mixed testcases: manual and auto). This needs some operations to be done for manual testcases. The tests results are also entered manually
+* starting automatically an automatic testsuite when a new Tizen release is made available
+* ...
+--
+
+Test execution is handled by the 'qamanager' script. This script gathers informations on a defined testsuite, and prepares evertything to run the testsuite on a given target. Required data for the test execution are generated : XML testkit instructions, TC scripts and datas, CATS recipe. 
+The CATS recipe is then submitted to the CATS server and tests are executed on the target. (The target is supposed to be already flashed with the desired snapshot).
+
+When some manual testcases need to be run, the operator must reply interactively to testkit-lite running on the target device. As we run testkit-lite inside a screen(1) session, it's easy to start the tests and then connect on target device and get access to testkit-lite console.
+
+=== Fully automated test process: automatic trigger, automatic tests, automatic reports
+
+This is a particular case of test execution where *everything* is done automatically.
+
+Only automatic testcases/testsuites can be run with this method.
+
+The automated tests are launched with the 'qasnapshot_autotest' script. This script successively builds an image from a new snapshot, flashes the device and runs the automated tests on it. 
+
+A special operation in 'qabuildimg' is responsible for polling regularly to detect the new Tizen releases and run 'qasnapshot_autotest'.
+
+So the process can be summarized as this:
+--
+. poll regularly (every 30s) on tz.otcshare.org to detect a new trunk/devel/daily/weekly snapshot
+. when a new snapshot is detected, run 'qasnapshot_autotest'
+. 'qasnapshot_autotest' builds a QA image for the given snapshot with 'qabuildimg'
+. 'qasnapshot_autotest' flashes a dedicated target with the fresh image using the flashing server 'qaflasher'
+. 'qasnapshot_autotest' runs 'qamanager' to start automatic testsuites on the target
+. the reports are automatically posted on QA Report site after each run
+. goto 1 !
+--
+
+This system has been running in Vannes during 3 months (Q1 2013) and generated more than 1000 reports (50 to 100 testcases in every report, run automatically on 1000 different releases of Tizen PC).
+
+== References and Contacts
+
+Primary location for qatizen materials: https://otcshare.org/tizenpc/node/6033[otcshare.org]
+
+Other QA Materials on OTCShare:
+--
+* https://otcshare.org/tizenpc/node/5951[QA Materials section]
+* https://otcshare.org/tizenpc/node/5952[Test plans]
+* https://otcshare.org/tizenpc/node/5989[Automated tests infrastructure] (in Montpellier/FR and Vannes/FR)
+--
+
+People in TizenPC Vannes Team who were involved in QA activity during Q4/2012 and Q1/2013:
+--
+* mailto:stephane.desneux@eurogiciel.fr[Stéphane Desneux]
+* mailto:jose.bollo@eurogiciel.fr[José Bollo]
+* mailto:nicolas.zingile@eurogiciel.fr[Nicolas Zingilé]
+* mailto:Ewan.LEBIDEAU-CANEVET@eurogiciel.fr[Ewan Le Bideau]
+--
+

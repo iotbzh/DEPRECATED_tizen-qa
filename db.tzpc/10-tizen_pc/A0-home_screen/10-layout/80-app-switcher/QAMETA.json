@@ -1,0 +1,163 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the appearance of application switcher (Alt+Tab)",
+    "description": "The application switcher must be presented as a screen overlay when typing the Alt+tab keyboard shortcut.\r\n",
+    "pre_condition": "swith in Home mode",
+    "steps": [
+      {
+        "description": "type and maintain the Alt key then type and release the Tab key",
+        "expected": "the application switcher must appear on screen and conform to design guidelines"
+      },
+      {
+        "description": "release the Alt key",
+        "expected": "the application switcher must disappear"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:41:13 GMT",
+    "mtime": "2013-03-21 15:48:14 GMT"
+  },
+  {
+    "name": "position",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the position of application switcher (Alt+Tab)",
+    "description": "The application switcher overlay must be centered vertically and horizontally on the primary monitor",
+    "pre_condition": "swith in Home mode",
+    "steps": [
+      {
+        "description": "type and maintain the Alt key then type and release the Tab key",
+        "expected": "the application switcher appears and is centered on the primary monitor"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:48:53 GMT",
+    "mtime": "2013-03-21 15:48:53 GMT"
+  },
+  {
+    "name": "shown_apps",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the content of application switcher (Alt+Tab)",
+    "description": "The application switcher must show all active windows / applications",
+    "pre_condition": "- switch to Home mode\r\n- close all applications\r\n",
+    "steps": [
+      {
+        "description": "launch 1 application and type Alt+Tab",
+        "expected": "the app switcher appears and shows only 1 app"
+      },
+      {
+        "description": "release Alt+tab",
+        "expected": "app switcher disappears"
+      },
+      {
+        "description": "launch a second application and type Alt+Tab",
+        "expected": "app switcher appears and shows 2 apps, typing tab switches between the applications, releasing activates the selected application (app window is in foreground and has focus)"
+      },
+      {
+        "description": "launch a third application and type Alt+tab",
+        "expected": "app switcher appears and show 3 apps, typing tab repeatedly cycles through applications, releasing Alt activates the selected application (app window is in foreground and has focus)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 16:22:39 GMT",
+    "mtime": "2013-03-21 16:22:39 GMT"
+  },
+  {
+    "name": "ordering",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the apps order in application switcher (Alt+Tab)",
+    "description": "The application switcher must show the applications order by time of last use (last used on left) (TODO: to be confirmed)",
+    "pre_condition": "launch 3 applications",
+    "steps": [
+      {
+        "description": "type Alt+Tab",
+        "expected": "the switcher appears and show the applications in chronological order"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 16:23:19 GMT",
+    "mtime": "2013-03-21 16:23:19 GMT"
+  },
+  {
+    "name": "overflow",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check the overflow behaviour in application switcher (Alt+Tab)",
+    "description": "In the Application switcher overlay, if more windows are active than can fit in a row then another row is added, the first row is moved to the top the of the screen grid",
+    "pre_condition": "open 9 or more different applications (on Lenovo X230, the screen resolution is 1366x768 and only 6 applications are needed)",
+    "steps": [
+      {
+        "description": "type Alt+Tab",
+        "expected": "the switcher must appear and display the applications on 2 rows"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 17:52:29 GMT",
+    "mtime": "2013-03-21 17:52:29 GMT"
+  }
+]

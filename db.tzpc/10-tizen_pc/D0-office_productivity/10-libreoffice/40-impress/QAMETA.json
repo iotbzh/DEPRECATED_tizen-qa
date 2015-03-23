@@ -1,0 +1,1099 @@
+[
+  {
+    "name": "presentation",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "launch fullscreen presentation mode in Impress",
+    "description": "Check if Impress can launch a full screen presentation",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "Click on the \"Slide Show\" top bar button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop down menu, click on \"Slide Show\"",
+        "expected": "The full screen presentation starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:01:28 GMT",
+    "mtime": "2013-03-12 15:59:21 GMT"
+  },
+  {
+    "name": "scan",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Insert a picture by scanning from Impress",
+    "description": "Check if the Impress application handles the scanning support",
+    "pre_condition": "Have a scanning device installed on the system",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts"
+      },
+      {
+        "description": "In the Impress window, click on \"Insert\"",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\" in the drop-down menu",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Select \"Scan\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"Select Source\"",
+        "expected": "A \"Scanner\" window opens"
+      },
+      {
+        "description": "Select a device",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Scan\"",
+        "expected": "The scanning operation starts properly"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:02:38 GMT",
+    "mtime": "2013-03-14 13:25:30 GMT"
+  },
+  {
+    "name": "create-impress",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Create a new Impress document",
+    "description": "Check for Impress starting properly",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "Click on \"Applications\" in the top bar",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Office\" on the left",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Impress\" icon",
+        "expected": "Impress starts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-12 15:55:55 GMT",
+    "mtime": "2013-03-12 16:02:22 GMT"
+  },
+  {
+    "name": "open-odp",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open an odp file with Impress",
+    "description": "Check if Impress is able to open odp files",
+    "pre_condition": "Have Impress started and have an odp file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odp file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odp file is correctly opened in Impress"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:03:21 GMT",
+    "mtime": "2013-03-12 17:06:17 GMT"
+  },
+  {
+    "name": "open-ppt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a ppt file with Impress",
+    "description": "Check if Impress is able to open ppt files",
+    "pre_condition": "Have Impress started and have a ppt file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a ppt file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The ppt file is correctly opened in Impress"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:03:58 GMT",
+    "mtime": "2013-03-12 17:06:22 GMT"
+  },
+  {
+    "name": "open-pptx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "open a pptx file with Impress",
+    "description": "Check if Impress is able to open pptx files",
+    "pre_condition": "Have Impress started and have a pptx file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a pptx file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The pptx file is correctly opened in Impress"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:04:19 GMT",
+    "mtime": "2013-03-12 17:06:28 GMT"
+  },
+  {
+    "name": "edit",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "edit a file with Impress",
+    "description": "Check if Impress allows to edit documents",
+    "pre_condition": "Have Impress started in foreground with an existing Impress document open",
+    "steps": [
+      {
+        "description": "Select a text zone",
+        "expected": ""
+      },
+      {
+        "description": "Type some letters with the keyboard",
+        "expected": "The letters are printed on the Impress page"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:04:44 GMT",
+    "mtime": "2013-03-12 16:07:19 GMT"
+  },
+  {
+    "name": "save-odp",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save an odp file with Impress",
+    "description": "Check if Impress allows to save odp documents",
+    "pre_condition": "Have Impress started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Presentation (.odp)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odp format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:05:06 GMT",
+    "mtime": "2013-03-12 16:53:11 GMT"
+  },
+  {
+    "name": "save-ppt",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a ppt file with Impress",
+    "description": "Check if Impress allows to save ppt documents",
+    "pre_condition": "Have Impress started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft PowerPoint 97/2000/XP/2003 (.ppt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in ppt format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:05:46 GMT",
+    "mtime": "2013-03-12 16:53:18 GMT"
+  },
+  {
+    "name": "save-pptx",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "save a pptx file with Impress",
+    "description": "Check if Impress allows to save pptx documents",
+    "pre_condition": "Have Impress started in foreground with an unsaved and edited document open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft PowerPoint 2007/2010 XML (.pptx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in pptx format in the selected directory"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:06:07 GMT",
+    "mtime": "2013-03-12 17:05:25 GMT"
+  },
+  {
+    "name": "slides",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Test basic slides components",
+    "description": "Check if Impress is able to create slides",
+    "pre_condition": "Have Impress started",
+    "steps": [
+      {
+        "description": "Click on a text zone",
+        "expected": ""
+      },
+      {
+        "description": "Type a few words",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Insert\" tob bar button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Slide\"",
+        "expected": "One more slide is created"
+      },
+      {
+        "description": "Click on the \"Insert\" tob bar button",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Select \"Picture\"",
+        "expected": "A drop-right menu opens"
+      },
+      {
+        "description": "Click on \"From file...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a picture in a directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The picture is correctly inserted in the current slide of the presentation"
+      },
+      {
+        "description": "Click on the first slide shown on left side",
+        "expected": "The first slide is viewed in the main window"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation is launched"
+      },
+      {
+        "description": "Click a few times on left-mouse button",
+        "expected": "The slides are displayed in full screen mode one by one and the full screen mode ends when there is no more slide"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:06:22 GMT",
+    "mtime": "2013-03-12 16:26:14 GMT"
+  },
+  {
+    "name": "odp-ppt-conversion",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "odp>ppt>odp",
+    "description": "Check if Impress is able to convert an odp file into a ppt file, and to convert this ppt file into an odp file while respecting the format",
+    "pre_condition": "Have Impress started and have an odp file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odp file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odp file is correctly opened in Impress"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft PowerPoint 97/2000/XP/2003 (.ppt)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft PowerPoint 97/2000/XP/2003 Format\"",
+        "expected": "The document has been correctly saved in ppt format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the ppt file previously saved",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The ppt file is correctly opened in Impress"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Presentation (.odp)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odp format in the selected directory and it is equal to the original odp file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:06:47 GMT",
+    "mtime": "2013-03-12 16:54:30 GMT"
+  },
+  {
+    "name": "odp-pptx-conversion",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "odp>pptx>odp",
+    "description": "Check if Impress is able to convert an odp file into a pptx file, and to convert this pptx file into an odp file while respecting the format",
+    "pre_condition": "Have Impress started and have an odp file in the home directory",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select an odp file",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The odp file is correctly opened in Impress"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Microsoft PowerPoint 2007/2010 XML (.pptx)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "A \"Confirm File Format\" window opens"
+      },
+      {
+        "description": "In the \"Confirm File Format\" window, click on \"Use Microsoft PowerPoint 2007/2010 XML Format\"",
+        "expected": "The document has been correctly saved in pptx format in the selected directory"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select the pptx file previously saved",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The pptx file is correctly opened in Impress"
+      },
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Save As...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a different directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"ODF Presentation (.odp)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The document has been correctly saved in odp format in the selected directory and it is equal to the original odp file"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:07:19 GMT",
+    "mtime": "2013-03-12 16:55:12 GMT"
+  },
+  {
+    "name": "swf",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "export LibreOffice Impress documents to SWF",
+    "description": "",
+    "pre_condition": "Have Impress started in foreground with an existing Impress document (.odp) open",
+    "steps": [
+      {
+        "description": "Click on \"File\" on the top-left bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Export...\"",
+        "expected": "A file manager window opens"
+      },
+      {
+        "description": "Select a directory",
+        "expected": ""
+      },
+      {
+        "description": "Select \"Macromedia Flash (.swf)\" with the \"All formats\" drop-down menu",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Save\"",
+        "expected": "The presentation is correctly exported to the swf format"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-12 15:52:09 GMT",
+    "mtime": "2013-03-12 16:45:01 GMT"
+  },
+  {
+    "name": "android-remote",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Test the Impress Android Remote",
+    "description": "TODO",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:07:44 GMT",
+    "mtime": "2013-03-12 16:45:13 GMT"
+  },
+  {
+    "name": "multimedia-ogg",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded ogg video previews",
+    "description": "Check if Impress is able to insert ogg videos and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, an ogg file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the ogg file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The video is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the movie starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:08:22 GMT",
+    "mtime": "2013-03-13 13:39:13 GMT"
+  },
+  {
+    "name": "multimedia-mov",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded mov video previews",
+    "description": "Check if Impress is able to insert mov videos and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, a mov file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the mov file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The video is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the movie starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 13:37:03 GMT",
+    "mtime": "2013-03-13 13:39:05 GMT"
+  },
+  {
+    "name": "multimedia-avi",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded avi video previews",
+    "description": "Check if Impress is able to insert avi videos and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, a avi file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the avi file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The video is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the movie starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 13:37:59 GMT",
+    "mtime": "2013-03-13 13:38:40 GMT"
+  },
+  {
+    "name": "multimedia-mp3",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded mp3 sounds previews",
+    "description": "Check if Impress is able to insert mp3 sounds and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, a mp3 file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the mp3 file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The sound is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the sound starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 13:49:57 GMT",
+    "mtime": "2013-03-13 13:51:30 GMT"
+  },
+  {
+    "name": "multimedia-wav",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded wav sounds previews",
+    "description": "Check if Impress is able to insert wav sounds and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, a wav file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the wav file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The sound is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the sound starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 13:51:40 GMT",
+    "mtime": "2013-03-13 13:52:18 GMT"
+  },
+  {
+    "name": "multimedia-flac",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "test multimedia/embedded flac sounds previews",
+    "description": "Check if Impress is able to insert flac sounds and to launch them into full screen presentation",
+    "pre_condition": "Have GStreamer 1.0 support, a flac file in the home directory, and Impress already started",
+    "steps": [
+      {
+        "description": "Click on \"Insert\" on the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "Click on \"Movie and Sound...\"",
+        "expected": "A file-manager window opens"
+      },
+      {
+        "description": "Select the flac file in the home directory",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Open\"",
+        "expected": "The sound is correctly inserted in the presentation slide"
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation starts and the sound starts to play"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-13 13:52:26 GMT",
+    "mtime": "2013-03-13 13:53:04 GMT"
+  },
+  {
+    "name": "presenter-console",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "presenter console integrated as core feature",
+    "description": "Check if the presenter console is integrated as core feature in Impress",
+    "pre_condition": "Have Impress started",
+    "steps": [
+      {
+        "description": "Click on \"Tools\" in the top bar",
+        "expected": "A drop-down menu opens"
+      },
+      {
+        "description": "In the drop-down menu, click on \"Extension Manager...\"",
+        "expected": "A \"Extension Manager\" window opens"
+      },
+      {
+        "description": "Check if there is no extension called \"Presenter Console\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on \"Close\"",
+        "expected": ""
+      },
+      {
+        "description": "Click on the \"Slide Show\" button",
+        "expected": "The presentation is is fullscreen mode"
+      },
+      {
+        "description": "Check if the presenter console is visible",
+        "expected": "The presenter console is correctly integrated as a core feature in Impress"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "elebideau",
+    "ctime": "2013-03-08 14:10:08 GMT",
+    "mtime": "2013-03-14 10:21:27 GMT"
+  }
+]

@@ -1,0 +1,161 @@
+#!/usr/bin/env node
+
+/*
+ * QA Manager command
+ * Author: Stéphane Desneux <sdx@kooltux.org>
+ * Date: 2013-01-10
+ *
+ * This command can be used to generate various files from the database
+ * metadata:
+ * - CATS recipe file
+ * - testkit-lite XML file
+ * - tarball to upload on host target 
+ * ...
+ *
+ * Copyright 2013, Intel Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; version 2 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ */
+
+var _=require('underscore');
+var util=require('util');
+var log4js=require("log4js");
+var path=require("path");
+
+var DEBUG=false;
+
+var TOPDIR=path.resolve(path.join(path.dirname(__filename),".."));
+var NAME=path.basename(__filename);
+
+var logger=log4js.getLogger(NAME);
+
+/* find default db dir and config dir */
+var DBDIR=path.resolve(path.join(TOPDIR,"db"));
+var CFGDIR=path.resolve(path.join(TOPDIR,"etc"));
+
+DEBUG && logger.debug("Top dir: "+TOPDIR);
+DEBUG && logger.debug("Config dir: "+CFGDIR);
+DEBUG && logger.debug("Db dir: "+DBDIR);
+
+var QA=require('libqa');
+
+var optimist = require('optimist')
+	.usage("Usage: "+NAME+" [options]")
+	.options('h',{
+		boolean: true,
+		alias:'help',
+		describe: 'Get help',
+	})
+	.options('p',{
+		demand: true,
+		string: true,
+		alias:'profile',
+		describe: 'Test profile (declared in etc/test_suites.conf)',
+	})
+	.options('t',{
+		demand: true,
+		string: true,
+		alias:'target',
+		describe: 'Target host (declared in etc/targets.conf)',
+	})
+	.options('s',{
+		demand: true,
+		string: true,
+		alias:'snapid',
+		describe: 'Image identification (Sanapshot ID)',
+	})
+	.options('b',{
+		demand: true,
+		string: true,
+		alias:'buildid',
+		describe: 'Image identification (Build ID)',
+	})
+	.options('a',{
+		demand: true,
+		string: true,
+		alias:'archid',
+		describe: 'Image identification (Architecture ID)',
+	})
+	.options('i',{
+		demand: false,
+		string: true,
+		alias:'image',
+		default: "",
+		describe: 'Image URL (default: deduced from build id, snap id and arch id)'
+	})
+	.options('r',{
+		demand: false,
+		string: true,
+		default: "default",
+		alias:'report',
+		describe: 'Type of reporting (declared in etc/test_reports.conf)',
+	})
+	.options('x',{
+		demand: false,
+		string: true,
+		default: "default",
+		alias:'execution',
+		describe: 'Type of execution (declared in etc/test_exec.conf)',
+	})
+	.options('n',{
+		boolean:true,
+		alias:'dryrun',
+		describe: 'Dry-run (do nothing)',
+		default: false
+	})
+	.options('d',{
+		alias: 'db',
+		demand: false,
+		describe: "Test database top directory",
+		default: DBDIR
+	})
+	.options('c',{
+		alias: 'config',
+		demand: false,
+		describe: "Config dir",
+		default: CFGDIR
+	})
+	.check(function(argv) { 
+		// check unique options
+		['profile','target','snapid','buildid','archid','image','report','execution','db','config'].forEach(function(opt) {
+			if (typeof argv[opt] != 'string') { throw new Error(opt+' must be unique'); }
+		});
+	});
+
+var argv=optimist.argv;
+if (argv.help) {
+	optimist.showHelp();
+	process.exit(1);
+}
+
+var qarun=new QA.Run({
+	configdir: argv.config,
+	snap_id: argv.snapid,
+	build_id: argv.buildid,
+	arch_id: argv.archid,
+	image_url: argv.image,
+	hwtarget: argv.target,
+	executor: argv.execution,
+	report: argv.report,
+	profile: argv.profile,
+	dbdir: argv.db
+});
+
+if (argv.dryrun) {
+	qarun.enableDryRun();
+}
+
+qarun.go();
+

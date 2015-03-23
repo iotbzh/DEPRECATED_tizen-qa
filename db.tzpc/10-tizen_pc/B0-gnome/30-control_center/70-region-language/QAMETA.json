@@ -1,0 +1,236 @@
+[
+  {
+    "name": "set-display-language",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set display language",
+    "description": "Check that the display language can be set.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username",
+        "expected": "the gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on the \"Region & Language\"",
+        "expected": "the region and language panel opens"
+      },
+      {
+        "description": "Click on the \"language\" item",
+        "expected": "a list of languages appears"
+      },
+      {
+        "description": "Click on some language different that the current one",
+        "expected": "the language is selected"
+      },
+      {
+        "description": "Click on \"done\"",
+        "expected": "a dialog appears telling that session should be restarted"
+      },
+      {
+        "description": "Click on \"Restart Now\" to apply",
+        "expected": "a dialog ask to \"cancel\" or \"log out\""
+      },
+      {
+        "description": "Click on \"log out\"",
+        "expected": "the screen blackout and the logging screen appears"
+      },
+      {
+        "description": "Log in with the modified account",
+        "expected": "you enter your session"
+      },
+      {
+        "description": "Click  on the username (top right)",
+        "expected": "the gnome menu appears with items in the selected language"
+      },
+      {
+        "description": "Click on the equivalent of \"settings\"",
+        "expected": "the settings panel appears with icon's names in the selected language"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.7.1]",
+    "bugs": "TZPC-748",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-formatting",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set formatting",
+    "description": "Check if it's possible to set the region formatting.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username",
+        "expected": "the gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on the \"Region & Language\"",
+        "expected": "the region and language panel opens"
+      },
+      {
+        "description": "Click on the \"Formats\" item",
+        "expected": "a list of languages appears"
+      },
+      {
+        "description": "Click on some language different that the current one",
+        "expected": "the language is selected"
+      },
+      {
+        "description": "Click on \"done\"",
+        "expected": "a dialog appears telling that session should be restarted"
+      },
+      {
+        "description": "Click on \"Restart Now\" to apply",
+        "expected": "a dialog ask to \"cancel\" or \"log out\""
+      },
+      {
+        "description": "Click on \"log out\"",
+        "expected": "the screen blackout and the logging screen appears"
+      },
+      {
+        "description": "Log in with the modified account",
+        "expected": "you enter your session"
+      },
+      {
+        "description": "Click on the time in the top bar",
+        "expected": "The entered formatting must apply to the displayed date and time"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.7.2]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "set-keyboard",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Set keyboard layout",
+    "description": "Check that keyboard layout can be set.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username",
+        "expected": "the gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on the \"Region & Language\"",
+        "expected": "the region and language panel opens"
+      },
+      {
+        "description": "Click on the \"+\" of keyboard list",
+        "expected": "a list of languages appears"
+      },
+      {
+        "description": "Click on some language different than the current one",
+        "expected": "a sub list of keyboard variant appears"
+      },
+      {
+        "description": "Select a variant and click \"Add\"",
+        "expected": "the new keyboard config is added to the list, the current keyboard language is displayed in the top bar"
+      },
+      {
+        "description": "From the top bar, select the language",
+        "expected": "a dialog appears with the several keyboard languages"
+      },
+      {
+        "description": "Select the new language for keyboard",
+        "expected": "the top bar language is updated"
+      },
+      {
+        "description": "Open a terminal and type a text",
+        "expected": "the letters printed follow the selected keyboard map"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.7.3]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-05 16:04:11 GMT",
+    "mtime": "2013-03-08 09:13:05 GMT"
+  },
+  {
+    "name": "show-keyboard-layout",
+    "exec_type": "manual",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "show keyboard layout",
+    "description": "Check that keyboard layout can be shown.",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "From an active session, click on the username",
+        "expected": "the gnome menu is displayed"
+      },
+      {
+        "description": "Within the menu, select \"Settings\"",
+        "expected": "the setting window appears"
+      },
+      {
+        "description": "Click on the \"Region & Language\"",
+        "expected": "the region and language panel opens"
+      },
+      {
+        "description": "Select a keyboard from the keybord list",
+        "expected": "the keyboard is selected and the show layout icon is ungrayed"
+      },
+      {
+        "description": "Click the show layout icon",
+        "expected": "The keyboard layout is shown"
+      }
+    ],
+    "post_condition": "",
+    "notes": "[Req. 1.7.3]",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "jb",
+    "ctime": "2013-03-08 09:13:08 GMT",
+    "mtime": "2013-03-08 09:15:39 GMT"
+  }
+]

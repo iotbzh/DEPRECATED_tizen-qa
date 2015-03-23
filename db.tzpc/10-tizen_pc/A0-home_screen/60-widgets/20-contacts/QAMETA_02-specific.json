@@ -1,0 +1,846 @@
+[
+  {
+    "name": "contacts-list",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Contact widget lists only the user's favourites ‘contacts’",
+    "description": "The contacts widget displays the user's favourites ‘contacts’ as labelled by Empathy/Folks\r\n",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several buddies are created in IM application\r\n- In both applications, some of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Contact widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check the list of contacts",
+        "expected": "Only the user's favourites ‘contacts’ are listed"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 23:48:52 GMT",
+    "mtime": "2013-03-11 00:02:06 GMT"
+  },
+  {
+    "name": "contacts-list-size",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Contact widget displays a maximum of 5 contacts at one time",
+    "description": "The contact widget is restricted to a set size of 3 x 3 tiles and displays a maximum of 5 contacts at one time\r\n",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several buddies are created in IM application\r\n- In both applications, more of 7 of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Contact widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check the list of contacts",
+        "expected": "the Contact widget displays a maximum of 5 contacts at one time"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 23:51:27 GMT",
+    "mtime": "2013-03-11 00:02:25 GMT"
+  },
+  {
+    "name": "contacts-list-scroll",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can scroll the contacts in the Contact widget",
+    "description": "If the user has more than 5 favourites, a scroll bar is initiated.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several buddies are created in IM application\r\n- In both applications, more of 12 of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Contact widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check the list of contacts",
+        "expected": "-"
+      },
+      {
+        "description": "Scroll the list of contacts",
+        "expected": "You can scroll the list of contacts. A maximum of 5 contacts is displayed at one time"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 23:53:52 GMT",
+    "mtime": "2013-03-11 00:02:48 GMT"
+  },
+  {
+    "name": "contacts-details",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Contact widget displays contacts' details properly pulled from empathy account or from contacts",
+    "description": "The Contact widget displays a contact avatar, name, presence icon and description\r\n",
+    "pre_condition": "- Several contacts are created in Contact application. They all have an avatar and at least a name.\r\n- Several buddies are created in IM application. Buddies are added in several accounts associated to several IM services.\r\n- At least One buddy is Online, One buddy is idle, One buddy is offline. They all share some description. They all have an avatar. They all have a nickname\r\n- In both applications, they are all identified as favourites",
+    "steps": [
+      {
+        "description": "Open the Contact widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check the list of contacts",
+        "expected": "-"
+      },
+      {
+        "description": "Scroll the list of contacts",
+        "expected": "the Contact widget displays Contact avatar, Contact name, Presence icon and description pulled from empathy account or from contacts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-10 23:55:48 GMT",
+    "mtime": "2013-03-11 00:05:06 GMT"
+  },
+  {
+    "name": "contact-badge",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that the Contact widget displays contacts' Notification badge",
+    "description": "The Contact widget displays Notification badge pulled from empathy account or from contacts",
+    "pre_condition": "- Several contacts are created in Contact application. One missed audio call is associated to a contact. One missed video call is associated to a contact. One unread message is associated to a contact\r\n- Several buddies are created in IM application. One missed VOIP call is associated to a buddy. One missed video VOIP call is associated to a buddy. One unread instant message is associated to a contact\r\n- In both applications, they are all identified as favourites",
+    "steps": [
+      {
+        "description": "Open the Contact widget",
+        "expected": "-"
+      },
+      {
+        "description": "Check the list of contacts",
+        "expected": "-"
+      },
+      {
+        "description": "Scroll the list of contacts",
+        "expected": "the Contact widget displays Notification badge pulled from empathy account or from contacts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:05:19 GMT",
+    "mtime": "2013-03-11 00:07:41 GMT"
+  },
+  {
+    "name": "contact-badge-incremented",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that contacts' Notification badge displayed by the Contact widget is incremented when receiving new events",
+    "description": "The Contact widget displays Notification badge pulled from empathy account or from contacts",
+    "pre_condition": "- Several contacts are created in Contact application. One missed audio call is associated to a contact. One missed video call is associated to a contact. One unread message is associated to a contact\r\n- Several buddies are created in IM application. One missed VOIP call is associated to a buddy. One missed video VOIP call is associated to a buddy. One unread instant message is associated to a contact\r\n- In both applications, they are all identified as favourites\r\n- IM application and Contact application are not launched",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Receive a new message from a contact",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Receive a new audio call from a contact",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Receive a new video call from a contact",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Receive a new instant message from a buddy",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Receive a new VOIP audio call from a buddy",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Receive a new VOIP video call from a buddy",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      },
+      {
+        "description": "Repeat previous steps from different contacts and buddies",
+        "expected": "The associated Notification badges are incremented in the Contact widget"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:07:45 GMT",
+    "mtime": "2013-03-11 00:11:09 GMT"
+  },
+  {
+    "name": "contact-badge-decremented",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure contacts' Notification badge displayed by the Contact widget is decreased when opening/answering the events",
+    "description": "The Contact widget displays Notification badge pulled from empathy account or from contacts",
+    "pre_condition": "- Several contacts are created in Contact application. One missed audio call is associated to a contact. One missed video call is associated to a contact. One unread message is associated to a contact\r\n- Several buddies are created in IM application. One missed VOIP call is associated to a buddy. One missed video VOIP call is associated to a buddy. One unread instant message is associated to a contact\r\n- In both applications, they are all identified as favourites\r\n- IM application and Contact applicatio are launched",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Open the unread message from a contact",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Open the missed audio call notification from a contact",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Open the missed video call from a contact",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Open the chat with unread instant message from a buddy",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Open the missed VOIP audio call notification from a buddy",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Open the missed VOIP video call notification from a buddy",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      },
+      {
+        "description": "Repeat previous steps from different contacts",
+        "expected": "The associated Notification badges are decreased in the Contact widget"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:11:36 GMT",
+    "mtime": "2013-03-11 00:13:37 GMT"
+  },
+  {
+    "name": "contact-select",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure a panel is revealed and retracted when selecting a contact",
+    "description": "Upon selection the panel is revealed and pushes the next contact down off the widget canvas - a scroll bar therefore appears. If the user clicks on the contact again the panel retracts",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several buddies are created in IM application\r\n- In both applications, some of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact",
+        "expected": "A panel is revealed with communication options and pushes the next contact down. A scroll bar appears."
+      },
+      {
+        "description": "Click the same contact",
+        "expected": "The panel retracts"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:13:46 GMT",
+    "mtime": "2013-03-11 00:15:21 GMT"
+  },
+  {
+    "name": "contact-options",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure options are revealed based on the communication method available when selecting a contact",
+    "description": "When a user selects a ‘contact’ options are revealed based on the communication method available (IM, voice call or video call)",
+    "pre_condition": "- At least one contact is created in Contact application\r\n- At least one buddy is created in IM application\r\n- In both applications, they are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact application",
+        "expected": "Only Contact options are present (contact icon)"
+      },
+      {
+        "description": "Select a contact associated to IM application",
+        "expected": "Only IM options are present (Instant messaging and VoIP icons)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:15:36 GMT",
+    "mtime": "2013-03-11 00:17:27 GMT"
+  },
+  {
+    "name": "contact-icon",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure contact icon is displayed and when clicked Contact application is launched and contact's details is shown",
+    "description": "Opens contacts application on the selected users information page.",
+    "pre_condition": "- At least one contact is created in Contact application with photo or avatar\r\n- The contact is identified as favourite",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact application",
+        "expected": "Contact icon is displayed in panel revealed"
+      },
+      {
+        "description": "Click the contact icon",
+        "expected": "Contacts application is launched. The selected users information page is displayed."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:17:39 GMT",
+    "mtime": "2013-03-11 00:19:03 GMT"
+  },
+  {
+    "name": "contact-options",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure options based on the communication method works properly when selecting a contact",
+    "description": "When a user selects a contact, options are revealed based on the communication method available (IM, voice call or video call)",
+    "pre_condition": "- At least one contact is created in Contact application\r\n- This contact is associated to a buddy in IM application. The contact is connected and online.\r\n- IM status is: connected and online.\r\n- This contact is identified as favourite",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact and IM applications",
+        "expected": "-"
+      },
+      {
+        "description": "Click \"Instant Message\" icon",
+        "expected": "IM application is launched. A chat is open with this buddy. Chat history and buddy's status is loaded"
+      },
+      {
+        "description": "Click \"VoIP voice call\" icon",
+        "expected": "IM application is launched. A VoIP voice call is started with this buddy"
+      },
+      {
+        "description": "Click \"VoIP video call\" icon",
+        "expected": "IM application is launched. A VoIP video call is started with this buddy"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:19:22 GMT",
+    "mtime": "2013-03-11 00:22:15 GMT"
+  },
+  {
+    "name": "contact-options-out",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure options based on the communication method works properly when selecting a contact",
+    "description": "When a user selects a contact, options are revealed based on the communication method available (IM, voice call or video call)",
+    "pre_condition": "- At least one contact is created in Contact application\r\n- This contact is associated to a buddy in IM application. The contact is connected and online.\r\n- IM status is: sign out.\r\n- This contact is identified as favourite",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact and IM applications",
+        "expected": "-"
+      },
+      {
+        "description": "Click \"Instant Message\"",
+        "expected": "IM application is launched. Sign in screen is displayed."
+      },
+      {
+        "description": "Sign in using valid credentials",
+        "expected": "A chat is open with this buddy. Chat history and buddy's status is loaded."
+      },
+      {
+        "description": "In IM application, sign out.",
+        "expected": "-"
+      },
+      {
+        "description": "Repeat previous steps with \"VoIP voice call\" icon and then with \"VoIP video call\" icon",
+        "expected": "Sign in screen is displayed. Then VoIP voice/video call is started with this buddy."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:23:42 GMT",
+    "mtime": "2013-03-11 00:26:44 GMT"
+  },
+  {
+    "name": "contact-removed",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure they is no incompatibility behavior when a contact has been recently deleted",
+    "description": "Contacts icon opens contacts application on the selected users information page.",
+    "pre_condition": "- At least one contact is created in Contact application with photo or avatar\r\n- The contact is identified as favourite\r\n- Contacts application and Widget Contact are launched\r\n",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact application",
+        "expected": "-"
+      },
+      {
+        "description": "Delete this contact in Contacts application",
+        "expected": "-"
+      },
+      {
+        "description": "Click the contact icon in Widget Contact",
+        "expected": "To be clarified: if possible Widget Contact is refreshed and the contact is no more listed (should be the best behavior) or Contact application try to launch the contact's details view but display an error like \"Contact not found\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:26:48 GMT",
+    "mtime": "2013-03-11 00:29:14 GMT"
+  },
+  {
+    "name": "contact-delete",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure they is no incompatibility behavior when a buddy has been recently deleted",
+    "description": "Contacts icon opens contacts application on the selected users information page.",
+    "pre_condition": "- At least one contact is created in Contact application with photo or avatar\r\n- This contact is associated to a buddy in IM application\r\n- The contact is identified as favourite\r\n- Contacts application, IM application and Widget Contact are launched\r\n",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select a contact associated to Contact and IM applications",
+        "expected": "-"
+      },
+      {
+        "description": "Delete this buddy in IM application",
+        "expected": "-"
+      },
+      {
+        "description": "Click the \"Instant Message\" icon in Widget Contact",
+        "expected": "To be clarified: if possible Widget Contact is refreshed and the contact is no more listed (should be the best behavior) or IM application try to launch the buddy's chat view but display an error like \"Buddy not found\""
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:29:32 GMT",
+    "mtime": "2013-03-11 00:32:57 GMT"
+  },
+  {
+    "name": "contact-settings-view",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can launch and close settings of the Contact widget",
+    "description": "The contacts widgets settings view allows the user to remove ‘contacts’ from the contacts widget list.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "Settings is launched. The list of contacts is displayed with checkboxes"
+      },
+      {
+        "description": "Click [Done] button",
+        "expected": "You go back to home"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 00:33:16 GMT",
+    "mtime": "2013-03-11 07:58:38 GMT"
+  },
+  {
+    "name": "contact-settings-del",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that we can remove a contact from the Contact widget and that there is no impact in Contacts application",
+    "description": "The contacts widgets settings view allows the user to remove ‘contacts’ from the contacts widget list.\r\n\r\nThis will remove their favourite status only and not delete the contact from the account.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "-"
+      },
+      {
+        "description": "Check a contact",
+        "expected": "The [Remove] button is displayed"
+      },
+      {
+        "description": "Click [Remove]",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Contact is no more listed"
+      },
+      {
+        "description": "Launch Contacts application",
+        "expected": "The contact has not been deleted in Contacts application"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 07:58:52 GMT",
+    "mtime": "2013-03-11 08:00:47 GMT"
+  },
+  {
+    "name": "contact-settings-del2",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure that we can remove a contact from the Contact widget and that there is no impact in Contacts application",
+    "description": "The contacts widgets settings view allows the user to remove ‘contacts’ from the contacts widget list.\r\n\r\nThis will remove their favourite status only and not delete the contact from the account.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favourites\r\n- At least one contact is associated to a buddy in IM application",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "-"
+      },
+      {
+        "description": "Check a contact associated to a buddy",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Remove]",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Contact is no more listed"
+      },
+      {
+        "description": "Launch IM application",
+        "expected": "The buddy associated to the contact has not been deleted in IM application"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:01:13 GMT",
+    "mtime": "2013-03-11 08:02:52 GMT"
+  },
+  {
+    "name": "contact-remove-many",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can remove several contacts from the Contact widget",
+    "description": "The contacts widgets settings view allows the user to remove ‘contacts’ from the contacts widget list.\r\n\r\nThis will remove their favourite status only and not delete the contact from the account.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "-"
+      },
+      {
+        "description": "Check several contacts",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Remove]",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "Only one contact has been deleted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:03:06 GMT",
+    "mtime": "2013-03-11 08:28:16 GMT"
+  },
+  {
+    "name": "contact-remove-all",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can remove all contacts from the Contact widget",
+    "description": "The contacts widgets settings view allows the user to remove ‘contacts’ from the contacts widget list.\r\n\r\nThis will remove their favourite status only and not delete the contact from the account.",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favourites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "-"
+      },
+      {
+        "description": "Check a contact",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Remove]",
+        "expected": "-"
+      },
+      {
+        "description": "Click [Done]",
+        "expected": "-"
+      },
+      {
+        "description": "Repeat steps 2 to 5 until all contacts has been deleted",
+        "expected": "All contacts are deleted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:28:49 GMT",
+    "mtime": "2013-03-11 08:30:42 GMT"
+  },
+  {
+    "name": "contact-settings-view2",
+    "exec_type": "manual",
+    "priority": "3",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "We want to make sure we can view empathy accounts from settings of the Contact widget",
+    "description": "A button [View accounts] launches Empathy Accounts",
+    "pre_condition": "- Several contacts are created in Contact application\r\n- Several of them are identified as favorites",
+    "steps": [
+      {
+        "description": "Open Widget Contact",
+        "expected": "-"
+      },
+      {
+        "description": "Select settings",
+        "expected": "-"
+      },
+      {
+        "description": "Click [View accounts] button",
+        "expected": "Empathy Accounts is launched"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-11 08:32:32 GMT",
+    "mtime": "2013-03-11 08:33:52 GMT"
+  }
+]

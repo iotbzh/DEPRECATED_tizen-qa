@@ -1,0 +1,105 @@
+[
+  {
+    "name": "tile_size",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Tiles in grid must conform to specifications",
+    "description": "Each tile must match the dimensions 96x86 pixels, with 5 pixels padding",
+    "pre_condition": "Determine screen resolution DW x DH, for example by checking the display settings (user menu => settings => displays => read resolution). On a Lenovo X230, the native resolution is 1366x768. With this resolution, the top bar is 27 px high ",
+    "steps": [
+      {
+        "description": "drag a widget or a favourite app but don't release the mouse button",
+        "expected": "the grid should appear"
+      },
+      {
+        "description": "count the number of rows and columns",
+        "expected": "there should be (floor(DW/101)) columns and (floor((DH-27)/91)) rows (for 1366x768, this gives 13 cols and 8 rows"
+      }
+    ],
+    "post_condition": "",
+    "notes": "suggestion: make a screen capture (PrtScr key), copy and load the snapshot into gimp or another image viewer and then check dimensions.",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 10:51:25 GMT",
+    "mtime": "2013-03-15 13:43:06 GMT"
+  },
+  {
+    "name": "screen_padding",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Screen padding must conform to specifications",
+    "description": "The width on left or right of the grid should not exceed 96 pixels (otherwise, another column must be added)\r\nThe height on top or bottom of the grid should not exceed 86 pixels (otherwise, another row must be added)\r\n",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "drag a widget or a favourite app but don't release the mouse button",
+        "expected": "the grid should appear"
+      },
+      {
+        "description": "check that the borders of the grid",
+        "expected": "the margin width on left and right must be less than 96px/2 = 48px"
+      },
+      {
+        "description": "check that the borders of the grid",
+        "expected": "the margin height at bottom and top must be less than 86px/2 = 43px"
+      }
+    ],
+    "post_condition": "",
+    "notes": "suggestion: make a screen capture (PrtScr key), copy and load the snapshot into gimp or another image viewer and then check dimensions.",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 10:56:09 GMT",
+    "mtime": "2013-03-15 13:43:12 GMT"
+  },
+  {
+    "name": "dynamic_tiles",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Changing the screen resolution should resize the grid accordingly",
+    "description": "changing the screen resolution should add or remove rows and columns to the grid system.\r\n\r\nMinimum screen resolution is: 1280x720.\r\nMaximum screen resolution is: 1920x1080",
+    "pre_condition": "",
+    "steps": [
+      {
+        "description": "open the display settings from the user menu",
+        "expected": "-"
+      },
+      {
+        "description": "change the resolution within the supported range [1280x720 - 1920x1080]",
+        "expected": "the grid is adjusted to the new screen size"
+      }
+    ],
+    "post_condition": "",
+    "notes": "suggestion: make a screen capture (PrtScr key), copy and load the snapshot into gimp or another image viewer and then check dimensions.",
+    "bugs": "TZPC-921 TZPC-922 TZPC-923 TZPC-924 TZPC-925",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-15 10:59:49 GMT",
+    "mtime": "2013-03-15 13:43:22 GMT"
+  }
+]

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+. $(dirname $0)/sync_lib.sh
+
+PROJECT=${1:-Tizen:Common}
+REPO=${2:-x86_64-wayland}
+
+OBSHOST=obs.vannes::live
+
+tmpfile=$(mktemp /tmp/$(basename $0).XXXXXX)
+trap "rm -f $tmpfile" STOP INT QUIT EXIT
+
+function get_repo_id() {
+	local project=$1
+	local repo=$2
+
+	rsync $OBSHOST/$(echo $project | sed 's|:|:/|g')/$repo/repodata/repomd.xml $tmpfile || { loginfo "Unable to fetch repomd.xml"; exit 1; }
+
+	local XMLSTARLET=$(which xml || which xmlstarlet)
+	[[ -z "$XMLSTARLET" ]] && { loginfo "Please install xmlstarlet: zypper in xml"; exit 1; }
+
+	local ts=$(cat $tmpfile | $XMLSTARLET sel -N r=http://linux.duke.edu/metadata/repo -t -v "/r:repomd/r:revision/text()" 2>/dev/null)
+	[[ -z "$ts" ]] && { loginfo "Unable to find source repo timestamp"; exit 1; }
+
+	echo $(date +%Y%m%d.%H%M -d "@$ts")
+}
+
+function say() {
+	echo "$@"
+	echo "$@" | sudo espeak -p 30 -s 150 -v en -a 150
+}
+
+curid=$(get_repo_id $PROJECT $REPO)
+while [ 1 ]; do
+	newid=$(get_repo_id $PROJECT $REPO)
+	[[ -z "$newid" ]] && { loginfo "Bad repo id"; exit 1; }
+	echo "Last id: $@ $newid"
+
+	if [[ "$newid" != "$curid" ]]; then
+		say "New snapshot detected for $@: $newid"
+		curid=$newid
+	fi
+
+	sleep 10 || exit 1
+done
+
+

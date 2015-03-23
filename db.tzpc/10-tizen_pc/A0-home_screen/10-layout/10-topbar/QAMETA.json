@@ -1,0 +1,305 @@
+[
+  {
+    "name": "appearance",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "check the visual appearance of the top bar",
+    "description": "The top bar must have a consistent height at any screen resolution (TODO: % of the height of the screen ?) and colors must be as follows:\r\n- The top bar color must be dark gray\r\n- A highlighted item must be blue.\r\n- A non hightlighted item must be light gray.\r\n(TODO: design specs document to be referenced here)",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "observe the screen",
+        "expected": "the top bar must be present and have a height of FIXME%"
+      },
+      {
+        "description": "top bar color",
+        "expected": "must be dark gray (TODO: color must defined more precisely)"
+      },
+      {
+        "description": "Home button color",
+        "expected": "must be blue (TODO: color must defined more precisely)"
+      },
+      {
+        "description": "Application button color",
+        "expected": "must be light gray (TODO: color must defined more precisely)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:11:59 GMT",
+    "mtime": "2013-03-08 09:42:52 GMT"
+  },
+  {
+    "name": "home_button",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has a home screen button",
+    "description": "The home screen button is located at top left, with an icon.\r\n",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "check the home screen button",
+        "expected": "must be located on top left"
+      },
+      {
+        "description": "check the home screen button icon",
+        "expected": "must be present"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:48:48 GMT",
+    "mtime": "2013-03-08 09:48:48 GMT"
+  },
+  {
+    "name": "app_button",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has a application button",
+    "description": "The Application button is located at top left, at the right of Home button with an icon.\r\n",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "check the Applications button",
+        "expected": "must be located on top left, on the right of the Home button"
+      },
+      {
+        "description": "check the Application button icon",
+        "expected": "must be present"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:49:44 GMT",
+    "mtime": "2013-03-08 09:50:17 GMT"
+  },
+  {
+    "name": "active_app_area",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has an active application area",
+    "description": "The Application area is located between the Application button and the center of the top bar\r\nIt must display the icon and the name of the active application (the one with focus).\r\nThe current application menu is displayed when clicking (left mouse button) in this area.",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "launch an application",
+        "expected": "its icon must appear in the \"active application area\", on the right of the Applications button"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:51:15 GMT",
+    "mtime": "2013-03-08 10:05:50 GMT"
+  },
+  {
+    "name": "clock",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has a clock",
+    "description": "A clock (Date and time) must be located in the middle of the top bar.\r\nA click on the clock displays opens a menu with the following items:\r\n- a calendar \r\n- a shortcut to Date&Time settings\r\n- a shortcut to calendar application",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "observe the center of the top bar",
+        "expected": "the clock must be displayed with the right datetime"
+      },
+      {
+        "description": "a click on the clock must display a menu",
+        "expected": "a popup menu is displayed"
+      },
+      {
+        "description": "check menu",
+        "expected": "the menu must contain a calendar on the left with current day hightlighted"
+      },
+      {
+        "description": "check menu",
+        "expected": "the menu must contain 3 shortcuts (\"Open Calendar\",\"Open clocks\",\"Date & Time settings\") at the bottom"
+      },
+      {
+        "description": "check menu",
+        "expected": "the right side must contain the reminders for the current day and the next day"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:54:57 GMT",
+    "mtime": "2013-03-08 09:54:57 GMT"
+  },
+  {
+    "name": "system_area",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has a system area",
+    "description": "The system area must be located on the right of the top bar, just before the user menu button\r\nMultiple icons must be present in this area: Network connectivity, Sound, Bluetooth, Accessibility, Battery",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "observe the right side of the topbar",
+        "expected": "a system area must be present with multiple applets icons"
+      },
+      {
+        "description": "check icons",
+        "expected": "Network connectivity icon must be present"
+      },
+      {
+        "description": "check icons",
+        "expected": "Sound icon must be present"
+      },
+      {
+        "description": "check icons",
+        "expected": "Bluetooth icon must be present"
+      },
+      {
+        "description": "check icons",
+        "expected": "Accessibility icon must be present"
+      },
+      {
+        "description": "check icons",
+        "expected": "Battery icon must be present"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 09:59:54 GMT",
+    "mtime": "2013-03-08 09:59:54 GMT"
+  },
+  {
+    "name": "user_menu",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "top bar has a user menu button",
+    "description": "The user menu button must be located at the right of the top bar.\r\nA left click on the button should open the user menu, containing the following shortcuts:\r\n- notification (switch)\r\n- user settings\r\n- switch user\r\n- log out\r\n- lock\r\n- power off",
+    "pre_condition": "Being logged as a user",
+    "steps": [
+      {
+        "description": "observe the right side of the topbar",
+        "expected": "a user menu button must be displayed"
+      },
+      {
+        "description": "check user menu button",
+        "expected": "the login name is correct"
+      },
+      {
+        "description": "check user menu button",
+        "expected": "an icon must appear, representing user visibility (online, offline, away ...)"
+      },
+      {
+        "description": "click on user menu button",
+        "expected": "a pop up menu must appear"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the user photo (avatar)"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must display the login name"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the user status (online, offline ...)"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain a notification switch"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the \"Settings\" item"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the \"Switch user\" item"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the \"Log out\" item"
+      },
+      {
+        "description": "check user menu",
+        "expected": "must contain the \"Power off\" item"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-08 10:04:53 GMT",
+    "mtime": "2013-03-08 10:04:53 GMT"
+  }
+]

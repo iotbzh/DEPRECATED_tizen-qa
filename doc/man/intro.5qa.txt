@@ -1,0 +1,73 @@
+= INTRO(5qa)
+
+== NAME
+
+intro - introduction to files in QA TIZEN
+
+== SYNOPSIS
+
+This describes the files of QA TIZEN.
+
+== DESCRIPTION
+
+The QA TIZEN content is:
+----
+.
+|-- bin
+|-- db
+|-- doc
+|   |-- guide
+|   |-- man
+|   `-- testplans
+|-- etc
+`-- node_modules
+----
+
+=== Directory ./bin
+
+Contains most of the command used within QA TIZEN environment.
+
+=== Directory ./db
+
+Contains the QA Data Base.
+
+=== Directory ./doc
+
+Contains  some documentation.
+
+=== Directory ./doc/man
+
+Contains the manual of QA TIZEN.
+
+=== Directory ./doc/testplans
+
+Contains the testplans of QA TIZEN.
+
+=== Directory ./etc
+
+Contains configuration files:
+qaexport.conf, 
+test_globals.conf, 
+hwtargets.conf, 
+test_suites.conf, 
+test_reports.conf.
+
+=== Directory ./node_modules
+
+Contains node libraries and applications.
+QA team has developped 2 of them: 
+
+- *tcbrowse*: (in ./node_modules/tcbrowse) is a test cases browser/editor
+- *libqa*: (in ./node_modules/libqa) is the library for qaexport, qaimport, qamanager
+
+== SEE ALSO
+
+QATP(5qa), QADB(5qa), QAMETA(5qa), tcbrowse(1qa), qaexport(1qa), qaimport(1qa), export_ET(1qa), qamanager(1qa)
+
+== RESSOURCES
+
+ASCIIDOC: http://asciidoc.org/index.html
+
+NODEJS: http://nodejs.org/ and https://npmjs.org/
+
+

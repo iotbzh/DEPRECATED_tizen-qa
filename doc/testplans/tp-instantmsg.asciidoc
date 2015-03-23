@@ -1,0 +1,617 @@
+// ------------------ Document metadata ------------------------
+// vim: set syntax=asciidoc spell: spelllang=en
+
+include::common/header.asciidoc[]
+
+:componentName: Instant Messaging
+:author: Christophe Prigent
+:email: christophe.prigent@intel.com
+:revdate: 2013-03-29
+:revnumber: 0.7 
+:title: {componentName} Test Plan
+:status: Ready for ratification
+
+// -------------------------------------------------------------
+
+= Tizen PC - {title}
+
+Status: {status}
+
+[red]*Intel Confidential*
+
+Primary location: {otcshare}/5998[OTCShare.org -> TizenPC -> Notebook -> QA Materials -> Test Plans -> Instant Messaging]
+
+== Revision History 
+
+// Instructions:
+// Provide a complete list of revision records for the test plan.
+//
+// Revision levels:
+// 0.1: Is the very first draft containing the main features to be tested
+// 0.2: ?
+// 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+// 0.4: Ready for QA internal review
+// 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+// 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+// 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+// 0.8: Ratified and change control started
+
+.Revisions
+[width="80%",cols="1,1,2,4",options="header"]
+|==============================================================================================
+|Version 			| Date 			| Author			| Reason for changes
+//---------------------------------------------------------------------------------------------
+|0.1				| 2013-03-13		| {christophe}		| Initial revision
+|0.11				| 2013-03-14		| {christophe}		| Features to be tested listed and Section test strategy started
+|0.12				| 2013-03-15		| {christophe}		| Several sections completed
+|0.3				| 2013-03-20		| {christophe}		| Enough content to scope effort
+|0.4				| 2013-03-27		| {christophe}		| 147 test cases written and added in Test PLan
+|0.41				| 2013-03-28		| {christophe}		| 172 test cases written and added in Test PLan
+|0.7					| 2013-03-29	| {stephane}								| Ready for ratification
+|==============================================================================================
+
+Revision levels:
+
+* 0.1: Is the very first draft containing the main features to be tested
+* 0.3: Enough content to scope effort: test scope, test strategy and approach are ready
+* 0.4: Ready for QA internal review
+* 0.5: Feedback from QA internal review incorporated; direction confirmed; test execution can be started
+* 0.6: Ready for stakeholder public review. All relevant specifications are addressed and content complete
+* 0.7: Feedbacks from stakeholder review incorporated; resent for ratification
+* 0.8: Ratified and change control started
+
+include::common/browser_warn.asciidoc[]
+
+== Review History 
+
+.Reviews
+[width="80%",cols="2,4,1,1",options="header"]
+|==============================================================================================
+|Review Level 				| Reviewer 							| Start Date 	| Approve Date
+//---------------------------------------------------------------------------------------------
+|QA Internal review		| 										|           	|           
+|Architect review			| 										|           	|           
+|Engineering review 		| 										|           	|           
+|Project Manager review | 										|           	|           
+|==============================================================================================
+
+== Scope of this Document 
+
+This test plan defines test scope, test strategy and test execution for Instant Messaging within Tizen PC.
+
+== Glossary 
+
+[horizontal]
+Tizen:: An open platform for devices that allows you to implement feature-rich Tizen applications efficiently. 
+Tizen application:: An installable and removable application created using Tizen Web and native APIs 
+IM:: Instant Messaging or Instant Message
+IMP:: Instant Messaging and Presence
+IMPS:: Instant Messaging and Presence Services
+VoIP:: Voice over Internet Protocol : delivery of voice communications over Internet Protocol (IP) networks
+Nudge:: also known as buzz, is used to get the attention of another user, for example, by shaking the conversation window or playing a sound
+Online chat:: one-on-one chat or one-to-many group chat (formally also known as synchronous conferencing)
+Chat room:: real-time online chat over instant messaging and online forums
+IRC:: Internet Relay Chat  It is mainly designed for group communication in discussion forums, called channels
+SIP:: Session Initiation Protocol : an IETF-defined signaling protocol widely used for controlling communication sessions such as voice and video calls over Internet Protocol (IP). The protocol can be used for creating, modifying and terminating two-party (unicast) or multiparty (multicast) sessions. Sessions may consist of one or several media streams.
+IETF: Internet Engineering Task Force
+
+== Component Summary 
+
+Instant Messaging is a form of communication over the Internet that offers quick transmission of text-based messages from sender to receiver. 
+
+The Tizen PC application is based on Telepathy. It is took directly from upstream. It supports several popular chat servers: Yahoo!, Google Chat, Facebook Chat, AIM, Jabber ... 
+
+It also allows enhanced modes of communication, such as live voice or video calling.
+
+Instant Messaging application has interconnections with Gnome Online Accounts, Contact Application, Social widget and the connection manager (Connman).
+
+== Features to be Tested 
+
+// Instructions
+// List all of the features of this component.
+// Assign a test priority to each feature and provide reasons. 
+// This requires some risk analysis. Here Priority considerations are user impact and likelihood of defect.
+// 
+// Priority table:
+//
+//             \           Likelyhood
+//              \  
+//   User Impact \| High | Medium | Low        |
+//  -------------------------------------------|
+// | High         | P1   | P2     | P2         |
+// | Medium       | P2   | P3     | P3         |
+// | Low          | P2   | P3     | Not tested |
+//  ------------------------------------------- 
+//
+// Risk analysis examples:
+// * P2: Likelihood of defect in this library is low as it is from upstream and stable enough after many releases. Current version 3.2 is also utilized in Fedora. But it is a key package of all user experience(UX) applications. So user impact is High if it has a defect.
+// * P1: Likelihood of defect in this library is high as it is a newly developed component from scratch. Moreover, it is a key package of all UX applications. So user impact is also High if it has a defect.
+
+The following table describes features to be tested based on risk analysis:
+
+.Tested features
+[width="100%",cols="2,2,4,1,2",options="header"]
+|===============================================================================================================================================
+^.^|Feature / Requirement Id          	^.^| Description                  			^.^| Sub-Features						^.^| Priority 	^.^| Comment
+^.^|https://tz.otcshare.org/jira/browse/TZPC-34[TZPC-34]        ^.^| Proxy support				|							| P1 		|
+.2+^.^|https://tz.otcshare.org/jira/browse/TZPC-59[TZPC-59]  .2+^.^| Empathy / Telepathy 			| Use Empathy / Telepathy for real time communication	| P1 		|
+					       			   | Empathy / Telepathy work with connman								| P1		| Wired and Wireless
+.2+^.^|https://tz.otcshare.org/jira/browse/TZPC-210[TZPC-210] .2+^.^| Notification box		  		| Instant Messages, used for chatting			| P1 		|
+  						 		  						| Incoming VoIP Video/Audio calls, Accept/decline	| P1 		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-951[TZPC-951]      ^.^| IRC support                   		|							| P3 		| Not confirmed
+^.^|https://tz.otcshare.org/jira/browse/TZPC-61[TZPC-61]  .8+^.^| Popular IM services		| Facebook Chat						| P1		| 
+^.^|https://tz.otcshare.org/jira/browse/TZPC-60[TZPC-60]					| Google Talk						| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-65[TZPC-65]					| Jabber (XMPP)						| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-62[TZPC-62]					| Yahoo!						| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-63[TZPC-63]					| AIM							| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-623[TZPC-623]					| Twitter						| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-538[TZPC-538]					| Skype							| P1		|
+|												| QQ							| P1		| Need confirmation
+|					     ^.^|People Nearby					| 							| P1		|
+.4+^.^|https://tz.otcshare.org/jira/browse/TZPC-1268[TZPC-1268]  .4+^.^| Gnome Online Accounts	| Create account					| P1		|
+						 						| Remove account					| P1		|
+						 						| Options						| P1		|
+						 						| Enable - disable account				| P1		|
+|					  .5+^.^| Standard IM funtionnalities		  	| Sign in - Sign out					| P1		|	
+|						 						| Add - search - Remove - block contact			| P1		|
+|						 						| Share presence					| P1		|
+|						 						| Instant messaging					| P1		|
+|						 						| Chat Room						| P1		|
+|					  .2+^.^| VoIP calls					| audio							| P1		|
+|						 						| video							| P1		|
+|					  .2+^.^| Preferences: General: Contact list		| Show/Hide contacts					| P1		|
+|						 						| Show/Hide groups					| P1		|
+|					  .4+^.^| Preferences: General: Chat			| Start chats in new tabs - new windows			| P1		|
+|						 						| Show smileys as images				| P1		|
+|						 						| show contact list in rooms				| P1		|
+|						 						| Log conversations					| P1		|
+|					  .2+^.^| Preferences: General: Behavior		| Display incoming events in the notification area	| P1		|
+|						 						| Automatically connect on startup			| P1		|
+|					  .5+^.^| Preferences: Notifications			| Enable bubble notifications				| P1		|
+|						 						| Disable notifications when away or busy		| P1		|
+|						 						| Enable notifications when the chat is not focused	| P1		|
+|						 						| Enable notifications when a contact comes online	| P1		|
+|						 						| Enable notifications when a contact goes offline	| P1		|
+|					  .3+^.^| Preferences: Sounds				| Enable sound notifications				| P1		|
+|						 						| Disable sound  when away or busy			| P1		|
+|						 						| Play sound for events : Message received, Message sent, New conversation, Contact comes online, Contact goes offline, Account connected, Account disconnected	| P1		|
+|					     ^.^| Preferences: Calls				| Use echo cancellation to improve call quality		| P1		|
+|					     ^.^| Preferences: Spell checking			| English						| P1		|
+|					     ^.^| Preferences: Themes				| 							| P1		|
+|					     ^.^| Smileys					|  							| P1		|
+|					     ^.^| Chat history + call log			|  							| P1		|
+^.^|https://tz.otcshare.org/jira/browse/TZPC-619[TZPC-619] 	^.^| Social media feed desktop widget	| 						| P1		| https://tz.otcshare.org/jira/browse/TZPC-620[TZPC-620]  [red]#Design is needed!#
+^.^|https://tz.otcshare.org/jira/browse/TZPC-66[TZPC-66] 	^.^| Tizen PC shall support SIP	|   							| P1		| 
+|					     ^.^| Avatar					|   							| P1		|
+|					     ^.^| Interaction with other applications/components|    							| P1		| Contacts application, Social Widget
+|					     ^.^| Automatic away presence			|    							| P1		| 
+|					     ^.^| Notifications					| This kind of scenario is for exemple: receive a "low battery" notification while chatting, receive a "download completed" notification during a VoIP video call, receive a "BT pairing" notification when creating an account ... | P3		| Many details will be needed about visual and audio notifications, their priorities
+|					  .3+^.^| Group Conversations				| Join a group by invitation 				| P1		|
+|						 						| Initiate a group chat 				| P1		|
+|						 						| Add - remove a contact to - from the group chat	| P1		|
+|					  .3+^.^| Groups (Organize contacts by groups)		| Add - rename - remove a group 			| P1		|
+|						 	 					| Add - remove a contact to - from a group	        | P1		|
+|						 						| Default group (probably named Favorite)	        | P1		|
+|===============================================================================================================================================
+
+== Features not to be Tested 
+
+// Instructions:
+// Identify any significant software features or other items that will not be tested.
+// If necessary, explain why these items are not to be addressed in this test plan.
+// Identify WHY the item is not to be tested. This could include such reasons as:
+// * Not to be included in this release of the Software.
+// * Low risk: has been used before and is considered stable.
+// * Will be released but not tested or documented as a functional part of the release of the software.
+// * Third-party features or components that will not be tested by our team.
+// * Software features will be tested by other teams.
+// * Documentation or legal requirements.
+
+The following table describes features *not* to be tested:
+
+.Non tested features
+[width="100%",cols="2,4,9",options="header"]
+|===================================================================================================================
+^.^|Feature / Requirement Id          			^.^| Description                  		^.^| Comment
+|https://tz.otcshare.org/jira/browse/TZPC-524[TZPC-524]	| Widget Contacts			     .4+^.^| Test of Widget contact is covered by https://otcshare.org/tizenpc/system/files/tp-homescreen-0.3.3.html#_tizen_pc_home_screen_widgets_contacts[Homescreen & widgets Test Plan]
+|https://tz.otcshare.org/jira/browse/TZPC-595[TZPC-595]	| initiate a chat or call with the contact	
+|https://tz.otcshare.org/jira/browse/TZPC-590[TZPC-590] | Design					
+|https://tz.otcshare.org/jira/browse/TZPC-592[TZPC-592] | Retrieve contacts' collective presence 
+|https://tz.otcshare.org/jira/browse/TZPC-64[TZPC-64] 	| Windows Live 					   | On January 8, 2013, Microsoft e-mailed Messenger users to notify them that Messenger would be phased out, and that existing user accounts will be migrated to Skype. The transition is due to begin for all users from April 8, 2013. +
+It is tracked by https://tz.otcshare.org/jira/browse/TZPC-480[Discontinuation of Windows Live Messenger] 
+|							| i18n (internationalization) & l10n (localization)	| To do: add link to associated Test Plan
+|							| Other popular IM services				| Salut, Gadu Gadu, Groupwise, Pidgin, ICQ
+|							| OMA IMPS protocols					| https://www.openmobilealliance.org[Open Mobile Alliance]
+|							| File transfer						| 
+|							| Sharing location information				|
+|							| Private chat						|
+|							| Automatic reconnection				| 
+|							| PnP (system power and performance, memory footprint, CPU consumption ...) | To do: add link to associated Test Plan
+|							| Share desktop				| 
+|===================================================================================================================
+
+== Test Strategy and Approach 
+
+// Instructions:
+// Describe how the component will be tested.
+// Specify refinements to the approach described in the project/product test plan.
+// Include specific test techniques (such as test methodology, test framework, automation, test type, and test level) to be used.
+
+Test will cover all Instant Messaging features that are expected to be delivered in Tizen PC.
+
+The Instant Messaging test design will: 
+
+* Deliver basic tests for each features and sub-features (goal is to validate integration in Tizen PC, tests will be minimal)
+* Deliver deeper tests based on the PC usage
+* Deliver negative and stress test to check robustness and reliability of the application based on PC usage and system chracteristics 
+
+SIP protocol validation is not covered by this Test Plan (link to associated Test Plan must be added).
+If it is decided to validate it here, the following links can help:
+
+* http://en.wikipedia.org/wiki/Session_Initiation_Protocol[Session Initiation Protocol]
+* http://www.pernau.at/kd/voip/bookmarks-sip-test.html[SIP Test Tools]
+* http://en.wikipedia.org/wiki/List_of_SIP_software[List of SIP software]
+* http://sipp.sourceforge.net/[SIPp] is a free Open Source test tool / traffic generator for the SIP protocol
+
+=== Test Methodology
+
+// Instructions:
+// If you adopt any specific test methodology to the component or sub-component testing, please give the summary and describe the method in details.
+// Following are typical test methods:
+//   * White-box Test Methods: Statement Coverage, Branch Coverage, Condition Coverage, Multiple Condition Coverage, Path Coverage, and so on
+//   * Black-box Test Methods: Equivalence Partitioning, Boundary Value Analysis, Decision Table Testing, State Transition Testing, Use Case Testing, and so on
+//   * Experience Based Methods: Error Guessing (weak point testing), Exploratory Testing, and so on
+
+==== Test design
+
+Features defined in tz.otcshare.org/jira, UI design documentation [red]#Not found!# and expertise are used as major inputs in test design for Instant Messaging application. 
+
+We will design UX functional test cases by considering:
+* End user's use cases
+* Context and condition such as network connectivity 
+* Interaction with other applications/components
+* Screens, visual effect, GUI structure and navigations (Flow chart needed)
+* Tizen PC characteristics 
+
+==== Component or sub-component testing
+
+We will adopt Black-box Test Method:
+* Use Case Testing
+
+=== Test Types
+
+// Instructions:
+// Describe how you will use different test types for the component, considering adopting the following test types in test design:
+// * Feature Functional Test (positive, negative, internationalization and localization, and so on)
+// * GUI Test if the component has GUI, validate if the implementation conforms to UI design.
+// * User Experience Test if the component has GUI. Validate if the UI satisfy end users. Refer to related UX checklist defined for the project if any.doc/TestPlan_template.asciidoc
+// * Stress Test for individual component to guarantee the reliability of component level.
+// * Performance Test
+
+Following test types are applied in this test plan: 
+
+*Functional positive*: to show that IM application works as expected in terms of accuracy or suitability when handling valid inputs or expected user behaviors. For example, successfully send and receive instant messages using different Instant Messaging services; successfully share presence with my buddies ... 
+
+*Functional negative*: to ensure that IM application can gracefully handle invalid inputs or exceptions. For example, user should not be able to log in with incorrect userID or password; user should be able to interrupt ongoing process; search a buddy with invalid criterias ... 
+
+*Reliability*: to discover potential problems with the design as early as possible and, ultimately, provide confidence that the IM application meet its reliability requirements. For example, IM application is able to recovery from lost of networks; it should support send/receive Intant Messages and status presence intensively ... 
+
+*Performance*: to ensure that IM application responds to user or system inputs within a specified time and under specified conditions (e.g. normal load, low resource and stress situations). Performance might be measured according to CPU cycles, response or latency times, frame rates, etc. E.g. Log in to the 7 servers, log in to multiple accounts while a lot of contact are online on each accounts ... 
+
+*User Experience*: the test focuses on users' feelings stemming both from pragmatic and hedonic aspects of the system, easy to learn, easy to operate and attractive to the users under specified conditions. E.g. it's easy for user to send/receive Instant Messages and share status presence, to organize/filter contacts, navigate between accounts, interact with widgets and notification box ...
+
+=== Test Levels
+
+// Instructions:
+// Describe the test level (unit test, API level test, integration test, system test, and so on) for different sub-components.
+// Test level will reflect the test priority of features.
+// Test the high priority items extensively, medium priority items broadly, and the low-priority cursory.
+//
+// In general, unit test and integration testing are not covered in QA's test plan.
+// If certain areas or aspects of the system imply high risks for the product, more thorough testing is obviously a solution.
+// Focus testing effort on portions of the software where risk of potential failure is greatest or where potential failure would be most catastrophic.
+
+Several levels of testing will be performed for features and sub-features included in this test plan.
+
+==== Acceptance Test
+
+// Instructions:
+// Acceptance test set is fully automated. It can be run under Common Automated Test System (CATS) or Testkit to check distribution quickly after it's generated by release engineer.
+// Acceptance test usually covers image installation, boot up, basic kernel and driver, core services, Power and Performance (PnP) and stability check points, which helps the release engineer to make a quick decision on if the current image is qualified for further integration and QA activities.
+We will validate the application and its dependencies are installed.
+
+==== Sanity Test
+
+// Instructions:
+// Sanity test is a very brief run-through of the entire distribution, to ensure the basic health of the distribution and to report major regressions at the earliest time. All the checkpoints in a doc/TestPlan_template.asciidocsanity test reflect the most important functionality, stability and PnP of the distribution.
+We will check the most important functionalities: launch of the application, sign in, add a contact, send and receive a message, share presence, sign out.
+
+==== Feature Test
+
+// Instructions:
+// Feature test is designed to test product requirements or features. It includes both functional and non-functional (such as performance and stress) tests, as well as negative tests. 
+// Feature Test covers both Feature Verification Test (FVT) and Extended Feature Test (EFT).
+We will validate each features and sub-features by executing functional, non-functional and negative tests.
+
+//==== Feature Verification Test
+
+// Instructions:
+// FVT, the most key test for a feature, is designed to verify product features (in JIRA).
+// FVT is conducted on a weekly basis when a feature is implemented and integrated to distribution.
+// FVT should be reviewed by developers.
+// Feature status update:
+//    * A feature is marked Verified/Closed if its FVT passes.
+//    * A feature is reopened if its FVT fails. In this case, related major bugs should be linked to the feature.
+
+//==== Extended Feature Test
+
+// Instructions:
+// EFT is designed to verify delivery of features forming full functionality of an entire component. 
+// After the component is fully integrated, all componen-related test cases will be executed for selected release.
+// In addition, all the bugs against the component and its features will be reported. 
+// The EFT set will be run again in the upcoming milestone or when significant changes are applied to the component and its features.
+
+//==== DataFlow Test
+
+// Instructions:
+// Dataflow is the flow of data to, from and within a device. 
+// Inputs are derived from system use cases. Each core dataflow test case presents the basic instance of the use case in core stack.
+// The result of core dataflow test could report the maturity level of Core OS software and hardware integration on a specific device.
+
+//==== System Test (E2E Test)
+
+// Instructions:
+// System Test is targeting to evaluate delivered functionalities from a system perspective. 
+// It tests how the entire system is working and interacting with consumers (end users) instead of user interface (UI) or application.
+// Its test cases cover the most critical interaction and negative scenarios that consumers may encounter in their daily usage.
+// Therefore, a system test is usually designed to cover product use cases.
+
+//==== PnP Test
+
+// Instructions:
+// PnP test set includes all system power and performance test cases, to get memory footprint, CPU consumption, response data, FPS, and smoothness with specific workload.
+
+==== Stability Test
+
+// Instructions:
+// Stability test is designed to determine the robustness of software by testing beyond the limits of normal operation.
+// Stability test commonly put greater emphasis on robustness, availability, and error handling under a heavy load, than on what would be considered correct behaviors under normal circumstances.
+// Stability test focuses on checking product usages under low-resource, overloaded, recovery, repetitive, high intensity running, long-lasting and iterative operation conditions. This ensures that the operations work as expected without race condition, obvious hang or crash. The maximum amount of data and the failure occurrence rate are collected during the testing.
+We will validate the robustness of the application by testing beyond the limits of normal operation, for exemple:
+
+* overloaded: huge contact list, numerous accounts
+* low-resource: connection lost, low battery
+* recovery: re-launch IM application after a reboot, a power cut
+* repetitive: sign in-sign out intensively, send messages intensively, change presence intensively
+* long-lasting: session of several days
+
+==== Usability Test
+
+// Instructions:
+// Usability test set defines test cases from an end user perspective, to check the effectiveness, efficiency and user satisfaction of a product.
+
+//==== Certification Test
+
+// Instructions:
+// 
+
+==== Integration Test
+
+// Instructions:
+//
+We want to make sure the application is well integrated in Tizen PC (seen in Gnome-Shell, can interact with Gnome Online Accounts, social widgets, Connman)
+
+//==== Conformance Test
+
+// Instructions:
+//
+
+==== Interopeability Test
+
+// Instructions:
+//
+If time permits, we can validate our interopeability with 3rd party IM clients.
+
+=== Flexibility
+
+// Instructions:
+_Adjust your strategy if it produces an amount of necessary test effort or a time schedule that does not fit testing goals or project constraints_
+
+=== Test Automation 
+
+// Instructions:
+// Describe test automation approach. The following contents are suggested
+//   * Which part of tests will be automated
+//   * Automation goal and automation percentage
+//   * Follow the overall test automation strategy in project overall test plan
+//   * The whole automated test suite low-level design which is used for guiding implementation. Create a dedicated document for it if required.
+//   * Test framework and test automation tools to be used
+//   * Test automation environment, including hardware, peripherals, software configuration, and so on
+//   * Programming language
+
+Most of the tests need several IM clients. Such tests (send a message and check your buddy receives it, update your presence and check your buddy see your new presence ...) are difficult to automate.
+
+== Test Design 
+
+// Instructions:
+// Adopt the test approach above to the component, define test points or design detailed test cases.
+// Follow the common test design method if the project has defined it.
+// Specify the test case organization and naming convention for this component.
+// Specify the necessary test data used by test cases
+// Specify the possible test set of the test cases. The test set can be determined by test case priority, test cycle, test purpose and so on. We have typical test sets as below:
+// * Feature Test (FT)
+// * Extended Feature Test (EFT)
+// * Feature Verification Test (FVT): test cases used to verify feature integration.
+// * Regression Test (RT) - test cases used for regression test.
+//
+// Typical test design should include the following aspects:
+// * ID of the requirement to be tested
+// * [Optional] Features extended by this requirement to be tested
+// * Multiple test points derived from the requirement/feature to be tested
+// * A test case or a set of test cases (following the naming convention) for the test point
+// * Test case priority
+// * Test set which test cases will serve
+
+include::common/tc_design.asciidoc[]
+
+// Push titles down one level.
+:leveloffset: 2
+include::export_tc_instantmsg.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+== Test Environment 
+
+This section identifies everything required for the testing except the software itself.
+
+=== Hardwares 
+
+// Instructions:
+// Target test platforms (URL of hardware wiki page if any), networking environment, peripherals, test and measurement equipment, and so on
+//
+// Test Platform                                 | Networking      | Other Devices                                          | Priority
+// Pinetrail Netbook: HP mini 210                | LAN, WIFI (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P1
+// Diamondville Netbook: Acer Airespone One D150 | LAN, WiFi (WPA) | BT earphone, USB disk, USB key, power meter, and so on | P2
+
+include::common/hardwares.asciidoc[]
+
+=== Network configuration
+
+// Instruction:
+// Describe specific network config for tests
+
+include::common/network_config.asciidoc[]
+
+=== Tools 
+
+// Instructions:
+// Describe the software and hardware tools required for testing or test development.
+// Following areas are recommended to consider:
+// * tools as facility of test design
+// * test case management tool: custom Git repository, Enterprise Tester
+// * test automation tool: CATS 3.0 / Testkit-Lite
+// * tools for test environment setup: custom
+// * test infrastructure, execution framework or harness: custom
+// * tools for test configuration and log collection: CATS 3.0
+// * tools for test result comparison or analysis: QA Reports
+
+include::common/tools.asciidoc[]
+
+== Test Execution 
+
+// Instructions:
+// Describe in details the steps for setting up hardware and software environment and steps for test execution, including manual testing and automated testing.
+// Refer to common test execution process of the project if any.
+
+include::common/test_exec.asciidoc[]
+
+== Test accounts
+To be completed and updated if some accounts are not valid.
+[width="100%",cols="2,2,1,2,2,1,2,2,1,2,2,2",options="header"]
+|===================================================================================================================
+2+^|AIM				    | 2+^|Yahoo				    | 2+^|Google				| 3+^|Facebook 
+| Name/ID		| Password  |    | Name/ID		| Password  |    | Name/ID		    | Password 	|    | Name	        |ID		         |Password 	 
+|intelchat001@aim.com   |MeeGo001   |    |intelchat001@yahoo.fr |intel001   |    |intelchat001@gmail.com    |intel001   |    |Arthur MeeGo      |intelchat13@hotmail.fr  |intel013  
+|intelchat002@aim.com   |MeeGo002   |    |intelchat002@yahoo.fr |intel002   |    |intelchat002@gmail.com    |intel002   |    |Yann MeeGo        |intelchat014@hotmail.fr |intel014  
+|intelchat003@aim.com   |MeeGo003   |    |intelchat003@yahoo.fr |intel003   |    |intelchat003@gmail.com    |intel003   |    |Sébastien MeeGo   |intelchat015@hotmail.fr |intel015  
+|intelchat004@aim.com   |MeeGo004   |    |intelchat004@yahoo.fr |intel004   |    |intelchat004@gmail.com    |intel004   |    |Hélia MeeGo       |intelchat016@hotmail.fr |intel016  
+|intelchat005@aim.com   |MeeGo005   |    |intelchat005@yahoo.fr |intel005   |    |intelchat005@gmail.com    |intel005   |    |David MeeGo       |intelchat017@hotmail.fr |intel017  
+|intelchat006@aim.com   |MeeGo006   |    |intelchat006@yahoo.fr |intel006   |    |intelchat006@gmail.com    |intel006   |    |Christophe MeeGo  |intelchat018@hotmail.fr |intel018  
+|===================================================================================================================
+
+[width="100%",cols="2,2,1,2,2,1,2,2,1,2,2",options="header"]
+|===================================================================================================================
+2+^|QQ  		 	    | 2+^|Jabber		               | 2+^|Twitter		                | 2+^|Skype
+| Name/ID		| Password  |    | Name/ID		   | Password  |    | Name/ID		    | Password 	|    | Name/ID		    | Password 	
+|1878017815             |intel007   |    |intelchat001@jabber.org  |intel001   |    | 			    |           |    |                      |             
+|1917405624             |intel008   |    |intelchat002@jabber.org  |intel002   |    | 			    |           |    |                      |             
+|1917526636             |intel009   |    |intelchat003@jabber.org  |intel003   |    | 			    |           |    |                      |             
+|1919530736             |intel010   |    |intelchat004@jabber.org  |intel004   |    | 			    |           |    |                      |             
+|1460850252             |intel011   |    |intelchat005@jabber.org  |intel005   |    | 			    |           |    |                      |           
+|1919227527             |intel012   |    |intelchat006@jabber.org  |intel006   |    | 			    |           |    |                      |           
+|===================================================================================================================
+
+
+== Test Reports and Metrics 
+
+// Instructions:
+// Specify what test reports will be delivered about this component, their cadenc, audience, templates, and so on .
+// Refer to the common definition about test reports in project overall test plan if any.
+// <Optional> Specify any test result or quality metrics from this component. Provide URLs, documents or templates about form of the metric delivery.
+//
+// Examples:
+// * Pre-integration Test Report will be delivered to Developers, PM and stakeholders 
+// * Weekly/ Milestone Test Report will be send out after Web Application integrated to vertical product 
+// * Deliver Quality Metrics/Indicators to Web App Initiative PDT
+
+include::common/test_report.asciidoc[]
+
+== Bug Tracking
+
+// Instructions:
+// Describe how bugs are reported, triaged etc.
+
+include::common/bug_tracking.asciidoc[]
+
+== Risks and Limitations 
+
+// Instructions:
+// This section lists any risks and limitations that may affect the design, development or implementation of testing, including:
+// * Unavailable documentations: requirement, high level design, UI design, and so on
+// * Untestable requirements or features
+// * Unclear POR (Project Objectives Review?)
+// * Unclear QA ownership
+// * Lack of test devices, tools or environment
+// * Technique limitations for test development
+// * Resource limitation for deep testing and so on
+
+Design, development and implementation of testing is limited by:
+--
+* missing documentations: guidelines for theming and colors, guidelines for some future widgets
+* iterations for the visual design and UI are expected
+* technical limitations for automation of some tests
+--
+
+== Contacts
+
+// Instructions:
+// Describe people involved in the component
+
+.Contacts
+[width="80%",cols="1,2",options="header"]
+|==============================================================================================
+|Role          			| Contact               
+//---------------------------------------------------------------------------------------------
+|Architect	            | [red]#TBD#
+|Designer  	            | {red}#TBD#
+|Engineering Manager    | {paul}
+|Developers	            | Collabora
+|PM			            | {hirally}
+|Marketing	            | 
+|Test planning and test case Lead | {yann}
+|QA			            | {red}#TBD#
+|==============================================================================================
+
+== References 
+
+// Instructions:
+// Place the references here, for example:
+// * Requirement Documentations 
+// * Component architecture or design docs
+// * Project Overall or Master Test Plan
+// * Test Method related references
+// * Test Process related references
+// * Urls or Docs about test environment and tools
+
+// http://tz.otcshare.org/xxx/yyy[PRD (Product Requirements Document)]
+// http://tz.otcshare.org/xxx/yyy[Design document]
+
+Requirements:
+--
+* [red]#No PRD yet#
+[[jirafilter]]
+* https://tz.otcshare.org/jira/issues/#?jql=component%20%3D%20%22Real-time%20Comms%22%20AND%20project%20%3D%20TZPC[Jira Filter "Real time communication"]
+--
+
+include::common/references.asciidoc[]

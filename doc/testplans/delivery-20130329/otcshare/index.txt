@@ -1,0 +1,42 @@
+# Tizen PC - QA Test plans reference page
+
+
+## Current status (03/29/2012):
+
+* 8 test plans available 
+* 900+ test cases described (~ 3000+ test steps)
+* full archive is available here: [TizenPC-TestPlans-0.7](/tizenpc/system/files/tizenpc-testplans-0.7.tgz "TizenPC-TestPlans-0.7.tgz")
+
+## Individual test plans
+
+### Homescreen & Widgets
+* Test plan: published - [Test Plan Homescreen 0.7](/tizenpc/system/files/tp-homescreen-0.7.html "tp-homescreen-0.7.html")
+* Test cases: imported in Enterprise Tester - 167 cases
+
+### Gnome Integration
+* Test plan: published - [Test Plan Gnome 0.7](/tizenpc/system/files/tp-gnome-0.7.html "tp-gnome-0.7.html")
+* Test cases: imported in Enterprise Tester - 162 cases
+
+### Office & Productivity (Libre Office)
+* Test plan: published - [Test Plan Office & Productivity 0.7](/tizenpc/system/files/tp-office-0.7.html "tp-office-0.7.html")
+* Test cases: imported in Enterprise Tester - 125 cases
+
+### Network connectivity 
+* Test plan: published - [Test Plan Network & Connectivity 0.7](/tizenpc/system/files/tp-connectivity-0.7.html "tp-connectivity-0.7.html")
+* Test cases: imported in Enterprise Tester - 116 cases
+
+### First Boot
+* Test plan: published - [Test Plan First Boot 0.7](/tizenpc/system/files/tp-firstboot-0.7.html "tp-firstboot-0.7.html")
+* Test cases: imported in Enterprise Tester - 31 cases
+
+### Chrome 
+* Test plan: published - [Test Plan Chrome 0.7](/tizenpc/system/files/tp-chrome-0.7.html "tp-chrome-0.7.html")
+* Test cases: imported in Enterprise Tester - 62 cases
+
+### Instant Messaging
+* Test plan: published - [Test Plan Instant Messaging 0.7](/tizenpc/system/files/tp-instantmsg-0.7.html "tp-instantmsg-0.7.html")
+* Test cases: imported in Enterprise Tester - 172 cases
+
+### Multimedia
+* Test plan: published - [Test Plan Multimedia 0.7](/tizenpc/system/files/tp-mm-0.7.html "tp-mm-0.7.html")
+* Test cases: imported in Enterprise Tester - 103 cases

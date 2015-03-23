@@ -1,0 +1,81 @@
+[
+  {
+    "name": "health",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Setting panel panel opens well",
+    "description": "Setting panel must be accessible and should display all the other panels that enable to set up the system.",
+    "steps": [
+      {
+        "description": "From the desktop, click on the username in gnome status bar",
+        "expected": "A submenu should appear"
+      },
+      {
+        "description": "Select Settings",
+        "expected": "A window which display all the settings panel must open"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "health-components",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Each panel and each tabs' panel of gnome conrol center is launchable",
+    "description": "Open the setting panel, then iterate on icons, and open each tab. All panels must be accessible and their tabs too.",
+    "steps": [
+      {
+        "description": "From the desktop, click on the username in gnome status bar",
+        "expected": "A submenu should appear"
+      },
+      {
+        "description": "Select Settings",
+        "expected": "A window which display all the settings panel must open"
+      },
+      {
+        "description": "For each panel, click on the icon and select successively the different tabs (if there's tabs)",
+        "expected": "content of the window must change with and must be consistent with the opened panel/tab"
+      }
+    ],
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {}
+  },
+  {
+    "name": "locale-format",
+    "exec_type": "manual",
+    "priority": "4",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "select a locale format",
+    "description": "in settings panel select locale format sub-panel and then select a locale format. Check that it applies",
+    "notes": "",
+    "bugs": "TZPC-880",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "steps": []
+  }
+]

@@ -1,0 +1,84 @@
+README QA TIZEN
+===============
+
+Here are the QA materials for TIZEN.
+
+----
+# Copyright 2013, Intel Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+----
+
+INSTALLATION
+------------
+
+To fully benefit of the current content, you should install ASCIIDOC and
+NODEJS. 
+
+Installing ASCIIDOC
+~~~~~~~~~~~~~~~~~~~
+
+On OpenSuSE: 
+
+----
+ sudo zypper in asciidoc
+----
+
+Web site of ASCIIDOC
+
+ http://www.methods.co.nz/asciidoc/
+ http://powerman.name/doc/asciidoc/
+  
+Installing NODEJS
+~~~~~~~~~~~~~~~~~
+
+The version 0.8 of node was used. On OpenSuSE 12.2 you should also
+install the libv8 of at least version 3.12.19.1
+
+On OpenSuSE: 
+
+----
+ sudo zypper in nodejs
+ sudo zypper in --force libv8-3=3.12.19.1
+----
+
+Web site of node
+
+ http://nodejs.org/
+
+FURTHER READING
+---------------
+
+To get the doc, install asciidoc, then enter the command:
+
+----
+ (cd doc/guide; make; echo *.html|sort -t. -k2n|xargs -n 1 xdg-open &>/dev/null)
+----
+
+----
+ (cd doc/man; make; echo *.html|sort -t. -k2n|xargs -n 1 xdg-open &>/dev/null)
+----
+
+If you prefer see man pages, enter the command
+
+----
+ (cd doc/man; make; man -l $(echo intro.*.gz|sort -t. -k2n))
+----
+
+You can also install the man pages with the command:
+
+----
+ (cd doc/man; make; sudo make install-man-pages)
+----
+

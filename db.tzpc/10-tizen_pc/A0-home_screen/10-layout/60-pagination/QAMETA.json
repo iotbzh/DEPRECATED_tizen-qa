@@ -1,0 +1,35 @@
+[
+  {
+    "name": "multiple_desktop_grids",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that pagination works",
+    "description": "The user can click and go to the next / previous screen (desktop) if the user has setup more\r\nthan 1 home screen",
+    "pre_condition": "Have multiple screens. Example: open an application like gnome-terminal or calculator, move the application to another workspace (right-click on window title, \"move to workspace down\"). ",
+    "steps": [
+      {
+        "description": "click on next desktop arrow",
+        "expected": "the display must switch to next desktop"
+      },
+      {
+        "description": "click on previous desktop arrow",
+        "expected": "the display must switch to initial desktop"
+      }
+    ],
+    "post_condition": "",
+    "notes": "To be done in phase 2",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-21 15:30:17 GMT",
+    "mtime": "2013-03-21 15:30:17 GMT"
+  }
+]

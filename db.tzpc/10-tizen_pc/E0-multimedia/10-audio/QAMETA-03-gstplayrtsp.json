@@ -1,0 +1,56 @@
+[
+  {
+    "name": "gstplay-rtsp-aac",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Gstreamer should play audio aac rtsp",
+    "description": "Play of format aac using gst-launch",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "gstplay.sh -r cigale.aac",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "90",
+    "exec_post": "",
+    "service": {
+      "rtsp": true,
+      "package": "gstreamer-utils"
+    },
+    "author": "jb",
+    "ctime": "2013-03-21 17:17:50 GMT",
+    "mtime": "2013-03-21 17:17:50 GMT"
+  },
+  {
+    "name": "gstplay-rtsp-mp3",
+    "exec_type": "auto",
+    "priority": "0",
+    "status": "ready",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Gstreamer should play audio mp3 rtsp",
+    "description": "Play of format mp3 using gst-launch",
+    "pre_condition": "",
+    "steps": [],
+    "post_condition": "",
+    "notes": "-",
+    "bugs": "-",
+    "exec_pre": "",
+    "exec": "gstplay.sh -r cigale.mp3",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "90",
+    "exec_post": "",
+    "service": {
+      "rtsp": true,
+      "package": "gstreamer-utils"
+    },
+    "author": "jb",
+    "ctime": "2013-03-21 17:18:12 GMT",
+    "mtime": "2013-03-21 17:18:12 GMT"
+  }
+]

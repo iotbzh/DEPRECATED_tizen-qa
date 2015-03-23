@@ -1,0 +1,174 @@
+[
+  {
+    "name": "pair-from-target",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair a Windows 8 computer from the target device",
+    "description": "User should be able to pair a Windows 8 computer from the test device.",
+    "pre_condition": "- Bluetooth technology is enabled - Bluetooth switcher is toggled on 'I'\r\n- Bluetooth technoloy of the Windows 8 computer is activated and visible by other devices",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet icon",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on the 'Set Up a New Device' option to pair a new device and wait",
+        "expected": "Bluetooth wizard appears and searching for devices. Available Bluetooth devices appears"
+      },
+      {
+        "description": "Click on the Windows 8 computer to pair",
+        "expected": "The selected device is highlighted"
+      },
+      {
+        "description": "Click on the 'Continue' button",
+        "expected": "Bluetooth wizard shows a pin number. A notification is received by the Windows 8 computer for the acceptance of the pairing with same pin number"
+      },
+      {
+        "description": "Accept the pairing on the Windows 8 computer, and then click 'Matches' on the target device",
+        "expected": "Bluetooth wizard displays 'Successfully set up new device <device name>'. The added device appears in the menu of Bluetooth applet. The added device appears in the Devices field of Bluetooth panel."
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 14:02:35 GMT",
+    "mtime": "2013-03-28 17:31:08 GMT"
+  },
+  {
+    "name": "pair-from-device",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Pair the target device from a Windows 8 computer",
+    "description": "User should be able to pair the target device from a Windows 8 computer.",
+    "pre_condition": "- Bluetooth technology is enabled and visible by others - Bluetooth & Visibility switchers are toggled on 'I'\r\n- Bluetooth technology of the Windows 8 computer is activated",
+    "steps": [
+      {
+        "description": "From the metro Desktop click successively on 'Choose Settings' > 'Change PC Settings' > 'Devices' > 'Add a device'",
+        "expected": "Target device appears in the list"
+      },
+      {
+        "description": "Click on the target device to pair",
+        "expected": "A notification appears on the screen of the target device"
+      },
+      {
+        "description": "Click on 'Matches' to accept the pairing on the target device",
+        "expected": ""
+      },
+      {
+        "description": "Click on 'yes' to end the configuration",
+        "expected": "The Windows 8 computer should appear in the device list of Bluetooth panel. The Windows 8 computer appears in the menu of Bluetooth applet"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 14:06:58 GMT",
+    "mtime": "2013-03-28 18:02:16 GMT"
+  },
+  {
+    "name": "send",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The target device can send files to a Windows 8 computer ",
+    "description": "User should be able to send files to a Windows 8 computer.",
+    "pre_condition": "- Bluetooth technology is enabled on the test device\r\n- Bluetooth technology is enabled and visible by others on the Windows 8 computer\r\n",
+    "steps": [
+      {
+        "description": "Click on the Bluetooth applet",
+        "expected": "Menu of Bluetooth applet appears"
+      },
+      {
+        "description": "Click on 'Send Files to Device'",
+        "expected": "A window appears"
+      },
+      {
+        "description": "Choose a file and click on 'Select'",
+        "expected": "A notification appears on the Windows 8 computer"
+      },
+      {
+        "description": "Accept the file and wait a while",
+        "expected": ""
+      },
+      {
+        "description": "Open and retrieve the file on the Windows 8 computer",
+        "expected": "The file is stored and can be opened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 14:08:04 GMT",
+    "mtime": "2013-03-28 18:09:48 GMT"
+  },
+  {
+    "name": "receive",
+    "exec_type": "manual",
+    "priority": "1",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "The target device can receive files sent by the Windows 8 computer",
+    "description": "User should be able to receive files sent by the Windows 8 computer.",
+    "pre_condition": "- Bluetooth technology is enabled and visible by others : Blueooth & Visibiliy switcher are togled on 'I'\r\n- Bluetooth technology is enabled on the Windows 8 computer",
+    "steps": [
+      {
+        "description": "Open a file with the Windows 8 computer and send it via Bluetooth",
+        "expected": ""
+      },
+      {
+        "description": "Select the test device as receiver",
+        "expected": "A notification appears on the test device"
+      },
+      {
+        "description": "Accept the file and wait a while",
+        "expected": "File is present"
+      },
+      {
+        "description": "Open the file",
+        "expected": "File can be opened"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "zingile",
+    "ctime": "2013-03-28 14:09:03 GMT",
+    "mtime": "2013-03-28 18:11:23 GMT"
+  }
+]

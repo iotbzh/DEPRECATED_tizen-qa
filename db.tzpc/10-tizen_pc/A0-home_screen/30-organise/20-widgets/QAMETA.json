@@ -1,0 +1,151 @@
+[
+  {
+    "name": "noaction",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that positioning the pointer over a Widget does nothing",
+    "description": "When the mouse pointer is laid over a widget on desktop without any click, nothing must happen (cursor is not changed, widget is not highlighted).",
+    "pre_condition": "- switch on homescreen\r\n- have at least a widget installed on desktop",
+    "steps": [
+      {
+        "description": "move the mouse pointer over a widget",
+        "expected": "nothing must change"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 16:42:48 GMT",
+    "mtime": "2013-03-25 16:44:23 GMT"
+  },
+  {
+    "name": "singleclick",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a single click highlights the widget tiles",
+    "description": "A single click over a widget must not change the mouse cursor. \r\nThe widget tiles must be in highlighted state after this action.",
+    "pre_condition": "- switch on homescreen\r\n- have at least a widget installed on desktop",
+    "steps": [
+      {
+        "description": "move the mouse pointer over a widget and click on left mouse button",
+        "expected": "the widget must be highlighted"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 16:46:22 GMT",
+    "mtime": "2013-03-25 16:49:21 GMT"
+  },
+  {
+    "name": "doubleclick",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a double click launches the browser",
+    "description": "A double click over a widget must launch the browser.\r\n\r\nThe browser should open a specific page, which is associated to the widget. TODO: to be confirmed",
+    "pre_condition": "- switch on homescreen\r\n- have at least a widget installed on desktop",
+    "steps": [
+      {
+        "description": "double click on a widget",
+        "expected": "this must launch the web browser and open the appropriate web site (depends on the widget)"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:00:27 GMT",
+    "mtime": "2013-03-25 17:00:27 GMT"
+  },
+  {
+    "name": "clickmove",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a hold single click then a drag moves the widget",
+    "description": "When a single click is done and hold on a widget, then the cursor should change to \"grab state\" (TODO: to be determined)\r\nThe widget tiles should be highlighted in this state.\r\nThen moving the pointer while holding the mouse button down should drag the widget on screen.",
+    "pre_condition": "- switch on homescreen\r\n- have at least a widget installed on desktop",
+    "steps": [
+      {
+        "description": "click on a widget with left mouse button and hold, then move the mouse",
+        "expected": "the mouse cursor must change to grab mode, the widget tiles must be highlighted and moving the pointer must move the widget"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:02:34 GMT",
+    "mtime": "2013-03-25 17:02:34 GMT"
+  },
+  {
+    "name": "clickmoverelease",
+    "exec_type": "manual",
+    "priority": "2",
+    "status": "designed",
+    "type": "functional_positive",
+    "subtype": "",
+    "objective": "Check that a widget position can be changed",
+    "description": "After dragging a widget to a new position and releasing the mouse button, the widget should occupy the nearest tiles with the following rules:\r\n- to occupy a group of tiles, the widget must overlap more than 50% of its final position in the target tile at release time.\r\n- if the widget overlaps less than 50% of the target zone, then it must slide back to its original position\r\n- if the move is not possible (tiles already occupied, or no tile), then the widget must slide back to its original position",
+    "pre_condition": "- switch on homescreen\r\n- have at least a widget installed on desktop",
+    "steps": [
+      {
+        "description": "move the mouse pointer over a wiget, click and hold the left mouse button, move the mouse",
+        "expected": "the widget must move with the pointer"
+      },
+      {
+        "description": "release the left mouse button",
+        "expected": "the widget position must change according to the description"
+      }
+    ],
+    "post_condition": "",
+    "notes": "",
+    "bugs": "",
+    "exec_pre": "",
+    "exec": "",
+    "exec_expected_retcode": "0",
+    "exec_kill_timeout": "120",
+    "exec_post": "",
+    "service": {},
+    "author": "sdx",
+    "ctime": "2013-03-25 17:03:36 GMT",
+    "mtime": "2013-03-25 17:04:32 GMT"
+  }
+]

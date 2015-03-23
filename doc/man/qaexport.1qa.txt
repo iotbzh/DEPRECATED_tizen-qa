@@ -1,0 +1,117 @@
+= QAEXPORT(1qa)
+
+== NAME
+
+qaexport - export test cases
+
+== SYNOPSIS
+
+qaexport [options]
+
+== DESCRIPTION
+
+*qaexport* exports part of the QA database to several backends.
+
+For exporting data, you MUST at least specify, using options, the *profile*
+(with option *--profile*) and the output type (using option *--type*).
+
+== OPTIONS
+
+*-c, --config*='DIRECTORY'::
+    Set the path to the configuration directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../etc where SCRIPTDIR is the directory
+    of *qaexport*.
+
+*-d, --db*='DIRECTORY'::
+    Set the path to the database directory to 'DIRECTORY'.
+    It defaults to SCRIPTDIR/../db where SCRIPTDIR is the directory
+    of *qaexport*.
+
+*-h, --help*::
+    Prints a short help and exits.
+
+*-n, --dryrun*::
+    Dry-run, *qaexport* runs but doesn't produce any file.
+
+*-o, --output*='FILE'::
+    Set the output file to 'FILE'. Default is */tmp/libqa*.
+
+*-p, --profile*='KEY'::
+    Selects the export profile of name 'KEY' in the profiles configuration
+    file *test_suites.conf*.
+
+*-t, --type*='TYPE'::
+    The type of export that you want (see below).
+
+=== Type of exports
+
+The predefined export types are:
+
+*default*::
+It produces a text file.
+
+*html*::
+It produces a html file.
+
+*asciidoc_devel*::
+It produce a asciidoc file from including in test plans (se *QATP(5qa)*) 
+with hyperlinks to the *tcbrowse* server located at *http://localhost:3000* 
+(see *tcbrowse(1qa)*). +
+ +
+Should be called by *Makefile* of *doc/testplans*.
+
+*asciidoc_publish*::
+It produce a asciidoc file from including in test plans (se *QATP(5qa)*). +
+ +
+Should be called by *Makefile* of *doc/testplans*.
+
+*csv*::
+It produces a CSV (Comma Separated Values) file.
+
+*enterprise_tester*::
+It produces a CSV (Comma Separated Values) file specific to export to 
+*Enterprise Tester*. See also *export_ET(1qa)*.
+
+=== Selection of the test cases
+
+The profile key MUST be defined in the profile file *etc/test_suites.conf*.
+The definition of the key MUST be a structure having optionally the 
+following fields:
+
+*suite*::
+The suite base directory inside the root database directory. 
+It can be either a string for a directory or an array of strings for
+picking several directories.
+The empty string means the root of the QA database.
+All test cases of the subdirectory and its subdirectories will
+be checked with the filter.
+
+*filter*::
+A predicate (function returning a boolean) that receive a test case to filter.
+It should return true to include the test case or false to exclude it.
+
+The default values are: 
+*""* for *suite* (means the root directory of QADB),
+*function(tc){return  true;}* for *filter*.
+
+Example:
+----
+	docgnome: {
+		suite: "10-tizen_pc/B0-gnome"
+	},
+----
+
+== SEE ALSO
+
+QATP(5qa), QADB(5qa), QAMETA(5qa), qaimport(1qa), export_ET(1qa), tcbrowse(1qa)
+
+== RESSOURCES
+
+The script *qaexport* runs on node JS.
+
+node.js: http://nodejs.org/
+
+ASCIIDOC:
+  http://www.methods.co.nz/asciidoc/
+  http://powerman.name/doc/asciidoc/
+
