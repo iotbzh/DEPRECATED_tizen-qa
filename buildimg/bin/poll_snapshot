@@ -87,17 +87,17 @@ function show_release_old() {
 function show_release() {
 	echo $(date +"%Y%m%d %H:%M:%S") "$1" "$2"
 	function say() {
-		echo "$@" | sudo espeak -p 30 -s 150 -v en -a 150
+		echo "$@" | sudo espeak -p 30 -s 140 -v en+f5 -a 150 2>/dev/null
 	}
 	case $1 in
 		subcommand*)
-			say "Running subcommand."
+			say "Building image..."
 			;;
 		done*)
-			say "Subcommand finished."
+			say "Image build is finished."
 			;;
 	    fail*)
-			say "Subcommand failed."
+			say "Image build failed."
 			;;
 	    *) 
 			a=$2

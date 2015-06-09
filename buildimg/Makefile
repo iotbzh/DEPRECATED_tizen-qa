@@ -14,6 +14,7 @@ LOCAL_SNAPSHOTS=file://$(shell pwd -P)/snapshots
 URL_COMMON_UPSTREAM=http://cdn.download.tizen.org/snapshots/tizen/common/$(SNAPSHOT)
 URL_COMMON_UPSTREAM_2014Q3=http://cdn.download.tizen.org/snapshots/tizen/common-3.0.2014.Q3/$(SNAPSHOT)
 URL_COMMON_UPSTREAM_2015Q1=http://cdn.download.tizen.org/snapshots/tizen/common-3.0.2015.Q1/$(SNAPSHOT)
+URL_COMMON_UPSTREAM_2015Q2=http://cdn.download.tizen.org/snapshots/tizen/common-3.0.2015.Q2/$(SNAPSHOT)
 URL_COMMON_DEVEL_UPSTREAM=http://cdn.download.tizen.org/snapshots/devel/common/$(SNAPSHOT)
 
 ### COMMON LOCAL ###
@@ -112,6 +113,15 @@ common-w64-upstream-2015Q1:
 .PHONY: common-w64efi-upstream-2015Q1
 common-w64efi-upstream-2015Q1: 
 	@time bin/create_image2 $@ $(FLAVOUR) x86_64 "$(URL_COMMON_UPSTREAM_2015Q1)/builddata/images/x86_64-wayland/image-configurations/common-wayland-efi-x86_64.ks" $(IMGDIR)/$@ "$(URL_COMMON_UPSTREAM_2015Q1)" "repos/x86_64-wayland/"
+
+.PHONY: common-w64-upstream-2015Q2
+common-w64-upstream-2015Q2: 
+	@time bin/create_image2 $@ $(FLAVOUR) x86_64 "$(URL_COMMON_UPSTREAM_2015Q2)/builddata/images/x86_64-wayland/image-configurations/common-wayland-mbr-x86_64.ks" $(IMGDIR)/$@ "$(URL_COMMON_UPSTREAM_2015Q2)" "repos/x86_64-wayland/"
+
+.PHONY: common-w64efi-upstream-2015Q2
+common-w64efi-upstream-2015Q2: 
+	@time bin/create_image2 $@ $(FLAVOUR) x86_64 "$(URL_COMMON_UPSTREAM_2015Q2)/builddata/images/x86_64-wayland/image-configurations/common-wayland-efi-x86_64.ks" $(IMGDIR)/$@ "$(URL_COMMON_UPSTREAM_2015Q2)" "repos/x86_64-wayland/"
+
 
 .PHONY: common-w32-upstream
 common-w32-upstream: 
@@ -280,6 +290,7 @@ help:
 	@sid=$$(bin/get_snapshot '$(URL_COMMON_UPSTREAM)');			echo "- common-w64-upstream / common-w64efi-upstream / common-x64-upstream: SNAPSHOT=$$sid"
 	@sid=$$(bin/get_snapshot '$(URL_COMMON_UPSTREAM_2014Q3)');	echo "- common-w64-upstream-2014Q3: SNAPSHOT=$$sid"
 	@sid=$$(bin/get_snapshot '$(URL_COMMON_UPSTREAM_2015Q1)');	echo "- common-w64-upstream-2015Q1: SNAPSHOT=$$sid"
+	@sid=$$(bin/get_snapshot '$(URL_COMMON_UPSTREAM_2015Q2)');	echo "- common-w64-upstream-2015Q2: SNAPSHOT=$$sid"
 	@sid=$$(bin/get_snapshot '$(URL_COMMON_DEVEL_UPSTREAM)');	echo "- common-w32-upstream-devel:  SNAPSHOT=$$sid"
 	@sid=$$(bin/get_snapshot '$(URL_COMMON_DEVEL_UPSTREAM)');	echo "- common-w64-upstream-devel:  SNAPSHOT=$$sid"
 	@sid=$$(bin/get_snapshot '$(URL_IVI_UPSTREAM)');		    echo "- ivi-upstream: SNAPSHOT=$$sid"
